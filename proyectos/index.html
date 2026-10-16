@@ -4,92 +4,136 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Proyectos — Juan González</title>
-  <meta name="description" content="Archivo de proyectos de Juan González: branding, diseño web, gráfico, audiovisual y videojuegos.">
-  <link rel="canonical" href="https://juangonzalez.design/proyectos/">
-  <meta property="og:title" content="Proyectos — Juan González">
-  <meta property="og:description" content="Archivo completo de proyectos de Juan González.">
+  <meta name="description" content="Proyectos de diseño gráfico, branding, web y audiovisual de Juan González.">
   <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
-
-<nav class="navbar">
-  <a href="/" class="nav-logo">JG<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="/">Inicio</a></li>
-    <li><a href="/proyectos/">Proyectos</a></li>
-    <li><a href="/sobre-mi/">Sobre mí</a></li>
-    <li><a href="/contacto/">Contacto</a></li>
+<nav class="navbar" id="navbar">
+  <a href="/" class="nav-logo" aria-label="Inicio">
+    <img src="/assets/img/logo-j-amarillo.svg" alt="JEGD" class="nav-logo-img nav-logo-dark">
+    <img src="/assets/img/logo-j.svg" alt="JEGD" class="nav-logo-img nav-logo-light">
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/" data-es="Inicio" data-en="Home">Inicio</a></li>
+    <li><a href="/proyectos/" data-es="Proyectos" data-en="Work">Proyectos</a></li>
+    <li><a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
+    <li><a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a></li>
   </ul>
   <div class="nav-controls">
-    <button class="btn-lang">EN</button>
-    <button class="btn-theme">☀ Claro</button>
-    <button class="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+    <button class="btn-lang" id="btn-lang">EN</button>
+    <button class="btn-theme" id="btn-theme">☀ Claro</button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <div class="page-hero">
-  <div class="page-hero-inner">
-    <div class="breadcrumb">
-      <a href="/">Inicio</a><span>/</span><span>Proyectos</span>
-    </div>
-    <p class="section-label" data-es="Archivo" data-en="Archive">Archivo</p>
-    <h1 class="section-title" data-es="Todos los proyectos" data-en="All projects">Todos los proyectos</h1>
-    <p class="section-desc" data-es="Branding, diseño gráfico, web, audiovisual y más. Filtra por disciplina." data-en="Branding, graphic design, web, audiovisual and more. Filter by discipline.">Branding, diseño gráfico, web, audiovisual y más. Filtra por disciplina.</p>
+  <div class="breadcrumb">
+    <a href="/" data-es="Inicio" data-en="Home">Inicio</a>
+    <span class="breadcrumb-sep">/</span>
+    <span data-es="Proyectos" data-en="Work">Proyectos</span>
   </div>
+  <p class="section-label" data-es="Portafolio" data-en="Portfolio">Portafolio</p>
+  <h1 class="section-title" style="max-width:700px" data-es="Proyectos Seleccionados" data-en="Selected Projects">Proyectos Seleccionados</h1>
+  <p class="section-desc" data-es="Una selección de los trabajos más representativos. Cada proyecto refleja compromiso con la calidad visual y la intención comunicativa." data-en="A selection of the most representative works. Every project reflects commitment to visual quality and communicative intent.">Una selección de los trabajos más representativos. Cada proyecto refleja compromiso con la calidad visual y la intención comunicativa.</p>
 </div>
 
-<section class="section">
-  <div class="section-inner">
-    <!-- FILTER BAR -->
-    <div class="filter-bar">
+<div class="work-wrap" style="padding-top:0">
+  <div class="section">
+    <div class="filter-bar reveal">
       <button class="filter-btn active" data-filter="all" data-es="Todos" data-en="All">Todos</button>
       <button class="filter-btn" data-filter="branding" data-es="Branding" data-en="Branding">Branding</button>
       <button class="filter-btn" data-filter="web" data-es="Web" data-en="Web">Web</button>
       <button class="filter-btn" data-filter="grafico" data-es="Gráfico" data-en="Graphic">Gráfico</button>
-      <button class="filter-btn" data-filter="audiovisual" data-es="Audiovisual" data-en="Audiovisual">Audiovisual</button>
+      <button class="filter-btn" data-filter="audiovisual">Audiovisual</button>
     </div>
-
     <div class="work-grid">
-      <a href="/diseno-web/almahi/" class="work-card reveal" data-cat="branding web">
-        <div class="work-card-img">🌿</div>
+      <a href="/diseno-web/almahi/" class="work-card work-card-featured reveal" data-cat="branding">
+        <div class="work-card-img">
+          <span class="work-card-tag" data-es="Destacado" data-en="Featured">Destacado</span>
+          🌿
+        </div>
         <div class="work-card-body">
-          <p class="work-tag">Branding · Web</p>
-          <h3 class="work-title">ALMAHI</h3>
-          <p class="work-desc" data-es="Identidad visual completa y sitio web para tienda de ropa sostenible colombiana. Sistema de marca, paleta, tipografía y UI." data-en="Complete visual identity and website for a sustainable Colombian clothing brand. Brand system, palette, typography and UI.">Identidad visual completa y sitio web para tienda de ropa sostenible colombiana. Sistema de marca, paleta, tipografía y UI.</p>
+          <p class="work-card-cat">Branding · Diseño Web</p>
+          <h3 class="work-card-title">ALMAHI</h3>
+          <p class="work-card-desc" data-es="Identidad visual completa y sitio web para marca de ropa femenina sostenible colombiana." data-en="Complete visual identity and website for Colombian sustainable women's clothing brand.">Identidad visual completa y sitio web para marca de ropa femenina sostenible colombiana.</p>
+          <span class="work-card-link" data-es="Ver proyecto →" data-en="View project →">Ver proyecto →</span>
         </div>
       </a>
-
-      <div class="work-card reveal" data-cat="grafico">
-        <div class="work-card-img">🎨</div>
+      <div class="work-card reveal" style="transition-delay:0.1s" data-cat="grafico">
+        <div class="work-card-img">⚡</div>
         <div class="work-card-body">
-          <p class="work-tag">Diseño Gráfico</p>
-          <h3 class="work-title" data-es="Próximamente" data-en="Coming soon">Próximamente</h3>
-          <p class="work-desc" data-es="Proyectos de diseño gráfico en preparación." data-en="Graphic design projects in preparation.">Proyectos de diseño gráfico en preparación.</p>
+          <p class="work-card-cat" data-es="Diseño Gráfico" data-en="Graphic Design">Diseño Gráfico</p>
+          <h3 class="work-card-title" data-es="Próximamente" data-en="Coming Soon">Próximamente</h3>
+          <p class="work-card-desc" data-es="Piezas publicitarias y material gráfico. En proceso de documentación." data-en="Advertising pieces and graphic material. Being documented.">Piezas publicitarias y material gráfico. En proceso de documentación.</p>
         </div>
       </div>
-
-      <div class="work-card reveal" data-cat="audiovisual">
-        <div class="work-card-img">🎬</div>
+      <div class="work-card reveal" style="transition-delay:0.2s" data-cat="audiovisual">
+        <div class="work-card-img">◎</div>
         <div class="work-card-body">
-          <p class="work-tag">Audiovisual</p>
-          <h3 class="work-title" data-es="Próximamente" data-en="Coming soon">Próximamente</h3>
-          <p class="work-desc" data-es="Proyectos audiovisuales en preparación." data-en="Audiovisual projects in preparation.">Proyectos audiovisuales en preparación.</p>
+          <p class="work-card-cat">Audiovisual</p>
+          <h3 class="work-card-title" data-es="En desarrollo" data-en="In Development">En desarrollo</h3>
+          <p class="work-card-desc" data-es="Proyectos de video y motion graphics próximamente." data-en="Video and motion graphics projects coming soon.">Proyectos de video y motion graphics próximamente.</p>
+        </div>
+      </div>
+      <div class="work-card reveal" style="transition-delay:0.1s" data-cat="branding">
+        <div class="work-card-img">★</div>
+        <div class="work-card-body">
+          <p class="work-card-cat">Branding</p>
+          <h3 class="work-card-title" data-es="Próximamente" data-en="Coming Soon">Próximamente</h3>
+          <p class="work-card-desc" data-es="Proyectos de identidad visual en proceso de documentación." data-en="Visual identity projects being documented.">Proyectos de identidad visual en proceso de documentación.</p>
+        </div>
+      </div>
+      <div class="work-card reveal" style="transition-delay:0.2s" data-cat="web">
+        <div class="work-card-img">◇</div>
+        <div class="work-card-body">
+          <p class="work-card-cat" data-es="Diseño Web" data-en="Web Design">Diseño Web</p>
+          <h3 class="work-card-title" data-es="Próximamente" data-en="Coming Soon">Próximamente</h3>
+          <p class="work-card-desc" data-es="Nuevos proyectos web en proceso de documentación." data-en="New web projects being documented.">Nuevos proyectos web en proceso de documentación.</p>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<footer>
-  <div class="footer-logo">JG<span>.</span></div>
-  <p class="footer-copy">© 2026 Juan González.</p>
-  <div class="footer-socials">
-    <a href="#" aria-label="Instagram">In</a>
-    <a href="#" aria-label="Behance">Be</a>
-    <a href="#" aria-label="LinkedIn">Li</a>
+<div class="contact-strip">
+  <h2 data-es="¿TIENES UN PROYECTO?" data-en="GOT A PROJECT?">¿TIENES UN PROYECTO?</h2>
+  <p data-es="Hablemos y construyamos algo memorable juntos." data-en="Let's talk and build something memorable together.">Hablemos y construyamos algo memorable juntos.</p>
+  <a href="/contacto/" class="btn-dark" data-es="¡HABLEMOS!" data-en="LET'S CONNECT!">¡HABLEMOS!</a>
+</div>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-name">Juan<br><span class="accent">González.</span></div>
+        <div class="footer-tagline" data-es="Diseñador Hipermedia · Colombia" data-en="Hypermedia Designer · Colombia">Diseñador Hipermedia · Colombia</div>
+      </div>
+      <div class="footer-logo">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1080" height="1080" fill="#1D1D1B"/>
+          <polygon fill="#FFEC00" points="434.36 549.32 434.36 692.62 303.54 848.16 303.54 549.32 434.36 549.32"/>
+          <polygon fill="#FFEC00" points="645.64 530.68 645.64 387.38 776.46 231.84 776.46 530.68 645.64 530.68"/>
+          <polygon fill="#FFEC00" points="645.64 549.32 645.64 692.62 776.46 848.16 776.46 549.32 645.64 549.32"/>
+          <polygon fill="#FFEC00" points="644.61 720.61 539.68 720.61 434.74 720.61 327.76 848.16 539.68 848.16 751.6 848.16 644.61 720.61"/>
+          <polygon fill="#FFEC00" points="434.74 359.39 539.68 359.39 644.61 359.39 751.6 231.84 539.68 231.84 327.76 231.84 434.74 359.39"/>
+        </svg>
+      </div>
+      <div class="footer-cta">
+        <div class="footer-cta-label" data-es="¿Listo para trabajar juntos?" data-en="Ready to work together?">¿Listo para trabajar juntos?</div>
+        <a href="/contacto/" class="btn-footer-cta" data-es="¡Da click aquí!" data-en="Let's connect!">¡Da click aquí!</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy" data-es="© 2026 Juan Esteban González Díaz · Todos los derechos reservados." data-en="© 2026 Juan Esteban González Díaz · All rights reserved.">© 2026 Juan Esteban González Díaz · Todos los derechos reservados.</div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/juan_gd7/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/juangd12/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
   </div>
 </footer>
-
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
 <script src="/assets/js/main.js"></script>
 </body>
 </html>

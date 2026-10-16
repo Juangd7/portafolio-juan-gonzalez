@@ -3,61 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>404 — Página no encontrada | Juan González</title>
+  <title>404 — Juan González</title>
   <link rel="stylesheet" href="/assets/css/main.css">
   <style>
-    body { display: flex; flex-direction: column; min-height: 100vh; }
-    .not-found {
-      flex: 1; display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: var(--side);
+    .error-page {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem var(--side);
+      position: relative;
+      overflow: hidden;
     }
-    .not-found-num {
-      font-family: var(--font-head); font-size: clamp(6rem, 20vw, 14rem);
-      font-weight: 900; line-height: 1; color: var(--accent); opacity: 0.15;
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-      pointer-events: none; z-index: 0; user-select: none;
+    .error-num {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(7rem, 22vw, 16rem);
+      line-height: 0.9;
+      color: var(--accent);
+      letter-spacing: -0.04em;
+      margin: 0;
+      opacity: 0.15;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      user-select: none;
     }
-    .not-found-inner { position: relative; z-index: 1; }
+    .error-content {
+      position: relative;
+      z-index: 1;
+      max-width: 540px;
+    }
+    .error-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+    .error-title {
+      font-family: var(--font-head);
+      font-weight: 900;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+      color: var(--text);
+    }
+    .error-desc {
+      color: var(--text2);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
+    }
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   </style>
 </head>
 <body>
-
-<nav class="navbar">
-  <a href="/" class="nav-logo">JG<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="/">Inicio</a></li>
-    <li><a href="/proyectos/">Proyectos</a></li>
-    <li><a href="/sobre-mi/">Sobre mí</a></li>
-    <li><a href="/contacto/">Contacto</a></li>
+<nav class="navbar" id="navbar">
+  <a href="/" class="nav-logo" aria-label="Inicio">
+    <img src="/assets/img/logo-j-amarillo.svg" alt="JEGD" class="nav-logo-img nav-logo-dark">
+    <img src="/assets/img/logo-j.svg" alt="JEGD" class="nav-logo-img nav-logo-light">
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/" data-es="Inicio" data-en="Home">Inicio</a></li>
+    <li><a href="/proyectos/" data-es="Proyectos" data-en="Work">Proyectos</a></li>
+    <li><a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
+    <li><a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a></li>
   </ul>
   <div class="nav-controls">
-    <button class="btn-lang">EN</button>
-    <button class="btn-theme">☀ Claro</button>
-    <button class="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+    <button class="btn-lang" id="btn-lang">EN</button>
+    <button class="btn-theme" id="btn-theme">☀ Claro</button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<div class="not-found">
-  <div class="not-found-num">404</div>
-  <div class="not-found-inner">
-    <p class="section-label">Error 404</p>
-    <h1 class="section-title">Página no encontrada</h1>
-    <p style="color:var(--text2);margin-bottom:2rem;max-width:420px">Esta URL no existe o fue movida. Regresa al inicio o explora los proyectos.</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-      <a href="/" class="btn-primary">← Ir al inicio</a>
-      <a href="/proyectos/" class="btn-outline">Ver proyectos</a>
+<div class="error-page">
+  <div class="error-num" aria-hidden="true">404</div>
+  <div class="error-content reveal">
+    <p class="error-label" data-es="Página no encontrada" data-en="Page not found">Página no encontrada</p>
+    <h1 class="error-title" data-es="Ups. Esta página no existe." data-en="Oops. This page doesn't exist.">Ups. Esta página no existe.</h1>
+    <p class="error-desc" data-es="Parece que el enlace está roto o la página fue movida. Pero mi portafolio sigue aquí, esperándote." data-en="Looks like the link is broken or the page was moved. But my portfolio is still here, waiting for you.">Parece que el enlace está roto o la página fue movida. Pero mi portafolio sigue aquí, esperándote.</p>
+    <div class="error-actions">
+      <a href="/" class="btn-primary" data-es="← Volver al inicio" data-en="← Back to home">← Volver al inicio</a>
+      <a href="/proyectos/" class="btn-outline" data-es="Ver proyectos" data-en="See projects">Ver proyectos</a>
     </div>
   </div>
 </div>
 
-<footer>
-  <div class="footer-logo">JG<span>.</span></div>
-  <p class="footer-copy">© 2026 Juan González.</p>
-  <div class="footer-socials">
-    <a href="#" aria-label="Instagram">In</a><a href="#" aria-label="Behance">Be</a><a href="#" aria-label="LinkedIn">Li</a>
-  </div>
-</footer>
-
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
 <script src="/assets/js/main.js"></script>
 </body>
 </html>
