@@ -2,34 +2,110 @@
 <html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Videojuegos — Juan González</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videojuegos | Juan González</title>
+  <meta name="description" content="Exploración en desarrollo de videojuegos: diseño, narrativa, mecánicas y experiencia de juego.">
+  <link rel="canonical" href="https://portafoliojegd.netlify.app/videojuegos/">
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo-j-amarillo.svg">
 </head>
 <body>
-<nav class="navbar">
-  <a href="/" class="nav-logo">JG<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="/">Inicio</a></li><li><a href="/proyectos/">Proyectos</a></li>
-    <li><a href="/sobre-mi/">Sobre mí</a></li><li><a href="/contacto/">Contacto</a></li>
-  </ul>
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <a href="/" class="nav-logo" aria-label="Juan González — Inicio">
+    <svg viewBox="0 0 160 160" class="logo-mark" aria-hidden="true"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/></svg>
+    <svg viewBox="0 0 160 160" class="logo-mark-light" aria-hidden="true"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95"/></svg>
+    <span>Juan González</span>
+  </a>
+  <div class="nav-links">
+    <a href="/" class="nav-link">Inicio</a>
+    <a href="/proyectos/" class="nav-link">Proyectos</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span>Disciplinas</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 6 8 10 12 6"/></svg></button>
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="/diseno-grafico/" role="menuitem">Diseño gráfico</a>
+        <a href="/branding/" role="menuitem">Branding e identidad</a>
+        <a href="/diseno-web/" role="menuitem">Diseño web</a>
+        <a href="/audiovisual-sonido/" role="menuitem">Audiovisual y sonido</a>
+        <a href="/videojuegos/" role="menuitem" class="active">Videojuegos</a>
+      </div>
+    </div>
+    <a href="/sobre-mi/" class="nav-link">Sobre mí</a>
+    <a href="/contacto/" class="nav-link">Contacto</a>
+  </div>
   <div class="nav-controls">
-    <button class="btn-lang">EN</button>
-    <button class="btn-theme">☀ Claro</button>
-    <button class="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+    <div class="lang-toggle" role="group"><button class="lang-btn active" data-lang="es">ES</button><button class="lang-btn" data-lang="en">EN</button></div>
+    <button class="theme-toggle" aria-label="Cambiar tema"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></button>
+    <button class="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <div class="breadcrumb"><a href="/">Inicio</a><span>/</span><a href="/proyectos/">Proyectos</a><span>/</span><span>videojuegos</span></div>
-    <h1 class="section-title">videojuegos</h1>
-    <p class="section-desc">Proyectos próximamente. Mientras tanto, <a href="/proyectos/" style="color:var(--accent)">ver todos los proyectos</a>.</p>
-  </div>
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true">
+  <a href="/">Inicio</a><a href="/proyectos/">Proyectos</a>
+  <div class="mobile-nav-sub"><a href="/diseno-grafico/">Diseño gráfico</a><a href="/branding/">Branding</a><a href="/diseno-web/">Diseño web</a><a href="/audiovisual-sonido/">Audiovisual y sonido</a><a href="/videojuegos/">Videojuegos</a></div>
+  <a href="/sobre-mi/">Sobre mí</a><a href="/contacto/">Contacto</a>
+  <div class="mobile-lang"><button data-lang="es" class="active">ES</button><button data-lang="en">EN</button></div>
 </div>
-<footer>
-  <div class="footer-logo">JG<span>.</span></div>
-  <p class="footer-copy">© 2026 Juan González.</p>
-  <div class="footer-socials"><a href="#" aria-label="Instagram">In</a><a href="#" aria-label="Behance">Be</a></div>
-</footer>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow"><span class="badge badge-dev" data-es="EN DESARROLLO" data-en="IN DEVELOPMENT">EN DESARROLLO</span></p>
+    <h1 class="page-hero-title" data-es="Videojuegos" data-en="Video games">Videojuegos</h1>
+    <p class="page-hero-body" data-es="Exploración en curso. Esta disciplina está siendo construida: diseño de experiencias, mecánicas, narrativa y mundos interactivos." data-en="Work in progress. This discipline is being built: experience design, mechanics, narrative and interactive worlds.">Exploración en curso. Esta disciplina está siendo construida: diseño de experiencias, mecánicas, narrativa y mundos interactivos.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="eyebrow reveal" data-es="¿QUÉ SE ESTÁ CONSTRUYENDO?" data-en="WHAT'S BEING BUILT?">¿QUÉ SE ESTÁ CONSTRUYENDO?</p>
+    <h2 class="section-title reveal" data-es="Un trabajo que toma su tiempo" data-en="Work that takes time">Un trabajo que toma su tiempo</h2>
+    <p class="section-body reveal" data-es="El diseño de videojuegos implica capas que van más allá de lo visual: la mecánica que hace que una acción se sienta bien, la narrativa que da sentido al mundo, la interfaz que no estorba. Esta exploración está en proceso." data-en="Video game design involves layers that go beyond the visual: the mechanic that makes an action feel right, the narrative that gives meaning to the world, the interface that doesn't get in the way. This exploration is in progress.">El diseño de videojuegos implica capas que van más allá de lo visual: la mecánica que hace que una acción se sienta bien, la narrativa que da sentido al mundo, la interfaz que no estorba. Esta exploración está en proceso.</p>
+
+    <div class="process-steps reveal" style="margin-top:3rem">
+      <div class="process-step">
+        <span class="process-num">01</span>
+        <div>
+          <h3 data-es="Diseño de mecánicas" data-en="Mechanics design">Diseño de mecánicas</h3>
+          <p data-es="Cómo se siente hacer algo dentro del juego. Las reglas que crean posibilidades." data-en="How it feels to do something inside the game. The rules that create possibilities.">Cómo se siente hacer algo dentro del juego. Las reglas que crean posibilidades.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <span class="process-num">02</span>
+        <div>
+          <h3 data-es="Narrativa y mundo" data-en="Narrative & world">Narrativa y mundo</h3>
+          <p data-es="El contexto que da sentido a cada acción. Un mundo que se puede explorar y descubrir." data-en="The context that gives meaning to every action. A world that can be explored and discovered.">El contexto que da sentido a cada acción. Un mundo que se puede explorar y descubrir.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <span class="process-num">03</span>
+        <div>
+          <h3 data-es="UI/UX de juego" data-en="Game UI/UX">UI/UX de juego</h3>
+          <p data-es="La capa visual que comunica estado, progreso y posibilidades sin interrumpir la experiencia." data-en="The visual layer that communicates state, progress and possibilities without interrupting the experience.">La capa visual que comunica estado, progreso y posibilidades sin interrumpir la experiencia.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <span class="process-num">04</span>
+        <div>
+          <h3 data-es="Arte y dirección visual" data-en="Art & visual direction">Arte y dirección visual</h3>
+          <p data-es="El lenguaje visual del juego: paleta, tipografía, assets y coherencia estética de principio a fin." data-en="The visual language of the game: palette, typography, assets and aesthetic coherence from beginning to end.">El lenguaje visual del juego: paleta, tipografía, assets y coherencia estética de principio a fin.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:4rem; padding:2rem; border:1px solid var(--border); border-radius:8px; text-align:center">
+      <p class="eyebrow" style="margin-bottom:1rem" data-es="PRÓXIMAMENTE" data-en="COMING SOON">PRÓXIMAMENTE</p>
+      <p class="section-body" style="max-width:480px; margin:0 auto" data-es="Cuando el proyecto esté listo para compartirse, aparecerá aquí. Sin fechas prometidas, sin contenido inventado." data-en="When the project is ready to be shared, it will appear here. No promised dates, no invented content.">Cuando el proyecto esté listo para compartirse, aparecerá aquí. Sin fechas prometidas, sin contenido inventado.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-strip">
+  <h2 class="section-title reveal" data-es="¿Tienes una idea de juego?" data-en="Do you have a game idea?">¿Tienes una idea de juego?</h2>
+  <p class="section-body reveal" data-es="Si estás desarrollando algo y quieres explorar posibilidades visuales o narrativas, podemos hablar." data-en="If you're developing something and want to explore visual or narrative possibilities, we can talk.">Si estás desarrollando algo y quieres explorar posibilidades visuales o narrativas, podemos hablar.</p>
+  <div class="hero-actions reveal"><a href="/contacto/" class="btn btn-primary" data-es="Hablemos" data-en="Let's talk">Hablemos</a></div>
+</section>
+
+<footer><div class="footer-inner"><div class="footer-top"><a href="/" class="footer-brand"><svg viewBox="0 0 160 160" width="28" height="28"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/></svg>Juan González</a><nav class="footer-links"><a href="/proyectos/">Proyectos</a><a href="/sobre-mi/">Sobre mí</a><a href="/contacto/">Contacto</a><a href="/privacidad/">Privacidad</a></nav></div><div class="footer-bottom"><p class="footer-copy">© 2025 Juan González.</p><p class="footer-tagline">DISEÑO · IDENTIDAD · EXPERIENCIAS DIGITALES</p></div></div></footer>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
 <script src="/assets/js/main.js"></script>
-</body></html>
+</body>
+</html>

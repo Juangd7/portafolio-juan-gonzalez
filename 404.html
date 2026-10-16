@@ -2,65 +2,45 @@
 <html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>404 — Juan González</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada | Juan González</title>
+  <meta name="robots" content="noindex">
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo-j-amarillo.svg">
   <style>
-    .error-page {
+    .page-404 {
       min-height: 100svh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 2rem var(--side);
-      position: relative;
-      overflow: hidden;
+      padding: 4rem var(--gutter);
     }
-    .error-num {
+    .page-404-code {
       font-family: var(--font-head);
       font-weight: 900;
-      font-size: clamp(7rem, 22vw, 16rem);
-      line-height: 0.9;
+      font-size: clamp(6rem, 20vw, 14rem);
+      line-height: 1;
       color: var(--accent);
       letter-spacing: -0.04em;
-      margin: 0;
-      opacity: 0.15;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-      user-select: none;
+      margin-bottom: 1rem;
+      opacity: 0.18;
     }
-    .error-content {
-      position: relative;
-      z-index: 1;
-      max-width: 540px;
-    }
-    .error-label {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
-    }
-    .error-title {
+    .page-404-title {
       font-family: var(--font-head);
-      font-weight: 900;
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      line-height: 1.1;
-      margin-bottom: 1.2rem;
-      color: var(--text);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      margin-bottom: 1rem;
+      margin-top: -3rem;
     }
-    .error-desc {
-      color: var(--text2);
-      font-size: 1.05rem;
+    .page-404-body {
+      color: var(--fg-muted);
+      font-size: 1.1rem;
+      max-width: 440px;
       margin-bottom: 2.5rem;
-      line-height: 1.65;
     }
-    .error-actions {
+    .page-404-actions {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
@@ -69,36 +49,31 @@
   </style>
 </head>
 <body>
-<nav class="navbar" id="navbar">
-  <a href="/" class="nav-logo" aria-label="Inicio">
-    <img src="/assets/img/logo-j-amarillo.svg" alt="JEGD" class="nav-logo-img nav-logo-dark">
-    <img src="/assets/img/logo-j.svg" alt="JEGD" class="nav-logo-img nav-logo-light">
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <a href="/" class="nav-logo" aria-label="Juan González — Inicio">
+    <svg viewBox="0 0 160 160" class="logo-mark" aria-hidden="true"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/></svg>
+    <svg viewBox="0 0 160 160" class="logo-mark-light" aria-hidden="true"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95"/></svg>
+    <span>Juan González</span>
   </a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="/" data-es="Inicio" data-en="Home">Inicio</a></li>
-    <li><a href="/proyectos/" data-es="Proyectos" data-en="Work">Proyectos</a></li>
-    <li><a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
-    <li><a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a></li>
-  </ul>
+  <div class="nav-links">
+    <a href="/" class="nav-link">Inicio</a>
+    <a href="/proyectos/" class="nav-link">Proyectos</a>
+    <a href="/contacto/" class="nav-link">Contacto</a>
+  </div>
   <div class="nav-controls">
-    <button class="btn-lang" id="btn-lang">EN</button>
-    <button class="btn-theme" id="btn-theme">☀ Claro</button>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+    <button class="theme-toggle" aria-label="Cambiar tema"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></button>
   </div>
 </nav>
 
-<div class="error-page">
-  <div class="error-num" aria-hidden="true">404</div>
-  <div class="error-content reveal">
-    <p class="error-label" data-es="Página no encontrada" data-en="Page not found">Página no encontrada</p>
-    <h1 class="error-title" data-es="Ups. Esta página no existe." data-en="Oops. This page doesn't exist.">Ups. Esta página no existe.</h1>
-    <p class="error-desc" data-es="Parece que el enlace está roto o la página fue movida. Pero mi portafolio sigue aquí, esperándote." data-en="Looks like the link is broken or the page was moved. But my portfolio is still here, waiting for you.">Parece que el enlace está roto o la página fue movida. Pero mi portafolio sigue aquí, esperándote.</p>
-    <div class="error-actions">
-      <a href="/" class="btn-primary" data-es="← Volver al inicio" data-en="← Back to home">← Volver al inicio</a>
-      <a href="/proyectos/" class="btn-outline" data-es="Ver proyectos" data-en="See projects">Ver proyectos</a>
-    </div>
+<main class="page-404" role="main">
+  <div class="page-404-code" aria-hidden="true">404</div>
+  <h1 class="page-404-title" data-es="Esta página no existe" data-en="This page doesn't exist">Esta página no existe</h1>
+  <p class="page-404-body" data-es="La URL que buscas no está aquí. Puede que se haya movido o que nunca haya existido." data-en="The URL you're looking for isn't here. It may have moved or never existed.">La URL que buscas no está aquí. Puede que se haya movido o que nunca haya existido.</p>
+  <div class="page-404-actions">
+    <a href="/" class="btn btn-primary" data-es="Ir al inicio" data-en="Go home">Ir al inicio</a>
+    <a href="/proyectos/" class="btn btn-outline" data-es="Ver proyectos" data-en="View projects">Ver proyectos</a>
   </div>
-</div>
+</main>
 
 <div class="cursor-dot" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>

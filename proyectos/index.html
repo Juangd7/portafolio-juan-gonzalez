@@ -2,136 +2,150 @@
 <html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Proyectos — Juan González</title>
-  <meta name="description" content="Proyectos de diseño gráfico, branding, web y audiovisual de Juan González.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos | Juan González</title>
+  <meta name="description" content="Selección de proyectos de Juan González: branding, diseño gráfico, diseño web, audiovisual y exploración digital.">
+  <link rel="canonical" href="https://portafoliojegd.netlify.app/proyectos/">
+  <meta property="og:title" content="Proyectos | Juan González">
+  <meta property="og:description" content="Selección de proyectos de Juan González: branding, diseño gráfico, diseño web, audiovisual y exploración digital.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://portafoliojegd.netlify.app/proyectos/">
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo-j-amarillo.svg">
 </head>
 <body>
-<nav class="navbar" id="navbar">
-  <a href="/" class="nav-logo" aria-label="Inicio">
-    <img src="/assets/img/logo-j-amarillo.svg" alt="JEGD" class="nav-logo-img nav-logo-dark">
-    <img src="/assets/img/logo-j.svg" alt="JEGD" class="nav-logo-img nav-logo-light">
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <a href="/" class="nav-logo" aria-label="Juan González — Inicio">
+    <svg viewBox="0 0 160 160" class="logo-mark" aria-hidden="true"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/></svg>
+    <svg viewBox="0 0 160 160" class="logo-mark-light" aria-hidden="true"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95"/></svg>
+    <span>Juan González</span>
   </a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="/" data-es="Inicio" data-en="Home">Inicio</a></li>
-    <li><a href="/proyectos/" data-es="Proyectos" data-en="Work">Proyectos</a></li>
-    <li><a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
-    <li><a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a></li>
-  </ul>
+  <div class="nav-links">
+    <a href="/" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="/proyectos/" class="nav-link active" data-es="Proyectos" data-en="Projects">Proyectos</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span data-es="Disciplinas" data-en="Disciplines">Disciplinas</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 6 8 10 12 6"/></svg></button>
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="/diseno-grafico/" role="menuitem" data-es="Diseño gráfico" data-en="Graphic design">Diseño gráfico</a>
+        <a href="/branding/" role="menuitem" data-es="Branding e identidad" data-en="Branding & identity">Branding e identidad</a>
+        <a href="/diseno-web/" role="menuitem" data-es="Diseño web" data-en="Web design">Diseño web</a>
+        <a href="/audiovisual-sonido/" role="menuitem" data-es="Audiovisual y sonido" data-en="Audiovisual & sound">Audiovisual y sonido</a>
+        <a href="/videojuegos/" role="menuitem" data-es="Videojuegos" data-en="Games">Videojuegos</a>
+      </div>
+    </div>
+    <a href="/sobre-mi/" class="nav-link" data-es="Sobre mí" data-en="About">Sobre mí</a>
+    <a href="/contacto/" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+  </div>
   <div class="nav-controls">
-    <button class="btn-lang" id="btn-lang">EN</button>
-    <button class="btn-theme" id="btn-theme">☀ Claro</button>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+    <div class="lang-toggle" role="group" aria-label="Idioma"><button class="lang-btn active" data-lang="es">ES</button><button class="lang-btn" data-lang="en">EN</button></div>
+    <button class="theme-toggle" aria-label="Cambiar tema"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    <button class="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
-<div class="page-hero">
-  <div class="breadcrumb">
-    <a href="/" data-es="Inicio" data-en="Home">Inicio</a>
-    <span class="breadcrumb-sep">/</span>
-    <span data-es="Proyectos" data-en="Work">Proyectos</span>
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true">
+  <a href="/" data-es="Inicio" data-en="Home">Inicio</a>
+  <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
+  <div class="mobile-nav-sub">
+    <a href="/diseno-grafico/" data-es="Diseño gráfico" data-en="Graphic design">Diseño gráfico</a>
+    <a href="/branding/" data-es="Branding" data-en="Branding">Branding</a>
+    <a href="/diseno-web/" data-es="Diseño web" data-en="Web design">Diseño web</a>
+    <a href="/audiovisual-sonido/" data-es="Audiovisual y sonido" data-en="Audiovisual">Audiovisual y sonido</a>
+    <a href="/videojuegos/" data-es="Videojuegos" data-en="Games">Videojuegos</a>
   </div>
-  <p class="section-label" data-es="Portafolio" data-en="Portfolio">Portafolio</p>
-  <h1 class="section-title" style="max-width:700px" data-es="Proyectos Seleccionados" data-en="Selected Projects">Proyectos Seleccionados</h1>
-  <p class="section-desc" data-es="Una selección de los trabajos más representativos. Cada proyecto refleja compromiso con la calidad visual y la intención comunicativa." data-en="A selection of the most representative works. Every project reflects commitment to visual quality and communicative intent.">Una selección de los trabajos más representativos. Cada proyecto refleja compromiso con la calidad visual y la intención comunicativa.</p>
+  <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
+  <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
+  <div class="mobile-lang"><button data-lang="es" class="active">ES</button><button data-lang="en">EN</button></div>
 </div>
 
-<div class="work-wrap" style="padding-top:0">
-  <div class="section">
-    <div class="filter-bar reveal">
-      <button class="filter-btn active" data-filter="all" data-es="Todos" data-en="All">Todos</button>
-      <button class="filter-btn" data-filter="branding" data-es="Branding" data-en="Branding">Branding</button>
-      <button class="filter-btn" data-filter="web" data-es="Web" data-en="Web">Web</button>
-      <button class="filter-btn" data-filter="grafico" data-es="Gráfico" data-en="Graphic">Gráfico</button>
-      <button class="filter-btn" data-filter="audiovisual">Audiovisual</button>
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow" data-es="TRABAJO" data-en="WORK">TRABAJO</p>
+    <h1 class="page-hero-title" data-es="Proyectos" data-en="Projects">Proyectos</h1>
+    <p class="page-hero-body" data-es="Identidades, experiencias digitales, exploraciones sonoras y proyectos en distintos estados de desarrollo. Cada uno representa una forma de pensar, tomar decisiones y construir." data-en="Identities, digital experiences, sonic explorations and projects at different stages of development. Each one represents a way of thinking, making decisions and building.">
+      Identidades, experiencias digitales, exploraciones sonoras y proyectos en distintos estados de desarrollo. Cada uno representa una forma de pensar, tomar decisiones y construir.
+    </p>
+  </div>
+</header>
+
+<section class="section" aria-label="Lista de proyectos">
+  <div class="section-inner">
+    <div class="filter-bar" role="group" aria-label="Filtrar proyectos">
+      <button class="filter-btn active" data-filter="all" data-es="Todo" data-en="All">Todo</button>
+      <button class="filter-btn" data-filter="publicado" data-es="Publicados" data-en="Published">Publicados</button>
+      <button class="filter-btn" data-filter="en-desarrollo" data-es="En desarrollo" data-en="In development">En desarrollo</button>
+      <button class="filter-btn" data-filter="experimento" data-es="Experimentos" data-en="Experiments">Experimentos</button>
     </div>
+
     <div class="work-grid">
-      <a href="/diseno-web/almahi/" class="work-card work-card-featured reveal" data-cat="branding">
-        <div class="work-card-img">
-          <span class="work-card-tag" data-es="Destacado" data-en="Featured">Destacado</span>
-          🌿
+      <!-- ALMAHI -->
+      <article class="work-card work-card-featured reveal" data-cat="publicado">
+        <div class="work-thumb">
+          <div class="work-thumb-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="40" height="32" rx="2"/><polyline points="4 28 16 18 26 26 34 20 44 28"/><circle cx="16" cy="18" r="3"/></svg></div>
         </div>
-        <div class="work-card-body">
-          <p class="work-card-cat">Branding · Diseño Web</p>
-          <h3 class="work-card-title">ALMAHI</h3>
-          <p class="work-card-desc" data-es="Identidad visual completa y sitio web para marca de ropa femenina sostenible colombiana." data-en="Complete visual identity and website for Colombian sustainable women's clothing brand.">Identidad visual completa y sitio web para marca de ropa femenina sostenible colombiana.</p>
-          <span class="work-card-link" data-es="Ver proyecto →" data-en="View project →">Ver proyecto →</span>
+        <div class="work-info">
+          <div class="work-status status-publicado" data-es="Publicado" data-en="Published">Publicado</div>
+          <p class="work-cat" data-es="BRANDING · DISEÑO WEB" data-en="BRANDING · WEB DESIGN">BRANDING · DISEÑO WEB</p>
+          <h2 class="work-title">ALMAHI</h2>
+          <p class="work-desc" data-es="Desarrollo de identidad visual y presencia digital para una marca vinculada al universo de las plantas. Un proyecto que conecta lenguaje visual, contenido y experiencia web." data-en="Visual identity and digital presence for a brand rooted in the world of plants. A project connecting visual language, content and web experience.">Desarrollo de identidad visual y presencia digital para una marca vinculada al universo de las plantas. Un proyecto que conecta lenguaje visual, contenido y experiencia web.</p>
+          <div class="work-tags"><span class="work-tag">Identidad visual</span><span class="work-tag">Diseño web</span><span class="work-tag">Contenido</span></div>
+          <a href="/proyectos/almahi/" class="btn btn-text" data-es="Explorar el proyecto" data-en="Explore project">Explorar el proyecto <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9 3 14 8 9 13"/></svg></a>
         </div>
-      </a>
-      <div class="work-card reveal" style="transition-delay:0.1s" data-cat="grafico">
-        <div class="work-card-img">⚡</div>
-        <div class="work-card-body">
-          <p class="work-card-cat" data-es="Diseño Gráfico" data-en="Graphic Design">Diseño Gráfico</p>
-          <h3 class="work-card-title" data-es="Próximamente" data-en="Coming Soon">Próximamente</h3>
-          <p class="work-card-desc" data-es="Piezas publicitarias y material gráfico. En proceso de documentación." data-en="Advertising pieces and graphic material. Being documented.">Piezas publicitarias y material gráfico. En proceso de documentación.</p>
+      </article>
+
+      <!-- AUDIO -->
+      <article class="work-card reveal" data-cat="experimento">
+        <div class="work-thumb">
+          <div class="work-thumb-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><polygon points="20 17 34 24 20 31 20 17" fill="currentColor" stroke="none" opacity="0.4"/></svg></div>
         </div>
-      </div>
-      <div class="work-card reveal" style="transition-delay:0.2s" data-cat="audiovisual">
-        <div class="work-card-img">◎</div>
-        <div class="work-card-body">
-          <p class="work-card-cat">Audiovisual</p>
-          <h3 class="work-card-title" data-es="En desarrollo" data-en="In Development">En desarrollo</h3>
-          <p class="work-card-desc" data-es="Proyectos de video y motion graphics próximamente." data-en="Video and motion graphics projects coming soon.">Proyectos de video y motion graphics próximamente.</p>
+        <div class="work-info">
+          <div class="work-status status-experimento" data-es="Experimento" data-en="Experiment">Experimento</div>
+          <p class="work-cat" data-es="AUDIO · NARRATIVA EXPERIMENTAL" data-en="AUDIO · EXPERIMENTAL NARRATIVE">AUDIO · NARRATIVA EXPERIMENTAL</p>
+          <h2 class="work-title" data-es="Escuchar con los ojos cerrados" data-en="Listening with eyes closed">Escuchar con los ojos cerrados</h2>
+          <p class="work-desc" data-es="Una experiencia sonora construida a partir de clips editados y ambientados para invitar a escuchar de otra manera. Exploración de atmósfera, ritmo y percepción." data-en="A sound experience built from edited clips to invite a different kind of listening. Exploring atmosphere, rhythm and perception.">Una experiencia sonora construida a partir de clips editados y ambientados para invitar a escuchar de otra manera. Exploración de atmósfera, ritmo y percepción.</p>
+          <div class="work-tags"><span class="work-tag">Audio</span><span class="work-tag">Experimental</span></div>
+          <a href="/audiovisual-sonido/" class="btn btn-text" data-es="Entrar en la experiencia" data-en="Enter the experience">Entrar en la experiencia <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9 3 14 8 9 13"/></svg></a>
         </div>
-      </div>
-      <div class="work-card reveal" style="transition-delay:0.1s" data-cat="branding">
-        <div class="work-card-img">★</div>
-        <div class="work-card-body">
-          <p class="work-card-cat">Branding</p>
-          <h3 class="work-card-title" data-es="Próximamente" data-en="Coming Soon">Próximamente</h3>
-          <p class="work-card-desc" data-es="Proyectos de identidad visual en proceso de documentación." data-en="Visual identity projects being documented.">Proyectos de identidad visual en proceso de documentación.</p>
+      </article>
+
+      <!-- VIDEOJUEGO -->
+      <article class="work-card reveal" data-cat="en-desarrollo">
+        <div class="work-thumb">
+          <div class="work-thumb-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="14" width="36" height="24" rx="4"/><line x1="18" y1="26" x2="14" y2="26"/><line x1="16" y1="24" x2="16" y2="28"/><circle cx="32" cy="24" r="2"/><circle cx="28" cy="28" r="2"/></svg></div>
         </div>
-      </div>
-      <div class="work-card reveal" style="transition-delay:0.2s" data-cat="web">
-        <div class="work-card-img">◇</div>
-        <div class="work-card-body">
-          <p class="work-card-cat" data-es="Diseño Web" data-en="Web Design">Diseño Web</p>
-          <h3 class="work-card-title" data-es="Próximamente" data-en="Coming Soon">Próximamente</h3>
-          <p class="work-card-desc" data-es="Nuevos proyectos web en proceso de documentación." data-en="New web projects being documented.">Nuevos proyectos web en proceso de documentación.</p>
+        <div class="work-info">
+          <div class="work-status status-desarrollo" data-es="En desarrollo" data-en="In development">En desarrollo</div>
+          <p class="work-cat" data-es="VIDEOJUEGOS" data-en="GAMES">VIDEOJUEGOS</p>
+          <h2 class="work-title" data-es="Un mundo en construcción" data-en="A world in construction">Un mundo en construcción</h2>
+          <p class="work-desc" data-es="Estoy desarrollando el diseño de un videojuego. Cuando sea posible compartirlos, aquí estarán los conceptos, decisiones visuales y el proceso detrás del proyecto." data-en="I'm developing the design of a video game. When it's possible to share them, the concepts, visual decisions and process will be here.">Estoy desarrollando el diseño de un videojuego. Cuando sea posible compartirlos, aquí estarán los conceptos, decisiones visuales y el proceso detrás del proyecto.</p>
+          <div class="work-tags"><span class="work-tag">Diseño de juego</span><span class="work-tag">En desarrollo</span></div>
+          <a href="/videojuegos/" class="btn btn-text" data-es="Ver estado del proyecto" data-en="See project status">Ver estado del proyecto <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9 3 14 8 9 13"/></svg></a>
         </div>
-      </div>
+      </article>
+
+      <!-- MODELADO 3D -->
+      <article class="work-card reveal" data-cat="en-desarrollo">
+        <div class="work-thumb">
+          <div class="work-thumb-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6 L42 16 L42 36 L24 46 L6 36 L6 16 Z"/><line x1="24" y1="6" x2="24" y2="46"/><line x1="6" y1="16" x2="42" y2="16"/><line x1="6" y1="36" x2="42" y2="36"/></svg></div>
+        </div>
+        <div class="work-info">
+          <div class="work-status status-desarrollo" data-es="En desarrollo" data-en="In development">En desarrollo</div>
+          <p class="work-cat" data-es="MODELADO 3D" data-en="3D MODELING">MODELADO 3D</p>
+          <h2 class="work-title" data-es="Exploración de volumen y forma" data-en="Volume and shape exploration">Exploración de volumen y forma</h2>
+          <p class="work-desc" data-es="Exploración de objetos y entornos digitales desde el volumen, la materialidad y el espacio. Esta área crecerá a medida que los proyectos estén listos para mostrarse." data-en="Exploration of digital objects and environments through volume, materiality and space. This area will grow as projects are ready to be shown.">Exploración de objetos y entornos digitales desde el volumen, la materialidad y el espacio. Esta área crecerá a medida que los proyectos estén listos para mostrarse.</p>
+          <div class="work-tags"><span class="work-tag">3D</span><span class="work-tag">En desarrollo</span></div>
+        </div>
+      </article>
     </div>
   </div>
-</div>
+</section>
 
-<div class="contact-strip">
-  <h2 data-es="¿TIENES UN PROYECTO?" data-en="GOT A PROJECT?">¿TIENES UN PROYECTO?</h2>
-  <p data-es="Hablemos y construyamos algo memorable juntos." data-en="Let's talk and build something memorable together.">Hablemos y construyamos algo memorable juntos.</p>
-  <a href="/contacto/" class="btn-dark" data-es="¡HABLEMOS!" data-en="LET'S CONNECT!">¡HABLEMOS!</a>
-</div>
+<section class="contact-strip" aria-labelledby="cta-proyectos">
+  <h2 class="section-title reveal" id="cta-proyectos" data-es="¿Tienes un proyecto en mente?" data-en="Have a project in mind?">¿Tienes un proyecto en mente?</h2>
+  <p class="section-body reveal" data-es="Cuéntame de qué se trata. Podemos explorar juntos si hay algo que construir." data-en="Tell me about it. We can explore together whether there's something to build.">Cuéntame de qué se trata. Podemos explorar juntos si hay algo que construir.</p>
+  <div class="hero-actions reveal"><a href="/contacto/" class="btn btn-primary" data-es="Hablemos" data-en="Let's talk">Hablemos</a></div>
+</section>
 
-<footer role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-name">Juan<br><span class="accent">González.</span></div>
-        <div class="footer-tagline" data-es="Diseñador Hipermedia · Colombia" data-en="Hypermedia Designer · Colombia">Diseñador Hipermedia · Colombia</div>
-      </div>
-      <div class="footer-logo">
-        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
-          <rect width="1080" height="1080" fill="#1D1D1B"/>
-          <polygon fill="#FFEC00" points="434.36 549.32 434.36 692.62 303.54 848.16 303.54 549.32 434.36 549.32"/>
-          <polygon fill="#FFEC00" points="645.64 530.68 645.64 387.38 776.46 231.84 776.46 530.68 645.64 530.68"/>
-          <polygon fill="#FFEC00" points="645.64 549.32 645.64 692.62 776.46 848.16 776.46 549.32 645.64 549.32"/>
-          <polygon fill="#FFEC00" points="644.61 720.61 539.68 720.61 434.74 720.61 327.76 848.16 539.68 848.16 751.6 848.16 644.61 720.61"/>
-          <polygon fill="#FFEC00" points="434.74 359.39 539.68 359.39 644.61 359.39 751.6 231.84 539.68 231.84 327.76 231.84 434.74 359.39"/>
-        </svg>
-      </div>
-      <div class="footer-cta">
-        <div class="footer-cta-label" data-es="¿Listo para trabajar juntos?" data-en="Ready to work together?">¿Listo para trabajar juntos?</div>
-        <a href="/contacto/" class="btn-footer-cta" data-es="¡Da click aquí!" data-en="Let's connect!">¡Da click aquí!</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy" data-es="© 2026 Juan Esteban González Díaz · Todos los derechos reservados." data-en="© 2026 Juan Esteban González Díaz · All rights reserved.">© 2026 Juan Esteban González Díaz · Todos los derechos reservados.</div>
-      <div class="footer-socials">
-        <a href="https://www.instagram.com/juan_gd7/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.linkedin.com/in/juangd12/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<footer><div class="footer-inner"><div class="footer-top"><a href="/" class="footer-brand"><svg viewBox="0 0 160 160" width="28" height="28"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/></svg>Juan González</a><nav class="footer-links"><a href="/proyectos/">Proyectos</a><a href="/sobre-mi/">Sobre mí</a><a href="/contacto/">Contacto</a><a href="/privacidad/">Privacidad</a></nav><div class="footer-social"><a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://linkedin.com/in/juangd12" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></a></div></div><div class="footer-bottom"><p class="footer-copy">© 2025 Juan González. Diseñado y desarrollado con intención.</p><p class="footer-tagline">DISEÑO · IDENTIDAD · EXPERIENCIAS DIGITALES</p></div></div></footer>
 <div class="cursor-dot" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>
 <script src="/assets/js/main.js"></script>

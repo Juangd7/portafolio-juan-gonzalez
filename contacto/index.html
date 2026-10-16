@@ -2,135 +2,173 @@
 <html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Contacto — Juan González</title>
-  <meta name="description" content="Contáctame para tu próximo proyecto de diseño. Disponible para branding, web y audiovisual.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Juan González</title>
+  <meta name="description" content="Hablemos de tu proyecto. Escribe a Juan González para explorar cómo podemos construir algo juntos.">
+  <link rel="canonical" href="https://portafoliojegd.netlify.app/contacto/">
   <link rel="stylesheet" href="/assets/css/main.css">
-  <style>
-    .contact-page {
-      max-width: var(--max-w); margin: 0 auto;
-      padding: clamp(60px,8vw,120px) var(--side);
-      display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start;
-    }
-    .contact-info { position: sticky; top: calc(var(--nav-h) + 2rem); }
-    .contact-detail { display: flex; flex-direction: column; gap: 2rem; margin-top: 2.5rem; }
-    .contact-item { display: flex; flex-direction: column; gap: 4px; }
-    .contact-item-label {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--text2);
-    }
-    .contact-item-val { font-size: 1rem; color: var(--text); font-weight: 600; }
-    .contact-item-val a { color: var(--accent); transition: opacity 0.2s; }
-    .contact-item-val a:hover { opacity: 0.7; }
-    .contact-form-wrap {
-      background: var(--bg2); border: 1px solid var(--border2);
-      border-radius: var(--radius-lg); padding: 2.8rem;
-    }
-    .contact-form-title {
-      font-family: var(--font-head); font-weight: 900; font-size: 1.4rem;
-      margin-bottom: 2rem; color: var(--text);
-    }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    @media (max-width: 900px) {
-      .contact-page { grid-template-columns: 1fr; gap: 3rem; }
-      .contact-info { position: static; }
-    }
-    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
-  </style>
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo-j-amarillo.svg">
 </head>
 <body>
-<nav class="navbar" id="navbar">
-  <a href="/" class="nav-logo" aria-label="Inicio">
-    <img src="/assets/img/logo-j-amarillo.svg" alt="JEGD" class="nav-logo-img nav-logo-dark">
-    <img src="/assets/img/logo-j.svg" alt="JEGD" class="nav-logo-img nav-logo-light">
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <a href="/" class="nav-logo" aria-label="Juan González — Inicio">
+    <svg viewBox="0 0 160 160" class="logo-mark" aria-hidden="true"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/></svg>
+    <svg viewBox="0 0 160 160" class="logo-mark-light" aria-hidden="true"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95"/></svg>
+    <span>Juan González</span>
   </a>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="/" data-es="Inicio" data-en="Home">Inicio</a></li>
-    <li><a href="/proyectos/" data-es="Proyectos" data-en="Work">Proyectos</a></li>
-    <li><a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
-    <li><a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a></li>
-  </ul>
+  <div class="nav-links">
+    <a href="/" class="nav-link">Inicio</a>
+    <a href="/proyectos/" class="nav-link">Proyectos</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false"><span>Disciplinas</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 6 8 10 12 6"/></svg></button>
+      <div class="nav-dropdown-menu" role="menu">
+        <a href="/diseno-grafico/" role="menuitem">Diseño gráfico</a>
+        <a href="/branding/" role="menuitem">Branding e identidad</a>
+        <a href="/diseno-web/" role="menuitem">Diseño web</a>
+        <a href="/audiovisual-sonido/" role="menuitem">Audiovisual y sonido</a>
+        <a href="/videojuegos/" role="menuitem">Videojuegos</a>
+      </div>
+    </div>
+    <a href="/sobre-mi/" class="nav-link">Sobre mí</a>
+    <a href="/contacto/" class="nav-link active">Contacto</a>
+  </div>
   <div class="nav-controls">
-    <button class="btn-lang" id="btn-lang">EN</button>
-    <button class="btn-theme" id="btn-theme">☀ Claro</button>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+    <div class="lang-toggle" role="group" aria-label="Idioma"><button class="lang-btn active" data-lang="es">ES</button><button class="lang-btn" data-lang="en">EN</button></div>
+    <button class="theme-toggle" aria-label="Cambiar tema"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></button>
+    <button class="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
-<div class="page-hero">
-  <div class="breadcrumb">
-    <a href="/" data-es="Inicio" data-en="Home">Inicio</a>
-    <span class="breadcrumb-sep">/</span>
-    <span data-es="Contacto" data-en="Contact">Contacto</span>
-  </div>
-  <p class="section-label" data-es="Hablemos" data-en="Let's talk">Hablemos</p>
-  <h1 class="section-title" data-es="¿Tienes un proyecto?" data-en="Got a project?">¿Tienes un proyecto?</h1>
-  <p class="section-desc" data-es="Estoy disponible para nuevos proyectos de diseño. Cuéntame tu idea y construimos algo increíble juntos." data-en="I'm available for new design projects. Tell me your idea and let's build something incredible together.">Estoy disponible para nuevos proyectos de diseño. Cuéntame tu idea y construimos algo increíble juntos.</p>
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true">
+  <a href="/">Inicio</a><a href="/proyectos/">Proyectos</a>
+  <div class="mobile-nav-sub"><a href="/diseno-grafico/">Diseño gráfico</a><a href="/branding/">Branding</a><a href="/diseno-web/">Diseño web</a><a href="/audiovisual-sonido/">Audiovisual y sonido</a><a href="/videojuegos/">Videojuegos</a></div>
+  <a href="/sobre-mi/">Sobre mí</a><a href="/contacto/">Contacto</a>
+  <div class="mobile-lang"><button data-lang="es" class="active">ES</button><button data-lang="en">EN</button></div>
 </div>
 
-<div class="contact-page">
-  <div class="contact-info reveal-left">
-    <p class="section-label" data-es="Información" data-en="Info">Información</p>
-    <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.2rem)" data-es="Construyamos algo juntos." data-en="Let's build something together.">Construyamos algo juntos.</h2>
-    <div class="contact-detail">
-      <div class="contact-item">
-        <span class="contact-item-label" data-es="Email" data-en="Email">Email</span>
-        <span class="contact-item-val"><a href="mailto:juanestebangd12@gmail.com">juanestebangd12@gmail.com</a></span>
-      </div>
-      <div class="contact-item">
-        <span class="contact-item-label" data-es="Ubicación" data-en="Location">Ubicación</span>
-        <span class="contact-item-val" data-es="Colombia · Disponible remoto" data-en="Colombia · Remote available">Colombia · Disponible remoto</span>
-      </div>
-      <div class="contact-item">
-        <span class="contact-item-label">Instagram</span>
-        <span class="contact-item-val"><a href="https://www.instagram.com/juan_gd7/" target="_blank" rel="noopener">@juan_gd7</a></span>
-      </div>
-      <div class="contact-item">
-        <span class="contact-item-label">LinkedIn</span>
-        <span class="contact-item-val"><a href="https://www.linkedin.com/in/juangd12/" target="_blank" rel="noopener">juangd12</a></span>
-      </div>
-    </div>
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <p class="eyebrow" data-es="HABLEMOS" data-en="LET'S TALK">HABLEMOS</p>
+    <h1 class="page-hero-title" data-es="Contacto" data-en="Contact">Contacto</h1>
+    <p class="page-hero-body" data-es="Cuéntame sobre tu proyecto. Explora las posibilidades sin compromiso." data-en="Tell me about your project. Explore the possibilities without commitment.">Cuéntame sobre tu proyecto. Explora las posibilidades sin compromiso.</p>
   </div>
+</header>
 
-  <div class="contact-form-wrap reveal" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:2rem;min-height:320px">
-    <p class="contact-form-title" data-es="La forma más directa de hablar." data-en="The most direct way to talk.">La forma más directa de hablar.</p>
-    <p style="color:var(--text2);font-size:1rem;line-height:1.7;max-width:38ch" data-es="Escríbeme directamente al email y cuéntame en qué puedo ayudarte. Respondo en menos de 24 horas." data-en="Write me directly by email and tell me how I can help you. I reply in less than 24 hours.">Escríbeme directamente al email y cuéntame en qué puedo ayudarte. Respondo en menos de 24 horas.</p>
-    <a href="mailto:juanestebangd12@gmail.com?subject=Proyecto%20de%20diseño" class="btn-primary" style="font-size:1rem" data-es="ESCRIBIR AL EMAIL →" data-en="SEND EMAIL →">ESCRIBIR AL EMAIL →</a>
-    <p style="color:var(--text2);font-size:0.82rem">juanestebangd12@gmail.com</p>
-  </div>
-</div>
+<section class="section">
+  <div class="section-inner">
+    <div class="form-layout">
+      <div class="form-intro">
+        <h2 class="section-title reveal" data-es="Toda buena idea empieza con una conversación." data-en="Every good idea starts with a conversation.">Toda buena idea empieza con una conversación.</h2>
+        <p class="section-body reveal" data-es="Si tienes una marca que necesita una identidad, una idea digital por desarrollar o un proyecto creativo que todavía no encuentra su forma, cuéntame de qué se trata. Puedes usar el formulario o escribirme directamente." data-en="If you have a brand that needs an identity, a digital idea to develop or a creative project that hasn't found its shape yet, tell me about it. You can use the form or write me directly.">Si tienes una marca que necesita una identidad, una idea digital por desarrollar o un proyecto creativo que todavía no encuentra su forma, cuéntame de qué se trata. Puedes usar el formulario o escribirme directamente.</p>
+        <div class="contact-direct reveal">
+          <a href="mailto:juanestebangd12@gmail.com" class="contact-direct-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2 4 12 13 22 4"/></svg>
+            juanestebangd12@gmail.com
+          </a>
+          <a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener" class="contact-direct-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            @juan_gd7
+          </a>
+        </div>
+      </div>
 
-<footer role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-name">Juan<br><span class="accent">González.</span></div>
-        <div class="footer-tagline" data-es="Diseñador Hipermedia · Colombia" data-en="Hypermedia Designer · Colombia">Diseñador Hipermedia · Colombia</div>
-      </div>
-      <div class="footer-logo">
-        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
-          <rect width="1080" height="1080" fill="#1D1D1B"/>
-          <polygon fill="#FFEC00" points="434.36 549.32 434.36 692.62 303.54 848.16 303.54 549.32 434.36 549.32"/>
-          <polygon fill="#FFEC00" points="645.64 530.68 645.64 387.38 776.46 231.84 776.46 530.68 645.64 530.68"/>
-          <polygon fill="#FFEC00" points="645.64 549.32 645.64 692.62 776.46 848.16 776.46 549.32 645.64 549.32"/>
-          <polygon fill="#FFEC00" points="644.61 720.61 539.68 720.61 434.74 720.61 327.76 848.16 539.68 848.16 751.6 848.16 644.61 720.61"/>
-          <polygon fill="#FFEC00" points="434.74 359.39 539.68 359.39 644.61 359.39 751.6 231.84 539.68 231.84 327.76 231.84 434.74 359.39"/>
-        </svg>
-      </div>
-      <div class="footer-cta">
-        <div class="footer-cta-label" data-es="¿Listo para trabajar juntos?" data-en="Ready to work together?">¿Listo para trabajar juntos?</div>
-        <a href="mailto:juanestebangd12@gmail.com" class="btn-footer-cta" data-es="¡Escríbeme!" data-en="Write me!">¡Escríbeme!</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy" data-es="© 2026 Juan Esteban González Díaz · Todos los derechos reservados." data-en="© 2026 Juan Esteban González Díaz · All rights reserved.">© 2026 Juan Esteban González Díaz · Todos los derechos reservados.</div>
-      <div class="footer-socials">
-        <a href="https://www.instagram.com/juan_gd7/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.linkedin.com/in/juangd12/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+      <!-- Netlify Form -->
+      <form name="contacto" method="POST" data-netlify="true" class="form-grid reveal" id="contact-form" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contacto">
+        <p style="display:none"><label>No llenar si eres humano: <input name="bot-field"></label></p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="nombre" data-es="Nombre *" data-en="Name *">Nombre *</label>
+            <input class="form-input" type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" data-es-placeholder="Tu nombre completo" data-en-placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="correo" data-es="Correo electrónico *" data-en="Email *">Correo electrónico *</label>
+            <input class="form-input" type="email" id="correo" name="correo" required placeholder="tu@correo.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="marca" data-es="Marca o empresa" data-en="Brand or company">Marca o empresa</label>
+            <input class="form-input" type="text" id="marca" name="marca" placeholder="Nombre de tu marca o empresa" data-es-placeholder="Nombre de tu marca o empresa" data-en-placeholder="Your brand or company name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="necesidad" data-es="¿Qué necesitas? *" data-en="What do you need? *">¿Qué necesitas? *</label>
+            <select class="form-input" id="necesidad" name="necesidad" required>
+              <option value="" data-es="Selecciona una opción" data-en="Select an option">Selecciona una opción</option>
+              <option value="branding" data-es="Branding e identidad" data-en="Branding & identity">Branding e identidad</option>
+              <option value="diseno-grafico" data-es="Diseño gráfico" data-en="Graphic design">Diseño gráfico</option>
+              <option value="diseno-web" data-es="Diseño web" data-en="Web design">Diseño web</option>
+              <option value="audiovisual" data-es="Audiovisual y sonido" data-en="Audiovisual & sound">Audiovisual y sonido</option>
+              <option value="otro" data-es="Otro / No sé todavía" data-en="Other / Not sure yet">Otro / No sé todavía</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group form-group-full">
+          <label class="form-label" for="proyecto" data-es="Cuéntame sobre tu proyecto *" data-en="Tell me about your project *">Cuéntame sobre tu proyecto *</label>
+          <textarea class="form-input form-textarea" id="proyecto" name="proyecto" required rows="5" placeholder="¿Qué quieres construir? ¿Qué problema buscas resolver?" data-es-placeholder="¿Qué quieres construir? ¿Qué problema buscas resolver?" data-en-placeholder="What do you want to build? What problem are you trying to solve?"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="alcance" data-es="Alcance del proyecto" data-en="Project scope">Alcance del proyecto</label>
+            <select class="form-input" id="alcance" name="alcance">
+              <option value="">–</option>
+              <option value="pequeno" data-es="Pequeño (logo, pieza puntual)" data-en="Small (logo, one-off piece)">Pequeño (logo, pieza puntual)</option>
+              <option value="mediano" data-es="Mediano (sistema de identidad, sitio web)" data-en="Medium (identity system, website)">Mediano (sistema de identidad, sitio web)</option>
+              <option value="grande" data-es="Grande (proyecto completo, largo plazo)" data-en="Large (full project, long term)">Grande (proyecto completo, largo plazo)</option>
+              <option value="no-se" data-es="No lo tengo claro todavía" data-en="I'm not sure yet">No lo tengo claro todavía</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="presupuesto" data-es="Presupuesto aproximado" data-en="Approximate budget">Presupuesto aproximado</label>
+            <select class="form-input" id="presupuesto" name="presupuesto">
+              <option value="">–</option>
+              <option value="menos-500k" data-es="Menos de $500.000 COP" data-en="Less than $500K COP">Menos de $500.000 COP</option>
+              <option value="500k-1m" data-es="$500.000 – $1.000.000 COP" data-en="$500K – $1M COP">$500.000 – $1.000.000 COP</option>
+              <option value="1m-3m" data-es="$1.000.000 – $3.000.000 COP" data-en="$1M – $3M COP">$1.000.000 – $3.000.000 COP</option>
+              <option value="mas-3m" data-es="Más de $3.000.000 COP" data-en="More than $3M COP">Más de $3.000.000 COP</option>
+              <option value="no-se" data-es="No lo tengo definido" data-en="Not defined yet">No lo tengo definido</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="fecha" data-es="¿Para cuándo lo necesitas?" data-en="When do you need it?">¿Para cuándo lo necesitas?</label>
+            <input class="form-input" type="text" id="fecha" name="fecha" placeholder="Fecha aproximada o 'flexible'" data-es-placeholder="Fecha aproximada o 'flexible'" data-en-placeholder="Approximate date or 'flexible'">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reunion" data-es="Preferencia de reunión" data-en="Meeting preference">Preferencia de reunión</label>
+            <select class="form-input" id="reunion" name="reunion">
+              <option value="">–</option>
+              <option value="videollamada" data-es="Videollamada" data-en="Video call">Videollamada</option>
+              <option value="mensaje" data-es="Solo por mensaje" data-en="Only by message">Solo por mensaje</option>
+              <option value="cualquiera" data-es="Me adapto" data-en="Either is fine">Me adapto</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group form-group-full">
+          <label class="form-check">
+            <input type="checkbox" name="consentimiento" required>
+            <span class="form-check-label" data-es="Acepto que Juan González use mis datos para responder a este mensaje. Los datos no serán compartidos con terceros." data-en="I agree that Juan González uses my data to respond to this message. Data will not be shared with third parties.">Acepto que Juan González use mis datos para responder a este mensaje. Los datos no serán compartidos con terceros.</span>
+          </label>
+        </div>
+
+        <div class="form-submit-area">
+          <button type="submit" class="btn btn-primary" data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</button>
+          <p class="form-note" data-es="Normalmente respondo en 24–48 horas." data-en="I usually respond within 24–48 hours.">Normalmente respondo en 24–48 horas.</p>
+        </div>
+
+        <div id="form-status" class="form-status" aria-live="polite" role="status"></div>
+      </form>
     </div>
   </div>
-</footer>
+</section>
+
+<footer><div class="footer-inner"><div class="footer-top"><a href="/" class="footer-brand"><svg viewBox="0 0 160 160" width="28" height="28"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/></svg>Juan González</a><nav class="footer-links"><a href="/proyectos/">Proyectos</a><a href="/sobre-mi/">Sobre mí</a><a href="/contacto/">Contacto</a><a href="/privacidad/">Privacidad</a></nav><div class="footer-social"><a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a></div></div><div class="footer-bottom"><p class="footer-copy">© 2025 Juan González.</p><p class="footer-tagline">DISEÑO · IDENTIDAD · EXPERIENCIAS DIGITALES</p></div></div></footer>
 <div class="cursor-dot" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>
 <script src="/assets/js/main.js"></script>
