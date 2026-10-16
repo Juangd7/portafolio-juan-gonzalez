@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ALMAHI — Case Study | Juan González</title>
+  <meta name="description" content="Case study: Identidad visual y diseño web para ALMAHI, tienda de ropa sostenible colombiana. Branding completo, paleta de colores, tipografía y sitio web.">
+  <link rel="canonical" href="https://juangonzalez.design/diseno-web/almahi/">
+  <meta property="og:title" content="ALMAHI Case Study — Juan González">
+  <meta property="og:description" content="Identidad visual y web para ALMAHI, tienda de ropa sostenible colombiana.">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    .hero-case {
+      min-height: 520px;
+      background: linear-gradient(135deg, #1a1a12 0%, #0d0d0d 100%);
+      display: flex; align-items: center;
+      padding: 140px var(--side) 80px;
+      border-bottom: 1px solid var(--border);
+    }
+    [data-theme="light"] .hero-case,
+    :root.light .hero-case { background: linear-gradient(135deg, #f0ede6 0%, #e8e4dd 100%); }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]):not(.dark) .hero-case { background: linear-gradient(135deg, #f0ede6 0%, #e8e4dd 100%); }
+    }
+    .almahi-accent { color: #8b7355; }
+    .almahi-badge {
+      display: inline-block;
+      background: rgba(139,115,85,0.15);
+      border: 1px solid rgba(139,115,85,0.3);
+      color: #8b7355;
+      font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 6px 14px; border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+      margin: 2rem 0;
+    }
+    .process-step {
+      background: var(--bg2); padding: 2rem 1.5rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .step-num {
+      font-family: var(--font-head); font-size: 2rem; font-weight: 900;
+      color: #8b7355; opacity: 0.4; line-height: 1;
+    }
+    .step-name { font-weight: 700; font-size: 1rem; }
+    .step-desc { font-size: 0.85rem; color: var(--text2); line-height: 1.6; }
+    .palette-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .swatch-block { display: flex; flex-direction: column; gap: 8px; min-width: 100px; }
+    .swatch { height: 70px; border-radius: 8px; }
+    .swatch-name { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text2); }
+    .swatch-hex { font-size: 0.8rem; font-family: monospace; color: var(--text); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="nav-logo">JG<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/proyectos/">Proyectos</a></li>
+    <li><a href="/sobre-mi/">Sobre mí</a></li>
+    <li><a href="/contacto/">Contacto</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button class="btn-lang">EN</button>
+    <button class="btn-theme">☀ Claro</button>
+    <button class="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO CASE STUDY -->
+<div class="hero-case">
+  <div style="max-width:var(--max-w);margin:0 auto;width:100%">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>/</span><a href="/proyectos/">Proyectos</a><span>/</span><span>ALMAHI</span></div>
+    <div class="almahi-badge">Case Study</div>
+    <h1 class="section-title" style="font-size:clamp(3rem,8vw,6rem);margin-bottom:1rem">ALMAHI</h1>
+    <p class="section-desc" style="font-size:1.2rem;max-width:580px" data-es="Branding completo e identidad web para una marca de ropa femenina sostenible, auténtica y colombiana." data-en="Complete branding and web identity for a sustainable, authentic Colombian women's clothing brand.">Branding completo e identidad web para una marca de ropa femenina sostenible, auténtica y colombiana.</p>
+  </div>
+</div>
+
+<div style="max-width:var(--max-w);margin:0 auto;padding:0 var(--side)">
+
+  <!-- META -->
+  <div class="case-meta reveal">
+    <div class="case-meta-item">
+      <span class="case-meta-label">Cliente</span>
+      <span class="case-meta-val">ALMAHI</span>
+    </div>
+    <div class="case-meta-item">
+      <span class="case-meta-label">Categoría</span>
+      <span class="case-meta-val">Branding · Web</span>
+    </div>
+    <div class="case-meta-item">
+      <span class="case-meta-label">Disciplinas</span>
+      <span class="case-meta-val">Identidad visual, UI/UX, Desarrollo</span>
+    </div>
+    <div class="case-meta-item">
+      <span class="case-meta-label">Sitio web</span>
+      <a href="https://almahicol.netlify.app" target="_blank" rel="noopener" class="case-meta-val" style="color:var(--accent)">almahicol.netlify.app ↗</a>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="case-section reveal">
+    <div class="two-col" style="align-items:start;gap:4rem">
+      <div>
+        <p class="section-label">El reto</p>
+        <h2 style="font-family:var(--font-head);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;margin-bottom:1.5rem;line-height:1.15">Construir una marca que reflejara autenticidad sostenible sin caer en los clichés del "eco"</h2>
+        <p style="color:var(--text2);line-height:1.8;margin-bottom:1rem">ALMAHI es una tienda de ropa femenina colombiana que combina moda contemporánea con valores de sostenibilidad y autenticidad local. El reto: construir una identidad visual que comunicara calidez, elegancia accesible y compromiso real — sin caer en los verdes saturados y hojas de árbol que dominan el mercado "eco".</p>
+        <p style="color:var(--text2);line-height:1.8">La marca también necesitaba un sitio web funcional que acompañara la identidad y tradujera la experiencia de la tienda al mundo digital.</p>
+      </div>
+      <div>
+        <div class="img-placeholder" style="aspect-ratio:4/5">🌿<br><br>Imagen principal de campaña<br>(recurso visual por agregar)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESO -->
+  <div class="case-section reveal">
+    <p class="section-label">Proceso</p>
+    <h2 style="font-family:var(--font-head);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;margin-bottom:2rem">De la investigación a la ejecución</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <span class="step-num">01</span>
+        <span class="step-name">Investigación</span>
+        <p class="step-desc">Análisis del mercado de moda sostenible en Colombia, competidores, referentes estéticos y audiencia objetivo.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">02</span>
+        <span class="step-name">Concepto</span>
+        <p class="step-desc">Definición del territorio visual: calidez terracota, tipografía serif elegante, fotografía auténtica.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">03</span>
+        <span class="step-name">Identidad</span>
+        <p class="step-desc">Construcción del logotipo, paleta de colores, sistema tipográfico y reglas de aplicación de marca.</p>
+      </div>
+      <div class="process-step">
+        <span class="step-num">04</span>
+        <span class="step-name">Web & UI</span>
+        <p class="step-desc">Diseño y desarrollo del sitio web: arquitectura de información, wireframes, diseño visual y frontend.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- IDENTIDAD VISUAL -->
+  <div class="case-section reveal">
+    <p class="section-label">Identidad visual</p>
+    <h2 style="font-family:var(--font-head);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;margin-bottom:2rem">Sistema visual ALMAHI</h2>
+
+    <div class="two-col" style="gap:3rem;margin-bottom:3rem">
+      <div>
+        <p style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text2);margin-bottom:1rem">Paleta de colores</p>
+        <div class="palette-row">
+          <div class="swatch-block">
+            <div class="swatch" style="background:#8b7355"></div>
+            <span class="swatch-name">Tierra</span>
+            <span class="swatch-hex">#8B7355</span>
+          </div>
+          <div class="swatch-block">
+            <div class="swatch" style="background:#c4a882"></div>
+            <span class="swatch-name">Arena</span>
+            <span class="swatch-hex">#C4A882</span>
+          </div>
+          <div class="swatch-block">
+            <div class="swatch" style="background:#f2ede6"></div>
+            <span class="swatch-name">Crema</span>
+            <span class="swatch-hex">#F2EDE6</span>
+          </div>
+          <div class="swatch-block">
+            <div class="swatch" style="background:#2c2418"></div>
+            <span class="swatch-name">Oscuro</span>
+            <span class="swatch-hex">#2C2418</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text2);margin-bottom:1rem">Tipografía</p>
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          <div>
+            <p class="typo-sample" style="font-size:2.5rem;color:var(--text)">ALMAHI</p>
+            <p style="font-size:0.8rem;color:var(--text2);margin-top:4px">Poppins Bold — Headlines</p>
+          </div>
+          <div>
+            <p style="font-size:1.1rem;line-height:1.6;color:var(--text2)">Moda con alma. Ropa que cuenta historias.</p>
+            <p style="font-size:0.8rem;color:var(--text2);margin-top:4px">Source Sans Pro — Cuerpo de texto</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logo placeholder -->
+    <div class="img-placeholder" style="height:200px">
+      Logotipo ALMAHI<br><small>(recurso gráfico por agregar)</small>
+    </div>
+  </div>
+
+  <!-- SITIO WEB -->
+  <div class="case-section reveal">
+    <p class="section-label">Diseño web</p>
+    <h2 style="font-family:var(--font-head);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;margin-bottom:1.5rem">Experiencia digital que extiende la marca</h2>
+    <p style="color:var(--text2);line-height:1.8;max-width:600px;margin-bottom:2rem">El sitio web de ALMAHI traduce la identidad visual a una experiencia de compra coherente. La arquitectura prioriza la colección, la historia de la marca y el proceso de contacto, con una navegación simple que refleja la elegancia sobria de la identidad.</p>
+    <div class="img-placeholder" style="height:360px;margin-bottom:1.5rem">
+      Captura del sitio web ALMAHI<br><small>almahicol.netlify.app</small>
+    </div>
+    <a href="https://almahicol.netlify.app" target="_blank" rel="noopener" class="btn-primary" style="display:inline-flex">Ver sitio en vivo ↗</a>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="case-section reveal" style="border-bottom:none;padding-bottom:60px">
+    <p class="section-label">Resultado</p>
+    <h2 style="font-family:var(--font-head);font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;margin-bottom:1.5rem">Una marca coherente de punta a punta</h2>
+    <p style="color:var(--text2);line-height:1.8;max-width:660px;margin-bottom:3rem">ALMAHI tiene hoy una identidad visual clara, memorable y diferenciada. La marca habla el mismo lenguaje en sus redes, su sitio web y sus piezas físicas — construyendo confianza y reconocimiento en cada punto de contacto con la audiencia.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+      <a href="/proyectos/" class="btn-outline">← Ver más proyectos</a>
+      <a href="/contacto/" class="btn-primary">¿Tienes un proyecto similar? →</a>
+    </div>
+  </div>
+
+</div><!-- /max-w -->
+
+<footer>
+  <div class="footer-logo">JG<span>.</span></div>
+  <p class="footer-copy">© 2026 Juan González.</p>
+  <div class="footer-socials">
+    <a href="#" aria-label="Instagram">In</a>
+    <a href="#" aria-label="Behance">Be</a>
+    <a href="#" aria-label="LinkedIn">Li</a>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
