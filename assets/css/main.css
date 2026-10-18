@@ -19,7 +19,7 @@
   --border:   rgba(255,255,255,0.08);
   --border2:  rgba(255,255,255,0.15);
   --card-bg:  #0f0f0f;
-  --nav-h:    72px;
+  --nav-h:    86px;
   --radius:   4px;
   --radius-lg:12px;
   --easing:   cubic-bezier(0.22, 1, 0.36, 1);
@@ -93,36 +93,45 @@ body.cursor-hover .cursor-ring {
 }
 
 /* ─── NAVEGACIÓN ─────────────────────────── */
+/* ── NAVBAR — pill flotante sobre cualquier fondo ── */
 .nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
-  height: var(--nav-h);
+  top: 1rem; left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 3rem);
+  max-width: 1100px;
+  height: 54px;
   display: flex;
   align-items: center;
-  padding: 0 clamp(1.5rem, 5vw, 3rem);
+  padding: 0 1rem 0 1.25rem;
   z-index: 100;
-  transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
-  border-bottom: 1px solid transparent;
+  background: #000000;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+  transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+  /* no scroll offset needed — always visible as pill */
 }
 .nav.scrolled {
-  background: rgba(0,0,0,0.88);
-  backdrop-filter: blur(16px) saturate(1.4);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
-  border-bottom-color: var(--border);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.04);
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border-color: rgba(255,255,255,0.12);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.55);
 }
 
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.04em;
-  color: var(--text);
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  flex-shrink: 0;
 }
-.nav-logo svg { width: 32px; height: 32px; flex-shrink: 0; }
+.nav-logo svg { width: 28px; height: 28px; flex-shrink: 0; }
 .logo-mark { display: block; }
 .logo-mark-light { display: none; }
 
@@ -134,23 +143,23 @@ body.cursor-hover .cursor-ring {
 }
 .nav-link {
   font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: var(--text2);
-  padding: 0.5rem 1rem;
-  transition: color 0.2s;
+  color: rgba(255,255,255,0.55);
+  padding: 0.4rem 0.875rem;
+  border-radius: 999px;
+  transition: color 0.2s, background 0.2s;
   position: relative;
 }
-.nav-link:hover, .nav-link.active { color: var(--text); }
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: -2px; left: 1rem; right: 1rem;
-  height: 1px;
-  background: var(--accent);
+.nav-link:hover { color: #ffffff; background: rgba(255,255,255,0.06); }
+.nav-link.active {
+  color: #000000;
+  background: #FFED00;
+  font-weight: 700;
 }
+.nav-link.active::after { display: none; }
 
 /* Dropdown disciplinas */
 .nav-dropdown { position: relative; }
@@ -216,15 +225,18 @@ body.cursor-hover .cursor-ring {
 
 .hamburger {
   display: none;
-  width: 38px; height: 38px;
+  width: 36px; height: 36px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 5px;
-  border: 1px solid var(--border2);
-  border-radius: var(--radius);
-  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  color: #ffffff;
+  background: transparent;
+  transition: background 0.2s, border-color 0.2s;
 }
+.hamburger:hover { background: rgba(255,255,255,0.1); }
 .hamburger span {
   display: block;
   width: 18px; height: 1.5px;
@@ -291,7 +303,7 @@ body.cursor-hover .cursor-ring {
   display: flex;
   align-items: center;
   gap: 0;
-  border: 1px solid var(--border2);
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 100px;
   overflow: hidden;
   font-size: 0.75rem;
@@ -300,10 +312,10 @@ body.cursor-hover .cursor-ring {
   padding: 0.3rem 0.65rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--text2);
+  color: rgba(255,255,255,0.45);
   transition: background 0.15s, color 0.15s;
 }
-.lang-btn.active { background: var(--accent); color: var(--bg); }
+.lang-btn.active { background: #FFED00; color: #000000; }
 
 /* ─── HERO ───────────────────────────────── */
 .hero {
@@ -881,10 +893,10 @@ body.cursor-hover .cursor-ring {
 }
 
 /* ─── FOOTER ─────────────────────────────── */
+/* ─── FOOTER REDISEÑO — fondo morado, acento amarillo ───────── */
 footer {
-  background: #000000;
+  background: #662483;
   color: #ffffff;
-  border-top: 3px solid var(--accent);
   padding: 0;
 }
 .footer-inner {
@@ -892,64 +904,17 @@ footer {
   margin: 0 auto;
 }
 
-/* Banda superior amarilla con nombre y tagline */
-.footer-headline {
-  background: var(--accent);
-  padding: 2.5rem clamp(1.5rem, 5vw, 3rem);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-.footer-headline-name {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 900;
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
-  color: #000000;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-.footer-headline-role {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.6);
-  margin-top: 0.3rem;
-}
-.footer-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #000000;
-  color: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 0.8125rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius);
-  transition: background 0.2s, color 0.2s;
-  white-space: nowrap;
-}
-.footer-cta-btn:hover {
-  background: var(--accent2);
-  color: #ffffff;
-}
-
 /* Cuerpo del footer */
 .footer-body {
-  padding: 2.5rem clamp(1.5rem, 5vw, 3rem);
+  padding: 3rem clamp(1.5rem, 5vw, 3rem) 0;
 }
 .footer-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  gap: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
   margin-bottom: 1.5rem;
 }
 .footer-nav-group { display: flex; flex-direction: column; gap: 0.75rem; }
@@ -958,7 +923,7 @@ footer {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #FFED00;
   margin-bottom: 0.25rem;
 }
 .footer-links {
@@ -968,46 +933,55 @@ footer {
 }
 .footer-links a {
   font-size: 0.875rem;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.7);
   transition: color 0.2s;
 }
-.footer-links a:hover { color: #ffffff; }
+.footer-links a:hover { color: #FFED00; }
+
+/* Redes sociales: botones amarillos, ícono negro */
 .footer-social {
   display: flex;
   gap: 0.625rem;
   flex-wrap: wrap;
 }
 .footer-social a {
-  width: 38px; height: 38px;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: var(--radius);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.5);
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  gap: 0.5rem;
+  background: #FFED00;
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius);
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
 }
+.footer-social a svg { flex-shrink: 0; }
 .footer-social a:hover {
-  color: #000;
-  background: var(--accent);
-  border-color: var(--accent);
+  background: #ffffff;
+  color: #000000;
 }
+
 .footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+  padding: 1.25rem 0 2rem;
 }
 .footer-copy {
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.5);
 }
 .footer-tagline {
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.35);
 }
 .footer-brand {
   display: flex;
