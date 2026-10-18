@@ -17,7 +17,7 @@
 <nav class="nav" role="navigation" aria-label="Navegación principal">
   <a href="/" class="nav-logo" aria-label="Juan González — Inicio">
     <svg viewBox="0 0 160 160" class="logo-mark" aria-hidden="true"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/></svg>
-    <svg viewBox="0 0 160 160" class="logo-mark-light" aria-hidden="true"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95"/></svg>
+    <!-- dark-only: logo-mark-light removed -->
     <span>Juan González</span>
   </a>
   <div class="nav-links">
@@ -38,7 +38,7 @@
   </div>
   <div class="nav-controls">
     <div class="lang-toggle" role="group" aria-label="Idioma"><button class="lang-btn active" data-lang="es">ES</button><button class="lang-btn" data-lang="en">EN</button></div>
-    <button class="theme-toggle" aria-label="Cambiar tema"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button>
+    <!-- dark-only: theme-toggle removed -->
     <button class="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -57,28 +57,31 @@
   <div class="mobile-lang"><button data-lang="es" class="active">ES</button><button data-lang="en">EN</button></div>
 </div>
 
-<header class="page-hero">
+<header class="page-hero page-hero--accent">
   <div class="page-hero-inner">
-    <p class="eyebrow" data-es="TRABAJO" data-en="WORK">TRABAJO</p>
-    <h1 class="page-hero-title" data-es="Proyectos" data-en="Projects">Proyectos</h1>
+    <p class="eyebrow" data-es="TRABAJO SELECCIONADO" data-en="SELECTED WORK">TRABAJO SELECCIONADO</p>
+    <h1 class="page-h1" data-es="Proyectos" data-en="Projects">Proyectos</h1>
     <p class="page-hero-body" data-es="Identidades, experiencias digitales, exploraciones sonoras y proyectos en distintos estados de desarrollo. Cada uno representa una forma de pensar, tomar decisiones y construir." data-en="Identities, digital experiences, sonic explorations and projects at different stages of development. Each one represents a way of thinking, making decisions and building.">
       Identidades, experiencias digitales, exploraciones sonoras y proyectos en distintos estados de desarrollo. Cada uno representa una forma de pensar, tomar decisiones y construir.
     </p>
   </div>
+  <span class="page-hero-deco" aria-hidden="true">WORK</span>
 </header>
 
 <section class="section" aria-label="Lista de proyectos">
   <div class="section-inner">
     <div class="filter-bar" role="group" aria-label="Filtrar proyectos">
-      <button class="filter-btn active" data-filter="all" data-es="Todo" data-en="All">Todo</button>
-      <button class="filter-btn" data-filter="publicado" data-es="Publicados" data-en="Published">Publicados</button>
-      <button class="filter-btn" data-filter="en-desarrollo" data-es="En desarrollo" data-en="In development">En desarrollo</button>
-      <button class="filter-btn" data-filter="experimento" data-es="Experimentos" data-en="Experiments">Experimentos</button>
+      <button class="filter-btn active" data-filter="all" data-es="TODO" data-en="All">TODO</button>
+      <button class="filter-btn" data-filter="diseno-digital" data-es="DISEÑO DIGITAL" data-en="Digital Design">DISEÑO DIGITAL</button>
+      <button class="filter-btn" data-filter="audiovisual" data-es="EDICIÓN Y POST PRODUCCIÓN" data-en="Editing & Post">EDICIÓN Y POST PRODUCCIÓN</button>
+      <button class="filter-btn" data-filter="modelado-3d" data-es="MODELADO 3D" data-en="3D Modeling">MODELADO 3D</button>
+      <button class="filter-btn" data-filter="videojuegos" data-es="VIDEOJUEGOS" data-en="Games">VIDEOJUEGOS</button>
+      <button class="filter-btn" data-filter="web" data-es="PÁGINAS WEB" data-en="Web">PÁGINAS WEB</button>
     </div>
 
     <div class="work-grid">
       <!-- ALMAHI -->
-      <article class="work-card work-card-featured reveal" data-cat="publicado">
+      <article class="work-card work-card-featured reveal" data-cat="diseno-digital web">
         <div class="work-thumb">
           <div class="work-thumb-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="40" height="32" rx="2"/><polyline points="4 28 16 18 26 26 34 20 44 28"/><circle cx="16" cy="18" r="3"/></svg></div>
         </div>
@@ -93,7 +96,7 @@
       </article>
 
       <!-- AUDIO -->
-      <article class="work-card reveal" data-cat="experimento">
+      <article class="work-card reveal" data-cat="audiovisual">
         <div class="work-thumb">
           <div class="work-thumb-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><polygon points="20 17 34 24 20 31 20 17" fill="currentColor" stroke="none" opacity="0.4"/></svg></div>
         </div>
@@ -108,7 +111,7 @@
       </article>
 
       <!-- VIDEOJUEGO -->
-      <article class="work-card reveal" data-cat="en-desarrollo">
+      <article class="work-card reveal" data-cat="videojuegos">
         <div class="work-thumb">
           <div class="work-thumb-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="14" width="36" height="24" rx="4"/><line x1="18" y1="26" x2="14" y2="26"/><line x1="16" y1="24" x2="16" y2="28"/><circle cx="32" cy="24" r="2"/><circle cx="28" cy="28" r="2"/></svg></div>
         </div>
@@ -123,7 +126,7 @@
       </article>
 
       <!-- MODELADO 3D -->
-      <article class="work-card reveal" data-cat="en-desarrollo">
+      <article class="work-card reveal" data-cat="modelado-3d">
         <div class="work-thumb">
           <div class="work-thumb-placeholder"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 6 L42 16 L42 36 L24 46 L6 36 L6 16 Z"/><line x1="24" y1="6" x2="24" y2="46"/><line x1="6" y1="16" x2="42" y2="16"/><line x1="6" y1="36" x2="42" y2="36"/></svg></div>
         </div>
@@ -139,13 +142,55 @@
   </div>
 </section>
 
-<section class="contact-strip" aria-labelledby="cta-proyectos">
+<section class="contact-strip contact-strip--yellow" aria-labelledby="cta-proyectos">
   <h2 class="section-title reveal" id="cta-proyectos" data-es="¿Tienes un proyecto en mente?" data-en="Have a project in mind?">¿Tienes un proyecto en mente?</h2>
   <p class="section-body reveal" data-es="Cuéntame de qué se trata. Podemos explorar juntos si hay algo que construir." data-en="Tell me about it. We can explore together whether there's something to build.">Cuéntame de qué se trata. Podemos explorar juntos si hay algo que construir.</p>
   <div class="hero-actions reveal"><a href="/contacto/" class="btn btn-primary" data-es="Hablemos" data-en="Let's talk">Hablemos</a></div>
 </section>
 
-<footer><div class="footer-inner"><div class="footer-top"><a href="/" class="footer-brand"><svg viewBox="0 0 160 160" width="28" height="28"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/></svg>Juan González</a><nav class="footer-links"><a href="/proyectos/">Proyectos</a><a href="/sobre-mi/">Sobre mí</a><a href="/contacto/">Contacto</a><a href="/privacidad/">Privacidad</a></nav><div class="footer-social"><a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://linkedin.com/in/juangd12" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></a></div></div><div class="footer-bottom"><p class="footer-copy">© 2025 Juan González. Diseñado y desarrollado con intención.</p><p class="footer-tagline">DISEÑO · IDENTIDAD · EXPERIENCIAS DIGITALES</p></div></div></footer>
+<footer>
+  <div class="footer-headline">
+    <div>
+      <p class="footer-headline-role" data-es="DISEÑO · IDENTIDAD · EXPERIENCIAS DIGITALES" data-en="DESIGN · IDENTITY · DIGITAL EXPERIENCES">DISEÑO · IDENTIDAD · EXPERIENCIAS DIGITALES</p>
+      <p class="footer-headline-name">Juan González</p>
+    </div>
+    <a href="/contacto/" class="btn footer-cta-btn" data-es="Hablemos" data-en="Let's talk">Hablemos</a>
+  </div>
+  <div class="footer-body">
+    <div class="footer-top">
+      <a href="/" class="footer-brand">
+        <svg viewBox="0 0 160 160" width="28" height="28"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/></svg>
+        Juan González
+      </a>
+      <div class="footer-nav-group">
+        <p class="footer-nav-label" data-es="Páginas" data-en="Pages">Páginas</p>
+        <nav class="footer-links">
+          <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
+          <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
+          <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
+          <a href="/privacidad/" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+        </nav>
+      </div>
+      <div class="footer-nav-group">
+        <p class="footer-nav-label" data-es="Sígueme" data-en="Follow">Sígueme</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            Instagram
+          </a>
+          <a href="https://linkedin.com/in/juangd12" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy" data-es="© 2025 Juan González. Diseñado y desarrollado con intención." data-en="© 2025 Juan González. Designed and developed with intention.">© 2025 Juan González. Diseñado y desarrollado con intención.</p>
+      <p class="footer-tagline" data-es="COLOMBIA · DISEÑO CON PROPÓSITO" data-en="COLOMBIA · DESIGN WITH PURPOSE">COLOMBIA · DISEÑO CON PROPÓSITO</p>
+    </div>
+  </div>
+</footer>
 <div class="cursor-dot" aria-hidden="true"></div>
 <div class="cursor-ring" aria-hidden="true"></div>
 <script src="/assets/js/main.js"></script>

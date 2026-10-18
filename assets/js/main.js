@@ -6,37 +6,10 @@
 (function () {
   'use strict';
 
-  /* ── TEMA ──────────────────────────────────── */
-  function getStoredTheme() {
-    try { return localStorage.getItem('jg-theme'); } catch { return null; }
-  }
-  function setStoredTheme(t) {
-    try { localStorage.setItem('jg-theme', t); } catch {}
-  }
-  function applyTheme(t) {
-    const html = document.documentElement;
-    html.setAttribute('data-theme', t);
-    const videos = { dark: document.getElementById('video-dark'), light: document.getElementById('video-light') };
-    if (videos.dark && videos.light) {
-      videos.dark.classList.toggle('active', t === 'dark');
-      videos.light.classList.toggle('active', t === 'light');
-    }
-    setStoredTheme(t);
-  }
+  /* ── TEMA (dark-only) ──────────────────────── */
   function initTheme() {
-    const stored = getStoredTheme();
-    const sys = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-    const initial = stored || sys;
-    applyTheme(initial);
-    document.querySelectorAll('.theme-toggle').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const cur = document.documentElement.getAttribute('data-theme');
-        applyTheme(cur === 'dark' ? 'light' : 'dark');
-      });
-    });
-    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
-      if (!getStoredTheme()) applyTheme(e.matches ? 'light' : 'dark');
-    });
+    document.documentElement.setAttribute('data-theme', 'dark');
+    try { localStorage.removeItem('jg-theme'); } catch {}
   }
 
   /* ── CURSOR ────────────────────────────────── */
@@ -122,22 +95,19 @@
     }
   }
 
-  /* ── VIDEO HERO ────────────────────────────── */
+  /* ── VIDEO HERO (dark-only) ────────────────── */
   function initVideo() {
     const vd = document.getElementById('video-dark');
+    if (!vd) return;
+    vd.load();
+    vd.muted = true;
+    vd.playsInline = true;
+    vd.loop = true;
+    vd.classList.add('active');
+    vd.play().catch(() => {});
+    // Ocultar video-light si existe
     const vl = document.getElementById('video-light');
-    if (!vd || !vl) return;
-    [vd, vl].forEach(v => { v.load(); v.muted = true; v.playsInline = true; v.loop = true; });
-    function tryPlay(v) { if (v) v.play().catch(() => {}); }
-    const cur = document.documentElement.getAttribute('data-theme');
-    if (cur === 'light') { vl.classList.add('active'); tryPlay(vl); }
-    else { vd.classList.add('active'); tryPlay(vd); }
-    const observer = new MutationObserver(() => {
-      const t = document.documentElement.getAttribute('data-theme');
-      if (t === 'light') { vl.classList.add('active'); vd.classList.remove('active'); tryPlay(vl); vd.pause(); }
-      else { vd.classList.add('active'); vl.classList.remove('active'); tryPlay(vd); vl.pause(); }
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    if (vl) { vl.classList.remove('active'); vl.pause(); }
   }
 
   /* ── FILTROS PROYECTOS ─────────────────────── */
