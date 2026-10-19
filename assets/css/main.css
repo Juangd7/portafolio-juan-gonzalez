@@ -827,9 +827,12 @@ body.cursor-hover .cursor-ring {
   overflow: hidden;
   background: var(--bg2);
 }
-.bio-visual img {
+.bio-visual img,
+.bio-photo {
   width: 100%; height: 100%;
   object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 .bio-placeholder {
   width: 100%; height: 100%;
