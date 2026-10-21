@@ -434,25 +434,24 @@ body.cursor-hover .cursor-ring {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border-radius: var(--radius);
-  transition: all 0.2s var(--easing);
+  position: relative;
+  overflow: hidden;
   white-space: nowrap;
-  /* Liquid Carve: necesario para el SVG overlay */
-  position: relative;
-  overflow: visible;
-}
-/* El texto y SVG internos del botón quedan sobre el overlay liquid */
-.btn > *:not(svg[aria-hidden]) {
-  position: relative;
-  z-index: 1;
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
 }
 .btn-primary {
   background: var(--accent);
   color: #000;
 }
 .btn-primary:hover {
-  background: var(--accent);  /* Liquid Carve toma el hover visual */
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(255,237,0,0.25);
+  background: #ffe500;
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(255,237,0,0.30);
 }
 .btn-outline {
   border: 1px solid var(--border2);
@@ -461,7 +460,7 @@ body.cursor-hover .cursor-ring {
 .btn-outline:hover {
   border-color: var(--accent);
   color: var(--accent);
-  transform: translateY(-1px);
+  transform: scale(1.03);
 }
 .btn-text {
   color: var(--accent);
@@ -472,42 +471,9 @@ body.cursor-hover .cursor-ring {
 .btn-text:hover { gap: 0.7rem; }
 .btn-text svg { width: 14px; height: 14px; }
 
-/* ─── LIQUID CARVE: estados accesibles ───────────────────────────────── */
-/* Filtros de botones de proyectos */
-.filter-btn {
-  position: relative;
-  overflow: visible;
-}
-.filter-btn > *:not(svg[aria-hidden]) {
-  position: relative;
-  z-index: 1;
-}
-/* Contact direct links */
-.contact-direct-link {
-  position: relative;
-  overflow: visible;
-}
-.contact-direct-link > *:not(svg[aria-hidden]) {
-  position: relative;
-  z-index: 1;
-}
-/* Submit en formulario */
-button[type="submit"].btn {
-  position: relative;
-  overflow: visible;
-}
-button[type="submit"].btn > *:not(svg[aria-hidden]) {
-  position: relative;
-  z-index: 1;
-}
-/* Reduced motion: desactivar efecto */
 @media (prefers-reduced-motion: reduce) {
-  .btn svg[aria-hidden],
-  .filter-btn svg[aria-hidden],
-  .contact-direct-link svg[aria-hidden],
-  button[type="submit"] svg[aria-hidden] {
-    display: none;
-  }
+  .btn { transition: none; }
+  .btn:hover { transform: none; }
 }
 
 /* ─── MARQUEE ────────────────────────────── */
@@ -932,6 +898,7 @@ button[type="submit"].btn > *:not(svg[aria-hidden]) {
   background: var(--accent2);
   border-color: var(--accent2);
   color: #ffffff;
+  transform: scale(1.03);
 }
 .contact-strip--yellow .btn-secondary,
 .contact-strip--yellow .btn-outline {
@@ -944,6 +911,7 @@ button[type="submit"].btn > *:not(svg[aria-hidden]) {
   background: var(--accent2);
   border-color: var(--accent2);
   color: #ffffff;
+  transform: scale(1.03);
 }
 
 /* ─── FOOTER ─────────────────────────────── */
