@@ -436,13 +436,21 @@ body.cursor-hover .cursor-ring {
   border-radius: var(--radius);
   transition: all 0.2s var(--easing);
   white-space: nowrap;
+  /* Liquid Carve: necesario para el SVG overlay */
+  position: relative;
+  overflow: visible;
+}
+/* El texto y SVG internos del botón quedan sobre el overlay liquid */
+.btn > *:not(svg[aria-hidden]) {
+  position: relative;
+  z-index: 1;
 }
 .btn-primary {
   background: var(--accent);
   color: #000;
 }
 .btn-primary:hover {
-  background: #fff;
+  background: var(--accent);  /* Liquid Carve toma el hover visual */
   transform: translateY(-1px);
   box-shadow: 0 8px 24px rgba(255,237,0,0.25);
 }
@@ -463,6 +471,44 @@ body.cursor-hover .cursor-ring {
 }
 .btn-text:hover { gap: 0.7rem; }
 .btn-text svg { width: 14px; height: 14px; }
+
+/* ─── LIQUID CARVE: estados accesibles ───────────────────────────────── */
+/* Filtros de botones de proyectos */
+.filter-btn {
+  position: relative;
+  overflow: visible;
+}
+.filter-btn > *:not(svg[aria-hidden]) {
+  position: relative;
+  z-index: 1;
+}
+/* Contact direct links */
+.contact-direct-link {
+  position: relative;
+  overflow: visible;
+}
+.contact-direct-link > *:not(svg[aria-hidden]) {
+  position: relative;
+  z-index: 1;
+}
+/* Submit en formulario */
+button[type="submit"].btn {
+  position: relative;
+  overflow: visible;
+}
+button[type="submit"].btn > *:not(svg[aria-hidden]) {
+  position: relative;
+  z-index: 1;
+}
+/* Reduced motion: desactivar efecto */
+@media (prefers-reduced-motion: reduce) {
+  .btn svg[aria-hidden],
+  .filter-btn svg[aria-hidden],
+  .contact-direct-link svg[aria-hidden],
+  button[type="submit"] svg[aria-hidden] {
+    display: none;
+  }
+}
 
 /* ─── MARQUEE ────────────────────────────── */
 .marquee-wrap {
@@ -1411,12 +1457,71 @@ footer {
 
 @media (max-width: 768px) {
   :root { --nav-h: 62px; }
+
+  /* ── NAVBAR MOBILE FIX ── */
   .nav-links, .lang-toggle { display: none; }
   .nav-dropdown { display: none; }
-  .hamburger { display: flex; }
+  /* El nav-logo queda a la izquierda (flex natural).
+     nav-controls recibe margin-left:auto para empujar el hamburger a la derecha. */
+  .nav-controls {
+    margin-left: auto;
+    gap: 0.5rem;
+  }
+  .hamburger {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  /* ── HERO MOBILE: suprimir video, mostrar imagen estática ── */
+  /* Ocultar ambos videos en mobile — ni cargan ni reproducen gracias al <source> condicional via JS,
+     pero también los ocultamos visualmente en caso de que JS falle */
+  .hero-video { display: none !important; }
+
+  /* ── Imagen cinematográfica Batman JG — hero móvil oscuro ── */
+  /* La imagen es vertical (1438×2576): símbolo JG arriba, ciudad en medio, negro abajo.
+     Usamos un <img> inyectado por JS para mejor control, pero el CSS es el respaldo. */
+  .hero-media-img-mobile {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Encuadre: centrado horizontalmente, alineado al top para preservar el símbolo JG */
+    object-position: center top;
+    z-index: 0;
+  }
+
+  /* Gradiente sobre la imagen: transparente en el centro (símbolo+ciudad),
+     oscuro abajo donde va el texto, leve velo arriba para el navbar */
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.35) 0%,       /* velo sutil para el navbar */
+      rgba(0,0,0,0.0)  18%,      /* símbolo JG totalmente libre */
+      rgba(0,0,0,0.0)  45%,      /* ciudad visible */
+      rgba(0,0,0,0.55) 62%,      /* transición suave */
+      rgba(0,0,0,0.90) 78%,      /* zona de texto */
+      rgba(0,0,0,0.97) 100%      /* base negra para botones */
+    );
+    z-index: 1;
+  }
+
+  /* Hero layout ajustado para mobile */
+  .hero {
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding-top: calc(var(--nav-h) + 2.5rem);
+    padding-bottom: clamp(2.5rem, 10vw, 4rem);
+    padding-left: clamp(1.25rem, 5vw, 2rem);
+    padding-right: clamp(1.25rem, 5vw, 2rem);
+    justify-content: flex-end;
+  }
 
   .hero-title { font-size: clamp(2.25rem, 9vw, 3.5rem); }
-  .hero-body { font-size: 0.9375rem; }
+  .hero-body {
+    font-size: 0.9375rem;
+    max-width: 100%;
+  }
   .hero-scroll { display: none; }
 
   .stats-strip { grid-template-columns: repeat(2, 1fr); }
@@ -1578,4 +1683,328 @@ footer {
   .footer-links { flex-wrap: wrap; gap: 0.75rem; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
   .footer-logo-center svg { width: 100px; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CARRUSEL INFINITO DE HERRAMIENTAS
+   Sección: .tools-section-redesign
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Wrapper de la franja ──────────────────────────────────── */
+.tools-track-wrapper {
+  position: relative;
+  width: 100%;
+  /* Sangría lateral para que la franja negra toque casi los bordes */
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  overflow: hidden;           /* oculta lo que sale por los lados */
+}
+
+/* Gradiente de desvanecimiento en los bordes (efecto editorial) */
+.tools-track-wrapper::before,
+.tools-track-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.tools-track-wrapper::before {
+  left: 1.5rem;
+  background: linear-gradient(to right, #FFED00, transparent);
+}
+.tools-track-wrapper::after {
+  right: 1.5rem;
+  background: linear-gradient(to left, #FFED00, transparent);
+}
+
+/* ── Pista (contenedor en movimiento) ─────────────────────── */
+.tools-track {
+  display: flex;
+  flex-direction: row;        /* dos strips side by side */
+  width: max-content;         /* se expande cuanto necesite */
+  animation: tools-scroll 30s linear infinite;
+  will-change: transform;
+  background: #000000;
+  border-radius: 1rem;
+  padding: 1.25rem 0;
+}
+
+/* ── Keyframe del scroll ──────────────────────────────────── */
+@keyframes tools-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }   /* -50% porque la pista se duplica */
+}
+
+/* ── Strip interno (lista de logos) ──────────────────────── */
+.tools-strip {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;                     /* el gap lo pone el padding de cada logo */
+  flex-shrink: 0;             /* no colapsar */
+}
+
+/* ── Slot de cada logo ─────────────────────────────────────
+   CLAVE: el slot NO recibe transform en hover.
+   El hover se aplica al ::inner para no interferir con la animación.
+   ──────────────────────────────────────────────────────── */
+.tools-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 64px;
+  padding: 0 20px;
+  box-sizing: content-box;
+  flex-shrink: 0;
+  cursor: default;
+  outline: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* Separador visual sutil entre logos */
+.tools-logo + .tools-logo::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 16%;
+  height: 68%;
+  width: 1px;
+  background: rgba(255,255,255,0.08);
+}
+
+/* ── Wrapper visual interno — aquí va la microanimación ──── */
+.tools-logo__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 220ms ease, filter 220ms ease;
+  will-change: transform, filter;
+}
+
+.tools-logo__inner svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  fill: white;
+  max-width: 56px;
+  max-height: 44px;
+}
+
+/* Hover: solo afecta al wrapper interno, NO al slot externo */
+@media (hover: hover) and (pointer: fine) {
+  .tools-logo:hover .tools-logo__inner,
+  .tools-logo:focus-visible .tools-logo__inner {
+    transform: translateY(-3px) scale(1.1);
+    filter: brightness(1.15) drop-shadow(0 0 8px rgba(255,255,255,0.45));
+  }
+}
+
+/* Focus visible para teclado */
+.tools-logo:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.5);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ── Tooltip flotante ─────────────────────────────────────── */
+#tools-tooltip {
+  position: absolute;
+  z-index: 9999;
+  background: rgba(0,0,0,0.88);
+  color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 5px 10px;
+  border-radius: 6px;
+  pointer-events: none;
+  white-space: nowrap;
+  transform: translateX(-50%) translateY(-100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  letter-spacing: 0.02em;
+}
+#tools-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0,0,0,0.88);
+}
+
+/* ── Espaciado de la sección (sin .section-inner para la franja) */
+.tools-section-redesign > .section-inner {
+  margin-bottom: 2rem;
+}
+.tools-section-redesign {
+  padding-bottom: 4rem;
+}
+
+/* ── prefers-reduced-motion ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .tools-track {
+    animation: none !important;
+    /* mostrar como fila estática que hace wrap */
+    width: 100%;
+    flex-wrap: wrap;
+    height: auto;
+    padding: 1.25rem;
+    gap: 0.5rem;
+    border-radius: 1rem;
+  }
+  .tools-strip {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .tools-strip--clone {
+    display: none !important;  /* ocultar el clon, no hace falta para estático */
+  }
+  .tools-logo__inner {
+    transition: none !important;
+  }
+}
+
+/* ── Responsive móvil ─────────────────────────────────────── */
+@media (max-width: 640px) {
+  .tools-track-wrapper {
+    padding: 0 1rem;
+  }
+  .tools-track-wrapper::before { left: 1rem; width: 48px; }
+  .tools-track-wrapper::after  { right: 1rem; width: 48px; }
+
+  .tools-logo {
+    width: 64px;
+    height: 52px;
+    padding: 0 14px;
+  }
+  .tools-logo__inner svg {
+    max-width: 42px;
+    max-height: 34px;
+  }
+  .tools-track {
+    padding: 1rem 0;
+    animation-duration: 22s;  /* un poco más rápido en móvil */
+  }
+}
+
+/* =====================================================
+   MOBILE HERO & NAVBAR — OPTIMIZACIÓN MÓVIL
+   Breakpoints: 360px, 390px, 430px
+   ===================================================== */
+
+/* ── 430px y menos ───────────────────────────────────── */
+@media (max-width: 430px) {
+  /* Navbar: padding horizontal reducido */
+  .nav {
+    padding: 0 0.75rem 0 1rem;
+    width: calc(100% - 1.5rem);
+  }
+  .nav-logo {
+    gap: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .nav-logo svg { width: 26px; height: 26px; }
+
+  /* Hero: contenido pegado a la parte inferior con espacio suficiente */
+  .hero {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-bottom: 2.5rem;
+  }
+  .hero-eyebrow {
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 2.75rem);
+    margin-bottom: 1.25rem;
+  }
+  .hero-body {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+  }
+  .hero-micro {
+    font-size: 0.7rem;
+    margin-top: 1rem;
+  }
+}
+
+/* ── 390px y menos ───────────────────────────────────── */
+@media (max-width: 390px) {
+  .nav {
+    width: calc(100% - 1.25rem);
+    padding: 0 0.625rem 0 0.875rem;
+  }
+  .nav-logo span {
+    /* Acortar el nombre si no cabe — mostrar solo el monograma en 360px */
+    font-size: 0.8125rem;
+  }
+  .hero-title {
+    font-size: clamp(1.875rem, 10.5vw, 2.5rem);
+  }
+}
+
+/* ── 360px (pantalla más estrecha objetivo) ──────────── */
+@media (max-width: 360px) {
+  .nav {
+    padding: 0 0.5rem 0 0.75rem;
+    width: calc(100% - 1rem);
+  }
+  /* Ocultar el texto del nombre y mostrar solo el monograma */
+  .nav-logo span {
+    display: none;
+  }
+  .hero {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .hero-title {
+    font-size: clamp(1.75rem, 11vw, 2.25rem);
+  }
+  .hero-eyebrow {
+    font-size: 0.625rem;
+    letter-spacing: 0.12em;
+  }
+}
+
+/* ── Prevenir video en mobile a nivel JS (respaldo CSS) ── */
+/* Los videos quedan display:none en ≤768px.
+   Esta regla asegura que no consuman ancho/alto ni causen layout shift */
+@media (max-width: 768px) {
+  .hero-media {
+    /* La imagen estática vive en ::after, pero el container
+       sigue siendo position:absolute inset:0 — correcto */
+    background: #000;
+  }
+  /* Evitar desbordamiento horizontal global */
+  body { overflow-x: hidden; }
+
+  /* Botones: suficiente área táctil */
+  .btn { min-height: 48px; }
+
+  /* Hero-actions: separación clara entre botones */
+  .hero-actions {
+    gap: 0.875rem;
+  }
 }

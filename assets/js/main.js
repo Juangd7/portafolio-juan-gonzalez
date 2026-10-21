@@ -95,9 +95,64 @@
     }
   }
 
-  /* ── VIDEO HERO (dark-only) ────────────────── */
+  /* ── VIDEO HERO (dark-only, desktop only) / IMAGEN ESTÁTICA MÓVIL ── */
   function initVideo() {
+    const isMobile = window.innerWidth <= 768 ||
+                     window.matchMedia('(pointer: coarse)').matches;
     const vd = document.getElementById('video-dark');
+    const vl = document.getElementById('video-light');
+
+    if (isMobile) {
+      // Suprimir descarga de video: quitar <source> antes de .load()
+      if (vd) { vd.querySelectorAll('source').forEach(s => s.remove()); vd.load(); }
+      if (vl) { vl.querySelectorAll('source').forEach(s => s.remove()); vl.load(); }
+
+      // Inyectar imagen cinematográfica como fondo del hero
+      const heroMedia = document.querySelector('.hero-media');
+      if (heroMedia && !heroMedia.querySelector('.hero-media-img-mobile')) {
+        const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+        // dark → Batman JG cinematic | light → foto natural
+        const imgSrc = theme === 'light'
+          ? '/assets/img/foto-juan.jpg'
+          : '/assets/img/hero-mobile-dark.webp';
+
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = '';
+        img.setAttribute('aria-hidden', 'true');
+        img.className = 'hero-media-img-mobile';
+        img.decoding = 'async';
+        img.fetchPriority = 'high';
+
+        // Insertar antes del hero-overlay para que quede debajo del gradiente
+        const overlay = heroMedia.querySelector('.hero-overlay');
+        if (overlay) {
+          heroMedia.insertBefore(img, overlay);
+        } else {
+          heroMedia.prepend(img);
+        }
+
+        // Escuchar cambios de tema para intercambiar imagen con transición suave
+        const observer = new MutationObserver(() => {
+          const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+          const nextSrc = currentTheme === 'light'
+            ? '/assets/img/foto-juan.jpg'
+            : '/assets/img/hero-mobile-dark.webp';
+          if (img.src !== nextSrc && !img.src.endsWith(nextSrc)) {
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.4s ease';
+            setTimeout(() => {
+              img.src = nextSrc;
+              img.style.opacity = '1';
+            }, 220);
+          }
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+      }
+      return;
+    }
+
+    // Desktop: video normal
     if (!vd) return;
     vd.load();
     vd.muted = true;
@@ -105,8 +160,6 @@
     vd.loop = true;
     vd.classList.add('active');
     vd.play().catch(() => {});
-    // Ocultar video-light si existe
-    const vl = document.getElementById('video-light');
     if (vl) { vl.classList.remove('active'); vl.pause(); }
   }
 
