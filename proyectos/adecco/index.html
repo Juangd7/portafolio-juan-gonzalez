@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo-j-amarillo.svg">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
 
@@ -133,22 +134,26 @@
     .btn-volver { display: inline-flex; align-items: center; gap: 8px; background: var(--yellow); color: var(--black); font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.875rem; padding: 14px 28px; transition: opacity 0.2s; letter-spacing: 0.05em; }
     .btn-volver:hover { opacity: 0.85; }
 
-    /* FOOTER */
-    footer { background: var(--black); color: var(--white); padding: 48px 24px 32px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; }
-    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 32px; }
-    .footer-nav-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
-    .footer-links { display: flex; flex-direction: column; gap: 8px; }
-    .footer-links a { font-size: 0.875rem; color: rgba(255,255,255,0.7); transition: color 0.2s; }
-    .footer-links a:hover { color: var(--yellow); }
-    .footer-logo-center svg { width: 48px; height: 48px; }
-    .footer-social { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
-    .footer-social a { font-size: 0.875rem; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
-    .footer-social a:hover { color: var(--yellow); }
-    .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
-    .footer-tagline { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; color: rgba(255,255,255,0.2); }
+    /* FOOTER — global morado (igual que main.css) */
+    footer { background: #662483; color: #ffffff; padding: 0; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; padding: 0 clamp(1.5rem,5vw,3rem); }
+    .footer-body { padding: 0; }
+    .footer-top { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 3rem; padding: 3rem 0 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.2); margin-bottom: 1.5rem; }
+    .footer-nav-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-nav-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #FFED00; margin-bottom: 0.5rem; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.625rem; }
+    .footer-links a { font-family: 'Poppins', sans-serif; font-size: 0.9375rem; font-weight: 700; text-transform: uppercase; color: #ffffff; letter-spacing: 0.04em; transition: color 0.2s; }
+    .footer-links a:hover { color: #FFED00; }
+    .footer-logo-center { display: flex; justify-content: center; align-items: center; }
+    .footer-logo-center svg { width: clamp(150px,20vw,240px); height: auto; }
+    .footer-social { display: flex; flex-direction: column; gap: 0.625rem; align-items: flex-end; }
+    .footer-social a { display: inline-flex; align-items: center; gap: 0.55rem; background: #ffffff; color: #000000; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.45rem 1rem 0.45rem 0.75rem; border-radius: 999px; transition: background 0.2s, color 0.2s; text-decoration: none; min-width: 145px; }
+    .footer-social a svg { width: 16px; height: 16px; fill: currentColor; flex-shrink: 0; }
+    .footer-social a:hover { background: #FFED00; color: #000000; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 1.25rem 0 2rem; }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.55); }
+    .footer-tagline { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+    @media (max-width: 768px) { .footer-top { grid-template-columns: 1fr; gap: 2rem; } .footer-social { align-items: flex-start; } .footer-logo-center svg { width: 100px; } }
 
     @media (max-width: 430px) {
       .hero { padding: 56px 16px 48px; }
@@ -201,24 +206,20 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <p class="hero-eyebrow">Caso de Estudio — Diseño Social</p>
-    <h1 class="hero-title">Piezas gráficas<br>para <em>Adecco Colombia</em></h1>
-    <p class="hero-desc">Diseño de contenido visual para múltiples campañas: comunicaciones internas, redes sociales y activaciones de marca para clientes del sector empresarial colombiano.</p>
-    <div class="hero-img">
-      <img src="/assets/proyectos/adecco/previews/pieza-12-banco-agrario-piezas-01.webp" alt="Pieza gráfica representativa del proyecto Adecco Colombia" loading="eager">
-      <p class="hero-img-caption">Muestra representativa — Piezas para Banco Agrario vía Adecco Colombia</p>
-    </div>
+    <p class="hero-eyebrow" data-es="Caso de Estudio — Diseño Social" data-en="Case Study — Social Design">Caso de Estudio — Diseño Social</p>
+    <h1 class="hero-title" data-es-html="Piezas gráficas<br>para <em>Adecco Colombia</em>" data-en-html="Graphic pieces<br>for <em>Adecco Colombia</em>">Piezas gráficas<br>para <em>Adecco Colombia</em></h1>
+    <p class="hero-desc" data-es="Diseño de contenido visual para múltiples campañas: comunicaciones internas, redes sociales y activaciones de marca para clientes del sector empresarial colombiano." data-en="Visual content design for multiple campaigns: internal communications, social media, and brand activations for clients in the Colombian business sector.">Diseño de contenido visual para múltiples campañas: comunicaciones internas, redes sociales y activaciones de marca para clientes del sector empresarial colombiano.</p>
   </div>
 </section>
 
 <div class="ficha">
   <div class="ficha-inner">
-    <div class="ficha-item"><p class="ficha-label">Cliente</p><p class="ficha-value">Adecco Colombia</p></div>
-    <div class="ficha-item"><p class="ficha-label">Rol</p><p class="ficha-value">Diseñador Hipermedia</p></div>
-    <div class="ficha-item"><p class="ficha-label">Tipo</p><p class="ficha-value">Contenido para RRSS</p></div>
-    <div class="ficha-item"><p class="ficha-label">Campañas</p><p class="ficha-value">11 campañas</p></div>
-    <div class="ficha-item"><p class="ficha-label">Piezas</p><p class="ficha-value">55 piezas gráficas</p></div>
-    <div class="ficha-item"><p class="ficha-label">Herramientas</p><p class="ficha-value">Adobe Illustrator, Photoshop</p></div>
+    <div class="ficha-item"><p class="ficha-label" data-es="Cliente" data-en="Client">Cliente</p><p class="ficha-value">Adecco Colombia</p></div>
+    <div class="ficha-item"><p class="ficha-label" data-es="Rol" data-en="Role">Rol</p><p class="ficha-value" data-es="Diseñador Hipermedia" data-en="Hypermedia Designer">Diseñador Hipermedia</p></div>
+    <div class="ficha-item"><p class="ficha-label" data-es="Tipo" data-en="Type">Tipo</p><p class="ficha-value" data-es="Contenido para RRSS" data-en="Social Media Content">Contenido para RRSS</p></div>
+    <div class="ficha-item"><p class="ficha-label" data-es="Campañas" data-en="Campaigns">Campañas</p><p class="ficha-value" data-es="11 campañas" data-en="11 campaigns">11 campañas</p></div>
+    <div class="ficha-item"><p class="ficha-label" data-es="Piezas" data-en="Pieces">Piezas</p><p class="ficha-value" data-es="55 piezas gráficas" data-en="55 graphic pieces">55 piezas gráficas</p></div>
+    <div class="ficha-item"><p class="ficha-label" data-es="Herramientas" data-en="Tools">Herramientas</p><p class="ficha-value">Adobe Illustrator, Photoshop</p></div>
   </div>
 </div>
 
@@ -226,14 +227,14 @@
   <div class="section-inner">
     <div class="two-col">
       <div>
-        <p class="section-label">Contexto</p>
-        <h2 class="section-title">Un cliente, múltiples empresas</h2>
-        <p class="section-body">Adecco Colombia es una empresa de gestión de talento humano que trabaja con distintas organizaciones del sector privado y público. Como parte del equipo creativo, fui responsable del diseño de piezas gráficas para sus campañas de comunicación interna y externa, adaptando la identidad visual de cada empresa cliente a formatos digitales.</p>
+        <p class="section-label" data-es="Contexto" data-en="Context">Contexto</p>
+        <h2 class="section-title" data-es="Un cliente, múltiples empresas" data-en="One client, multiple companies">Un cliente, múltiples empresas</h2>
+        <p class="section-body" data-es="Adecco Colombia es una empresa de gestión de talento humano que trabaja con distintas organizaciones del sector privado y público. Como parte del equipo creativo, fui responsable del diseño de piezas gráficas para sus campañas de comunicación interna y externa, adaptando la identidad visual de cada empresa cliente a formatos digitales." data-en="Adecco Colombia is a human talent management company that works with various private and public sector organizations. As part of the creative team, I was responsible for designing graphic pieces for their internal and external communication campaigns, adapting each client company's visual identity to digital formats.">Adecco Colombia es una empresa de gestión de talento humano que trabaja con distintas organizaciones del sector privado y público. Como parte del equipo creativo, fui responsable del diseño de piezas gráficas para sus campañas de comunicación interna y externa, adaptando la identidad visual de cada empresa cliente a formatos digitales.</p>
       </div>
       <div>
-        <p class="section-label">Alcance</p>
-        <h2 class="section-title">11 campañas activas</h2>
-        <p class="section-body">El proyecto abarca campañas para empresas como Almahi, Banco Agrario, Canamor, Mattilda, Superpay y Vitaa, entre otras. Cada campaña requirió adaptar el tono visual al cliente final, manteniendo siempre la coherencia editorial y los estándares de calidad exigidos por Adecco.</p>
+        <p class="section-label" data-es="Alcance" data-en="Scope">Alcance</p>
+        <h2 class="section-title" data-es="11 campañas activas" data-en="11 active campaigns">11 campañas activas</h2>
+        <p class="section-body" data-es="El proyecto abarca campañas para empresas como Almahi, Banco Agrario, Canamor, Mattilda, Superpay y Vitaa, entre otras. Cada campaña requirió adaptar el tono visual al cliente final, manteniendo siempre la coherencia editorial y los estándares de calidad exigidos por Adecco." data-en="The project covers campaigns for companies such as Almahi, Banco Agrario, Canamor, Mattilda, Superpay and Vitaa, among others. Each campaign required adapting the visual tone to the end client, always maintaining the editorial coherence and quality standards required by Adecco.">El proyecto abarca campañas para empresas como Almahi, Banco Agrario, Canamor, Mattilda, Superpay y Vitaa, entre otras. Cada campaña requirió adaptar el tono visual al cliente final, manteniendo siempre la coherencia editorial y los estándares de calidad exigidos por Adecco.</p>
       </div>
     </div>
   </div>
@@ -241,33 +242,33 @@
 
 <section class="section section--grey">
   <div class="section-inner">
-    <p class="section-label">Objetivo</p>
-    <h2 class="section-title">¿Qué se buscaba comunicar?</h2>
+    <p class="section-label" data-es="Objetivo" data-en="Objective">Objetivo</p>
+    <h2 class="section-title" data-es="¿Qué se buscaba comunicar?" data-en="What was the goal?">¿Qué se buscaba comunicar?</h2>
     <ul class="objetivos-list">
-      <li><span class="obj-num">01</span><span>Diseñar contenido visual coherente con la identidad de cada empresa cliente, respetando sus paletas de color, tipografías y tono de comunicación.</span></li>
-      <li><span class="obj-num">02</span><span>Producir piezas en alta resolución (2250–5000 px) optimizadas para publicación en redes sociales y canales digitales.</span></li>
-      <li><span class="obj-num">03</span><span>Generar series de piezas temáticas por campaña con coherencia visual entre cada entrega.</span></li>
-      <li><span class="obj-num">04</span><span>Mantener un flujo de producción ágil y eficiente, con entregas constantes a lo largo del proyecto.</span></li>
+      <li><span class="obj-num">01</span><span data-es="Diseñar contenido visual coherente con la identidad de cada empresa cliente, respetando sus paletas de color, tipografías y tono de comunicación." data-en="Design visual content consistent with each client company's identity, respecting their color palettes, typography and communication tone.">Diseñar contenido visual coherente con la identidad de cada empresa cliente, respetando sus paletas de color, tipografías y tono de comunicación.</span></li>
+      <li><span class="obj-num">02</span><span data-es="Producir piezas en alta resolución (2250–5000 px) optimizadas para publicación en redes sociales y canales digitales." data-en="Produce high-resolution pieces (2250–5000 px) optimized for publishing on social media and digital channels.">Producir piezas en alta resolución (2250–5000 px) optimizadas para publicación en redes sociales y canales digitales.</span></li>
+      <li><span class="obj-num">03</span><span data-es="Generar series de piezas temáticas por campaña con coherencia visual entre cada entrega." data-en="Generate thematic piece series per campaign with visual consistency across each delivery.">Generar series de piezas temáticas por campaña con coherencia visual entre cada entrega.</span></li>
+      <li><span class="obj-num">04</span><span data-es="Mantener un flujo de producción ágil y eficiente, con entregas constantes a lo largo del proyecto." data-en="Maintain an agile and efficient production flow, with constant deliveries throughout the project.">Mantener un flujo de producción ágil y eficiente, con entregas constantes a lo largo del proyecto.</span></li>
     </ul>
   </div>
 </section>
 
 <section class="section">
   <div class="section-inner">
-    <p class="section-label">Dirección Visual</p>
-    <h2 class="section-title">Adaptación por marca</h2>
-    <p class="section-body" style="margin-bottom:32px;">Cada campaña tiene su propia identidad cromática y tipográfica. El trabajo consistió en absorber los lineamientos visuales de cada cliente y traducirlos en piezas que funcionaran tanto en feed como en formatos de carrusel o historia.</p>
+    <p class="section-label" data-es="Dirección Visual" data-en="Visual Direction">Dirección Visual</p>
+    <h2 class="section-title" data-es="Adaptación por marca" data-en="Brand adaptation">Adaptación por marca</h2>
+    <p class="section-body" style="margin-bottom:32px;" data-es="Cada campaña tiene su propia identidad cromática y tipográfica. El trabajo consistió en absorber los lineamientos visuales de cada cliente y traducirlos en piezas que funcionaran tanto en feed como en formatos de carrusel o historia." data-en="Each campaign has its own chromatic and typographic identity. The work consisted of absorbing each client's visual guidelines and translating them into pieces that worked both in feed and carousel or story formats.">Cada campaña tiene su propia identidad cromática y tipográfica. El trabajo consistió en absorber los lineamientos visuales de cada cliente y traducirlos en piezas que funcionaran tanto en feed como en formatos de carrusel o historia.</p>
     <div class="two-col">
       <div>
-        <p class="section-label" style="margin-bottom:16px;">Sistema de formatos</p>
+        <p class="section-label" style="margin-bottom:16px;" data-es="Sistema de formatos" data-en="Format system">Sistema de formatos</p>
         <ul class="objetivos-list">
-          <li><span class="obj-num" style="font-size:0.7rem;">4:5</span><span>Formato principal para feed de Instagram y LinkedIn (2250 × 2813 px)</span></li>
-          <li><span class="obj-num" style="font-size:0.7rem;">1:1</span><span>Formato cuadrado para carruseles e historias cortas (5000 × 5000 px)</span></li>
-          <li><span class="obj-num" style="font-size:0.7rem;">4:5</span><span>Formato extendido para piezas premium de mayor impacto (4500 × 5625 px)</span></li>
+          <li><span class="obj-num" style="font-size:0.7rem;">4:5</span><span data-es="Formato principal para feed de Instagram y LinkedIn (2250 × 2813 px)" data-en="Main format for Instagram and LinkedIn feed (2250 × 2813 px)">Formato principal para feed de Instagram y LinkedIn (2250 × 2813 px)</span></li>
+          <li><span class="obj-num" style="font-size:0.7rem;">1:1</span><span data-es="Formato cuadrado para carruseles e historias cortas (5000 × 5000 px)" data-en="Square format for carousels and short stories (5000 × 5000 px)">Formato cuadrado para carruseles e historias cortas (5000 × 5000 px)</span></li>
+          <li><span class="obj-num" style="font-size:0.7rem;">4:5</span><span data-es="Formato extendido para piezas premium de mayor impacto (4500 × 5625 px)" data-en="Extended format for premium high-impact pieces (4500 × 5625 px)">Formato extendido para piezas premium de mayor impacto (4500 × 5625 px)</span></li>
         </ul>
       </div>
       <div>
-        <p class="section-label" style="margin-bottom:16px;">Paletas representativas</p>
+        <p class="section-label" style="margin-bottom:16px;" data-es="Paletas representativas" data-en="Representative palettes">Paletas representativas</p>
         <div class="palette-row">
           <div class="swatch"><div class="swatch-color" style="background:#E30613;"></div><span class="swatch-label">Almahi</span></div>
           <div class="swatch"><div class="swatch-color" style="background:#006937;"></div><span class="swatch-label">B. Agrario</span></div>
@@ -283,129 +284,82 @@
 
 <section class="section section--dark">
   <div class="section-inner">
-    <p class="section-label">Proceso</p>
-    <h2 class="section-title" style="color:var(--white);">De briefing a pieza final</h2>
-    <p class="section-body">El proceso creativo en cada campaña siguió una secuencia definida, adaptando los tiempos según la urgencia de cada entrega.</p>
+    <p class="section-label" data-es="Proceso" data-en="Process">Proceso</p>
+    <h2 class="section-title" style="color:var(--white);" data-es="De briefing a pieza final" data-en="From briefing to final piece">De briefing a pieza final</h2>
+    <p class="section-body" data-es="El proceso creativo en cada campaña siguió una secuencia definida, adaptando los tiempos según la urgencia de cada entrega." data-en="The creative process in each campaign followed a defined sequence, adapting the timeline according to the urgency of each delivery.">El proceso creativo en cada campaña siguió una secuencia definida, adaptando los tiempos según la urgencia de cada entrega.</p>
     <div class="proceso-steps">
-      <div class="paso"><p class="paso-num">01</p><p class="paso-title">Recepción del brief</p><p class="paso-desc">Revisión de los lineamientos del cliente, referentes visuales y requerimientos de canal.</p></div>
-      <div class="paso"><p class="paso-num">02</p><p class="paso-title">Recopilación de assets</p><p class="paso-desc">Descarga de logos, tipografías y elementos de marca proporcionados por el cliente o Adecco.</p></div>
-      <div class="paso"><p class="paso-num">03</p><p class="paso-title">Diseño y composición</p><p class="paso-desc">Construcción de las piezas en Adobe Illustrator o Photoshop según el tipo de contenido.</p></div>
-      <div class="paso"><p class="paso-num">04</p><p class="paso-title">Exportación</p><p class="paso-desc">Exportación en alta resolución para versiones de impresión y optimizadas para web.</p></div>
+      <div class="paso"><p class="paso-num">01</p><p class="paso-title" data-es="Recepción del brief" data-en="Brief reception">Recepción del brief</p><p class="paso-desc" data-es="Revisión de los lineamientos del cliente, referentes visuales y requerimientos de canal." data-en="Review of client guidelines, visual references, and channel requirements.">Revisión de los lineamientos del cliente, referentes visuales y requerimientos de canal.</p></div>
+      <div class="paso"><p class="paso-num">02</p><p class="paso-title" data-es="Recopilación de assets" data-en="Asset gathering">Recopilación de assets</p><p class="paso-desc" data-es="Descarga de logos, tipografías y elementos de marca proporcionados por el cliente o Adecco." data-en="Download of logos, fonts, and brand elements provided by the client or Adecco.">Descarga de logos, tipografías y elementos de marca proporcionados por el cliente o Adecco.</p></div>
+      <div class="paso"><p class="paso-num">03</p><p class="paso-title" data-es="Diseño y composición" data-en="Design and composition">Diseño y composición</p><p class="paso-desc" data-es="Construcción de las piezas en Adobe Illustrator o Photoshop según el tipo de contenido." data-en="Building the pieces in Adobe Illustrator or Photoshop depending on the content type.">Construcción de las piezas en Adobe Illustrator o Photoshop según el tipo de contenido.</p></div>
+      <div class="paso"><p class="paso-num">04</p><p class="paso-title" data-es="Exportación" data-en="Export">Exportación</p><p class="paso-desc" data-es="Exportación en alta resolución para versiones de impresión y optimizadas para web." data-en="High-resolution export for print versions and web-optimized versions.">Exportación en alta resolución para versiones de impresión y optimizadas para web.</p></div>
     </div>
   </div>
 </section>
 
 <section class="flip-section">
   <div class="section-inner">
-    <p class="section-label">Resultado</p>
-    <h2 class="section-title" style="color:var(--white);">Las 55 piezas</h2>
-    <p class="section-body" style="color:rgba(255,255,255,0.75);">Arrastra o desplaza para navegar por el corredor. Haz clic en una pieza para acercarla. Presiona Escape para volver.</p>
+    <p class="section-label" data-es="Resultado" data-en="Result">Resultado</p>
+    <h2 class="section-title" style="color:var(--white);" data-es="Las 55 piezas" data-en="The 55 pieces">Las 55 piezas</h2>
+    <p class="section-body" style="color:rgba(255,255,255,0.75);" data-es="Arrastra o desplaza para navegar por el corredor. Haz clic en una pieza para acercarla. Presiona Escape para volver." data-en="Drag or scroll to navigate the corridor. Click on a piece to zoom in. Press Escape to go back.">Arrastra o desplaza para navegar por el corredor. Haz clic en una pieza para acercarla. Presiona Escape para volver.</p>
     <div class="flip-wrap" id="flip-wrap" role="img" aria-label="Galería 3D de piezas gráficas de Adecco Colombia">
-      <div class="flip-loading" id="flip-loading">Cargando piezas…</div>
-      <span class="flip-hint" id="flip-hint">← Arrastra para navegar →</span>
+      <div class="flip-loading" id="flip-loading" data-es="Cargando piezas…" data-en="Loading pieces…">Cargando piezas…</div>
+      <span class="flip-hint" id="flip-hint" data-es="← Arrastra para navegar →" data-en="← Drag to navigate →">← Arrastra para navegar →</span>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="section-inner">
-    <p class="section-label">Campañas</p>
-    <h2 class="section-title">Campañas realizadas</h2>
-    <p class="section-body">Una selección de las campañas que conforman este proyecto, cada una con su identidad visual particular.</p>
-    <div class="campanas-grid">
-      <div class="campana-card">
-        <img class="campana-img" src="/assets/proyectos/adecco/previews/pieza-03-almahi-post-01.webp" alt="Almahi" loading="lazy">
-        <div class="campana-info"><p class="campana-cliente">Almahi</p><p class="campana-nombre">Serie de contenido para redes</p><p class="campana-desc">9 piezas para publicaciones en feed. Identidad con fondo oscuro y tipografía impactante.</p></div>
-      </div>
-      <div class="campana-card">
-        <img class="campana-img" src="/assets/proyectos/adecco/previews/pieza-12-banco-agrario-piezas-01.webp" alt="Banco Agrario" loading="lazy">
-        <div class="campana-info"><p class="campana-cliente">Banco Agrario</p><p class="campana-nombre">Comunicaciones institucionales</p><p class="campana-desc">5 piezas con identidad institucional del banco. Paleta verde corporativa y composición formal.</p></div>
-      </div>
-      <div class="campana-card">
-        <img class="campana-img" src="/assets/proyectos/adecco/previews/pieza-17-canamor-piezas-01.webp" alt="Canamor" loading="lazy">
-        <div class="campana-info"><p class="campana-cliente">Canamor</p><p class="campana-nombre">Contenido de marca</p><p class="campana-desc">5 piezas en formato extendido. Tono cálido con fotografía de producto y tipografía serif.</p></div>
-      </div>
-      <div class="campana-card">
-        <img class="campana-img" src="/assets/proyectos/adecco/previews/pieza-22-gamificacion-carrusel-2-p1.webp" alt="Gamificación" loading="lazy">
-        <div class="campana-info"><p class="campana-cliente">Gamificación Adecco</p><p class="campana-nombre">Carrusel de campaña interna</p><p class="campana-desc">4 piezas cuadradas para carrusel. Diseño dinámico con elementos gráficos de progresión.</p></div>
-      </div>
-      <div class="campana-card">
-        <img class="campana-img" src="/assets/proyectos/adecco/previews/pieza-26-halloween-piezas-01.webp" alt="Halloween Adecco" loading="lazy">
-        <div class="campana-info"><p class="campana-cliente">Halloween Adecco</p><p class="campana-nombre">Activación temática</p><p class="campana-desc">3 piezas para la activación de Halloween. Paleta oscura con elementos festivos.</p></div>
-      </div>
-      <div class="campana-card">
-        <img class="campana-img" src="/assets/proyectos/adecco/previews/pieza-29-mattilda-piezas-01-riesgo-psico-mattilda.webp" alt="Mattilda" loading="lazy">
-        <div class="campana-info"><p class="campana-cliente">Mattilda</p><p class="campana-nombre">Riesgo psicosocial</p><p class="campana-desc">5 piezas para campaña de bienestar laboral. Comunicación clara con infografías y datos clave.</p></div>
-      </div>
-      <div class="campana-card">
-        <img class="campana-img" src="/assets/proyectos/adecco/previews/pieza-34-orh-pieza-01.webp" alt="ORH Adecco" loading="lazy">
-        <div class="campana-info"><p class="campana-cliente">ORH Adecco</p><p class="campana-nombre">Comunicaciones de área</p><p class="campana-desc">3 piezas para el área de Gestión Humana. Diseño institucional con identidad corporativa.</p></div>
-      </div>
-      <div class="campana-card">
-        <img class="campana-img" src="/assets/proyectos/adecco/previews/pieza-37-invitacion-outsourcing-al-100-05.webp" alt="Outsourcing al 100%" loading="lazy">
-        <div class="campana-info"><p class="campana-cliente">Outsourcing al 100%</p><p class="campana-nombre">Evento e invitaciones</p><p class="campana-desc">10 piezas en dos ediciones: invitaciones, expectativa y agradecimiento del evento.</p></div>
-      </div>
-      <div class="campana-card">
-        <img class="campana-img" src="/assets/proyectos/adecco/previews/pieza-47-superpay-piezas-01.webp" alt="Superpay" loading="lazy">
-        <div class="campana-info"><p class="campana-cliente">Superpay</p><p class="campana-nombre">Lanzamiento de servicio</p><p class="campana-desc">5 piezas para la comunicación del servicio. Paleta tecnológica con énfasis en la propuesta de valor.</p></div>
-      </div>
-      <div class="campana-card">
-        <img class="campana-img" src="/assets/proyectos/adecco/previews/pieza-52-vitaa-piezas-01.webp" alt="Vitaa" loading="lazy">
-        <div class="campana-info"><p class="campana-cliente">Vitaa</p><p class="campana-nombre">Contenido de bienestar</p><p class="campana-desc">4 piezas para comunicaciones de salud. Estética limpia con colores pasteles y fotografía lifestyle.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <section class="cierre">
-  <h2 class="cierre-title">Un proyecto de producción<br>constante y alta calidad</h2>
-  <p class="cierre-text">Este conjunto de piezas representa el trabajo de diseño gráfico realizado para Adecco Colombia y sus clientes: 55 piezas distribuidas en 11 campañas distintas, cada una con su propia identidad visual y requerimientos específicos.</p>
-  <a href="/proyectos/" class="btn-volver">← Volver a Proyectos</a>
+  <h2 class="cierre-title" data-es-html="Un proyecto de producción<br>constante y alta calidad" data-en-html="A project of constant<br>production and high quality">Un proyecto de producción<br>constante y alta calidad</h2>
+  <p class="cierre-text" data-es="Este conjunto de piezas representa el trabajo de diseño gráfico realizado para Adecco Colombia y sus clientes: 55 piezas distribuidas en 11 campañas distintas, cada una con su propia identidad visual y requerimientos específicos." data-en="This collection of pieces represents the graphic design work done for Adecco Colombia and its clients: 55 pieces distributed across 11 different campaigns, each with its own visual identity and specific requirements.">Este conjunto de piezas representa el trabajo de diseño gráfico realizado para Adecco Colombia y sus clientes: 55 piezas distribuidas en 11 campañas distintas, cada una con su propia identidad visual y requerimientos específicos.</p>
+  <a href="/proyectos/" class="btn-volver" data-es="← Volver a Proyectos" data-en="← Back to Projects">← Volver a Proyectos</a>
 </section>
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <p class="footer-nav-label" data-es="Páginas" data-en="Pages">Páginas</p>
-        <nav class="footer-links" aria-label="Links del footer">
-          <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
-          <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
-          <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
-          <a href="/privacidad/" data-es="Privacidad" data-en="Privacy">Privacidad</a>
-        </nav>
-      </div>
-      <div class="footer-logo-center">
-        <svg viewBox="0 0 160 160" aria-hidden="true">
-          <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#FFED00"/>
-          <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#FFED00"/>
-          <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#FFED00"/>
-          <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#FFED00"/>
-          <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#FFED00"/>
-        </svg>
-      </div>
-      <div>
-        <p class="footer-nav-label" data-es="Sígueme" data-en="Follow me">Sígueme</p>
-        <div class="footer-social">
-          <a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            @juan_gd7
-          </a>
-          <a href="https://linkedin.com/in/juangd12" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            juangd12
-          </a>
-          <a href="mailto:juanestebangd12@gmail.com">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Correo
-          </a>
+    <div class="footer-body">
+      <div class="footer-top">
+        <div class="footer-nav-group">
+          <p class="footer-nav-label" data-es="Páginas" data-en="Pages">Páginas</p>
+          <nav class="footer-links" aria-label="Links del footer">
+            <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
+            <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
+            <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
+            <a href="/privacidad/" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+          </nav>
+        </div>
+        <div class="footer-logo-center">
+          <svg viewBox="0 0 160 160" aria-hidden="true">
+            <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#FFED00"/>
+            <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#FFED00"/>
+            <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#FFED00"/>
+            <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#FFED00"/>
+            <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#FFED00"/>
+          </svg>
+        </div>
+        <div>
+          <p class="footer-nav-label" data-es="Sígueme" data-en="Follow me">Sígueme</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+            <a href="https://linkedin.com/in/juangd12" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:juanestebangd12@gmail.com" aria-label="Correo">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Correo
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 Juan González. Diseñador Hipermedia</p>
-      <p class="footer-tagline">DISEÑO | IDENTIDAD | EXPERIENCIAS DIGITALES</p>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Juan González. Diseñador Hipermedia</p>
+        <p class="footer-tagline">DISEÑO | IDENTIDAD | EXPERIENCIAS DIGITALES</p>
+      </div>
     </div>
   </div>
 </footer>
@@ -430,9 +384,16 @@
     btn.addEventListener('click', () => {
       const lang = btn.dataset.lang;
       document.querySelectorAll('.lang-btn, .mobile-lang button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+      // text-only elements
       document.querySelectorAll('[data-es],[data-en]').forEach(el => {
         const txt = el.dataset[lang];
         if(txt !== undefined) el.textContent = txt;
+      });
+      // elements with inner HTML (use data-es-html / data-en-html)
+      document.querySelectorAll('[data-es-html],[data-en-html]').forEach(el => {
+        const htmlKey = lang + 'Html'; // becomes 'esHtml' or 'enHtml'
+        const html = el.dataset[htmlKey];
+        if(html !== undefined) el.innerHTML = html;
       });
     });
   });
