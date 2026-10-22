@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>404 — Página no encontrada | Juan González</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    .not-found {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: var(--side);
+    }
+    .not-found-num {
+      font-family: var(--font-head); font-size: clamp(6rem, 20vw, 14rem);
+      font-weight: 900; line-height: 1; color: var(--accent); opacity: 0.15;
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none; z-index: 0; user-select: none;
+    }
+    .not-found-inner { position: relative; z-index: 1; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="nav-logo">JG<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/proyectos/">Proyectos</a></li>
+    <li><a href="/sobre-mi/">Sobre mí</a></li>
+    <li><a href="/contacto/">Contacto</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button class="btn-lang">EN</button>
+    <button class="btn-theme">☀ Claro</button>
+    <button class="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="not-found">
+  <div class="not-found-num">404</div>
+  <div class="not-found-inner">
+    <p class="section-label">Error 404</p>
+    <h1 class="section-title">Página no encontrada</h1>
+    <p style="color:var(--text2);margin-bottom:2rem;max-width:420px">Esta URL no existe o fue movida. Regresa al inicio o explora los proyectos.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="/" class="btn-primary">← Ir al inicio</a>
+      <a href="/proyectos/" class="btn-outline">Ver proyectos</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">JG<span>.</span></div>
+  <p class="footer-copy">© 2026 Juan González.</p>
+  <div class="footer-socials">
+    <a href="#" aria-label="Instagram">In</a><a href="#" aria-label="Behance">Be</a><a href="#" aria-label="LinkedIn">Li</a>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

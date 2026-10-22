@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ALMAHI — Case Study | Juan González</title>
+  <meta name="description" content="Diseño de identidad visual y sitio web para ALMAHI. Branding + Web.">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    .case-hero {
+      min-height: 80svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: calc(var(--nav-h) + 4rem) var(--side) 5rem;
+      background: #0d0d0d;
+      position: relative;
+      overflow: hidden;
+    }
+    .case-hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f0f 100%);
+    }
+    .case-hero-accent {
+      position: absolute;
+      width: 60vw; height: 60vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,237,0,0.08) 0%, transparent 70%);
+      top: -20%; right: -20%;
+      pointer-events: none;
+    }
+    .case-hero-inner {
+      position: relative; z-index: 1;
+      max-width: var(--max-w); margin: 0 auto; width: 100%;
+    }
+    .case-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .case-tag::before {
+      content: ''; display: block; width: 24px; height: 1px; background: var(--accent);
+    }
+    .case-h1 {
+      font-family: var(--font-head); font-weight: 900;
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      line-height: 0.9; letter-spacing: -0.04em;
+      color: #fff; margin-bottom: 2rem;
+    }
+    .case-meta-strip {
+      display: flex; gap: 3rem; flex-wrap: wrap;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .case-meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .case-meta-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .case-meta-val { font-size: 0.92rem; color: #fff; font-weight: 600; }
+    .case-body {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: clamp(3rem,6vw,6rem) var(--side);
+    }
+    .case-section { margin-bottom: 5rem; }
+    .case-section-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    }
+    .case-section-title {
+      font-family: var(--font-head); font-weight: 900;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      line-height: 1.15; margin-bottom: 1.2rem; color: var(--text);
+    }
+    .case-text {
+      color: var(--text2); line-height: 1.8; font-size: 1.05rem;
+      max-width: 65ch;
+    }
+    .case-img-full {
+      width: 100%; aspect-ratio: 16/7;
+      background: var(--bg2);
+      border-radius: var(--radius-lg);
+      overflow: hidden; margin: 3rem 0;
+      border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .case-img-full svg { width: 80px; opacity: 0.15; }
+    .case-grid-2 {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem; margin: 3rem 0;
+    }
+    .case-img-half {
+      aspect-ratio: 4/3; background: var(--bg2);
+      border-radius: var(--radius-lg); border: 1px solid var(--border2);
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
+    }
+    .case-img-half svg { width: 48px; opacity: 0.12; }
+    .case-color-row { display: flex; gap: 1rem; flex-wrap: wrap; margin: 2rem 0; }
+    .case-color-chip { display: flex; flex-direction: column; gap: 8px; }
+    .case-color-swatch { width: 80px; height: 80px; border-radius: 12px; border: 1px solid var(--border2); }
+    .case-color-name { font-size: 0.72rem; color: var(--text2); font-weight: 600; }
+    .case-result-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin: 2rem 0;
+    }
+    .case-result-item {
+      background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: var(--radius-lg); padding: 1.8rem;
+    }
+    .case-result-num {
+      font-family: var(--font-head); font-weight: 900;
+      font-size: 2.5rem; color: var(--accent); line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .case-result-label { font-size: 0.85rem; color: var(--text2); }
+    .case-nav-projects {
+      background: var(--bg2); border-top: 1px solid var(--border2);
+      padding: 3rem var(--side);
+    }
+    .case-nav-inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+    }
+    .case-nav-link { display: flex; flex-direction: column; gap: 4px; }
+    .case-nav-link-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text2); }
+    .case-nav-link-title { font-family: var(--font-head); font-weight: 900; font-size: 1.1rem; color: var(--text); transition: color 0.2s; }
+    .case-nav-link:hover .case-nav-link-title { color: var(--accent); }
+    @media (max-width: 700px) {
+      .case-grid-2 { grid-template-columns: 1fr; }
+      .case-result-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <a href="/" class="nav-logo" aria-label="Inicio">
+    <img src="/assets/img/logo-j-amarillo.svg" alt="JEGD" class="nav-logo-img nav-logo-dark">
+    <img src="/assets/img/logo-j.svg" alt="JEGD" class="nav-logo-img nav-logo-light">
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="/" data-es="Inicio" data-en="Home">Inicio</a></li>
+    <li><a href="/proyectos/" data-es="Proyectos" data-en="Work">Proyectos</a></li>
+    <li><a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
+    <li><a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a></li>
+  </ul>
+  <div class="nav-controls">
+    <button class="btn-lang" id="btn-lang">EN</button>
+    <button class="btn-theme" id="btn-theme">☀ Claro</button>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="case-hero">
+  <div class="case-hero-bg"></div>
+  <div class="case-hero-accent"></div>
+  <div class="case-hero-inner">
+    <div class="case-tag" data-es="Branding · Diseño Web" data-en="Branding · Web Design">Branding · Diseño Web</div>
+    <h1 class="case-h1">ALMAHI</h1>
+    <div class="case-meta-strip">
+      <div class="case-meta-item">
+        <span class="case-meta-label" data-es="Cliente" data-en="Client">Cliente</span>
+        <span class="case-meta-val">ALMAHI</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label" data-es="Categoría" data-en="Category">Categoría</span>
+        <span class="case-meta-val" data-es="Identidad Visual + Web" data-en="Visual Identity + Web">Identidad Visual + Web</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label" data-es="Año" data-en="Year">Año</span>
+        <span class="case-meta-val">2024</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label" data-es="Rol" data-en="Role">Rol</span>
+        <span class="case-meta-val" data-es="Diseñador Principal" data-en="Lead Designer">Diseñador Principal</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="case-body">
+
+  <div class="case-section reveal">
+    <p class="case-section-label" data-es="El reto" data-en="The challenge">El reto</p>
+    <h2 class="case-section-title" data-es="Una marca que inspire confianza desde el primer clic." data-en="A brand that inspires trust from the first click.">Una marca que inspire confianza desde el primer clic.</h2>
+    <p class="case-text" data-es="ALMAHI necesitaba una identidad visual sólida y un sitio web que comunicara profesionalismo y confianza a sus clientes. El reto era crear una presencia digital coherente que reflejara los valores de la marca y facilitara la conversión." data-en="ALMAHI needed a solid visual identity and a website that communicated professionalism and trust to their clients. The challenge was creating a coherent digital presence that reflected the brand's values and facilitated conversion.">ALMAHI necesitaba una identidad visual sólida y un sitio web que comunicara profesionalismo y confianza a sus clientes. El reto era crear una presencia digital coherente que reflejara los valores de la marca y facilitara la conversión.</p>
+  </div>
+
+  <div class="case-img-full reveal">
+    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="80" height="80" rx="8" fill="currentColor" opacity="0.2"/>
+      <path d="M20 60L40 20L60 60H20Z" stroke="currentColor" stroke-width="2" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="case-section reveal">
+    <p class="case-section-label" data-es="Identidad visual" data-en="Visual identity">Identidad visual</p>
+    <h2 class="case-section-title" data-es="Color, tipografía y carácter." data-en="Color, typography and character.">Color, tipografía y carácter.</h2>
+    <p class="case-text" data-es="El sistema de identidad parte de una paleta que combina tonos profundos con acentos vibrantes, creando contraste y jerarquía visual. La tipografía fue elegida para equilibrar modernidad y accesibilidad." data-en="The identity system starts from a palette that combines deep tones with vibrant accents, creating contrast and visual hierarchy. The typography was chosen to balance modernity and accessibility.">El sistema de identidad parte de una paleta que combina tonos profundos con acentos vibrantes, creando contraste y jerarquía visual. La tipografía fue elegida para equilibrar modernidad y accesibilidad.</p>
+    <div class="case-color-row">
+      <div class="case-color-chip">
+        <div class="case-color-swatch" style="background:#1a1a2e"></div>
+        <span class="case-color-name">#1A1A2E</span>
+      </div>
+      <div class="case-color-chip">
+        <div class="case-color-swatch" style="background:#4a90d9"></div>
+        <span class="case-color-name">#4A90D9</span>
+      </div>
+      <div class="case-color-chip">
+        <div class="case-color-swatch" style="background:#e8f4fd"></div>
+        <span class="case-color-name">#E8F4FD</span>
+      </div>
+      <div class="case-color-chip">
+        <div class="case-color-swatch" style="background:#f5f5f5; border-color: var(--border2)"></div>
+        <span class="case-color-name">#F5F5F5</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-grid-2 reveal">
+    <div class="case-img-half">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" rx="6" fill="currentColor" opacity="0.15"/>
+        <circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+    <div class="case-img-half">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" rx="6" fill="currentColor" opacity="0.15"/>
+        <rect x="10" y="10" width="28" height="28" rx="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="case-section reveal">
+    <p class="case-section-label" data-es="Diseño web" data-en="Web design">Diseño web</p>
+    <h2 class="case-section-title" data-es="Una experiencia digital que convierte." data-en="A digital experience that converts.">Una experiencia digital que convierte.</h2>
+    <p class="case-text" data-es="El sitio fue diseñado con una arquitectura de información clara, priorizando la experiencia del usuario y la velocidad de carga. Cada sección fue pensada para guiar al visitante hacia la acción." data-en="The site was designed with a clear information architecture, prioritizing user experience and loading speed. Each section was designed to guide the visitor towards action.">El sitio fue diseñado con una arquitectura de información clara, priorizando la experiencia del usuario y la velocidad de carga. Cada sección fue pensada para guiar al visitante hacia la acción.</p>
+  </div>
+
+  <div class="case-img-full reveal">
+    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="80" height="80" rx="8" fill="currentColor" opacity="0.2"/>
+      <rect x="12" y="20" width="56" height="40" rx="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <line x1="12" y1="28" x2="68" y2="28" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <div class="case-section reveal">
+    <p class="case-section-label" data-es="Resultados" data-en="Results">Resultados</p>
+    <h2 class="case-section-title" data-es="Impacto medible desde el lanzamiento." data-en="Measurable impact from launch.">Impacto medible desde el lanzamiento.</h2>
+    <div class="case-result-grid">
+      <div class="case-result-item">
+        <div class="case-result-num">+80%</div>
+        <div class="case-result-label" data-es="Aumento en tiempo de sesión" data-en="Increase in session time">Aumento en tiempo de sesión</div>
+      </div>
+      <div class="case-result-item">
+        <div class="case-result-num">+45%</div>
+        <div class="case-result-label" data-es="Más consultas recibidas" data-en="More inquiries received">Más consultas recibidas</div>
+      </div>
+      <div class="case-result-item">
+        <div class="case-result-num">100%</div>
+        <div class="case-result-label" data-es="Satisfacción del cliente" data-en="Client satisfaction">Satisfacción del cliente</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="contact-strip reveal">
+  <div class="contact-strip-inner">
+    <p class="section-label" data-es="¿Proyecto similar?" data-en="Similar project?">¿Proyecto similar?</p>
+    <h2 class="section-title" data-es="Hablemos de tu marca." data-en="Let's talk about your brand.">Hablemos de tu marca.</h2>
+    <a href="/contacto/" class="btn-primary" data-es="INICIAR PROYECTO →" data-en="START PROJECT →">INICIAR PROYECTO →</a>
+  </div>
+</div>
+
+<div class="case-nav-projects">
+  <div class="case-nav-inner">
+    <a href="/proyectos/" class="case-nav-link">
+      <span class="case-nav-link-label" data-es="← Todos los proyectos" data-en="← All projects">← Todos los proyectos</span>
+      <span class="case-nav-link-title" data-es="Ver portafolio completo" data-en="View full portfolio">Ver portafolio completo</span>
+    </a>
+    <a href="/contacto/" class="case-nav-link" style="text-align:right">
+      <span class="case-nav-link-label" data-es="¿Trabajamos juntos? →" data-en="Work together? →">¿Trabajamos juntos? →</span>
+      <span class="case-nav-link-title" data-es="Contactar" data-en="Contact">Contactar</span>
+    </a>
+  </div>
+</div>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-name">Juan<br><span class="accent">González.</span></div>
+        <div class="footer-tagline" data-es="Diseñador Hipermedia · Colombia" data-en="Hypermedia Designer · Colombia">Diseñador Hipermedia · Colombia</div>
+      </div>
+      <div class="footer-logo">
+        <svg viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1080" height="1080" fill="#1D1D1B"/>
+          <polygon fill="#FFEC00" points="434.36 549.32 434.36 692.62 303.54 848.16 303.54 549.32 434.36 549.32"/>
+          <polygon fill="#FFEC00" points="645.64 530.68 645.64 387.38 776.46 231.84 776.46 530.68 645.64 530.68"/>
+          <polygon fill="#FFEC00" points="645.64 549.32 645.64 692.62 776.46 848.16 776.46 549.32 645.64 549.32"/>
+          <polygon fill="#FFEC00" points="644.61 720.61 539.68 720.61 434.74 720.61 327.76 848.16 539.68 848.16 751.6 848.16 644.61 720.61"/>
+          <polygon fill="#FFEC00" points="434.74 359.39 539.68 359.39 644.61 359.39 751.6 231.84 539.68 231.84 327.76 231.84 434.74 359.39"/>
+        </svg>
+      </div>
+      <div class="footer-cta">
+        <div class="footer-cta-label" data-es="¿Listo para trabajar juntos?" data-en="Ready to work together?">¿Listo para trabajar juntos?</div>
+        <a href="mailto:juanestebangd12@gmail.com" class="btn-footer-cta" data-es="¡Escríbeme!" data-en="Write me!">¡Escríbeme!</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy" data-es="© 2026 Juan Esteban González Díaz · Todos los derechos reservados." data-en="© 2026 Juan Esteban González Díaz · All rights reserved.">© 2026 Juan Esteban González Díaz · Todos los derechos reservados.</div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/juan_gd7/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/juangd12/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
