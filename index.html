@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan González | Diseñador hipermedia</title>
+  <meta name="description" content="Portafolio de Juan González, diseñador hipermedia. Explora proyectos de diseño digital, experiencias interactivas, web, identidad visual, audiovisual y sonido.">
+  <link rel="canonical" href="https://portafoliojegd.netlify.app/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Juan González | Diseñador hipermedia">
+  <meta property="og:description" content="Portafolio de Juan González, diseñador hipermedia. Explora proyectos de diseño digital, experiencias interactivas, web, identidad visual, audiovisual y sonido.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://portafoliojegd.netlify.app/">
+  <meta property="og:image" content="https://portafoliojegd.netlify.app/assets/img/foto-juan.jpg">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo-j-amarillo.svg">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <a href="/" class="nav-logo" aria-label="Juan González — Inicio">
+    <svg viewBox="0 0 160 160" class="logo-mark" aria-hidden="true">
+      <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/>
+      <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/>
+      <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/>
+      <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/>
+      <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/>
+    </svg>
+    <!-- logo-mark-light eliminado (dark-only) -->
+    <span data-es="Juan González" data-en="Juan González">Juan González</span>
+  </a>
+  <div class="nav-links">
+    <a href="/" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="/proyectos/" class="nav-link" data-es="Proyectos" data-en="Projects">Proyectos</a>
+    <a href="/sobre-mi/" class="nav-link" data-es="Sobre mí" data-en="About">Sobre mí</a>
+    <a href="/contacto/" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+  </div>
+  <div class="nav-controls">
+    <div class="lang-toggle" role="group" aria-label="Idioma">
+      <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
+    <!-- theme-toggle eliminado (dark-only) -->
+    <button class="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <a href="/" data-es="Inicio" data-en="Home">Inicio</a>
+  <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
+  <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
+  <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
+  <div class="mobile-lang">
+    <button data-lang="es" class="active">ES</button>
+    <button data-lang="en">EN</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Presentación">
+  <div class="hero-media" aria-hidden="true">
+    <video id="video-dark" class="hero-video active" autoplay muted loop playsinline preload="auto"
+      poster="/assets/img/poster-dark.jpg">
+      <source src="/assets/videos/yo-batman.mp4" type="video/mp4">
+    </video>
+    <video id="video-light" class="hero-video" muted loop playsinline preload="auto"
+      poster="/assets/img/poster-light.jpg">
+      <source src="/assets/videos/yo-normal.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-es="DISEÑO HIPERMEDIA · EXPERIENCIAS DIGITALES · NARRATIVA" data-en="HYPERMEDIA DESIGN · DIGITAL EXPERIENCES · NARRATIVE">
+      DISEÑO HIPERMEDIA · EXPERIENCIAS DIGITALES · NARRATIVA
+    </p>
+    <h1 class="hero-title">
+      <span class="line-a" data-es="JUAN GONZÁLEZ" data-en="JUAN GONZÁLEZ">JUAN GONZÁLEZ</span>
+      <span class="line-b" data-es="Ideas que toman forma." data-en="Ideas that take shape.">Ideas que toman forma.</span>
+    </h1>
+    <p class="hero-body" data-es="Soy Juan González, diseñador hipermedia interesado en conectar diseño, tecnología, interacción y narrativa. Desarrollo experiencias digitales que combinan lenguaje visual, contenido y exploración multimedia para comunicar ideas con intención." data-en="I'm Juan González, a hypermedia designer interested in connecting design, technology, interaction and narrative. I develop digital experiences that combine visual language, content and multimedia exploration to communicate ideas with intention.">
+      Soy Juan González, diseñador hipermedia interesado en conectar diseño, tecnología, interacción y narrativa. Desarrollo experiencias digitales que combinan lenguaje visual, contenido y exploración multimedia para comunicar ideas con intención.
+    </p>
+    <div class="hero-actions">
+      <a href="/proyectos/" class="btn btn-primary" data-es="Explorar proyectos" data-en="Explore projects">Explorar proyectos</a>
+      <a href="/contacto/" class="btn btn-outline" data-es="Hablemos de una idea" data-en="Let's talk">Hablemos de una idea</a>
+    </div>
+    <p class="hero-micro" data-es="Un universo creativo, distintas formas de expresión." data-en="A creative universe, multiple forms of expression.">
+      Un universo creativo, distintas formas de expresión.
+    </p>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Diseño gráfico <span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Branding e identidad <span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Diseño web <span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Audiovisual y sonido <span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Videojuegos <span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Exploración 3D <span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Diseño gráfico <span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Branding e identidad <span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Diseño web <span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Audiovisual y sonido <span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Videojuegos <span class="marquee-sep">·</span></span>
+    <span class="marquee-item">Exploración 3D <span class="marquee-sep">·</span></span>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="section" aria-labelledby="intro-title">
+  <div class="section-inner">
+    <div class="bio-strip">
+      <div class="bio-text">
+        <p class="eyebrow reveal" data-es="MI UNIVERSO CREATIVO" data-en="MY CREATIVE UNIVERSE">MI UNIVERSO CREATIVO</p>
+        <h2 class="section-title reveal" id="intro-title" data-es="No trabajo desde una sola disciplina." data-en="I don't work from a single discipline.">
+          No trabajo desde una sola disciplina.
+        </h2>
+        <p class="section-body reveal" data-es="Cada idea pide un lenguaje distinto. A veces comienza con una identidad; otras, con una imagen, una interfaz, un sonido o un mundo por construir. Exploro distintas herramientas para encontrar la forma que mejor expresa cada concepto." data-en="Every idea calls for a different language. Sometimes it starts with an identity; others, with an image, an interface, a sound or a world to build. I explore different tools to find the form that best expresses each concept.">
+          Cada idea pide un lenguaje distinto. A veces comienza con una identidad; otras, con una imagen, una interfaz, un sonido o un mundo por construir. Exploro distintas herramientas para encontrar la forma que mejor expresa cada concepto.
+        </p>
+        <a href="/proyectos/" class="btn btn-text reveal" data-es="Explorar todo el trabajo" data-en="Explore all work">
+          Explorar todo el trabajo
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9 3 14 8 9 13"/></svg>
+        </a>
+      </div>
+      <div class="bio-visual reveal-scale">
+        <img src="/assets/img/foto-juan.jpg" alt="Juan González" class="bio-photo">
+        <div class="bio-accent-shape" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS DESTACADOS -->
+<section class="section" style="padding-top:0" aria-labelledby="work-title">
+  <div class="section-inner">
+    <div style="margin-bottom:2.5rem">
+      <p class="eyebrow reveal" data-es="SELECCIÓN DE TRABAJO" data-en="SELECTED WORK">SELECCIÓN DE TRABAJO</p>
+      <h2 class="section-title reveal" id="work-title" data-es="Ideas que ya encontraron su forma." data-en="Ideas that already found their shape.">Ideas que ya encontraron su forma.</h2>
+      <p class="section-body reveal" data-es="Una selección de proyectos en los que concepto, diseño y ejecución se encuentran. En cada caso puedes conocer el punto de partida, las decisiones creativas y el resultado." data-en="A selection of projects where concept, design and execution meet. In each case you can explore the starting point, creative decisions and outcome.">
+        Una selección de proyectos en los que concepto, diseño y ejecución se encuentran. En cada caso puedes conocer el punto de partida, las decisiones creativas y el resultado.
+      </p>
+    </div>
+    <div class="work-grid">
+      <!-- ALMAHI — featured -->
+      <article class="work-card work-card-featured reveal">
+        <div class="work-thumb">
+          <!-- PLACEHOLDER: captura de almahicol.netlify.app -->
+          <div class="work-thumb-placeholder">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="8" width="40" height="32" rx="2"/><polyline points="4 28 16 18 26 26 34 20 44 28"/><circle cx="16" cy="18" r="3"/></svg>
+          </div>
+        </div>
+        <div class="work-info">
+          <p class="work-cat" data-es="BRANDING · DISEÑO WEB" data-en="BRANDING · WEB DESIGN">BRANDING · DISEÑO WEB</p>
+          <h3 class="work-title">ALMAHI</h3>
+          <p class="work-desc" data-es="Desarrollo de identidad visual y presencia digital para una marca vinculada al universo de las plantas. Un proyecto que conecta lenguaje visual, contenido y experiencia web." data-en="Visual identity and digital presence development for a brand rooted in the world of plants. A project connecting visual language, content and web experience.">
+            Desarrollo de identidad visual y presencia digital para una marca vinculada al universo de las plantas. Un proyecto que conecta lenguaje visual, contenido y experiencia web.
+          </p>
+          <div class="work-tags">
+            <span class="work-tag">Identidad visual</span>
+            <span class="work-tag">Diseño web</span>
+            <span class="work-tag">Contenido</span>
+          </div>
+          <a href="/proyectos/almahi/" class="btn btn-text" data-es="Explorar el proyecto" data-en="Explore project">
+            Explorar el proyecto
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9 3 14 8 9 13"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- SONIDO -->
+      <article class="work-card reveal">
+        <div class="work-thumb">
+          <div class="work-thumb-placeholder">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="18"/><polygon points="20 17 34 24 20 31 20 17" fill="currentColor" stroke="none" opacity="0.4"/><path d="M8 24a16 16 0 0 1 16-16"/></svg>
+          </div>
+        </div>
+        <div class="work-info">
+          <p class="work-cat" data-es="AUDIO · NARRATIVA EXPERIMENTAL" data-en="AUDIO · EXPERIMENTAL NARRATIVE">AUDIO · NARRATIVA EXPERIMENTAL</p>
+          <h3 class="work-title" data-es="Escuchar con los ojos cerrados" data-en="Listening with eyes closed">Escuchar con los ojos cerrados</h3>
+          <p class="work-desc" data-es="Una experiencia sonora construida a partir de clips editados y ambientados para invitar a escuchar de otra manera. Una exploración de atmósfera, ritmo y percepción." data-en="A sound experience built from edited and scored clips to invite a different kind of listening. An exploration of atmosphere, rhythm and perception.">
+            Una experiencia sonora construida a partir de clips editados y ambientados para invitar a escuchar de otra manera. Una exploración de atmósfera, ritmo y percepción.
+          </p>
+          <div class="work-tags">
+            <span class="work-tag">Audio</span>
+            <span class="work-tag">Experimental</span>
+          </div>
+          <a href="/audiovisual-sonido/" class="btn btn-text" data-es="Entrar en la experiencia" data-en="Enter the experience">
+            Entrar en la experiencia
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9 3 14 8 9 13"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- VIDEOJUEGO -->
+      <article class="work-card reveal">
+        <div class="work-thumb">
+          <div class="work-thumb-placeholder">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="14" width="36" height="24" rx="4"/><line x1="18" y1="26" x2="14" y2="26"/><line x1="16" y1="24" x2="16" y2="28"/><circle cx="32" cy="24" r="2"/><circle cx="28" cy="28" r="2"/></svg>
+          </div>
+        </div>
+        <div class="work-info">
+          <p class="work-cat" data-es="VIDEOJUEGOS · EN DESARROLLO" data-en="GAMES · IN DEVELOPMENT">VIDEOJUEGOS · EN DESARROLLO</p>
+          <h3 class="work-title" data-es="Un mundo en construcción" data-en="A world in construction">Un mundo en construcción</h3>
+          <p class="work-desc" data-es="Estoy desarrollando el diseño de un videojuego. Este espacio reunirá, cuando sea posible compartirlos, los conceptos, las decisiones visuales y el proceso detrás del proyecto." data-en="I'm developing the design of a video game. This space will gather, when it's possible to share them, the concepts, visual decisions and process behind the project.">
+            Estoy desarrollando el diseño de un videojuego. Este espacio reunirá, cuando sea posible compartirlos, los conceptos, las decisiones visuales y el proceso detrás del proyecto.
+          </p>
+          <div class="work-tags">
+            <span class="work-tag">Diseño de juego</span>
+            <span class="work-tag">En desarrollo</span>
+          </div>
+          <a href="/videojuegos/" class="btn btn-text" data-es="Ver estado del proyecto" data-en="See project status">
+            Ver estado del proyecto
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9 3 14 8 9 13"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+    <div style="text-align:center; margin-top:3rem" class="reveal">
+      <a href="/proyectos/" class="btn btn-outline" data-es="Ver todos los proyectos" data-en="See all projects">Ver todos los proyectos</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="section" aria-labelledby="process-title">
+  <div class="section-inner">
+    <p class="eyebrow reveal" data-es="CÓMO TRABAJO" data-en="HOW I WORK">CÓMO TRABAJO</p>
+    <h2 class="section-title reveal" id="process-title" data-es="La forma llega después de la idea." data-en="Form comes after the idea.">La forma llega después de la idea.</h2>
+    <p class="section-body reveal" data-es="Cada proyecto tiene sus particularidades, pero suelo avanzar a través de cuatro momentos que ayudan a convertir una intención en una solución concreta." data-en="Each project has its own particularities, but I usually progress through four moments that help turn an intention into a concrete solution.">
+      Cada proyecto tiene sus particularidades, pero suelo avanzar a través de cuatro momentos que ayudan a convertir una intención en una solución concreta.
+    </p>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3 class="step-title" data-es="Entender" data-en="Understand">Entender</h3>
+        <p class="step-desc" data-es="Definimos el problema, el contexto, las personas a las que queremos llegar y lo que debe conseguir el proyecto." data-en="We define the problem, context, the people we want to reach and what the project must achieve.">
+          Definimos el problema, el contexto, las personas a las que queremos llegar y lo que debe conseguir el proyecto.
+        </p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3 class="step-title" data-es="Explorar" data-en="Explore">Explorar</h3>
+        <p class="step-desc" data-es="Investigo referencias, pruebo direcciones visuales y busco un concepto que le dé coherencia a las decisiones." data-en="I research references, test visual directions and seek a concept that gives coherence to the decisions.">
+          Investigo referencias, pruebo direcciones visuales y busco un concepto que le dé coherencia a las decisiones.
+        </p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3 class="step-title" data-es="Construir" data-en="Build">Construir</h3>
+        <p class="step-desc" data-es="Desarrollo la propuesta, reviso sus detalles y ajusto lo necesario para conectar concepto, forma y función." data-en="I develop the proposal, review its details and adjust what's needed to connect concept, form and function.">
+          Desarrollo la propuesta, reviso sus detalles y ajusto lo necesario para conectar concepto, forma y función.
+        </p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h3 class="step-title" data-es="Dar forma" data-en="Give shape">Dar forma</h3>
+        <p class="step-desc" data-es="Preparo las piezas y entregables finales para que la idea pueda vivir en el medio para el que fue creada." data-en="I prepare the final pieces and deliverables so the idea can live in the medium for which it was created.">
+          Preparo las piezas y entregables finales para que la idea pueda vivir en el medio para el que fue creada.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ — resumen -->
+<section class="section" style="background:var(--bg2); border-top:1px solid var(--border)" aria-labelledby="about-home-title">
+  <div class="section-inner">
+    <div class="bio-strip">
+      <div class="bio-text">
+        <p class="eyebrow reveal" data-es="DETRÁS DE LAS IDEAS" data-en="BEHIND THE IDEAS">DETRÁS DE LAS IDEAS</p>
+        <h2 class="section-title reveal" id="about-home-title" data-es="Diseñar también es descubrir." data-en="Designing is also discovering.">Diseñar también es descubrir.</h2>
+        <p class="section-body reveal" data-es="Soy Juan González. Me interesa explorar cómo una idea puede transformarse en una identidad, una imagen, una experiencia digital o una historia sonora. Disfruto conectar disciplinas, aprender herramientas nuevas y encontrar decisiones visuales que tengan sentido, no solo apariencia." data-en="I'm Juan González. I'm interested in exploring how an idea can transform into an identity, an image, a digital experience or a sonic story. I enjoy connecting disciplines, learning new tools and finding visual decisions that make sense, not just look good.">
+          Soy Juan González. Me interesa explorar cómo una idea puede transformarse en una identidad, una imagen, una experiencia digital o una historia sonora. Disfruto conectar disciplinas, aprender herramientas nuevas y encontrar decisiones visuales que tengan sentido, no solo apariencia.
+        </p>
+        <p class="section-body reveal" style="margin-top:-0.5rem" data-es="Mi portafolio reúne proyectos terminados, experimentos y procesos en desarrollo. Cada uno representa una forma distinta de investigar, crear y resolver." data-en="My portfolio gathers finished projects, experiments and processes in development. Each represents a different way of investigating, creating and resolving.">
+          Mi portafolio reúne proyectos terminados, experimentos y procesos en desarrollo. Cada uno representa una forma distinta de investigar, crear y resolver.
+        </p>
+        <a href="/sobre-mi/" class="btn btn-text reveal" data-es="Conocer más sobre mí" data-en="Learn more about me">
+          Conocer más sobre mí
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9 3 14 8 9 13"/></svg>
+        </a>
+      </div>
+      <div class="bio-visual reveal-scale">
+        <video class="bio-photo" autoplay muted loop playsinline preload="auto" aria-label="Juan González trabajando en su estudio">
+          <source src="/assets/videos/hero-trabajo.mp4" type="video/mp4">
+        </video>
+        <div class="bio-accent-shape" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO STRIP -->
+<section class="contact-strip contact-strip--yellow" aria-labelledby="contact-home-title">
+  <p class="eyebrow reveal" data-es="¿QUÉ PODEMOS CREAR?" data-en="WHAT CAN WE CREATE?">¿QUÉ PODEMOS CREAR?</p>
+  <h2 class="section-title reveal" id="contact-home-title" data-es="Toda buena idea empieza con una conversación." data-en="Every good idea starts with a conversation.">Toda buena idea empieza con una conversación.</h2>
+  <p class="section-body reveal" data-es="Si tienes una marca que necesita una identidad, una idea digital por desarrollar o un proyecto creativo que todavía no encuentra su forma, cuéntame de qué se trata. Podemos explorar juntos el siguiente paso." data-en="If you have a brand that needs an identity, a digital idea to develop or a creative project that hasn't found its form yet, tell me about it. We can explore the next step together.">
+    Si tienes una marca que necesita una identidad, una idea digital por desarrollar o un proyecto creativo que todavía no encuentra su forma, cuéntame de qué se trata. Podemos explorar juntos el siguiente paso.
+  </p>
+  <div class="hero-actions reveal">
+    <a href="/contacto/" class="btn btn-primary" data-es="Hablemos de tu proyecto" data-en="Let's talk about your project">Hablemos de tu proyecto</a>
+    <a href="mailto:juanestebangd12@gmail.com" class="btn btn-outline">juanestebangd12@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-body">
+      <div class="footer-top">
+        <div class="footer-nav-group">
+          <p class="footer-nav-label" data-es="Páginas" data-en="Pages">Páginas</p>
+          <nav class="footer-links" aria-label="Links del footer">
+            <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
+            <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
+            <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
+            <a href="/privacidad/" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+          </nav>
+        </div>
+    <div class="footer-logo-center">
+      <svg viewBox="0 0 160 160" aria-hidden="true" focusable="false">
+        <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#FFED00"/>
+        <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#FFED00"/>
+        <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#FFED00"/>
+        <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#FFED00"/>
+        <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#FFED00"/>
+      </svg>
+    </div>
+        <div class="footer-nav-group" style="align-items:flex-end;">
+          <p class="footer-nav-label" data-es="Sígueme" data-en="Follow me">Sígueme</p>
+          <div class="footer-social">
+          <a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            Instagram
+          </a>
+          <a href="https://linkedin.com/in/juangd12" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:juanestebangd12@gmail.com" aria-label="Correo">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Correo
+          </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Juan González. Diseñador Hipermedia</p>
+        <p class="footer-tagline">DISEÑO | IDENTIDAD | EXPERIENCIAS DIGITALES</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CURSOR -->
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<script src="/assets/js/main.js"></script>
+
+</body>
+</html>

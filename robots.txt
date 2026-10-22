@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /modelado-3d/
+
+Sitemap: https://portafoliojegd.netlify.app/sitemap.xml
