@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piezas gráficas — Adecco Colombia | Juan Esteban Giraldo</title>
+  <meta name="description" content="Diseño de piezas gráficas para las redes sociales de Adecco Colombia: campañas institucionales, clientes B2B, gamificación y más. Caso de estudio de Juan Esteban Giraldo.">
+  <link rel="canonical" href="https://juanesteban.co/proyectos/adecco/">
+  <meta property="og:title" content="Piezas gráficas para Adecco Colombia — Juan Esteban Giraldo">
+  <meta property="og:description" content="Diseño de piezas gráficas para campañas institucionales y clientes de Adecco Colombia.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://juanesteban.co/proyectos/adecco/">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ───────────────────────────────────────────── */
+    :root {
+      --yellow: #FFED00;
+      --purple: #662483;
+      --black:  #000000;
+      --white:  #ffffff;
+
+      --bg:          #0d0d0d;
+      --bg-card:     #141414;
+      --bg-section:  #111111;
+      --text:        #f0f0f0;
+      --text-muted:  #888888;
+      --border:      rgba(255,255,255,0.08);
+
+      --ff-head: 'Poppins', sans-serif;
+      --ff-body: 'Source Sans 3', sans-serif;
+
+      --radius: 1rem;
+      --gap:    clamp(1.5rem, 4vw, 3rem);
+    }
+
+    /* ─── RESET ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      font-size: 1rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── NAV ───────────────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 4vw, 2.5rem);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .nav-logo {
+      font-family: var(--ff-head);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--yellow); }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--yellow); }
+    .back-link svg { width: 16px; height: 16px; }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .case-hero {
+      padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 2.5rem) 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .case-eyebrow {
+      font-family: var(--ff-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+    }
+    .case-title {
+      font-family: var(--ff-head);
+      font-weight: 900;
+      font-size: clamp(2.2rem, 6vw, 5rem);
+      line-height: 1.03;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      text-wrap: balance;
+      margin-bottom: 1.5rem;
+    }
+    .case-title em {
+      font-style: normal;
+      color: var(--yellow);
+    }
+    .case-lead {
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 640px;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ─── FICHA ───────────────────────────────────────────────── */
+    .case-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      margin-bottom: clamp(2.5rem, 6vw, 5rem);
+    }
+    .meta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1.25rem 2rem 1.25rem 0;
+      border-right: 1px solid var(--border);
+      min-width: 160px;
+      margin-right: 2rem;
+    }
+    .meta-row:last-child { border-right: none; margin-right: 0; }
+    .meta-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .meta-value {
+      font-size: 0.95rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* ─── HERO IMAGE ─────────────────────────────────────────── */
+    .case-hero-img {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto clamp(3rem, 7vw, 6rem);
+      padding: 0 clamp(1rem, 4vw, 2.5rem);
+    }
+    .hero-img-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .hero-img-cell {
+      aspect-ratio: 1/1;
+      background: var(--bg-card);
+      border-radius: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-img-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .hero-img-cell:hover img { transform: scale(1.04); }
+    .hero-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1a1a1a 0%, #222 100%);
+      color: var(--text-muted);
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 1rem;
+    }
+    .hero-img-placeholder svg { opacity: 0.3; }
+
+    /* ─── CONTENT ────────────────────────────────────────────── */
+    .case-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 4vw, 2.5rem);
+    }
+    .case-section {
+      margin-bottom: clamp(3rem, 7vw, 5rem);
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 1.25rem;
+    }
+    .case-section h2 {
+      font-family: var(--ff-head);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      color: var(--white);
+      line-height: 1.15;
+      text-wrap: balance;
+      margin-bottom: 1.25rem;
+    }
+    .case-section p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 700px;
+      margin-bottom: 1rem;
+    }
+    .case-section p:last-child { margin-bottom: 0; }
+
+    /* ─── PROCESO ────────────────────────────────────────────── */
+    .proceso-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .proceso-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .proceso-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--yellow);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .proceso-card:hover::before { opacity: 1; }
+    .proceso-num {
+      font-family: var(--ff-head);
+      font-weight: 900;
+      font-size: 3rem;
+      color: rgba(255,237,0,0.12);
+      line-height: 1;
+      margin-bottom: 1rem;
+      letter-spacing: -0.04em;
+    }
+    .proceso-card h3 {
+      font-family: var(--ff-head);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .proceso-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ─── SEPARATOR ──────────────────────────────────────────── */
+    .sep {
+      height: 1px;
+      background: var(--border);
+      margin: clamp(2.5rem, 5vw, 4rem) 0;
+    }
+
+    /* ─── GALLERY SECTION INTRO ──────────────────────────────── */
+    .adecco-magazine-gallery {
+      background: var(--black);
+      color: var(--white);
+      padding: clamp(3rem, 7vw, 7rem) clamp(1rem, 4vw, 3.5rem);
+      overflow: hidden;
+    }
+    .adecco-magazine-gallery__intro {
+      width: min(100%, 760px);
+      margin: 0 auto 2.5rem;
+    }
+    .adecco-magazine-gallery__intro .eyebrow {
+      color: var(--yellow);
+      font-family: var(--ff-body);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .adecco-magazine-gallery__intro h2 {
+      color: var(--white);
+      font-family: var(--ff-head);
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      margin: 0.75rem 0 1rem;
+    }
+    .adecco-magazine-gallery__intro p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+    .adecco-magazine-gallery__stage {
+      width: 100%;
+      min-width: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--black);
+      position: relative;
+    }
+    .adecco-magazine-gallery__hint {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
+      text-align: center;
+      margin: 1.25rem auto 0;
+    }
+
+    /* ─── CANVAS / WEBGL STAGE ───────────────────────────────── */
+    #adecco-canvas-wrapper {
+      width: 100%;
+      position: relative;
+      background: #000;
+      border-radius: var(--radius);
+      overflow: hidden;
+      /* Altura dinámica: en desktop más alto */
+      height: clamp(400px, 56vw, 700px);
+    }
+    #adecco-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: grab;
+    }
+    #adecco-canvas:active { cursor: grabbing; }
+
+    /* ─── GALLERY FALLBACK (accesible, sin JS/WebGL) ─────────── */
+    .gallery-fallback {
+      display: none; /* se muestra solo si WebGL falla */
+    }
+    .gallery-fallback-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+    .gallery-fallback-item {
+      aspect-ratio: 1/1;
+      background: var(--bg-card);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+    .gallery-fallback-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .gallery-fallback-item:hover img { transform: scale(1.05); }
+
+    /* ─── LIGHTBOX ───────────────────────────────────────────── */
+    #lb-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,0.94);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    #lb-overlay.open { display: flex; }
+    #lb-img {
+      max-width: 92vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 80px rgba(0,0,0,0.8);
+    }
+    #lb-close {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: var(--white);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    #lb-close:hover { background: rgba(255,255,255,0.2); }
+    #lb-caption {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    #lb-nav-prev, #lb-nav-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: var(--white);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    #lb-nav-prev { left: 1rem; }
+    #lb-nav-next { right: 1rem; }
+    #lb-nav-prev:hover, #lb-nav-next:hover { background: rgba(255,255,255,0.2); }
+
+    /* ─── CASE NAV ───────────────────────────────────────────── */
+    .case-nav {
+      border-top: 1px solid var(--border);
+      padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 2.5rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .case-nav a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .case-nav a:hover { color: var(--yellow); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem clamp(1rem, 4vw, 2.5rem);
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .footer-copy {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--yellow); }
+
+    /* ─── REDUCED MOTION ─────────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .hero-img-grid { grid-template-columns: repeat(2, 1fr); }
+      .meta-row { min-width: 130px; margin-right: 1rem; padding-right: 1rem; }
+      .proceso-grid { grid-template-columns: 1fr; }
+      .case-nav { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════════ -->
+<nav class="nav" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">Juan <span>.</span></a>
+    <a class="back-link" href="/proyectos/">
+      <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Proyectos
+    </a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════ -->
+<header class="case-hero">
+  <p class="case-eyebrow">Caso de estudio · Diseño digital</p>
+  <h1 class="case-title">Piezas gráficas para <em>Adecco Colombia</em></h1>
+  <p class="case-lead">
+    Diseño de piezas gráficas para diferentes campañas de la red social de Adecco Colombia: comunicaciones internas, activaciones de marca, contenido para clientes B2B y campañas de bienestar laboral.
+  </p>
+
+  <!-- FICHA TÉCNICA -->
+  <div class="case-meta" role="list" aria-label="Ficha del proyecto">
+    <div class="meta-row" role="listitem">
+      <span class="meta-label">Organización</span>
+      <span class="meta-value">Adecco Colombia</span>
+    </div>
+    <div class="meta-row" role="listitem">
+      <span class="meta-label">Área</span>
+      <span class="meta-value">Diseño digital · Diseño gráfico</span>
+    </div>
+    <div class="meta-row" role="listitem">
+      <span class="meta-label">Tipo de trabajo</span>
+      <span class="meta-value">Piezas gráficas para campañas</span>
+    </div>
+    <div class="meta-row" role="listitem">
+      <span class="meta-label">Rol</span>
+      <span class="meta-value">Diseño de piezas gráficas</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO IMAGE GRID (3 piezas destacadas) -->
+<div class="case-hero-img" aria-hidden="true">
+  <div class="hero-img-grid" id="hero-img-grid">
+    <!-- Se populan con JS desde manifest; si no hay imágenes muestran placeholders -->
+    <div class="hero-img-cell">
+      <div class="hero-img-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span>Pieza destacada</span>
+      </div>
+    </div>
+    <div class="hero-img-cell">
+      <div class="hero-img-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span>Pieza destacada</span>
+      </div>
+    </div>
+    <div class="hero-img-cell">
+      <div class="hero-img-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span>Pieza destacada</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONTENIDO ══════════════════════════════════════════════ -->
+<main class="case-content">
+
+  <!-- CONTEXTO -->
+  <section class="case-section" aria-labelledby="sec-contexto">
+    <p class="section-label">Contexto</p>
+    <h2 id="sec-contexto">Un equipo, múltiples marcas</h2>
+    <p>
+      Adecco Colombia es una de las empresas líderes en soluciones de recursos humanos en el país. Su canal de redes sociales requiere piezas gráficas constantes: desde comunicaciones institucionales propias de la marca hasta contenido específico para empresas cliente en sectores tan distintos como la agroindustria, los servicios financieros y el entretenimiento.
+    </p>
+    <p>
+      Mi rol consistió en diseñar piezas gráficas para estas diferentes campañas, adaptando cada comunicación al tono, la identidad y el mensaje que cada cliente o campaña requería, siempre dentro del marco general de Adecco Colombia.
+    </p>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- PROCESO -->
+  <section class="case-section" aria-labelledby="sec-proceso">
+    <p class="section-label">Proceso</p>
+    <h2 id="sec-proceso">Cómo abordo cada pieza</h2>
+
+    <div class="proceso-grid">
+
+      <div class="proceso-card">
+        <div class="proceso-num">01</div>
+        <h3>Entender el brief</h3>
+        <p>
+          Cada campaña llega con un objetivo diferente: una activación de marca, una comunicación a colaboradores, una invitación a un evento, un saludo de fecha especial. Antes de abrir Adobe Illustrator o Photoshop, entiendo a quién va dirigida la pieza y qué acción o emoción debe provocar.
+        </p>
+      </div>
+
+      <div class="proceso-card">
+        <div class="proceso-num">02</div>
+        <h3>Definir la paleta y el tono visual</h3>
+        <p>
+          Algunos proyectos siguen la identidad de Adecco Colombia (rojo corporativo, tipografía institucional). Otros, como las piezas para clientes B2B, exigen trasladarme a la identidad del cliente —Banco Agrario, Superpay, Canamor— manteniendo la coherencia interna de la serie.
+        </p>
+      </div>
+
+      <div class="proceso-card">
+        <div class="proceso-num">03</div>
+        <h3>Construir la composición</h3>
+        <p>
+          Trabajo en Adobe Illustrator para piezas vectoriales y en Adobe Photoshop cuando la pieza integra fotografía o tratamientos de imagen. Las dimensiones se ajustan desde el inicio al formato de destino: feed cuadrado, historia vertical o carrusel multi-slide.
+        </p>
+      </div>
+
+      <div class="proceso-card">
+        <div class="proceso-num">04</div>
+        <h3>Adaptar al formato de publicación</h3>
+        <p>
+          Una misma campaña puede necesitar una publicación de feed, una historia de Instagram y una portada de evento. Genero las variantes necesarias a partir de la composición principal, garantizando que el mensaje central se lea correctamente en cada formato.
+        </p>
+      </div>
+
+      <div class="proceso-card">
+        <div class="proceso-num">05</div>
+        <h3>Revisión y ajuste</h3>
+        <p>
+          Las piezas se revisan con el equipo interno. Los ajustes más frecuentes involucran jerarquía tipográfica, espaciado y lectura del texto sobre fondos complejos. Cuando hay fotografía de fondo, me aseguro de que el contraste sea suficiente para la accesibilidad básica.
+        </p>
+      </div>
+
+      <div class="proceso-card">
+        <div class="proceso-num">06</div>
+        <h3>Entrega en formatos listos para publicar</h3>
+        <p>
+          El entregable final son archivos exportados en las resoluciones y formatos requeridos por cada plataforma, con los elementos editoriales (texto, logo, firma) correctamente posicionados y sin sangrados innecesarios.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="sep"></div>
+
+  <!-- SOBRE LAS CAMPAÑAS -->
+  <section class="case-section" aria-labelledby="sec-campanas">
+    <p class="section-label">Trabajo realizado</p>
+    <h2 id="sec-campanas">Campañas y clientes</h2>
+    <p>
+      El portafolio incluye piezas para campañas internas de Adecco Colombia —como Halloween, gamificación y comunicaciones de bienestar— y para empresas cliente como Almahi, Banco Agrario, Canamor, Berhlan, Superpay, Vitaa y Mattilda, entre otras.
+    </p>
+    <p>
+      Cada serie de piezas responde a un encargo específico: convocatoria, saludo, invitación, presentación de producto o refuerzo de marca. La galería a continuación muestra el conjunto completo de piezas organizadas por grupo de campaña.
+    </p>
+  </section>
+
+</main><!-- /case-content -->
+
+<!-- ═══ GALERÍA MAGAZINE FLIP ══════════════════════════════════ -->
+<section class="adecco-magazine-gallery" aria-labelledby="gallery-title">
+  <div class="adecco-magazine-gallery__intro">
+    <p class="eyebrow">Galería completa</p>
+    <h2 id="gallery-title">Todas las piezas</h2>
+    <p>Explora el conjunto completo. Haz clic o toca una pieza para verla en alta resolución.</p>
+  </div>
+
+  <div class="adecco-magazine-gallery__stage">
+    <!-- Canvas 3D (Three.js) -->
+    <div id="adecco-canvas-wrapper" role="img" aria-label="Galería interactiva de piezas gráficas Adecco Colombia">
+      <canvas id="adecco-canvas" aria-hidden="true"></canvas>
+    </div>
+
+    <!-- Fallback accesible (se activa si WebGL no está disponible) -->
+    <div class="gallery-fallback" id="gallery-fallback" aria-label="Galería de imágenes Adecco Colombia">
+      <div class="gallery-fallback-grid" id="gallery-fallback-grid"></div>
+    </div>
+  </div>
+
+  <p class="adecco-magazine-gallery__hint" id="gallery-hint">
+    Arrastra para rotar · Scroll para zoom · Clic para ver en detalle
+  </p>
+</section>
+
+<!-- ═══ LIGHTBOX ══════════════════════════════════════════════ -->
+<div id="lb-overlay" role="dialog" aria-modal="true" aria-label="Vista en alta resolución">
+  <button id="lb-close" aria-label="Cerrar">&times;</button>
+  <button id="lb-nav-prev" aria-label="Anterior">&#8249;</button>
+  <img id="lb-img" src="" alt="">
+  <button id="lb-nav-next" aria-label="Siguiente">&#8250;</button>
+  <p id="lb-caption"></p>
+</div>
+
+<!-- ═══ NAV INFERIOR ══════════════════════════════════════════ -->
+<nav class="case-nav" aria-label="Navegación entre casos">
+  <a href="/proyectos/">
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 3L5 8l5 5"/></svg>
+    Todos los proyectos
+  </a>
+  <a href="/proyectos/almahi/">
+    Almahi Brand Identity
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 3l5 5-5 5"/></svg>
+  </a>
+</nav>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">&copy; 2024 Juan Esteban Giraldo — Diseñador gráfico y multimedia</p>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:juanestebangd12@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ THREE.JS (cdnjs, versión fija) ════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+/* ============================================================
+   ADECCO GALLERY — Magazine Flip en Three.js (plain JS)
+   Sin React · Sin build tools · Sin WebGL pesado de partículas
+   ============================================================ */
+
+(function () {
+  'use strict';
+
+  /* ── 1. CARGAR MANIFEST ──────────────────────────────────── */
+  const MANIFEST_URL = '/assets/proyectos/adecco/manifest.json';
+  const CANVAS_EL    = document.getElementById('adecco-canvas');
+  const WRAPPER_EL   = document.getElementById('adecco-canvas-wrapper');
+  const FALLBACK_EL  = document.getElementById('gallery-fallback');
+  const FALLBACK_GRID = document.getElementById('gallery-fallback-grid');
+  const HINT_EL      = document.getElementById('gallery-hint');
+
+  /* Lightbox */
+  const LB_OVERLAY = document.getElementById('lb-overlay');
+  const LB_IMG     = document.getElementById('lb-img');
+  const LB_CAPTION = document.getElementById('lb-caption');
+  const LB_CLOSE   = document.getElementById('lb-close');
+  const LB_PREV    = document.getElementById('lb-nav-prev');
+  const LB_NEXT    = document.getElementById('lb-nav-next');
+
+  let allPiezas = [];
+  let lbIndex   = 0;
+
+  /* ── 2. LIGHTBOX ─────────────────────────────────────────── */
+  function openLightbox(index) {
+    if (!allPiezas.length) return;
+    lbIndex = ((index % allPiezas.length) + allPiezas.length) % allPiezas.length;
+    const p = allPiezas[lbIndex];
+    LB_IMG.src = p.ruta_original || p.ruta_preview;
+    LB_IMG.alt = p.alt || '';
+    LB_CAPTION.textContent = p.alt || '';
+    LB_OVERLAY.classList.add('open');
+    LB_IMG.focus();
+  }
+  function closeLightbox() {
+    LB_OVERLAY.classList.remove('open');
+    LB_IMG.src = '';
+  }
+  LB_CLOSE.addEventListener('click', closeLightbox);
+  LB_PREV.addEventListener('click', () => openLightbox(lbIndex - 1));
+  LB_NEXT.addEventListener('click', () => openLightbox(lbIndex + 1));
+  LB_OVERLAY.addEventListener('click', function (e) {
+    if (e.target === LB_OVERLAY) closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!LB_OVERLAY.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft')  openLightbox(lbIndex - 1);
+    if (e.key === 'ArrowRight') openLightbox(lbIndex + 1);
+  });
+
+  /* ── 3. FALLBACK ACCESIBLE ───────────────────────────────── */
+  function buildFallbackGallery(piezas) {
+    WRAPPER_EL.style.display  = 'none';
+    FALLBACK_EL.style.display = 'block';
+    HINT_EL.textContent = 'Clic en cualquier imagen para ampliarla';
+
+    piezas.forEach(function (p, i) {
+      const item = document.createElement('div');
+      item.className = 'gallery-fallback-item';
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('role', 'button');
+      item.setAttribute('aria-label', 'Ver ' + (p.alt || 'imagen'));
+
+      const img = document.createElement('img');
+      img.src     = p.ruta_preview;
+      img.alt     = p.alt || '';
+      img.loading = 'lazy';
+      img.onerror = function () { img.style.display = 'none'; };
+
+      item.appendChild(img);
+      item.addEventListener('click', () => openLightbox(i));
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') openLightbox(i);
+      });
+      FALLBACK_GRID.appendChild(item);
+    });
+  }
+
+  /* ── 4. DETECTAR WebGL ───────────────────────────────────── */
+  function supportsWebGL() {
+    try {
+      var canvas = document.createElement('canvas');
+      return !!(
+        window.WebGLRenderingContext &&
+        (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+      );
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /* ── 5. HERO IMG GRID (primeras 3 piezas) ────────────────── */
+  function populateHeroGrid(piezas) {
+    var grid = document.getElementById('hero-img-grid');
+    if (!grid) return;
+    var cells = grid.querySelectorAll('.hero-img-cell');
+    cells.forEach(function (cell, i) {
+      if (!piezas[i]) return;
+      var p = piezas[i];
+      cell.innerHTML = '';
+      var img = document.createElement('img');
+      img.src     = p.ruta_preview;
+      img.alt     = p.alt || '';
+      img.loading = 'lazy';
+      img.onerror = function () { cell.innerHTML = '<div class="hero-img-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>'; };
+      cell.appendChild(img);
+    });
+  }
+
+  /* ── 6. THREE.JS MAGAZINE FLIP ───────────────────────────── */
+  function buildThreeGallery(piezas) {
+    if (!window.THREE) {
+      buildFallbackGallery(piezas);
+      return;
+    }
+
+    /* Configuración */
+    var COLS        = 5;     /* columnas en la grilla 3D */
+    var CELL_W      = 1.6;   /* ancho de cada tarjeta */
+    var CELL_H      = 1.6;   /* alto de cada tarjeta */
+    var GAP         = 0.18;  /* espacio entre tarjetas */
+    var PLACEHOLDER_COLOR = 0x1a1a1a;
+    var HOVER_SCALE = 1.08;
+
+    /* Escena */
+    var scene    = new THREE.Scene();
+    scene.background = new THREE.Color(0x000000);
+
+    var W = WRAPPER_EL.clientWidth;
+    var H = WRAPPER_EL.clientHeight;
+
+    var camera = new THREE.PerspectiveCamera(45, W / H, 0.1, 100);
+    camera.position.set(0, 0, 10);
+
+    var renderer = new THREE.WebGLRenderer({ canvas: CANVAS_EL, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(W, H);
+
+    /* Iluminación mínima */
+    var ambient = new THREE.AmbientLight(0xffffff, 0.9);
+    scene.add(ambient);
+    var dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    dirLight.position.set(5, 8, 5);
+    scene.add(dirLight);
+
+    /* Textura de placeholder */
+    var placeholderCanvas = document.createElement('canvas');
+    placeholderCanvas.width  = 256;
+    placeholderCanvas.height = 256;
+    var ctx = placeholderCanvas.getContext('2d');
+    ctx.fillStyle = '#1a1a1a';
+    ctx.fillRect(0, 0, 256, 256);
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(8, 8, 240, 240);
+    var placeholderTex = new THREE.CanvasTexture(placeholderCanvas);
+
+    /* Crear meshes */
+    var meshes   = [];
+    var textures  = {};
+    var totalRows = Math.ceil(piezas.length / COLS);
+    var totalW    = COLS * (CELL_W + GAP) - GAP;
+    var totalH    = totalRows * (CELL_H + GAP) - GAP;
+
+    piezas.forEach(function (pieza, i) {
+      var col = i % COLS;
+      var row = Math.floor(i / COLS);
+      var x   = col * (CELL_W + GAP) - totalW / 2 + CELL_W / 2;
+      var y   = -row * (CELL_H + GAP) + totalH / 2 - CELL_H / 2;
+
+      var geo = new THREE.PlaneGeometry(CELL_W, CELL_H);
+      var mat = new THREE.MeshStandardMaterial({
+        map:          placeholderTex,
+        metalness:    0,
+        roughness:    0.7,
+      });
+      var mesh = new THREE.Mesh(geo, mat);
+      mesh.position.set(x, y, 0);
+      mesh.userData.piezaIndex = i;
+      mesh.userData.origPos    = mesh.position.clone();
+      mesh.userData.origScale  = new THREE.Vector3(1, 1, 1);
+      scene.add(mesh);
+      meshes.push(mesh);
+
+      /* Cargar textura real */
+      var loader = new THREE.TextureLoader();
+      loader.load(
+        pieza.ruta_preview,
+        function (tex) {
+          tex.encoding = THREE.sRGBEncoding;
+          mat.map     = tex;
+          mat.needsUpdate = true;
+          textures[i] = tex;
+        },
+        undefined,
+        function () { /* error: mantiene placeholder */ }
+      );
+    });
+
+    /* ── Interacción: drag + zoom ── */
+    var isDragging  = false;
+    var prevMouse   = { x: 0, y: 0 };
+    var pivotX      = 0;
+    var pivotY      = 0;
+    var targetPivotX = 0;
+    var targetPivotY = 0;
+    var zoomTarget  = 10;
+    var zoomCurrent = 10;
+
+    /* Raycaster para hover / click */
+    var raycaster = new THREE.Raycaster();
+    var mouse     = new THREE.Vector2();
+    var hoveredMesh = null;
+
+    function getNDC(clientX, clientY) {
+      var rect = CANVAS_EL.getBoundingClientRect();
+      mouse.x =  ((clientX - rect.left)  / rect.width)  * 2 - 1;
+      mouse.y = -((clientY - rect.top)   / rect.height) * 2 + 1;
+    }
+
+    /* Mouse */
+    CANVAS_EL.addEventListener('mousedown', function (e) {
+      isDragging = true;
+      prevMouse  = { x: e.clientX, y: e.clientY };
+    });
+    window.addEventListener('mouseup', function (e) {
+      if (!isDragging) return;
+      var dx = e.clientX - prevMouse.x;
+      var dy = e.clientY - prevMouse.y;
+      if (Math.abs(dx) < 4 && Math.abs(dy) < 4) {
+        /* Click — abrir lightbox */
+        getNDC(e.clientX, e.clientY);
+        raycaster.setFromCamera(mouse, camera);
+        var hits = raycaster.intersectObjects(meshes);
+        if (hits.length) {
+          var idx = hits[0].object.userData.piezaIndex;
+          if (idx !== undefined) openLightbox(idx);
+        }
+      }
+      isDragging = false;
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (isDragging) {
+        var dx = e.clientX - prevMouse.x;
+        var dy = e.clientY - prevMouse.y;
+        targetPivotX += dx * 0.01;
+        targetPivotY -= dy * 0.01;
+        prevMouse = { x: e.clientX, y: e.clientY };
+      } else {
+        /* Hover */
+        getNDC(e.clientX, e.clientY);
+        raycaster.setFromCamera(mouse, camera);
+        var hits = raycaster.intersectObjects(meshes);
+        if (hits.length) {
+          var m = hits[0].object;
+          if (m !== hoveredMesh) {
+            if (hoveredMesh) hoveredMesh.userData.hovered = false;
+            hoveredMesh = m;
+            hoveredMesh.userData.hovered = true;
+            CANVAS_EL.style.cursor = 'pointer';
+          }
+        } else {
+          if (hoveredMesh) hoveredMesh.userData.hovered = false;
+          hoveredMesh = null;
+          CANVAS_EL.style.cursor = 'grab';
+        }
+      }
+    });
+
+    /* Scroll zoom */
+    WRAPPER_EL.addEventListener('wheel', function (e) {
+      e.preventDefault();
+      zoomTarget += e.deltaY * 0.02;
+      zoomTarget  = Math.max(4, Math.min(20, zoomTarget));
+    }, { passive: false });
+
+    /* Touch */
+    var touchStart = null;
+    var pinchStartDist = 0;
+    CANVAS_EL.addEventListener('touchstart', function (e) {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        touchStart = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        prevMouse  = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      } else if (e.touches.length === 2) {
+        var dx = e.touches[0].clientX - e.touches[1].clientX;
+        var dy = e.touches[0].clientY - e.touches[1].clientY;
+        pinchStartDist = Math.sqrt(dx*dx + dy*dy);
+      }
+    }, { passive: true });
+    CANVAS_EL.addEventListener('touchmove', function (e) {
+      if (e.touches.length === 1 && isDragging) {
+        var dx = e.touches[0].clientX - prevMouse.x;
+        var dy = e.touches[0].clientY - prevMouse.y;
+        targetPivotX += dx * 0.01;
+        targetPivotY -= dy * 0.01;
+        prevMouse = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      } else if (e.touches.length === 2) {
+        var dx = e.touches[0].clientX - e.touches[1].clientX;
+        var dy = e.touches[0].clientY - e.touches[1].clientY;
+        var dist = Math.sqrt(dx*dx + dy*dy);
+        var delta = (pinchStartDist - dist) * 0.05;
+        zoomTarget += delta;
+        zoomTarget  = Math.max(4, Math.min(20, zoomTarget));
+        pinchStartDist = dist;
+      }
+      e.preventDefault();
+    }, { passive: false });
+    CANVAS_EL.addEventListener('touchend', function (e) {
+      if (e.changedTouches.length === 1 && touchStart) {
+        var dx = e.changedTouches[0].clientX - touchStart.x;
+        var dy = e.changedTouches[0].clientY - touchStart.y;
+        if (Math.abs(dx) < 10 && Math.abs(dy) < 10) {
+          var rect = CANVAS_EL.getBoundingClientRect();
+          mouse.x =  ((e.changedTouches[0].clientX - rect.left)  / rect.width)  * 2 - 1;
+          mouse.y = -((e.changedTouches[0].clientY - rect.top)   / rect.height) * 2 + 1;
+          raycaster.setFromCamera(mouse, camera);
+          var hits = raycaster.intersectObjects(meshes);
+          if (hits.length) {
+            var idx = hits[0].object.userData.piezaIndex;
+            if (idx !== undefined) openLightbox(idx);
+          }
+        }
+      }
+      isDragging = false;
+      touchStart = null;
+    });
+
+    /* ── Resize ── */
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        var W2 = WRAPPER_EL.clientWidth;
+        var H2 = WRAPPER_EL.clientHeight;
+        camera.aspect = W2 / H2;
+        camera.updateProjectionMatrix();
+        renderer.setSize(W2, H2);
+      }, 150);
+    });
+
+    /* ── Animación ── */
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var clock = new THREE.Clock();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      var dt = clock.getDelta();
+
+      /* Suavizar pan */
+      var lerpF = prefersReducedMotion ? 1 : Math.min(1, dt * 6);
+      pivotX += (targetPivotX - pivotX) * lerpF;
+      pivotY += (targetPivotY - pivotY) * lerpF;
+      zoomCurrent += (zoomTarget - zoomCurrent) * lerpF;
+
+      camera.position.x = pivotX;
+      camera.position.y = pivotY;
+      camera.position.z = zoomCurrent;
+      camera.lookAt(pivotX, pivotY, 0);
+
+      /* Hover scale */
+      meshes.forEach(function (m) {
+        var tgt = m.userData.hovered ? HOVER_SCALE : 1;
+        var cur = m.scale.x;
+        var lf  = prefersReducedMotion ? 1 : Math.min(1, dt * 8);
+        var ns  = cur + (tgt - cur) * lf;
+        m.scale.set(ns, ns, 1);
+      });
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    /* ── Cleanup al salir de página ── */
+    window.addEventListener('pagehide', function () {
+      renderer.dispose();
+      Object.values(textures).forEach(function (t) { t.dispose(); });
+    });
+  }
+
+  /* ── 7. BOOTSTRAP ────────────────────────────────────────── */
+  fetch(MANIFEST_URL)
+    .then(function (res) {
+      if (!res.ok) throw new Error('manifest not found');
+      return res.json();
+    })
+    .then(function (data) {
+      allPiezas = data.piezas || [];
+
+      /* Hero grid con las primeras 3 piezas */
+      populateHeroGrid(allPiezas);
+
+      if (!allPiezas.length) {
+        WRAPPER_EL.style.display  = 'none';
+        HINT_EL.textContent = '';
+        return;
+      }
+
+      if (!supportsWebGL()) {
+        buildFallbackGallery(allPiezas);
+        return;
+      }
+
+      buildThreeGallery(allPiezas);
+    })
+    .catch(function () {
+      /* Si el manifest no está aún, mostrar fallback vacío */
+      WRAPPER_EL.style.display  = 'none';
+      FALLBACK_EL.style.display = 'none';
+      HINT_EL.textContent = 'Las imágenes se mostrarán una vez se carguen los archivos.';
+    });
+
+})();
+</script>
+
+</body>
+</html>
