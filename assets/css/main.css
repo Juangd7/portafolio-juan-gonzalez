@@ -1668,26 +1668,6 @@ footer {
   overflow: hidden;           /* oculta lo que sale por los lados */
 }
 
-/* Gradiente de desvanecimiento en los bordes (efecto editorial) */
-.tools-track-wrapper::before,
-.tools-track-wrapper::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  width: 80px;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-.tools-track-wrapper::before {
-  left: 1.5rem;
-  background: linear-gradient(to right, #FFED00, transparent);
-}
-.tools-track-wrapper::after {
-  right: 1.5rem;
-  background: linear-gradient(to left, #FFED00, transparent);
-}
-
 /* ── Pista (contenedor en movimiento) ─────────────────────── */
 .tools-track {
   display: flex;
@@ -1756,11 +1736,11 @@ footer {
   will-change: transform, filter;
 }
 
-.tools-logo__inner svg {
+.tools-logo__inner svg,
+.tools-logo__inner img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  fill: white;
   max-width: 56px;
   max-height: 44px;
 }
@@ -1846,15 +1826,14 @@ footer {
   .tools-track-wrapper {
     padding: 0 1rem;
   }
-  .tools-track-wrapper::before { left: 1rem; width: 48px; }
-  .tools-track-wrapper::after  { right: 1rem; width: 48px; }
 
   .tools-logo {
     width: 64px;
     height: 52px;
     padding: 0 14px;
   }
-  .tools-logo__inner svg {
+  .tools-logo__inner svg,
+  .tools-logo__inner img {
     max-width: 42px;
     max-height: 34px;
   }
