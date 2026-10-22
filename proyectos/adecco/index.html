@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
+
     :root {
       --yellow: #FFED00;
       --black: #000000;
@@ -38,8 +39,8 @@
     .nav-link:hover { color: #ffffff; background: rgba(255,255,255,0.06); }
     .nav-link.active { color: #000000; background: #FFED00; font-weight: 700; }
     .nav-controls { display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem; }
-    .lang-toggle { display: flex; align-items: center; gap: 0; border: 1px solid rgba(255,255,255,0.18); border-radius: 100px; overflow: hidden; font-size: 0.75rem; }
-    .lang-btn { padding: 0.3rem 0.65rem; font-weight: 600; letter-spacing: 0.04em; color: rgba(255,255,255,0.45); transition: background 0.15s, color 0.15s; background: none; border: none; cursor: pointer; }
+    .lang-toggle { display: flex; align-items: center; gap: 0; border: 1px solid rgba(255,255,255,0.18); border-radius: 100px; overflow: hidden; font-size: 0.75rem; font-family: 'Source Sans 3', sans-serif; }
+    .lang-btn { padding: 0.3rem 0.65rem; font-weight: 600; letter-spacing: 0.04em; color: rgba(255,255,255,0.45); transition: background 0.15s, color 0.15s; background: none; border: none; cursor: pointer; font-size: 0.75rem; font-family: 'Source Sans 3', sans-serif; }
     .lang-btn.active { background: #FFED00; color: #000000; }
     .hamburger { display: none; width: 36px; height: 36px; align-items: center; justify-content: center; flex-direction: column; gap: 5px; border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; color: #ffffff; background: transparent; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
     .hamburger:hover { background: rgba(255,255,255,0.1); }
@@ -114,32 +115,16 @@
     .campana-nombre { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
     .campana-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; }
 
-    /* GALLERY */
-    .gallery-section { padding: 80px 0; background: #0a0a0a; color: var(--white); }
-    .gallery-header { max-width: 1100px; margin: 0 auto; padding: 0 24px 48px; }
-    .gallery-header .section-label { color: var(--yellow); }
-    #magazine-canvas-wrap { position: relative; width: 100%; height: 520px; cursor: grab; }
-    #magazine-canvas-wrap:active { cursor: grabbing; }
-    #magazine-canvas { display: block; width: 100%; height: 100%; }
-    #mag-loading { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0a0a0a; color: rgba(255,255,255,0.6); font-size: 0.9rem; gap: 12px; }
-    .mag-spinner { width: 36px; height: 36px; border: 3px solid rgba(255,237,0,0.2); border-top-color: var(--yellow); border-radius: 50%; animation: spin 0.8s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    #mag-hint { text-align: center; padding: 16px; font-size: 0.8rem; color: rgba(255,255,255,0.4); }
-    #gallery-fallback { display: none; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; padding: 0 24px; max-width: 1100px; margin: 0 auto; }
-    #gallery-fallback.visible { display: grid; }
-    .fallback-item { aspect-ratio: 4/5; overflow: hidden; cursor: pointer; }
-    .fallback-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-    .fallback-item:hover img { transform: scale(1.05); }
-
-    /* LIGHTBOX */
-    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9000; align-items: center; justify-content: center; padding: 16px; }
-    #lightbox.open { display: flex; }
-    #lightbox-img { max-width: min(90vw, 900px); max-height: 90vh; object-fit: contain; display: block; }
-    #lightbox-close { position: fixed; top: 20px; right: 20px; width: 40px; height: 40px; background: var(--yellow); border: none; cursor: pointer; font-size: 1.2rem; font-weight: 900; display: flex; align-items: center; justify-content: center; }
-    #lightbox-info { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: var(--white); padding: 8px 20px; font-size: 0.8rem; text-align: center; white-space: nowrap; }
-    #lb-prev, #lb-next { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255,237,0,0.9); border: none; width: 44px; height: 44px; font-size: 1.3rem; font-weight: 900; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    #lb-prev { left: 12px; }
-    #lb-next { right: 12px; }
+    /* MAGAZINE FLIP VIEWER */
+    .flip-section { background: var(--black); padding: 80px 0 0; }
+    .flip-section .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .flip-wrap { position: relative; width: 100%; height: 520px; background: #000; margin-top: 40px; cursor: grab; touch-action: pan-y; overflow: hidden; }
+    .flip-wrap:active { cursor: grabbing; }
+    .flip-hint { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 16px; pointer-events: none; white-space: nowrap; z-index: 2; transition: opacity 0.5s; }
+    .flip-hint.hidden { opacity: 0; }
+    .flip-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.3); font-size: 0.8rem; letter-spacing: 0.1em; pointer-events: none; z-index: 3; transition: opacity 0.4s; }
+    .flip-loading.done { opacity: 0; }
+    @media (max-width: 768px) { .flip-wrap { height: 340px; } }
 
     /* CIERRE */
     .cierre { background: var(--purple); color: var(--white); padding: 80px 24px; text-align: center; }
@@ -169,7 +154,6 @@
       .hero { padding: 56px 16px 48px; }
       .section { padding: 56px 16px; }
       .ficha { padding: 32px 16px; }
-      #magazine-canvas-wrap { height: 320px; }
       .footer-top { flex-direction: column; }
       .footer-social { align-items: flex-start; }
     }
@@ -221,7 +205,7 @@
     <h1 class="hero-title">Piezas gráficas<br>para <em>Adecco Colombia</em></h1>
     <p class="hero-desc">Diseño de contenido visual para múltiples campañas: comunicaciones internas, redes sociales y activaciones de marca para clientes del sector empresarial colombiano.</p>
     <div class="hero-img">
-      <img src="/assets/proyectos/adecco/originals/pieza-12-banco-agrario-piezas-01.png" alt="Pieza gráfica representativa del proyecto Adecco Colombia" loading="eager">
+      <img src="/assets/proyectos/adecco/previews/pieza-12-banco-agrario-piezas-01.webp" alt="Pieza gráfica representativa del proyecto Adecco Colombia" loading="eager">
       <p class="hero-img-caption">Muestra representativa — Piezas para Banco Agrario vía Adecco Colombia</p>
     </div>
   </div>
@@ -311,9 +295,21 @@
   </div>
 </section>
 
-<section class="section">
+<section class="flip-section">
   <div class="section-inner">
     <p class="section-label">Resultado</p>
+    <h2 class="section-title" style="color:var(--white);">Las 55 piezas</h2>
+    <p class="section-body" style="color:rgba(255,255,255,0.75);">Arrastra o desplaza para navegar por el corredor. Haz clic en una pieza para acercarla. Presiona Escape para volver.</p>
+    <div class="flip-wrap" id="flip-wrap" role="img" aria-label="Galería 3D de piezas gráficas de Adecco Colombia">
+      <div class="flip-loading" id="flip-loading">Cargando piezas…</div>
+      <span class="flip-hint" id="flip-hint">← Arrastra para navegar →</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label">Campañas</p>
     <h2 class="section-title">Campañas realizadas</h2>
     <p class="section-body">Una selección de las campañas que conforman este proyecto, cada una con su identidad visual particular.</p>
     <div class="campanas-grid">
@@ -361,19 +357,6 @@
   </div>
 </section>
 
-<section class="gallery-section" id="galeria">
-  <div class="gallery-header">
-    <p class="section-label">Todas las piezas</p>
-    <h2 class="section-title" style="color:var(--white);">Galería completa — 55 piezas</h2>
-    <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;max-width:560px;">Navega por todas las piezas del proyecto en el corredor 3D. Haz clic en cualquier pieza para verla en alta resolución.</p>
-  </div>
-  <div id="magazine-canvas-wrap" role="region" aria-label="Galería interactiva 3D">
-    <canvas id="magazine-canvas"></canvas>
-    <div id="mag-loading"><div class="mag-spinner"></div><span>Cargando galería…</span></div>
-  </div>
-  <p id="mag-hint">← Arrastra para navegar · Clic para ver en alta resolución →</p>
-  <div id="gallery-fallback" role="list" aria-label="Galería de piezas"></div>
-</section>
 
 <section class="cierre">
   <h2 class="cierre-title">Un proyecto de producción<br>constante y alta calidad</h2>
@@ -427,29 +410,9 @@
   </div>
 </footer>
 
-<div id="lightbox" role="dialog" aria-modal="true" aria-label="Vista ampliada">
-  <button id="lightbox-close" aria-label="Cerrar">✕</button>
-  <button id="lb-prev" aria-label="Anterior">‹</button>
-  <img id="lightbox-img" src="" alt="">
-  <button id="lb-next" aria-label="Siguiente">›</button>
-  <div id="lightbox-info"></div>
-</div>
-
 <script>
-// ===== DATOS =====
-let MANIFEST = [];
-let lbIndex = 0;
-
-async function loadManifest() {
-  try {
-    const r = await fetch('/assets/proyectos/adecco/manifest.json');
-    MANIFEST = await r.json();
-  } catch(e) { console.warn('manifest fetch failed', e); }
-}
-
 // ===== NAV =====
 (function(){
-  // Pill scroll effect
   const nav = document.querySelector('.nav');
   if(nav) window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10), {passive:true});
 
@@ -461,264 +424,631 @@ async function loadManifest() {
       ham.setAttribute('aria-expanded', open);
     });
   }
+
+  // ===== LANG TOGGLE =====
   document.querySelectorAll('.lang-btn, .mobile-lang button').forEach(btn => {
     btn.addEventListener('click', () => {
       const lang = btn.dataset.lang;
       document.querySelectorAll('.lang-btn, .mobile-lang button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-      document.querySelectorAll('[data-es],[data-en]').forEach(el => { const txt = el.dataset[lang]; if(txt) el.textContent = txt; });
+      document.querySelectorAll('[data-es],[data-en]').forEach(el => {
+        const txt = el.dataset[lang];
+        if(txt !== undefined) el.textContent = txt;
+      });
     });
   });
 })();
 
-// ===== LIGHTBOX =====
-const lb = document.getElementById('lightbox');
-const lbImg = document.getElementById('lightbox-img');
-const lbInfo = document.getElementById('lightbox-info');
+// ===== MAGAZINE FLIP =====
+(function(){
+  if(typeof THREE === 'undefined') return;
 
-function openLightbox(idx){
-  if(!MANIFEST.length) return;
-  lbIndex = ((idx % MANIFEST.length) + MANIFEST.length) % MANIFEST.length;
-  const p = MANIFEST[lbIndex];
-  lbImg.src = p.orig;
-  lbImg.alt = p.alt;
-  lbInfo.textContent = p.alt + ' — ' + p.client + ' (' + p.w + '×' + p.h + 'px)';
-  lb.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeLightbox(){ lb.classList.remove('open'); lbImg.src = ''; document.body.style.overflow = ''; }
-document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-document.getElementById('lb-prev').addEventListener('click', () => openLightbox(lbIndex - 1));
-document.getElementById('lb-next').addEventListener('click', () => openLightbox(lbIndex + 1));
-lb.addEventListener('click', e => { if(e.target === lb) closeLightbox(); });
-document.addEventListener('keydown', e => {
-  if(!lb.classList.contains('open')) return;
-  if(e.key === 'Escape') closeLightbox();
-  if(e.key === 'ArrowLeft') openLightbox(lbIndex - 1);
-  if(e.key === 'ArrowRight') openLightbox(lbIndex + 1);
-});
+  // ---- Constants ----
+  var CAM_FOV = 75;
+  var CAM_Z = 6;
+  var VIEW_HEIGHT = 2 * CAM_Z * Math.tan((CAM_FOV * Math.PI) / 360);
+  var PAGE_SEGMENTS = 40;
+  var MAX_PAGES = 60;
+  var THICKNESS_RATIO = 0.005;
+  var CELL_MAX = 512;
+  var ATLAS_MAX = 4096;
+  var CORRIDOR_DIM = 0.22;
+  var TAP_SLOP = 6;
+  var TAP_MS = 600;
+  var PICK_MAX = 1600;
+  var OFFSET_RANGE = 250;
 
-// ===== FALLBACK =====
-function buildFallbackGrid(){
-  const grid = document.getElementById('gallery-fallback');
-  grid.classList.add('visible');
-  MANIFEST.forEach((p, i) => {
-    const item = document.createElement('div');
-    item.className = 'fallback-item';
-    item.setAttribute('role','listitem');
-    item.setAttribute('tabindex','0');
-    item.setAttribute('aria-label', p.alt);
-    const img = document.createElement('img');
-    img.src = p.preview; img.alt = p.alt; img.loading = 'lazy';
-    item.appendChild(img);
-    item.addEventListener('click', () => openLightbox(i));
-    item.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openLightbox(i); }});
-    grid.appendChild(item);
-  });
-}
+  var DEFAULT_VIEW = { tap: true, zoom: 5, speed: 5 };
+  var DEFAULT_TRAVEL = { drift: 1.5, smoothing: 5, wave: 5 };
+  var DEFAULTS = {
+    pages: 20, spacing: 5, tilt: 0, turn: 0,
+    pageWidth: 600, pageHeight: 500,
+    scrollSens: 5
+  };
 
-// ===== MAGAZINE FLIP — Three.js r128 =====
-const SPREAD = 2.2;
-const PAGE_W = 1.6, PAGE_H = 2.0;
-const CELL_MAX = 512, ATLAS_MAX = 4096;
+  // ---- Shaders ----
+  var PAGE_VERTEX = [
+    'attribute float aIndex;',
+    'attribute vec4 aRect;',
+    'attribute float aAspect;',
+    'attribute float aOffset;',
+    'uniform float uPageThickness;',
+    'uniform float uPageWidth;',
+    'uniform float uPageHeight;',
+    'uniform float uMeshCount;',
+    'uniform float uPageSpacing;',
+    'uniform float uScrollY;',
+    'uniform float uSpeedY;',
+    'uniform float uWave;',
+    'uniform float uTilt;',
+    'uniform float uTurn;',
+    'uniform float uFocusIndex;',
+    'uniform float uFocusProgress;',
+    'uniform float uFocusScale;',
+    'uniform float uFocusZ;',
+    'varying vec2 vUv;',
+    'varying vec4 vRect;',
+    'varying float vAspect;',
+    'varying float vOffset;',
+    'varying float vIndex;',
+    'varying float vDim;',
+    'const float TAU_HALF = 3.14159265359;',
+    'mat3 rotY(float a){return mat3(cos(a),0.0,sin(a),0.0,1.0,0.0,-sin(a),0.0,cos(a));}',
+    'mat3 rotX(float a){return mat3(1.0,0.0,0.0,0.0,cos(a),-sin(a),0.0,sin(a),cos(a));}',
+    'void main(){',
+    '  float PI = TAU_HALF;',
+    '  vec3 basePos = vec3(position.x*uPageWidth, position.y*uPageHeight, position.z*uPageThickness);',
+    '  vec3 rotationCenter = vec3(-uPageWidth*0.5, 0.0, 0.0);',
+    '  float fromMiddle = aIndex - (uMeshCount-1.0)*0.5;',
+    '  float yAngle = -PI*0.5 + uTurn;',
+    '  float xAngle = uTilt;',
+    '  float boxCenterZ = uPageSpacing*(-fromMiddle);',
+    '  float maxZ = uMeshCount*(uPageSpacing+uPageThickness)*0.5;',
+    '  float bow = sin((position.y+0.5)*2.0)*uWave;',
+    '  float speed = clamp(uSpeedY/uPageWidth*4.0,-2.0,2.0);',
+    '  float zCorridor = mod(boxCenterZ-uScrollY+maxZ,2.0*maxZ)-maxZ - bow*speed;',
+    '  float focused = step(abs(aIndex-uFocusIndex),0.5);',
+    '  float e = focused*uFocusProgress;',
+    '  float k = mix(1.0,uFocusScale,e);',
+    '  vec3 pivot = rotationCenter*(1.0-e);',
+    '  vec3 vertexLocal = basePos*k - pivot;',
+    '  vertexLocal.z += zCorridor*(1.0-e);',
+    '  vec3 rotated = rotY(yAngle*(1.0-e))*vertexLocal + pivot;',
+    '  rotated.z -= uPageWidth*0.5*(1.0-e);',
+    '  rotated.x += uPageWidth*0.5*(1.0-e);',
+    '  vec3 newPosition = rotX(xAngle*(1.0-e))*rotated;',
+    '  newPosition.z += uFocusZ*e;',
+    '  vec4 modelPosition = modelMatrix * vec4(newPosition, 1.0);',
+    '  gl_Position = projectionMatrix * viewMatrix * modelPosition;',
+    '  vUv = uv; vRect = aRect; vAspect = aAspect; vOffset = aOffset; vIndex = aIndex;',
+    '  vDim = uFocusProgress*(1.0-focused);',
+    '}'
+  ].join('\n');
 
-const PAGE_VERT = `
-uniform float uFocusIndex;
-attribute float aIndex;
-attribute vec2 aUVOffset;
-attribute vec2 aUVScale;
-varying vec2 vUV;
-varying float vIndex;
-void main(){
-  vIndex = aIndex;
-  float z = -aIndex * ${SPREAD.toFixed(2)};
-  vec3 pos = position;
-  pos.z += z;
-  vUV = uv * aUVScale + aUVOffset;
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-}`;
+  var PAGE_FRAGMENT = [
+    'uniform sampler2D uAtlas;',
+    'uniform float uPageAspect;',
+    'varying vec2 vUv;',
+    'varying vec4 vRect;',
+    'varying float vAspect;',
+    'varying float vOffset;',
+    'varying float vDim;',
+    'void main(){',
+    '  vec2 uv = vUv;',
+    '  float s = vAspect/uPageAspect;',
+    '  float band = min(s,1.0/s);',
+    '  float slack = (1.0-band)*0.5;',
+    '  float slide = clamp(vOffset,-1.0,1.0)*slack;',
+    '  if(s>=1.0){ uv.x=(uv.x-0.5)*band+0.5-slide; }',
+    '  else { uv.y=(uv.y-0.5)*band+0.5+slide; }',
+    '  vec2 atlasUv = mix(vRect.xy,vRect.zw,clamp(uv,0.0,1.0));',
+    '  vec4 color = texture2D(uAtlas,atlasUv);',
+    '  gl_FragColor = vec4(color.rgb*mix(1.0,' + CORRIDOR_DIM.toFixed(2) + ',vDim),color.a);',
+    '}'
+  ].join('\n');
 
-const PAGE_FRAG = `
-uniform sampler2D uAtlas;
-uniform float uFocusIndex;
-varying vec2 vUV;
-varying float vIndex;
-void main(){
-  vec4 col = texture2D(uAtlas, vUV);
-  float dist = abs(vIndex - uFocusIndex);
-  float dim = 1.0 - clamp(dist * 0.18, 0.0, 0.65);
-  gl_FragColor = vec4(col.rgb * dim, col.a);
-}`;
+  var PICK_FRAGMENT = [
+    'varying float vIndex;',
+    'void main(){ gl_FragColor = vec4((vIndex+1.0)/255.0,0.0,0.0,1.0); }'
+  ].join('\n');
 
-const PICK_VERT = `
-attribute float aIndex;
-varying float vIndex;
-void main(){
-  vIndex = aIndex;
-  float z = -aIndex * ${SPREAD.toFixed(2)};
-  vec3 pos = position; pos.z += z;
-  gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-}`;
-
-const PICK_FRAG = `
-varying float vIndex;
-void main(){
-  float idx = vIndex + 1.0;
-  float r = mod(idx, 256.0)/255.0;
-  float g = mod(floor(idx/256.0), 256.0)/255.0;
-  float b = floor(idx/65536.0)/255.0;
-  gl_FragColor = vec4(r, g, b, 1.0);
-}`;
-
-class MagazineFlip {
-  constructor(canvas, manifest){
-    this.canvas = canvas; this.manifest = manifest;
-    this.pages = manifest.length;
-    this.scrollZ = 0; this.targetZ = 0;
-    this.focusIdx = 0;
-    this.dragging = false; this.lastX = 0;
-    this._disposed = false;
-    this._init();
+  // ---- Helpers ----
+  function clamp(v, lo, hi, fallback) {
+    var n = (typeof v === 'number' && isFinite(v)) ? v : fallback;
+    return Math.max(lo, Math.min(hi, n));
   }
-  _init(){
-    const W = this.canvas.clientWidth, H = this.canvas.clientHeight;
-    this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, antialias: true });
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-    this.renderer.setSize(W, H);
-    this.renderer.setClearColor(0x0a0a0a);
-    this.camera = new THREE.PerspectiveCamera(75, W/H, 0.1, 200);
-    this.camera.position.z = 6;
-    this.scene = new THREE.Scene();
-    this.pickTarget = new THREE.WebGLRenderTarget(W * Math.min(devicePixelRatio,2), H * Math.min(devicePixelRatio,2));
-    this._buildAtlas().then(atlas => {
-      this._buildMesh(atlas);
-      this._attachEvents();
-      document.getElementById('mag-loading').style.display = 'none';
-      this._raf();
-    }).catch(() => { document.getElementById('mag-loading').style.display = 'none'; buildFallbackGrid(); });
+  function power2InOut(t) {
+    if(t<=0) return 0; if(t>=1) return 1;
+    return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
   }
-  async _buildAtlas(){
-    const cols = Math.ceil(Math.sqrt(this.pages));
-    const rows = Math.ceil(this.pages / cols);
-    const sz = CELL_MAX;
-    const W = Math.min(cols * sz, ATLAS_MAX), H = Math.min(rows * sz, ATLAS_MAX);
-    const offscreen = document.createElement('canvas');
-    offscreen.width = W; offscreen.height = H;
-    const ctx = offscreen.getContext('2d');
-    this.uvData = [];
-    const loads = this.manifest.map((p, i) => new Promise(res => {
-      const img = new Image();
+
+  var imageCache = {};
+  var imagePending = {};
+  function loadImage(url) {
+    if(url in imageCache) return Promise.resolve(imageCache[url]);
+    if(url in imagePending) return imagePending[url];
+    var p = new Promise(function(resolve){
+      var img = new Image();
       img.crossOrigin = 'anonymous';
-      img.onload = () => {
-        const col = i % cols, row = Math.floor(i / cols);
-        const px = col * sz, py = row * sz;
-        const ar = img.naturalWidth / img.naturalHeight;
-        let sx=0, sy=0, sw=img.naturalWidth, sh=img.naturalHeight;
-        if(ar > 1){ sw = img.naturalHeight; sx = (img.naturalWidth - sw)/2; }
-        else { sh = img.naturalWidth/ar; sy = (img.naturalHeight - sh)/2; }
-        ctx.drawImage(img, sx, sy, sw, sh, px, py, sz, sz);
-        this.uvData[i] = { x0: px/W, y0: py/H, x1: (px+sz)/W, y1: (py+sz)/H };
-        res();
-      };
-      img.onerror = () => {
-        const col = i % cols, row = Math.floor(i/cols);
-        ctx.fillStyle = '#2a2a2a';
-        ctx.fillRect(col*sz, row*sz, sz, sz);
-        this.uvData[i] = { x0:(col*sz)/W, y0:(row*sz)/H, x1:((col+1)*sz)/W, y1:((row+1)*sz)/H };
-        res();
-      };
-      img.src = p.preview;
-    }));
-    await Promise.all(loads);
-    const tex = new THREE.CanvasTexture(offscreen);
-    tex.needsUpdate = true;
-    return tex;
+      img.onload = function(){ imageCache[url] = img; resolve(img); };
+      img.onerror = function(){ imageCache[url] = null; resolve(null); };
+      img.src = url;
+    });
+    imagePending[url] = p;
+    return p;
   }
-  _buildMesh(atlas){
-    const geo = new THREE.PlaneGeometry(PAGE_W, PAGE_H, 1, 1);
-    const n = this.pages;
-    const aIdx = new Float32Array(n * 4);
-    const aUVO = new Float32Array(n * 4 * 2);
-    const aUVS = new Float32Array(n * 4 * 2);
-    for(let i=0; i<n; i++){
-      const uv = this.uvData[i] || {x0:0,y0:0,x1:1,y1:1};
-      for(let v=0; v<4; v++){
-        aIdx[i*4+v] = i;
-        aUVO[(i*4+v)*2+0] = uv.x0; aUVO[(i*4+v)*2+1] = uv.y0;
-        aUVS[(i*4+v)*2+0] = uv.x1-uv.x0; aUVS[(i*4+v)*2+1] = uv.y1-uv.y0;
+
+  var PLACEHOLDER_ASPECTS = [0.72,1.5,0.78,1.33,1.0,1.62,0.68,1.2,0.86,1.45];
+  function drawPlaceholder(ctx, index, x, y, w, h) {
+    var hue = (index*47)%360;
+    var grad = ctx.createLinearGradient(x,y,x+w,y+h);
+    grad.addColorStop(0,'hsl('+hue+',22%,27%)');
+    grad.addColorStop(0.55,'hsl('+hue+',18%,13%)');
+    grad.addColorStop(1,'hsl('+((hue+40)%360)+',24%,23%)');
+    ctx.fillStyle = grad; ctx.fillRect(x,y,w,h);
+    ctx.strokeStyle = 'rgba(255,255,255,0.14)';
+    ctx.lineWidth = Math.max(1,Math.round(w*0.008));
+    ctx.strokeRect(x+1,y+1,w-2,h-2);
+    ctx.fillStyle = 'rgba(255,255,255,0.68)';
+    ctx.font = '500 '+Math.round(Math.min(w,h)*0.26)+'px system-ui,sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(String(index+1).padStart(2,'0'),x+w/2,y+h/2);
+  }
+
+  function buildAtlas(sources, maxAnisotropy) {
+    var n = Math.max(1, sources.length);
+    return Promise.all(sources.map(function(src){ return src ? loadImage(src) : Promise.resolve(null); }))
+      .then(function(images){
+        var cols = Math.ceil(Math.sqrt(n));
+        var rows = Math.ceil(n/cols);
+        var cell = Math.min(CELL_MAX, Math.floor(ATLAS_MAX/Math.max(cols,rows)));
+        var canvas = document.createElement('canvas');
+        canvas.width = cols*cell; canvas.height = rows*cell;
+        var ctx = canvas.getContext('2d');
+        if(!ctx) return null;
+        var cells = [];
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for(var i=0;i<n;i++){
+          var cx=(i%cols)*cell, cy=Math.floor(i/cols)*cell;
+          var img = images[i];
+          var aspect = (img && img.naturalHeight>0) ? img.naturalWidth/img.naturalHeight : PLACEHOLDER_ASPECTS[i%PLACEHOLDER_ASPECTS.length];
+          var w=aspect>=1?cell:cell*aspect, h=aspect>=1?cell/aspect:cell;
+          var dx=cx+(cell-w)/2, dy=cy+(cell-h)/2;
+          if(img) ctx.drawImage(img,dx,dy,w,h);
+          else drawPlaceholder(ctx,i,dx,dy,w,h);
+          var u0=(dx+1)/canvas.width, u1=(dx+w-1)/canvas.width;
+          var vTop=1-(dy+1)/canvas.height, vBottom=1-(dy+h-1)/canvas.height;
+          cells.push({rect:[u0,vBottom,u1,vTop],aspect:aspect});
+        }
+        // Try CORS check
+        try{ ctx.getImageData(0,0,1,1); } catch(e){
+          ctx.clearRect(0,0,canvas.width,canvas.height);
+          cells=[];
+          for(var j=0;j<n;j++){
+            var cx2=(j%cols)*cell, cy2=Math.floor(j/cols)*cell;
+            var aspect2=PLACEHOLDER_ASPECTS[j%PLACEHOLDER_ASPECTS.length];
+            var w2=aspect2>=1?cell:cell*aspect2, h2=aspect2>=1?cell/aspect2:cell;
+            var dx2=cx2+(cell-w2)/2, dy2=cy2+(cell-h2)/2;
+            drawPlaceholder(ctx,j,dx2,dy2,w2,h2);
+            var u0b=(dx2+1)/canvas.width, u1b=(dx2+w2-1)/canvas.width;
+            var vTb=1-(dy2+1)/canvas.height, vBb=1-(dy2+h2-1)/canvas.height;
+            cells.push({rect:[u0b,vBb,u1b,vTb],aspect:aspect2});
+          }
+        }
+        var texture = new THREE.CanvasTexture(canvas);
+        texture.colorSpace = THREE.NoColorSpace;
+        texture.generateMipmaps = true;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.anisotropy = maxAnisotropy;
+        texture.needsUpdate = true;
+        return {texture:texture, cells:cells};
+      });
+  }
+
+  function blankTexture() {
+    var t = new THREE.DataTexture(new Uint8Array([46,46,48,255]),1,1,THREE.RGBAFormat);
+    t.needsUpdate = true; return t;
+  }
+
+  function settingsFor(cfg, viewW, viewH) {
+    var worldPerPx = VIEW_HEIGHT / Math.max(1, viewH);
+    var viewAspect = Math.max(1, viewW) / Math.max(1, viewH);
+    var pageWidthPx = clamp(cfg.pageWidth, 40, 1200, DEFAULTS.pageWidth);
+    var pageHeightPx = clamp(cfg.pageHeight, 40, 1600, DEFAULTS.pageHeight);
+    var pageWidth = pageWidthPx * worldPerPx;
+    var pageHeight = pageHeightPx * worldPerPx;
+    var spacing = clamp(cfg.spacing, 0, 10, DEFAULTS.spacing);
+    var smoothing = clamp(cfg.travel.smoothing, 0, 10, DEFAULT_TRAVEL.smoothing);
+    var wave = clamp(cfg.travel.wave, 0, 10, DEFAULT_TRAVEL.wave);
+    var drift = clamp(cfg.travel.drift, -10, 10, DEFAULT_TRAVEL.drift);
+    var focusZ = Math.min(CAM_Z*0.55, pageWidth*0.75);
+    var planeHeight = (VIEW_HEIGHT*(CAM_Z-focusZ))/CAM_Z;
+    var planeWidth = planeHeight*viewAspect;
+    var fill = 0.6 + clamp(cfg.view.zoom, 0, 10, DEFAULT_VIEW.zoom)*0.04;
+    return {
+      pageWidth: pageWidth, pageHeight: pageHeight,
+      pageWidthPx: pageWidthPx, pageHeightPx: pageHeightPx,
+      worldPerPx: worldPerPx,
+      pages: Math.round(clamp(cfg.pages, 4, MAX_PAGES, DEFAULTS.pages)),
+      pageSpacing: pageWidth*(0.1+spacing*0.08),
+      thickness: pageWidth*THICKNESS_RATIO,
+      tilt: (clamp(cfg.tilt,-45,45,DEFAULTS.tilt)*Math.PI)/180,
+      turn: (clamp(cfg.turn,-60,60,DEFAULTS.turn)*Math.PI)/180,
+      wave: pageWidth*0.04*wave,
+      lerp: 0.35*Math.pow(0.82,smoothing),
+      driftPerSecond: drift*pageWidth*0.15,
+      wheel: 0.4+clamp(cfg.scrollSens,0,10,DEFAULTS.scrollSens)*0.16,
+      tapToView: cfg.view.tap !== false,
+      focusZ: focusZ,
+      focusScale: Math.min((planeHeight*fill)/pageHeight,(planeWidth*fill)/pageWidth),
+      viewDuration: 1.6-clamp(cfg.view.speed,0,10,DEFAULT_VIEW.speed)*0.13
+    };
+  }
+
+  // ---- MagazineScene ----
+  function MagazineScene(container, cfg) {
+    this.container = container;
+    this.cfg = cfg;
+    this._disposed = false;
+    this._frameId = 0;
+    this._lastT = 0;
+    this._atlasToken = 0;
+    this._atlasKey = '';
+    this._atlas = null;
+    this._settingsCache = null;
+    this._width = 1;
+    this._height = 1;
+    this._scroll = {target:0, current:0, speed:0};
+    this._drag = {active:false, lastX:0, id:-1};
+    this._focus = {index:-1, t:0, target:0};
+    this._tap = {x:0, y:0, at:0, id:-1, hit:-1};
+    this.onAtlasReady = null;
+
+    this._renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+    this._renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
+    this._renderer.setClearColor(0x000000, 0);
+    var canvas = this._renderer.domElement;
+    canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block';
+    container.appendChild(canvas);
+
+    this._camera = new THREE.PerspectiveCamera(CAM_FOV, 1, 0.1, 200);
+    this._camera.position.z = CAM_Z;
+    this._scene = new THREE.Scene();
+    this._scene.add(this._camera);
+
+    this._blank = blankTexture();
+    this._geometry = new THREE.BoxGeometry(1,1,1,PAGE_SEGMENTS,PAGE_SEGMENTS,1);
+
+    this._material = new THREE.ShaderMaterial({
+      vertexShader: PAGE_VERTEX, fragmentShader: PAGE_FRAGMENT,
+      transparent: true,
+      uniforms: {
+        uPageThickness:{value:0.01}, uPageWidth:{value:2}, uPageHeight:{value:3},
+        uMeshCount:{value:DEFAULTS.pages}, uPageSpacing:{value:1},
+        uScrollY:{value:0}, uSpeedY:{value:0}, uWave:{value:0.4},
+        uTilt:{value:0}, uTurn:{value:0},
+        uFocusIndex:{value:-1}, uFocusProgress:{value:0},
+        uFocusScale:{value:1}, uFocusZ:{value:0},
+        uPageAspect:{value:2/3}, uAtlas:{value:this._blank}
       }
+    });
+    this._pickMaterial = new THREE.ShaderMaterial({
+      vertexShader: PAGE_VERTEX, fragmentShader: PICK_FRAGMENT,
+      uniforms: this._material.uniforms
+    });
+
+    this._mesh = new THREE.InstancedMesh(this._geometry, this._material, MAX_PAGES);
+    this._mesh.frustumCulled = false;
+
+    var index = new Float32Array(MAX_PAGES);
+    for(var i=0;i<MAX_PAGES;i++) index[i]=i;
+    this._geometry.setAttribute('aIndex', new THREE.InstancedBufferAttribute(index,1));
+
+    this._rectAttr = new THREE.InstancedBufferAttribute(new Float32Array(MAX_PAGES*4),4);
+    this._aspectAttr = new THREE.InstancedBufferAttribute(new Float32Array(MAX_PAGES).fill(1),1);
+    this._offsetAttr = new THREE.InstancedBufferAttribute(new Float32Array(MAX_PAGES),1);
+    this._geometry.setAttribute('aRect',this._rectAttr);
+    this._geometry.setAttribute('aAspect',this._aspectAttr);
+    this._geometry.setAttribute('aOffset',this._offsetAttr);
+
+    for(var j=0;j<MAX_PAGES;j++) this._rectAttr.setXYZW(j,0,0,1,1);
+    this._rectAttr.needsUpdate = true;
+
+    this._pickTarget = new THREE.WebGLRenderTarget(1,1);
+    this._pickBuffer = new Uint8Array(4);
+
+    this._scene.add(this._mesh);
+    this._applyConfig();
+    this._loadAtlas();
+
+    this._boundWheel = this._onWheel.bind(this);
+    this._boundPointerDown = this._onPointerDown.bind(this);
+    this._boundPointerMove = this._onPointerMove.bind(this);
+    this._boundPointerUp = this._onPointerUp.bind(this);
+    this._boundPointerCancel = this._onPointerCancel.bind(this);
+    this._boundKeyDown = this._onKeyDown.bind(this);
+  }
+
+  MagazineScene.prototype._settings = function(){
+    if(!this._settingsCache){
+      this._settingsCache = settingsFor(this.cfg, this._width, this._height);
     }
-    const ig = new THREE.InstancedBufferGeometry();
-    ig.index = geo.index;
-    ig.setAttribute('position', geo.attributes.position);
-    ig.setAttribute('uv', geo.attributes.uv);
-    ig.setAttribute('aIndex', new THREE.InstancedBufferAttribute(aIdx, 1));
-    ig.setAttribute('aUVOffset', new THREE.InstancedBufferAttribute(aUVO, 2));
-    ig.setAttribute('aUVScale', new THREE.InstancedBufferAttribute(aUVS, 2));
-    ig.instanceCount = n;
-    this.uniforms = { uAtlas: {value: atlas}, uFocusIndex: {value: 0} };
-    this.mesh = new THREE.Mesh(ig, new THREE.ShaderMaterial({ uniforms: this.uniforms, vertexShader: PAGE_VERT, fragmentShader: PAGE_FRAG, side: THREE.DoubleSide }));
-    this.scene.add(this.mesh);
-    this.pickMesh = new THREE.Mesh(ig, new THREE.ShaderMaterial({ uniforms: { uFocusIndex: this.uniforms.uFocusIndex }, vertexShader: PICK_VERT, fragmentShader: PICK_FRAG, side: THREE.DoubleSide }));
-  }
-  _attachEvents(){
-    const wrap = this.canvas.parentElement;
-    wrap.addEventListener('mousedown', e => { this.dragging=true; this.lastX=e.clientX; });
-    window.addEventListener('mousemove', e => { if(!this.dragging) return; this.targetZ += (e.clientX - this.lastX)*0.025; this.lastX=e.clientX; this._clamp(); });
-    window.addEventListener('mouseup', () => { this.dragging=false; });
-    wrap.addEventListener('touchstart', e => { this.lastX=e.touches[0].clientX; }, {passive:true});
-    wrap.addEventListener('touchmove', e => { this.targetZ += (e.touches[0].clientX - this.lastX)*0.025; this.lastX=e.touches[0].clientX; this._clamp(); }, {passive:true});
-    wrap.addEventListener('wheel', e => { e.preventDefault(); this.targetZ -= e.deltaY*0.008; this._clamp(); }, {passive:false});
-    wrap.addEventListener('click', e => {
-      const rect = this.canvas.getBoundingClientRect();
-      const pr = this.renderer.getPixelRatio();
-      const x = (e.clientX - rect.left) * pr;
-      const y = (rect.height - (e.clientY - rect.top)) * pr;
-      const idx = this._pick(x, y);
-      if(idx >= 0 && idx < this.pages) openLightbox(idx);
-    });
-    window.addEventListener('resize', () => {
-      const W = this.canvas.clientWidth, H = this.canvas.clientHeight;
-      this.camera.aspect = W/H; this.camera.updateProjectionMatrix();
-      this.renderer.setSize(W, H);
-    });
-  }
-  _clamp(){
-    this.targetZ = Math.max(-(this.pages-1)*SPREAD, Math.min(0, this.targetZ));
-    this.focusIdx = Math.round(-this.targetZ / SPREAD);
-  }
-  _pick(x, y){
-    if(!this.pickMesh) return -1;
-    this.renderer.setRenderTarget(this.pickTarget);
-    this.scene.remove(this.mesh); this.scene.add(this.pickMesh);
-    this.renderer.render(this.scene, this.camera);
-    this.scene.remove(this.pickMesh); this.scene.add(this.mesh);
-    this.renderer.setRenderTarget(null);
-    const buf = new Uint8Array(4);
-    this.renderer.readRenderTargetPixels(this.pickTarget, x, y, 1, 1, buf);
-    return buf[0] + buf[1]*256 + buf[2]*65536 - 1;
-  }
-  _raf(){ if(this._disposed) return; requestAnimationFrame(() => this._raf()); this._update(); }
-  _update(){
-    this.scrollZ += (this.targetZ - this.scrollZ) * 0.08;
-    this.camera.position.z = 6 + this.scrollZ;
-    if(this.uniforms) this.uniforms.uFocusIndex.value += (this.focusIdx - this.uniforms.uFocusIndex.value) * 0.06;
-    this.renderer.render(this.scene, this.camera);
-  }
-  dispose(){ this._disposed=true; this.renderer.dispose(); }
-}
+    return this._settingsCache;
+  };
 
-async function init(){
-  await loadManifest();
-  const canvas = document.getElementById('magazine-canvas');
-  let webglOk = false;
-  try { const t = canvas.getContext('webgl') || canvas.getContext('experimental-webgl'); webglOk=!!t; } catch(e){}
-  if(!webglOk || !MANIFEST.length){ document.getElementById('mag-loading').style.display='none'; buildFallbackGrid(); return; }
-  try { window._mag = new MagazineFlip(canvas, MANIFEST); }
-  catch(e){ document.getElementById('mag-loading').style.display='none'; buildFallbackGrid(); }
-}
+  MagazineScene.prototype._applyConfig = function(){
+    var S = this._settings(), u = this._material.uniforms;
+    this._mesh.count = S.pages;
+    u.uMeshCount.value = S.pages;
+    u.uPageWidth.value = S.pageWidth;
+    u.uPageHeight.value = S.pageHeight;
+    u.uPageThickness.value = S.thickness;
+    u.uPageSpacing.value = S.pageSpacing;
+    u.uWave.value = S.wave;
+    u.uTilt.value = S.tilt;
+    u.uTurn.value = S.turn;
+    u.uPageAspect.value = S.pageWidthPx/S.pageHeightPx;
+    u.uFocusScale.value = S.focusScale;
+    u.uFocusZ.value = S.focusZ;
+    this._writeOffsets();
+    if(this._focus.index >= S.pages || !S.tapToView) this._clearFocus();
+  };
 
-window.addEventListener('pagehide', () => { if(window._mag) window._mag.dispose(); });
-init();
+  MagazineScene.prototype._clearFocus = function(){
+    this._focus.index = -1; this._focus.t = 0; this._focus.target = 0;
+    this._material.uniforms.uFocusIndex.value = -1;
+    this._material.uniforms.uFocusProgress.value = 0;
+  };
+
+  MagazineScene.prototype._writeOffsets = function(){
+    for(var i=0;i<MAX_PAGES;i++) this._offsetAttr.setX(i,0);
+    this._offsetAttr.needsUpdate = true;
+  };
+
+  MagazineScene.prototype._writeCells = function(){
+    var cells = this._atlas && this._atlas.cells;
+    if(!cells || !cells.length) return;
+    for(var i=0;i<MAX_PAGES;i++){
+      var c = cells[i%cells.length];
+      this._rectAttr.setXYZW(i,c.rect[0],c.rect[1],c.rect[2],c.rect[3]);
+      this._aspectAttr.setX(i,c.aspect);
+    }
+    this._rectAttr.needsUpdate = true;
+    this._aspectAttr.needsUpdate = true;
+  };
+
+  MagazineScene.prototype._loadAtlas = function(){
+    var sources = this.cfg.images.map(function(e){ return e.src||''; });
+    var key = sources.join('|');
+    if(key === this._atlasKey) return;
+    this._atlasKey = key;
+    var token = ++this._atlasToken;
+    var self = this;
+    buildAtlas(sources, self._renderer.capabilities.getMaxAnisotropy())
+      .then(function(atlas){
+        if(self._disposed || token !== self._atlasToken){ if(atlas) atlas.texture.dispose(); return; }
+        if(self._atlas) self._atlas.texture.dispose();
+        self._atlas = atlas;
+        if(atlas){
+          self._material.uniforms.uAtlas.value = atlas.texture;
+          self._writeCells();
+        }
+        if(self.onAtlasReady) self.onAtlasReady();
+      }).catch(function(){});
+  };
+
+  MagazineScene.prototype._pick = function(clientX, clientY){
+    var rect = this.container.getBoundingClientRect();
+    if(rect.width<=0||rect.height<=0) return -1;
+    var u=(clientX-rect.left)/rect.width, v=(clientY-rect.top)/rect.height;
+    if(u<0||v<0||u>=1||v>=1) return -1;
+    var scale=Math.min(1,PICK_MAX/Math.max(this._width,this._height));
+    var tw=Math.max(1,Math.round(this._width*scale)), th=Math.max(1,Math.round(this._height*scale));
+    if(this._pickTarget.width!==tw||this._pickTarget.height!==th) this._pickTarget.setSize(tw,th);
+    var prev = this._mesh.material;
+    this._mesh.material = this._pickMaterial;
+    this._renderer.setRenderTarget(this._pickTarget);
+    this._renderer.setClearColor(0x000000,1);
+    this._renderer.render(this._scene, this._camera);
+    this._renderer.readRenderTargetPixels(this._pickTarget,
+      Math.min(tw-1,Math.floor(u*tw)), Math.min(th-1,Math.floor((1-v)*th)),
+      1,1,this._pickBuffer);
+    this._renderer.setRenderTarget(null);
+    this._renderer.setClearColor(0x000000,0);
+    this._mesh.material = prev;
+    var hit = this._pickBuffer[0]-1;
+    return (hit>=0 && hit<this._settings().pages) ? hit : -1;
+  };
+
+  MagazineScene.prototype._onTap = function(hit){
+    if(!this._settings().tapToView) return;
+    if(this._focus.index>=0){ this._focus.target=0; return; }
+    if(hit>=0){ this._focus.index=hit; this._focus.target=1; }
+  };
+
+  MagazineScene.prototype._push = function(worldDelta){
+    if(!isFinite(worldDelta)) return;
+    this._scroll.target+=worldDelta; this._scroll.speed+=worldDelta;
+  };
+
+  MagazineScene.prototype._onWheel = function(event){
+    if(this._disposed||this._focus.index>=0) return;
+    event.preventDefault();
+    var scale = event.deltaMode===1?16:event.deltaMode===2?this._height:1;
+    var dominant = Math.abs(event.deltaX)>Math.abs(event.deltaY)?event.deltaX:event.deltaY;
+    var S=this._settings();
+    this._push(dominant*scale*S.worldPerPx*S.wheel);
+  };
+
+  MagazineScene.prototype._onPointerDown = function(event){
+    if(this._disposed||event.button!==0) return;
+    this._tap = {x:event.clientX, y:event.clientY, at:performance.now(), id:event.pointerId,
+      hit:(this._focus.index<0&&this._settings().tapToView)?this._pick(event.clientX,event.clientY):-1};
+    if(this.container.setPointerCapture) this.container.setPointerCapture(event.pointerId);
+    if(this._focus.index>=0) return;
+    this._drag.active=true; this._drag.lastX=event.clientX; this._drag.id=event.pointerId;
+  };
+
+  MagazineScene.prototype._onPointerMove = function(event){
+    if(!this._drag.active||event.pointerId!==this._drag.id) return;
+    var delta=this._drag.lastX-event.clientX; this._drag.lastX=event.clientX;
+    var S=this._settings(); this._push(delta*2*S.worldPerPx*S.wheel);
+  };
+
+  MagazineScene.prototype._onPointerUp = function(event){
+    if(event.pointerId===this._drag.id){ this._drag.active=false; this._drag.id=-1; }
+    if(event.pointerId!==this._tap.id) return;
+    if(this.container.releasePointerCapture) this.container.releasePointerCapture(event.pointerId);
+    this._tap.id=-1;
+    var moved=Math.hypot(event.clientX-this._tap.x, event.clientY-this._tap.y);
+    if(moved<=TAP_SLOP&&performance.now()-this._tap.at<=TAP_MS) this._onTap(this._tap.hit);
+  };
+
+  MagazineScene.prototype._onPointerCancel = function(event){
+    if(event.pointerId===this._drag.id){ this._drag.active=false; this._drag.id=-1; }
+    if(event.pointerId===this._tap.id){
+      if(this.container.releasePointerCapture) this.container.releasePointerCapture(event.pointerId);
+      this._tap.id=-1;
+    }
+  };
+
+  MagazineScene.prototype._onKeyDown = function(event){
+    if(event.key==='Escape'&&this._focus.index>=0) this._focus.target=0;
+  };
+
+  MagazineScene.prototype.setSize = function(w, h){
+    if(this._disposed) return;
+    this._width=Math.max(1,w); this._height=Math.max(1,h);
+    this._renderer.setSize(this._width,this._height,false);
+    this._camera.aspect=this._width/this._height;
+    this._camera.updateProjectionMatrix();
+    this._settingsCache=null;
+    this._applyConfig();
+  };
+
+  MagazineScene.prototype.start = function(){
+    var node=this.container;
+    node.addEventListener('wheel',this._boundWheel,{passive:false});
+    node.addEventListener('pointerdown',this._boundPointerDown);
+    node.addEventListener('pointermove',this._boundPointerMove);
+    node.addEventListener('pointerup',this._boundPointerUp);
+    node.addEventListener('pointercancel',this._boundPointerCancel);
+    window.addEventListener('keydown',this._boundKeyDown);
+    this._lastT=performance.now();
+    var self=this;
+    var loop=function(){
+      if(self._disposed) return;
+      self._frameId=requestAnimationFrame(loop);
+      self._step();
+    };
+    self._frameId=requestAnimationFrame(loop);
+  };
+
+  MagazineScene.prototype._step = function(){
+    var now=performance.now();
+    var dt=(now-this._lastT)/1000; this._lastT=now;
+    if(!isFinite(dt)||dt<0) dt=0;
+    if(dt>0.05) dt=0.05;
+    var S=this._settings(), u=this._material.uniforms;
+
+    if(this._focus.index>=0){
+      var rate=dt/Math.max(0.05,S.viewDuration);
+      this._focus.t=Math.min(1,Math.max(0,this._focus.t+(this._focus.target?rate:-rate)));
+      if(this._focus.t===0&&this._focus.target===0) this._focus.index=-1;
+    }
+    u.uFocusIndex.value=this._focus.index;
+    u.uFocusProgress.value=power2InOut(this._focus.t);
+
+    this.container.style.cursor=(this._focus.index>=0&&this._focus.target===1)?'zoom-out':'grab';
+
+    if(S.driftPerSecond!==0&&this._focus.index<0) this._push(S.driftPerSecond*dt);
+
+    var k=dt*60, ease=1-Math.pow(1-S.lerp,k);
+    this._scroll.current+=(this._scroll.target-this._scroll.current)*ease;
+    this._scroll.speed*=Math.pow(0.835,k);
+
+    var period=S.pages*(S.pageSpacing+S.thickness);
+    if(Math.abs(this._scroll.current)>period){
+      var wrap=Math.sign(this._scroll.current)*period;
+      this._scroll.current-=wrap; this._scroll.target-=wrap;
+    }
+    u.uScrollY.value=this._scroll.current;
+    u.uSpeedY.value=this._scroll.speed;
+    this._renderer.render(this._scene,this._camera);
+  };
+
+  MagazineScene.prototype.dispose = function(){
+    this._disposed=true;
+    cancelAnimationFrame(this._frameId);
+    var node=this.container;
+    node.removeEventListener('wheel',this._boundWheel);
+    node.removeEventListener('pointerdown',this._boundPointerDown);
+    node.removeEventListener('pointermove',this._boundPointerMove);
+    node.removeEventListener('pointerup',this._boundPointerUp);
+    node.removeEventListener('pointercancel',this._boundPointerCancel);
+    window.removeEventListener('keydown',this._boundKeyDown);
+    this._geometry.dispose(); this._material.dispose(); this._pickMaterial.dispose();
+    this._pickTarget.dispose(); this._blank.dispose();
+    if(this._atlas) this._atlas.texture.dispose();
+    this._mesh.dispose(); this._renderer.dispose();
+    var canvas=this._renderer.domElement;
+    if(canvas.parentNode) canvas.parentNode.removeChild(canvas);
+  };
+
+  // ---- Init ----
+  var wrap = document.getElementById('flip-wrap');
+  var loadingEl = document.getElementById('flip-loading');
+  var hintEl = document.getElementById('flip-hint');
+  if(!wrap) return;
+
+  var MANIFEST_URL = '/assets/proyectos/adecco/manifest.json';
+
+  function initFlip(images) {
+    var cfg = {
+      images: images,
+      pages: Math.min(images.length, MAX_PAGES),
+      spacing: 5, tilt: 0, turn: 0,
+      pageWidth: 520, pageHeight: 650,
+      scrollSens: 5,
+      view: {tap: true, zoom: 5, speed: 5},
+      travel: {drift: 1.5, smoothing: 5, wave: 5}
+    };
+
+    var scene = new MagazineScene(wrap, cfg);
+
+    scene.onAtlasReady = function(){
+      if(loadingEl){ loadingEl.classList.add('done'); }
+    };
+
+    var ro = new ResizeObserver(function(entries){
+      var e = entries[0];
+      if(e) scene.setSize(e.contentRect.width, e.contentRect.height);
+    });
+    ro.observe(wrap);
+    var rect = wrap.getBoundingClientRect();
+    scene.setSize(rect.width || wrap.offsetWidth, rect.height || wrap.offsetHeight);
+    scene.start();
+
+    // Hide hint after first interaction
+    var hintHidden = false;
+    wrap.addEventListener('pointerdown', function(){
+      if(!hintHidden){ hintHidden=true; if(hintEl) hintEl.classList.add('hidden'); }
+    }, {once:true});
+  }
+
+  fetch(MANIFEST_URL)
+    .then(function(r){ return r.json(); })
+    .then(function(manifest){
+      var images = manifest.map(function(item){ return {src: item.preview, alt: item.alt||''}; });
+      initFlip(images);
+    })
+    .catch(function(){
+      // Fallback: placeholder images
+      initFlip([]);
+    });
+
+})();
 </script>
 <script src="/assets/js/main.js" defer onerror="void 0"></script>
 </body>
