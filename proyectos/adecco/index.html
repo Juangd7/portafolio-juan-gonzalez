@@ -56,10 +56,11 @@
     .mobile-lang { margin-top: 1.5rem; display: flex; gap: 1rem; }
     .mobile-lang button { font-size: 0.875rem; color: rgba(255,255,255,0.6); padding: 0.25rem 0.75rem; border: 1px solid rgba(255,255,255,0.25); border-radius: 100px; background: none; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
     .mobile-lang button.active { color: #FFED00; border-color: #FFED00; }
-    @media (max-width: 768px) { .nav-links { display: none; } .lang-toggle { display: none; } .hamburger { display: flex; } }
+    @media (max-width: 768px) { .nav-links { display: none; } .lang-toggle { display: none; } .hamburger { display: flex; margin-left: auto; } }
 
     /* HERO */
     .hero { padding-top: calc(1rem + 54px + 1.5rem); background: var(--black); color: var(--white); padding-bottom: 64px; padding-left: 24px; padding-right: 24px; position: relative; overflow: hidden; }
+    @media (max-width: 768px) { .hero { padding-top: calc(1rem + 54px + 2.5rem); } }
     .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--yellow); }
     .hero-inner { max-width: 1100px; margin: 0 auto; }
     .hero-eyebrow { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--yellow); margin-bottom: 16px; }
