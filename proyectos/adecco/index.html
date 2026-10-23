@@ -39,7 +39,9 @@
     .nav-link { font-family: 'Source Sans 3', sans-serif; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: rgba(255,255,255,0.55); padding: 0.4rem 0.875rem; border-radius: 999px; transition: color 0.2s, background 0.2s; }
     .nav-link:hover { color: #ffffff; background: rgba(255,255,255,0.06); }
     .nav-link.active { color: #000000; background: #FFED00; font-weight: 700; }
-    .nav-controls { display: flex; align-items: center; gap: 0.5rem; margin-left: 1rem; }
+    .nav-controls { display: flex; align-items: center; gap: 0.5rem; margin-left: auto; }
+    .hamburger-wrap { display: none; margin-left: 0.75rem; }
+    @media (max-width: 768px) { .hamburger-wrap { display: flex; } }
     .lang-toggle { display: flex; align-items: center; gap: 0; border: 1px solid rgba(255,255,255,0.18); border-radius: 100px; overflow: hidden; font-size: 0.75rem; font-family: 'Source Sans 3', sans-serif; }
     .lang-btn { padding: 0.3rem 0.65rem; font-weight: 600; letter-spacing: 0.04em; color: rgba(255,255,255,0.45); transition: background 0.15s, color 0.15s; background: none; border: none; cursor: pointer; font-size: 0.75rem; font-family: 'Source Sans 3', sans-serif; }
     .lang-btn.active { background: #FFED00; color: #000000; }
@@ -56,7 +58,7 @@
     .mobile-lang { margin-top: 1.5rem; display: flex; gap: 1rem; }
     .mobile-lang button { font-size: 0.875rem; color: rgba(255,255,255,0.6); padding: 0.25rem 0.75rem; border: 1px solid rgba(255,255,255,0.25); border-radius: 100px; background: none; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
     .mobile-lang button.active { color: #FFED00; border-color: #FFED00; }
-    @media (max-width: 768px) { .nav-links { display: none; } .lang-toggle { display: none; } .hamburger { display: flex; } }
+    @media (max-width: 768px) { .nav-links { display: none; } .nav-controls { display: none; } }
 
     /* HERO */
     .hero { padding-top: calc(1rem + 54px + 1.5rem); background: var(--black); color: var(--white); padding-bottom: 64px; padding-left: 24px; padding-right: 24px; position: relative; overflow: hidden; }
@@ -202,9 +204,11 @@
       <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
     </div>
   </div>
-  <button class="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="hamburger-wrap">
+    <button class="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
   <a href="/" data-es="Inicio" data-en="Home">Inicio</a>
