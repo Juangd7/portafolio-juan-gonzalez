@@ -1,114 +1,443 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ALMAHI: identidad visual y diseño web | Juan González</title>
-  <meta name="description" content="Desarrollo de identidad visual y presencia digital para ALMAHI, una marca vinculada al universo de las plantas.">
-  <link rel="canonical" href="https://portafoliojegd.netlify.app/proyectos/almahi/">
-  <meta property="og:title" content="ALMAHI: identidad visual y diseño web | Juan González">
-  <meta property="og:description" content="Desarrollo de identidad visual y presencia digital para ALMAHI, una marca vinculada al universo de las plantas.">
+  <title>ALMAHÍ: diseño de e-commerce hipermedia y huerta 3D | Juan González</title>
+  <meta name="description" content="Caso de estudio de ALMAHÍ: catálogo de 100 plantas, experiencia 3D navegable, carrito con pedido por WhatsApp y decisiones de diseño, rendimiento, accesibilidad y SEO.">
+  <meta property="og:title" content="ALMAHÍ: diseño de e-commerce hipermedia y huerta 3D | Juan González">
+  <meta property="og:description" content="Caso de estudio de ALMAHÍ: catálogo de 100 plantas, experiencia 3D navegable, carrito con pedido por WhatsApp y decisiones de diseño, rendimiento, accesibilidad y SEO.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://portafoliojegd.netlify.app/proyectos/almahi/">
-  <meta property="og:image" content="https://portafoliojegd.netlify.app/assets/img/foto-juan.jpg">
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="https://portafoliojegd.netlify.app/proyectos/almahi/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/assets/img/logo-j-amarillo.svg">
+  <style>
+    :root{--y:#FFED00;--k:#000;--p:#662483;--w:#fff;--bg:#f5f5f5;--tx:#111;--muted:#555;--border:#e0e0e0}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .nav{position:fixed;top:1rem;left:50%;transform:translateX(-50%);width:calc(100% - 3rem);max-width:1100px;height:54px;display:flex;align-items:center;padding:0 1rem 0 1.25rem;z-index:100;background:#000;border-radius:999px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.45);transition:background .3s,box-shadow .3s,border-color .3s}
+    .nav.scrolled{background:rgba(0,0,0,0.92);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-color:rgba(255,255,255,0.12);box-shadow:0 8px 32px rgba(0,0,0,0.55)}
+    .nav-logo{display:flex;align-items:center;gap:.65rem;font-family:'Poppins',sans-serif;font-weight:700;font-size:.9375rem;letter-spacing:.02em;color:#fff;flex-shrink:0}
+    .nav-logo svg{width:28px;height:28px;flex-shrink:0}
+    .nav-links{display:flex;align-items:center;gap:0;margin-left:auto}
+    .nav-link{font-family:'Source Sans 3',sans-serif;font-size:.8125rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,0.55);padding:.4rem .875rem;border-radius:999px;transition:color .2s,background .2s}
+    .nav-link:hover{color:#fff;background:rgba(255,255,255,0.06)}
+    .nav-link.active{color:#000;background:#FFED00;font-weight:700}
+    .nav-controls{display:flex;align-items:center;gap:.5rem;margin-left:1rem}
+    .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,0.18);border-radius:100px;overflow:hidden;font-size:.75rem;font-family:'Source Sans 3',sans-serif}
+    .lang-btn{padding:.3rem .65rem;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,0.45);transition:background .15s,color .15s;background:none;border:none;cursor:pointer;font-size:.75rem;font-family:'Source Sans 3',sans-serif}
+    .lang-btn.active{background:#FFED00;color:#000}
+    .hamburger{display:none;width:36px;height:36px;align-items:center;justify-content:center;flex-direction:column;gap:5px;border:1px solid rgba(255,255,255,0.2);border-radius:999px;color:#fff;background:transparent;cursor:pointer;transition:background .2s,border-color .2s}
+    .hamburger:hover{background:rgba(255,255,255,0.1)}
+    .hamburger span{display:block;width:18px;height:1.5px;background:currentColor;transition:transform .2s,opacity .2s}
+    .hamburger.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .hamburger.active span:nth-child(2){opacity:0}
+    .hamburger.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .mobile-nav{position:fixed;inset:0;background:#000;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+    .mobile-nav.open{opacity:1;visibility:visible}
+    .mobile-nav a{font-family:'Poppins',sans-serif;font-size:clamp(1.5rem,6vw,2.5rem);font-weight:700;color:#fff;padding:.5rem 1rem;transition:color .2s}
+    .mobile-nav a:hover{color:#FFED00}
+    .mobile-lang{margin-top:1.5rem;display:flex;gap:1rem}
+    .mobile-lang button{font-size:.875rem;color:rgba(255,255,255,0.6);padding:.25rem .75rem;border:1px solid rgba(255,255,255,0.25);border-radius:100px;background:none;cursor:pointer;transition:color .2s,border-color .2s}
+    .mobile-lang button.active{color:#FFED00;border-color:#FFED00}
+    @media(max-width:768px){.nav-links{display:none}.lang-toggle{display:none}.nav-controls{margin-left:auto}.hamburger{display:flex;flex-shrink:0}}
+    .hero{padding-top:calc(1rem + 54px + 2rem);background:var(--k);color:var(--w);padding-bottom:80px;padding-left:24px;padding-right:24px;position:relative;overflow:hidden}
+    @media(max-width:768px){.hero{padding-top:calc(1rem + 54px + 4rem)}}
+    .hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--y)}
+    .hero-inner{max-width:1100px;margin:0 auto}
+    .hero-eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--y);margin-bottom:16px}
+    .hero-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,4rem);line-height:1.05;margin-bottom:16px;letter-spacing:-.02em}
+    .hero-subtitle{font-size:1.125rem;color:rgba(255,255,255,0.65);margin-bottom:20px;font-style:italic;max-width:700px}
+    .hero-desc{max-width:660px;font-size:1.05rem;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:32px}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-hero{display:inline-flex;align-items:center;gap:8px;font-family:'Poppins',sans-serif;font-weight:700;font-size:.875rem;padding:14px 28px;letter-spacing:.05em;transition:opacity .2s}
+    .btn-hero--primary{background:var(--y);color:var(--k)}
+    .btn-hero--primary:hover{opacity:.85}
+    .btn-hero--outline{background:transparent;color:var(--w);border:2px solid rgba(255,255,255,0.35)}
+    .btn-hero--outline:hover{border-color:var(--w);opacity:.9}
+    .ficha{background:var(--y);padding:36px 24px}
+    .ficha-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}
+    .ficha-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:4px}
+    .ficha-value{font-family:'Poppins',sans-serif;font-weight:700;font-size:.875rem;color:var(--k)}
+    @media(max-width:540px){.ficha-inner{grid-template-columns:repeat(2,1fr);gap:16px}.ficha{padding:24px 16px}}
+    .metrics{background:var(--k);color:var(--w);padding:60px 24px}
+    .metrics-inner{max-width:1100px;margin:0 auto}
+    .metrics-label{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--y);margin-bottom:12px}
+    .metrics-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.5rem,3vw,2rem);margin-bottom:36px;color:var(--w)}
+    .metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(255,255,255,0.08)}
+    .metric-item{padding:28px 24px;background:var(--k)}
+    .metric-num{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.75rem,4vw,2.75rem);color:var(--y);line-height:1;margin-bottom:8px}
+    .metric-desc{font-size:.875rem;color:rgba(255,255,255,0.6);line-height:1.5}
+    .section{padding:80px 24px}
+    .section-inner{max-width:1100px;margin:0 auto}
+    .section--dark{background:var(--k);color:var(--w)}
+    .section--grey{background:#ececec}
+    .section--purple{background:var(--p);color:var(--w)}
+    .section-label{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--p);margin-bottom:12px}
+    .section--dark .section-label,.section--purple .section-label{color:var(--y)}
+    .section-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.75rem,4vw,2.75rem);line-height:1.1;margin-bottom:24px}
+    .section-body{font-size:1.05rem;line-height:1.75;color:var(--muted);max-width:720px}
+    .section--dark .section-body{color:rgba(255,255,255,0.75)}
+    .section--purple .section-body{color:rgba(255,255,255,0.85)}
+    .blockquote{margin:32px 0;padding:20px 28px;border-left:4px solid var(--y);background:rgba(255,237,0,0.05)}
+    .blockquote p{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.05rem;color:var(--w);line-height:1.5}
+    .subsections{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:36px}
+    .sub{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:28px 24px}
+    .sub--light{background:var(--w);border:1px solid var(--border)}
+    .sub-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--y);margin-bottom:8px}
+    .sub--light .sub-label{color:var(--p)}
+    .sub-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;color:var(--w);margin-bottom:10px}
+    .sub--light .sub-title{color:var(--k)}
+    .sub-body{font-size:.9rem;color:rgba(255,255,255,0.65);line-height:1.65}
+    .sub--light .sub-body{color:var(--muted)}
+    .fases{counter-reset:fase;display:flex;flex-direction:column;gap:0;margin-top:40px}
+    .fase{display:grid;grid-template-columns:72px 1fr;gap:0;border-top:1px solid rgba(255,255,255,0.1);padding:28px 0}
+    .fase-num{font-family:'Poppins',sans-serif;font-weight:900;font-size:1.75rem;color:var(--y);opacity:.5;align-self:start;padding-top:4px}
+    .fase-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.05rem;color:var(--w);margin-bottom:10px}
+    .fase-body{font-size:.9375rem;color:rgba(255,255,255,0.65);line-height:1.7}
+    .decisions{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:36px}
+    .decision{background:var(--w);border-left:3px solid var(--p);padding:24px 20px}
+    .decision-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:.95rem;color:var(--k);margin-bottom:10px}
+    .decision-body{font-size:.875rem;color:var(--muted);line-height:1.65}
+    .etiqueta-viva{background:#1a2e20;color:var(--w);padding:60px 24px;border-top:3px solid #52b788}
+    .etiqueta-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .etiqueta-label{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#52b788;margin-bottom:12px}
+    .etiqueta-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.5rem,3.5vw,2.5rem);margin-bottom:16px}
+    .etiqueta-body{font-size:1rem;color:rgba(255,255,255,0.75);line-height:1.75}
+    .etiqueta-visual{background:rgba(255,255,255,0.05);border:1px solid rgba(82,183,136,0.25);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:2rem}
+    .etiqueta-visual-text{font-size:.875rem;color:rgba(255,255,255,0.4);text-align:center}
+    @media(max-width:768px){.etiqueta-inner{grid-template-columns:1fr}}
+    .cierre{background:var(--p);color:var(--w);padding:80px 24px;text-align:center}
+    .cierre-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:20px}
+    .cierre-text{max-width:680px;margin:0 auto 40px;font-size:1.05rem;color:rgba(255,255,255,0.85);line-height:1.7}
+    .cierre-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-cierre{display:inline-flex;align-items:center;gap:8px;background:var(--y);color:var(--k);font-family:'Poppins',sans-serif;font-weight:700;font-size:.875rem;padding:14px 28px;transition:opacity .2s;letter-spacing:.05em}
+    .btn-cierre:hover{opacity:.85}
+    .btn-cierre--outline{background:transparent;color:var(--w);border:2px solid rgba(255,255,255,0.4)}
+    .btn-cierre--outline:hover{border-color:var(--w);opacity:1}
+    footer{background:#662483;color:#fff;padding:0}
+    .footer-inner{max-width:1280px;margin:0 auto;padding:0 clamp(1.5rem,5vw,3rem)}
+    .footer-body{padding:0}
+    .footer-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:3rem;padding:3rem 0 2.5rem;border-bottom:1px solid rgba(255,255,255,0.2);margin-bottom:1.5rem}
+    .footer-nav-group{display:flex;flex-direction:column;gap:.5rem}
+    .footer-nav-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFED00;margin-bottom:.5rem}
+    .footer-links{display:flex;flex-direction:column;gap:.625rem}
+    .footer-links a{font-family:'Poppins',sans-serif;font-size:.9375rem;font-weight:700;text-transform:uppercase;color:#fff;letter-spacing:.04em;transition:color .2s}
+    .footer-links a:hover{color:#FFED00}
+    .footer-logo-center{display:flex;justify-content:center;align-items:center}
+    .footer-logo-center svg{width:clamp(150px,20vw,240px);height:auto}
+    .footer-social-group{display:flex;flex-direction:column;align-items:flex-end}
+    .footer-social{display:flex;flex-direction:column;gap:.625rem;align-items:flex-end}
+    .footer-social a{display:inline-flex;align-items:center;gap:.55rem;background:#fff;color:#000;font-family:'Poppins',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;padding:.45rem 1rem .45rem .75rem;border-radius:999px;transition:background .2s,color .2s;text-decoration:none;min-width:145px}
+    .footer-social a svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+    .footer-social a:hover{background:#FFED00;color:#000}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.25rem 0 2rem}
+    .footer-copy{font-size:.8rem;color:rgba(255,255,255,0.55)}
+    .footer-tagline{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+    @media(max-width:768px){.footer-top{grid-template-columns:1fr;gap:2rem}.footer-social{align-items:flex-start}.footer-logo-center svg{width:100px}}
+    @media(max-width:430px){.section{padding:48px 16px}.metrics{padding:48px 16px}.cierre{padding:56px 16px}.etiqueta-viva{padding:48px 16px}.subsections{grid-template-columns:1fr}.fases .fase{grid-template-columns:48px 1fr}.decisions{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
+
 <nav class="nav" role="navigation" aria-label="Navegación principal">
   <a href="/" class="nav-logo" aria-label="Juan González — Inicio">
-    <svg viewBox="0 0 160 160" class="logo-mark" aria-hidden="true"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/></svg>
-    <svg viewBox="0 0 160 160" class="logo-mark-light" aria-hidden="true"><polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27"/><polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73"/><polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27"/><polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05"/><polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95"/></svg>
-    <span>Juan González</span>
+    <svg viewBox="0 0 160 160" class="logo-mark" aria-hidden="true">
+      <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/>
+      <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/>
+      <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/>
+      <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/>
+      <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/>
+    </svg>
+    <span data-es="Juan González" data-en="Juan González">Juan González</span>
   </a>
   <div class="nav-links">
     <a href="/" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a>
-    <a href="/proyectos/" class="nav-link" data-es="Proyectos" data-en="Projects">Proyectos</a>
-    <a href="/sobre-mi/" class="nav-link">Sobre mí</a>
-    <a href="/contacto/" class="nav-link">Contacto</a>
+    <a href="/proyectos/" class="nav-link active" data-es="Proyectos" data-en="Projects">Proyectos</a>
+    <a href="/sobre-mi/" class="nav-link" data-es="Sobre mí" data-en="About">Sobre mí</a>
+    <a href="/contacto/" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
   </div>
   <div class="nav-controls">
-    <div class="lang-toggle" role="group" aria-label="Idioma"><button class="lang-btn active" data-lang="es">ES</button><button class="lang-btn" data-lang="en">EN</button></div>
-    <button class="theme-toggle" aria-label="Cambiar tema"><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></button>
-    <button class="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
+    <div class="lang-toggle" role="group" aria-label="Idioma">
+      <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
+    <button class="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
-<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true">
-  <a href="/">Inicio</a><a href="/proyectos/">Proyectos</a>
-  <a href="/sobre-mi/">Sobre mí</a><a href="/contacto/">Contacto</a>
-  <div class="mobile-lang"><button data-lang="es" class="active">ES</button><button data-lang="en">EN</button></div>
-</div>
-
-<!-- CASE STUDY HERO -->
-<header class="case-hero">
-  <div class="case-hero-inner">
-    <a href="/proyectos/" class="back-link" data-es="← Todos los proyectos" data-en="← All projects">← Todos los proyectos</a>
-    <div class="case-summary">
-      <div class="case-summary-text">
-        <span class="work-status status-publicado" style="margin-bottom:1rem;display:inline-block" data-es="Publicado" data-en="Published">Publicado</span>
-        <h1 class="case-h1">ALMAHI</h1>
-        <p class="case-lead" data-es="Identidad visual y presencia digital para una marca vinculada al universo de las plantas." data-en="Visual identity and digital presence for a brand rooted in the world of plants.">Identidad visual y presencia digital para una marca vinculada al universo de las plantas.</p>
-        <a href="https://almahicol.netlify.app" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:1.5rem" data-es="Ver sitio web de ALMAHI" data-en="See ALMAHI website">Ver sitio web de ALMAHI ↗</a>
-      </div>
-      <div class="case-meta">
-        <div class="case-meta-row"><span class="case-meta-label" data-es="Área" data-en="Area">Área</span><span data-es="Branding · Diseño web" data-en="Branding · Web design">Branding · Diseño web</span></div>
-        <div class="case-meta-row"><span class="case-meta-label" data-es="Rol" data-en="Role">Rol</span><span data-es="Diseño y desarrollo" data-en="Design and development">Diseño y desarrollo</span></div>
-        <div class="case-meta-row"><span class="case-meta-label" data-es="Estado" data-en="Status">Estado</span><span data-es="Publicado" data-en="Published">Publicado</span></div>
-        <div class="case-meta-row"><span class="case-meta-label" data-es="Herramientas" data-en="Tools">Herramientas</span><span>HTML · CSS · JavaScript</span></div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- CAPTURA PRINCIPAL -->
-<div class="case-img-full">
-  <div class="case-img-placeholder">
-    <p data-es="Captura del sitio almahicol.netlify.app" data-en="Screenshot of almahicol.netlify.app">Captura del sitio almahicol.netlify.app</p>
-    <small data-es="Añade aquí una captura real del sitio web de ALMAHI" data-en="Add a real screenshot of the ALMAHI website here">Añade aquí una captura real del sitio web de ALMAHI</small>
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <a href="/" data-es="Inicio" data-en="Home">Inicio</a>
+  <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
+  <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
+  <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
+  <div class="mobile-lang">
+    <button data-lang="es" class="active">ES</button>
+    <button data-lang="en">EN</button>
   </div>
 </div>
 
-<!-- CONTENIDO DEL CASO -->
-<article class="section">
-  <div class="case-body">
-    <div class="case-section">
-      <h2 class="case-section-title" data-es="Punto de partida" data-en="Starting point">Punto de partida</h2>
-      <p data-es="ALMAHI es una marca vinculada al universo de las plantas. El proyecto comenzó con la necesidad de definir su identidad visual y construir una presencia digital coherente con ese mundo: cercana, cuidada y con personalidad propia." data-en="ALMAHI is a brand rooted in the world of plants. The project started with the need to define its visual identity and build a digital presence consistent with that world: approachable, carefully crafted and with its own personality.">ALMAHI es una marca vinculada al universo de las plantas. El proyecto comenzó con la necesidad de definir su identidad visual y construir una presencia digital coherente con ese mundo: cercana, cuidada y con personalidad propia.</p>
-    </div>
-
-    <div class="case-section">
-      <h2 class="case-section-title" data-es="Identidad visual" data-en="Visual identity">Identidad visual</h2>
-      <p data-es="La identidad parte de decisiones tipográficas, cromáticas y gráficas que buscan reflejar la naturaleza y el cuidado que caracterizan a la marca. Cada elemento fue pensado para funcionar tanto en el entorno digital como en posibles aplicaciones físicas." data-en="The identity starts from typographic, chromatic and graphic decisions that aim to reflect the nature and care that characterize the brand. Each element was designed to work both in the digital environment and in possible physical applications.">La identidad parte de decisiones tipográficas, cromáticas y gráficas que buscan reflejar la naturaleza y el cuidado que caracterizan a la marca. Cada elemento fue pensado para funcionar tanto en el entorno digital como en posibles aplicaciones físicas.</p>
-    </div>
-
-    <div class="case-section">
-      <h2 class="case-section-title" data-es="Presencia digital" data-en="Digital presence">Presencia digital</h2>
-      <p data-es="El sitio web fue diseñado y desarrollado para ser el espacio central de la marca: un lugar donde la identidad visual toma cuerpo en la experiencia de navegación, el contenido y la presentación de la propuesta de ALMAHI." data-en="The website was designed and developed to be the brand's central space: a place where the visual identity comes to life in the browsing experience, content and presentation of ALMAHI's offering.">El sitio web fue diseñado y desarrollado para ser el espacio central de la marca: un lugar donde la identidad visual toma cuerpo en la experiencia de navegación, el contenido y la presentación de la propuesta de ALMAHI.</p>
-      <p data-es="Puedes visitar el sitio en almahicol.netlify.app." data-en="You can visit the site at almahicol.netlify.app.">Puedes visitar el sitio en <a href="https://almahicol.netlify.app" target="_blank" rel="noopener">almahicol.netlify.app</a>.</p>
-    </div>
-
-    <div class="case-section">
-      <h2 class="case-section-title" data-es="Decisiones del proceso" data-en="Process decisions">Decisiones del proceso</h2>
-      <p data-es="El desarrollo del proyecto implicó explorar distintas direcciones de identidad, definir una paleta coherente con el universo de las plantas, y construir una estructura digital que permitiera que el contenido y la marca convivieran con claridad." data-en="The project development involved exploring different identity directions, defining a palette consistent with the world of plants, and building a digital structure that allowed content and brand to coexist clearly.">El desarrollo del proyecto implicó explorar distintas direcciones de identidad, definir una paleta coherente con el universo de las plantas, y construir una estructura digital que permitiera que el contenido y la marca convivieran con claridad.</p>
-    </div>
-  </div>
-</article>
-
-<!-- GALERÍA PLACEHOLDER -->
-<section class="section" style="padding-top:0">
-  <div class="section-inner">
-    <div class="case-gallery">
-      <div class="case-img-placeholder" style="height:300px"><p data-es="Captura adicional 1 — logotipo / identidad" data-en="Additional screenshot 1 — logo / identity">Captura adicional 1 — logotipo / identidad</p></div>
-      <div class="case-img-placeholder" style="height:300px"><p data-es="Captura adicional 2 — pantalla del sitio" data-en="Additional screenshot 2 — site screen">Captura adicional 2 — pantalla del sitio</p></div>
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow" data-es="CASO DE ESTUDIO · DISEÑO HIPERMEDIA · E-COMMERCE" data-en="CASE STUDY · HYPERMEDIA DESIGN · E-COMMERCE">CASO DE ESTUDIO · DISEÑO HIPERMEDIA · E-COMMERCE</p>
+    <h1 class="hero-title" data-es="ALMAHÍ: una tienda que cabe en un chat" data-en="ALMAHÍ: a store that fits in a chat">ALMAHÍ: una tienda que cabe en un chat</h1>
+    <p class="hero-subtitle" data-es="Diseño y dirección de un e-commerce hipermedia para un vivero familiar de Bogotá: cien especies, una huerta 3D navegable y el cierre del pedido por WhatsApp." data-en="Design and direction of a hypermedia e-commerce for a family nursery in Bogotá: one hundred species, a navigable 3D garden, and order closure via WhatsApp.">Diseño y dirección de un e-commerce hipermedia para un vivero familiar de Bogotá: cien especies, una huerta 3D navegable y el cierre del pedido por WhatsApp.</p>
+    <p class="hero-desc" data-es="ALMAHÍ nació de una necesidad sencilla: dejar de responder una y otra vez las mismas preguntas por mensajes y darle al negocio un espacio propio en internet. El proyecto evolucionó desde una idea académica hasta una experiencia de compra con catálogo, información de cuidados, carrito y una huerta tridimensional interactiva." data-en="ALMAHÍ was born from a simple need: to stop answering the same questions over and over in messages and give the business its own space on the internet. The project evolved from an academic idea into a shopping experience with a catalog, care information, a cart, and an interactive three-dimensional garden.">ALMAHÍ nació de una necesidad sencilla: dejar de responder una y otra vez las mismas preguntas por mensajes y darle al negocio un espacio propio en internet. El proyecto evolucionó desde una idea académica hasta una experiencia de compra con catálogo, información de cuidados, carrito y una huerta tridimensional interactiva.</p>
+    <div class="hero-btns">
+      <a href="#fases" class="btn-hero btn-hero--primary" data-es="Explorar el caso" data-en="Explore the case">Explorar el caso</a>
+      <a href="https://almahicol.netlify.app/" target="_blank" rel="noopener" class="btn-hero btn-hero--outline" data-es="Visitar ALMAHÍ ↗" data-en="Visit ALMAHÍ ↗">Visitar ALMAHÍ ↗</a>
     </div>
   </div>
 </section>
 
-<!-- NAVEGACIÓN ENTRE PROYECTOS -->
-<nav class="case-nav" aria-label="Otros proyectos">
-  <a href="/proyectos/" class="btn btn-outline" data-es="← Ver todos los proyectos" data-en="← See all projects">← Ver todos los proyectos</a>
-  <a href="/audiovisual-sonido/" class="btn btn-text" data-es="Siguiente: Audiovisual y sonido →" data-en="Next: Audiovisual & sound →">Siguiente: Audiovisual y sonido →</a>
-</nav>
+<div class="ficha">
+  <div class="ficha-inner">
+    <div>
+      <p class="ficha-label" data-es="Rol" data-en="Role">Rol</p>
+      <p class="ficha-value" data-es="Dirección de producto y diseño" data-en="Product and design direction">Dirección de producto y diseño</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Periodo" data-en="Period">Periodo</p>
+      <p class="ficha-value" data-es="Septiembre–octubre de 2026" data-en="September–October 2026">Septiembre–octubre de 2026</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Duración" data-en="Duration">Duración</p>
+      <p class="ficha-value" data-es="Siete semanas" data-en="Seven weeks">Siete semanas</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Estado" data-en="Status">Estado</p>
+      <p class="ficha-value" data-es="En línea" data-en="Live">En línea</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Desarrollo" data-en="Development">Desarrollo</p>
+      <p class="ficha-value" data-es="Asistido por IA" data-en="AI-assisted">Asistido por IA</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Herramientas" data-en="Tools">Herramientas</p>
+      <p class="ficha-value">Figma, Blender, HTML, CSS, JS, Three.js, Python</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Publicación" data-en="Published on">Publicación</p>
+      <p class="ficha-value">Netlify</p>
+    </div>
+  </div>
+</div>
+
+<section class="metrics">
+  <div class="metrics-inner">
+    <p class="metrics-label" data-es="Datos clave" data-en="Key data">Datos clave</p>
+    <h2 class="metrics-title" data-es="Indicadores del proyecto" data-en="Project indicators">Indicadores del proyecto</h2>
+    <div class="metrics-grid">
+      <div class="metric-item">
+        <p class="metric-num">100</p>
+        <p class="metric-desc" data-es="especies con precio, tallas e información de cuidados" data-en="species with price, sizes, and care information">especies con precio, tallas e información de cuidados</p>
+      </div>
+      <div class="metric-item">
+        <p class="metric-num">244</p>
+        <p class="metric-desc" data-es="tallas/variantes en el catálogo" data-en="sizes/variants in the catalog">tallas/variantes en el catálogo</p>
+      </div>
+      <div class="metric-item">
+        <p class="metric-num">13</p>
+        <p class="metric-desc" data-es="páginas con URLs propias y contenido prerenderizado" data-en="pages with individual URLs and prerendered content">páginas con URLs propias y contenido prerenderizado</p>
+      </div>
+      <div class="metric-item">
+        <p class="metric-num">98%</p>
+        <p class="metric-desc" data-es="menos peso en la escena 3D: de 279,6 MB a 5,88 MB" data-en="less weight in the 3D scene: from 279.6 MB to 5.88 MB">menos peso en la escena 3D: de 279,6 MB a 5,88 MB</p>
+      </div>
+      <div class="metric-item">
+        <p class="metric-num">85%</p>
+        <p class="metric-desc" data-es="menos triángulos en la escena optimizada" data-en="fewer triangles in the optimized scene">menos triángulos en la escena optimizada</p>
+      </div>
+      <div class="metric-item">
+        <p class="metric-num">0</p>
+        <p class="metric-desc" data-es="fallos de contraste en la revisión WCAG AA" data-en="contrast failures in the WCAG AA review">fallos de contraste en la revisión WCAG AA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label" data-es="Contexto" data-en="Context">Contexto</p>
+    <h2 class="section-title" data-es="El punto de partida: cada venta comenzaba desde cero" data-en="The starting point: every sale began from scratch">El punto de partida: cada venta comenzaba desde cero</h2>
+    <p class="section-body" data-es="ALMAHÍ es un vivero casero familiar en Bogotá. Antes del proyecto, las ventas se gestionaban a través de Instagram y conversaciones individuales en WhatsApp. Las personas preguntaban por el precio, los cuidados, el tamaño o el domicilio, y buena parte de la información debía explicarse de nuevo en cada conversación." data-en="ALMAHÍ is a family home nursery in Bogotá. Before the project, sales were managed through Instagram and individual WhatsApp conversations. People asked about price, care, size, or delivery, and much of the information had to be explained again in each conversation.">ALMAHÍ es un vivero casero familiar en Bogotá. Antes del proyecto, las ventas se gestionaban a través de Instagram y conversaciones individuales en WhatsApp. Las personas preguntaban por el precio, los cuidados, el tamaño o el domicilio, y buena parte de la información debía explicarse de nuevo en cada conversación.</p>
+    <div class="blockquote">
+      <p data-es="El negocio no necesitaba una forma más vistosa de mirar plantas. Necesitaba una casa propia en internet." data-en="The business didn't need a more attractive way to look at plants. It needed its own home on the internet.">El negocio no necesitaba una forma más vistosa de mirar plantas. Necesitaba una casa propia en internet.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--grey">
+  <div class="section-inner">
+    <p class="section-label" data-es="Solución" data-en="Solution">Solución</p>
+    <h2 class="section-title" data-es="Redefinir la solución" data-en="Redefining the solution">Redefinir la solución</h2>
+    <p class="section-body" data-es="La idea inicial era un filtro de realidad aumentada para visualizar plantas dentro de una casa. Al revisar cómo se realizaban las ventas, decidí cambiar el enfoque: antes de añadir una interacción más compleja, era prioritario resolver las preguntas que detenían la compra. La solución se convirtió en un sitio propio con catálogo, precios, fichas de cuidado, una huerta 3D y un carrito que prepara el pedido para continuar por WhatsApp." data-en="The initial idea was an augmented reality filter to visualize plants inside a home. After reviewing how sales were being made, I decided to change the approach: before adding a more complex interaction, it was a priority to resolve the questions that were stopping purchases. The solution became a standalone site with a catalog, prices, care cards, a 3D garden, and a cart that prepares the order to continue via WhatsApp.">La idea inicial era un filtro de realidad aumentada para visualizar plantas dentro de una casa. Al revisar cómo se realizaban las ventas, decidí cambiar el enfoque: antes de añadir una interacción más compleja, era prioritario resolver las preguntas que detenían la compra. La solución se convirtió en un sitio propio con catálogo, precios, fichas de cuidado, una huerta 3D y un carrito que prepara el pedido para continuar por WhatsApp.</p>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="section-inner">
+    <p class="section-label" data-es="Recorrido de compra" data-en="Purchase journey">Recorrido de compra</p>
+    <h2 class="section-title" data-es="Diseñar el recorrido de compra" data-en="Designing the purchase journey">Diseñar el recorrido de compra</h2>
+    <p class="section-body" data-es="El sitio organiza la experiencia en cuatro etapas: descubrimiento, exploración, decisión y pedido. Instagram puede atraer a una persona al catálogo; los filtros y la huerta 3D invitan a explorar; cada ficha reúne información útil sobre la planta; y el carrito prepara el pedido para que la conversación de WhatsApp empiece con los detalles principales ya organizados." data-en="The site organizes the experience into four stages: discovery, exploration, decision, and order. Instagram can bring someone to the catalog; filters and the 3D garden invite exploration; each card gathers useful information about the plant; and the cart prepares the order so the WhatsApp conversation begins with the main details already organized.">El sitio organiza la experiencia en cuatro etapas: descubrimiento, exploración, decisión y pedido. Instagram puede atraer a una persona al catálogo; los filtros y la huerta 3D invitan a explorar; cada ficha reúne información útil sobre la planta; y el carrito prepara el pedido para que la conversación de WhatsApp empiece con los detalles principales ya organizados.</p>
+    <div class="subsections">
+      <div class="sub">
+        <p class="sub-label" data-es="Explorar" data-en="Explore">Explorar</p>
+        <p class="sub-title" data-es="Catálogo con cien especies" data-en="Catalog with one hundred species">Catálogo con cien especies</p>
+        <p class="sub-body" data-es="El catálogo permite recorrer cien especies y acceder a fichas con precios, tallas e información de cuidados. Las categorías y los filtros ayudan a limitar los resultados según lo que busca cada persona." data-en="The catalog allows browsing one hundred species and accessing cards with prices, sizes, and care information. Categories and filters help narrow results based on what each person is looking for.">El catálogo permite recorrer cien especies y acceder a fichas con precios, tallas e información de cuidados. Las categorías y los filtros ayudan a limitar los resultados según lo que busca cada persona.</p>
+      </div>
+      <div class="sub">
+        <p class="sub-label" data-es="Decidir" data-en="Decide">Decidir</p>
+        <p class="sub-title" data-es="Información para elegir" data-en="Information to choose">Información para elegir</p>
+        <p class="sub-body" data-es="Cada ficha presenta los datos disponibles para ayudar a elegir. Cuando una especie no tiene fotografía real, la página lo aclara: nueve especies estaban fotografiadas y las otras noventa y una se muestran mediante ilustraciones SVG propias con una explicación visible." data-en="Each card presents the available data to help choose. When a species has no real photograph, the page makes this clear: nine species were photographed and the other ninety-one are shown through original SVG illustrations with a visible explanation.">Cada ficha presenta los datos disponibles para ayudar a elegir. Cuando una especie no tiene fotografía real, la página lo aclara: nueve especies estaban fotografiadas y las otras noventa y una se muestran mediante ilustraciones SVG propias con una explicación visible.</p>
+      </div>
+      <div class="sub">
+        <p class="sub-label" data-es="Pedir" data-en="Order">Pedir</p>
+        <p class="sub-title" data-es="El carrito prepara el pedido" data-en="The cart prepares the order">El carrito prepara el pedido</p>
+        <p class="sub-body" data-es="El carrito reúne cantidades, tallas, materas, zona de envío y total. No procesa el pago dentro del sitio: genera un mensaje de WhatsApp con la información del pedido para confirmar disponibilidad y continuar la compra." data-en="The cart gathers quantities, sizes, pots, delivery zone, and total. It does not process payment on the site: it generates a WhatsApp message with the order information to confirm availability and continue the purchase.">El carrito reúne cantidades, tallas, materas, zona de envío y total. No procesa el pago dentro del sitio: genera un mensaje de WhatsApp con la información del pedido para confirmar disponibilidad y continuar la compra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label" data-es="3D" data-en="3D">3D</p>
+    <h2 class="section-title" data-es="Una huerta que se puede recorrer" data-en="A garden you can walk through">Una huerta que se puede recorrer</h2>
+    <p class="section-body" data-es="La huerta tridimensional es la pieza diferencial de la experiencia. Permite explorar una escena 3D y acceder desde puntos interactivos a fichas de algunas plantas. La escena debía aportar valor sin convertirse en un recurso demasiado pesado para un sitio que se visita desde teléfonos y conexiones móviles." data-en="The three-dimensional garden is the differentiating piece of the experience. It allows exploring a 3D scene and accessing some plant cards from interactive points. The scene had to provide value without becoming too heavy a resource for a site visited from phones and mobile connections.">La huerta tridimensional es la pieza diferencial de la experiencia. Permite explorar una escena 3D y acceder desde puntos interactivos a fichas de algunas plantas. La escena debía aportar valor sin convertirse en un recurso demasiado pesado para un sitio que se visita desde teléfonos y conexiones móviles.</p>
+    <div class="subsections">
+      <div class="sub sub--light">
+        <p class="sub-label" data-es="Optimización 3D" data-en="3D optimization">Optimización 3D</p>
+        <p class="sub-title" data-es="De 279,6 MB a 5,88 MB" data-en="From 279.6 MB to 5.88 MB">De 279,6 MB a 5,88 MB</p>
+        <p class="sub-body" data-es="La optimización consistió en reducir y limpiar geometría, eliminar duplicados, simplificar mallas, bajar las texturas de 4K a 1024 píxeles cuando correspondía, convertirlas a WebP y comprimir la geometría con Draco. El resultado pasó a 5,88 MB: una reducción del 98 %, sin pérdida visual apreciable a la distancia de cámara en la que se utiliza." data-en="The optimization involved reducing and cleaning geometry, eliminating duplicates, simplifying meshes, lowering textures from 4K to 1024 pixels where appropriate, converting them to WebP, and compressing geometry with Draco. The result came to 5.88 MB: a 98% reduction, without appreciable visual loss at the camera distance at which it is used.">La optimización consistió en reducir y limpiar geometría, eliminar duplicados, simplificar mallas, bajar las texturas de 4K a 1024 píxeles cuando correspondía, convertirlas a WebP y comprimir la geometría con Draco. El resultado pasó a 5,88 MB: una reducción del 98 %, sin pérdida visual apreciable a la distancia de cámara en la que se utiliza.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark" id="fases">
+  <div class="section-inner">
+    <p class="section-label" data-es="Proceso" data-en="Process">Proceso</p>
+    <h2 class="section-title" data-es="Seis fases, siete semanas" data-en="Six phases, seven weeks">Seis fases, siete semanas</h2>
+    <div class="fases">
+      <div class="fase">
+        <p class="fase-num">01</p>
+        <div class="fase-content">
+          <p class="fase-title" data-es="Arquitectura e identidad" data-en="Architecture and identity">Arquitectura e identidad</p>
+          <p class="fase-body" data-es="Antes de trabajar los detalles visuales, definí el mapa de navegación y preparé cinco pantallas de baja fidelidad en Figma. De esta fase surgió un motivo gráfico inspirado en las etiquetas de vivero: nombre científico, escala de luz y riego, altura y diámetro. El mismo lenguaje permite mantener continuidad entre tarjetas, fichas y guías de cuidados." data-en="Before working on visual details, I defined the navigation map and prepared five low-fidelity screens in Figma. From this phase emerged a graphic motif inspired by nursery labels: scientific name, light and watering scale, height and diameter. The same language maintains continuity between cards, sheets, and care guides.">Antes de trabajar los detalles visuales, definí el mapa de navegación y preparé cinco pantallas de baja fidelidad en Figma. De esta fase surgió un motivo gráfico inspirado en las etiquetas de vivero: nombre científico, escala de luz y riego, altura y diámetro. El mismo lenguaje permite mantener continuidad entre tarjetas, fichas y guías de cuidados.</p>
+        </div>
+      </div>
+      <div class="fase">
+        <p class="fase-num">02</p>
+        <div class="fase-content">
+          <p class="fase-title" data-es="Producción y optimización 3D" data-en="3D production and optimization">Producción y optimización 3D</p>
+          <p class="fase-body" data-es="La huerta debía conservar su valor visual sin exigir una descarga excesiva. Analicé el peso de las texturas y la geometría, reduje los recursos innecesarios y preparé la escena para que pudiera cargarse cuando el usuario entra a la experiencia tridimensional." data-en="The garden had to preserve its visual value without demanding an excessive download. I analyzed the weight of textures and geometry, reduced unnecessary resources, and prepared the scene to load when the user enters the three-dimensional experience.">La huerta debía conservar su valor visual sin exigir una descarga excesiva. Analicé el peso de las texturas y la geometría, reduje los recursos innecesarios y preparé la escena para que pudiera cargarse cuando el usuario entra a la experiencia tridimensional.</p>
+        </div>
+      </div>
+      <div class="fase">
+        <p class="fase-num">03</p>
+        <div class="fase-content">
+          <p class="fase-title" data-es="Catálogo y consistencia de datos" data-en="Catalog and data consistency">Catálogo y consistencia de datos</p>
+          <p class="fase-body" data-es="Al ampliar el catálogo de nueve a cien especies, la consistencia de precios, tallas e información se volvió un requisito central. Organicé los datos en una fuente única que valida los campos y genera la información del sitio, evitando mantener manualmente el mismo dato en múltiples lugares." data-en="When expanding the catalog from nine to one hundred species, the consistency of prices, sizes, and information became a central requirement. I organized the data in a single source that validates fields and generates the site's information, avoiding manually maintaining the same data in multiple places.">Al ampliar el catálogo de nueve a cien especies, la consistencia de precios, tallas e información se volvió un requisito central. Organicé los datos en una fuente única que valida los campos y genera la información del sitio, evitando mantener manualmente el mismo dato en múltiples lugares.</p>
+        </div>
+      </div>
+      <div class="fase">
+        <p class="fase-num">04</p>
+        <div class="fase-content">
+          <p class="fase-title" data-es="De sitio editorial a tienda" data-en="From editorial site to store">De sitio editorial a tienda</p>
+          <p class="fase-body" data-es="El diseño evolucionó hacia una experiencia de tienda digital: catálogo, fichas, filtros y un carrito que conserva el pedido al recargar la página. El recorrido se construyó alrededor de la tarea real del negocio y no solo de la presentación visual." data-en="The design evolved toward a digital store experience: catalog, cards, filters, and a cart that keeps the order when the page is reloaded. The journey was built around the real task of the business and not just visual presentation.">El diseño evolucionó hacia una experiencia de tienda digital: catálogo, fichas, filtros y un carrito que conserva el pedido al recargar la página. El recorrido se construyó alrededor de la tarea real del negocio y no solo de la presentación visual.</p>
+        </div>
+      </div>
+      <div class="fase">
+        <p class="fase-num">05</p>
+        <div class="fase-content">
+          <p class="fase-title" data-es="Información, accesibilidad y protección al consumidor" data-en="Information, accessibility and consumer protection">Información, accesibilidad y protección al consumidor</p>
+          <p class="fase-body" data-es="El hecho de que el sitio participara en una venta real hizo necesario revisar la información presentada al comprador, el tratamiento de datos, las condiciones de venta y los elementos de accesibilidad. Una decisión central fue retirar testimonios que no correspondían a clientes reales. La confianza debía construirse con información clara, no con prueba social ficticia." data-en="The fact that the site participated in a real sale made it necessary to review the information presented to the buyer, data handling, sales conditions, and accessibility elements. A central decision was to remove testimonials that did not come from real customers. Trust had to be built with clear information, not fabricated social proof.">El hecho de que el sitio participara en una venta real hizo necesario revisar la información presentada al comprador, el tratamiento de datos, las condiciones de venta y los elementos de accesibilidad. Una decisión central fue retirar testimonios que no correspondían a clientes reales. La confianza debía construirse con información clara, no con prueba social ficticia.</p>
+        </div>
+      </div>
+      <div class="fase">
+        <p class="fase-num">06</p>
+        <div class="fase-content">
+          <p class="fase-title" data-es="Direcciones, SEO y descubrimiento" data-en="URLs, SEO and discoverability">Direcciones, SEO y descubrimiento</p>
+          <p class="fase-body" data-es="La migración a direcciones legibles, junto con el prerenderizado del contenido, permitió organizar trece páginas con URL propia. Cada una puede compartirse directamente y contiene sus propios metadatos, en lugar de depender de una única dirección con vistas diferenciadas por fragmentos." data-en="Migration to readable URLs, combined with prerendered content, allowed organizing thirteen pages with their own URL. Each can be shared directly and contains its own metadata, rather than depending on a single address with views differentiated by fragments.">La migración a direcciones legibles, junto con el prerenderizado del contenido, permitió organizar trece páginas con URL propia. Cada una puede compartirse directamente y contiene sus propios metadatos, en lugar de depender de una única dirección con vistas diferenciadas por fragmentos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--grey">
+  <div class="section-inner">
+    <p class="section-label" data-es="Decisiones" data-en="Decisions">Decisiones</p>
+    <h2 class="section-title" data-es="Decisiones que definieron el proyecto" data-en="Decisions that defined the project">Decisiones que definieron el proyecto</h2>
+    <div class="decisions">
+      <div class="decision">
+        <p class="decision-title" data-es="El carrito prepara el pedido, no procesa el pago" data-en="The cart prepares the order, doesn't process payment">El carrito prepara el pedido, no procesa el pago</p>
+        <p class="decision-body" data-es="Se mantuvo el cierre por WhatsApp porque corresponde a la forma de venta del negocio. El carrito organiza productos y cantidades, pero no simula una pasarela de pagos que no existe." data-en="Closure via WhatsApp was maintained because it corresponds to the business's way of selling. The cart organizes products and quantities, but does not simulate a payment gateway that does not exist.">Se mantuvo el cierre por WhatsApp porque corresponde a la forma de venta del negocio. El carrito organiza productos y cantidades, pero no simula una pasarela de pagos que no existe.</p>
+      </div>
+      <div class="decision">
+        <p class="decision-title" data-es="Una ilustración no se presenta como fotografía" data-en="An illustration is not presented as a photograph">Una ilustración no se presenta como fotografía</p>
+        <p class="decision-body" data-es="Noventa y una especies no tenían fotografía real. En vez de recurrir a imágenes de banco que pudieran crear una expectativa falsa, se utilizaron ilustraciones SVG propias y se identificaron expresamente como ilustraciones." data-en="Ninety-one species had no real photograph. Instead of using stock images that could create a false expectation, original SVG illustrations were used and expressly identified as such.">Noventa y una especies no tenían fotografía real. En vez de recurrir a imágenes de banco que pudieran crear una expectativa falsa, se utilizaron ilustraciones SVG propias y se identificaron expresamente como ilustraciones.</p>
+      </div>
+      <div class="decision">
+        <p class="decision-title" data-es="Sin testimonios inventados" data-en="No fabricated testimonials">Sin testimonios inventados</p>
+        <p class="decision-body" data-es="Se retiraron reseñas que no provenían de clientes reales. La presentación puede ser visualmente atractiva sin fabricar opiniones para generar confianza." data-en="Reviews that did not come from real customers were removed. The presentation can be visually attractive without fabricating opinions to generate trust.">Se retiraron reseñas que no provenían de clientes reales. La presentación puede ser visualmente atractiva sin fabricar opiniones para generar confianza.</p>
+      </div>
+      <div class="decision">
+        <p class="decision-title" data-es="Las categorías deben filtrar de verdad" data-en="Categories must actually filter">Las categorías deben filtrar de verdad</p>
+        <p class="decision-body" data-es="La clasificación y los filtros se basan en los datos del catálogo, no solo en la apariencia de la ilustración. La categoría que la persona selecciona debe corresponder a las especies que realmente aparecen." data-en="Classification and filters are based on catalog data, not just the appearance of the illustration. The category a person selects must correspond to the species that actually appear.">La clasificación y los filtros se basan en los datos del catálogo, no solo en la apariencia de la ilustración. La categoría que la persona selecciona debe corresponder a las especies que realmente aparecen.</p>
+      </div>
+      <div class="decision">
+        <p class="decision-title" data-es="Rendimiento como parte del diseño" data-en="Performance as part of design">Rendimiento como parte del diseño</p>
+        <p class="decision-body" data-es="Se redujo el peso de la escena 3D, se externalizaron y optimizaron recursos cuando fue necesario, y se evitó descargar el visor 3D en páginas que no lo necesitan. La interacción debe estar disponible sin convertir cada visita en una descarga innecesaria." data-en="The weight of the 3D scene was reduced, resources were externalized and optimized when necessary, and the 3D viewer was avoided on pages that don't need it. Interaction should be available without turning every visit into an unnecessary download.">Se redujo el peso de la escena 3D, se externalizaron y optimizaron recursos cuando fue necesario, y se evitó descargar el visor 3D en páginas que no lo necesitan. La interacción debe estar disponible sin convertir cada visita en una descarga innecesaria.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="section-inner">
+    <p class="section-label" data-es="Arquitectura" data-en="Architecture">Arquitectura</p>
+    <h2 class="section-title" data-es="Arquitectura y herramientas" data-en="Architecture and tools">Arquitectura y herramientas</h2>
+    <p class="section-body" data-es="El sitio se construyó sin un framework de frontend, con HTML, CSS y JavaScript, y herramientas específicas para las funciones que lo requieren. Python genera y valida los datos del catálogo; Three.js se utiliza en la experiencia 3D; Blender y gltf-transform forman parte del trabajo con modelos; Figma se utilizó en la arquitectura y los wireframes. La publicación se realiza en Netlify." data-en="The site was built without a frontend framework, with HTML, CSS, and JavaScript, and specific tools for functions that require them. Python generates and validates catalog data; Three.js is used in the 3D experience; Blender and gltf-transform are part of working with models; Figma was used for architecture and wireframes. Publishing is done on Netlify.">El sitio se construyó sin un framework de frontend, con HTML, CSS y JavaScript, y herramientas específicas para las funciones que lo requieren. Python genera y valida los datos del catálogo; Three.js se utiliza en la experiencia 3D; Blender y gltf-transform forman parte del trabajo con modelos; Figma se utilizó en la arquitectura y los wireframes. La publicación se realiza en Netlify.</p>
+    <div class="subsections">
+      <div class="sub">
+        <p class="sub-label" data-es="Comprobaciones técnicas" data-en="Technical checks">Comprobaciones técnicas</p>
+        <p class="sub-title" data-es="Resultados documentados" data-en="Documented results">Resultados documentados</p>
+        <p class="sub-body" data-es="Las pruebas documentadas revisaron trece páginas, accesibilidad de contraste en los dos temas, errores de JavaScript, recursos que no cargan y comportamiento responsive. El informe registra cero fallos de contraste, ningún error de JavaScript y ningún desbordamiento horizontal a 390 píxeles. Estas cifras describen las comprobaciones técnicas realizadas; no equivalen a métricas de ventas." data-en="The documented tests reviewed thirteen pages, contrast accessibility in both themes, JavaScript errors, resources that don't load, and responsive behavior. The report records zero contrast failures, no JavaScript errors, and no horizontal overflow at 390 pixels. These figures describe the technical checks performed; they are not equivalent to sales metrics.">Las pruebas documentadas revisaron trece páginas, accesibilidad de contraste en los dos temas, errores de JavaScript, recursos que no cargan y comportamiento responsive. El informe registra cero fallos de contraste, ningún error de JavaScript y ningún desbordamiento horizontal a 390 píxeles. Estas cifras describen las comprobaciones técnicas realizadas; no equivalen a métricas de ventas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="etiqueta-viva">
+  <div class="etiqueta-inner">
+    <div>
+      <p class="etiqueta-label" data-es="Extensión del proyecto" data-en="Project extension">Extensión del proyecto</p>
+      <h2 class="etiqueta-title" data-es="Etiqueta Viva" data-en="Etiqueta Viva">Etiqueta Viva</h2>
+      <p class="etiqueta-body" data-es="Etiqueta Viva explora cómo conectar una planta física con su ficha digital y un gemelo tridimensional. La propuesta utiliza una etiqueta con un código único para abrir una experiencia web vinculada a la planta. La parte implementada incluye una página accesible desde un código impreso y una echeveria tridimensional generada mediante código. La planta puede girarse, responder a la acción de riego y mostrar cambios con el tiempo. La experiencia permite explorar cómo una identidad visual y un recurso digital pueden extenderse más allá de la pantalla." data-en="Etiqueta Viva explores how to connect a physical plant with its digital card and a three-dimensional twin. The proposal uses a label with a unique code to open a web experience linked to the plant. The implemented part includes a page accessible from a printed code and a three-dimensional echeveria generated through code. The plant can be rotated, respond to the watering action, and show changes over time. The experience allows exploring how a visual identity and a digital resource can extend beyond the screen.">Etiqueta Viva explora cómo conectar una planta física con su ficha digital y un gemelo tridimensional. La propuesta utiliza una etiqueta con un código único para abrir una experiencia web vinculada a la planta. La parte implementada incluye una página accesible desde un código impreso y una echeveria tridimensional generada mediante código. La planta puede girarse, responder a la acción de riego y mostrar cambios con el tiempo. La experiencia permite explorar cómo una identidad visual y un recurso digital pueden extenderse más allá de la pantalla.</p>
+    </div>
+    <div class="etiqueta-visual" aria-label="Concepto Etiqueta Viva">
+      <p class="etiqueta-visual-text" data-es="Etiqueta · Código único · Experiencia 3D" data-en="Label · Unique code · 3D experience">Etiqueta · Código único · Experiencia 3D</p>
+    </div>
+  </div>
+</section>
+
+<div class="cierre">
+  <h2 class="cierre-title" data-es="Una tienda digital diseñada desde las restricciones reales" data-en="A digital store designed from real constraints">Una tienda digital diseñada desde las restricciones reales</h2>
+  <p class="cierre-text" data-es="ALMAHÍ reúne dirección de producto, arquitectura de información, identidad aplicada, diseño de interfaz y producción 3D dentro de una solución que responde a cómo vende el negocio. El resultado no es solo un catálogo atractivo: es una experiencia que organiza la información, prepara los pedidos y convierte las limitaciones técnicas en decisiones de producto." data-en="ALMAHÍ brings together product direction, information architecture, applied identity, interface design, and 3D production within a solution that responds to how the business sells. The result is not just an attractive catalog: it is an experience that organizes information, prepares orders, and turns technical constraints into product decisions.">ALMAHÍ reúne dirección de producto, arquitectura de información, identidad aplicada, diseño de interfaz y producción 3D dentro de una solución que responde a cómo vende el negocio. El resultado no es solo un catálogo atractivo: es una experiencia que organiza la información, prepara los pedidos y convierte las limitaciones técnicas en decisiones de producto.</p>
+  <div class="cierre-btns">
+    <a href="https://almahicol.netlify.app/" target="_blank" rel="noopener" class="btn-cierre" data-es="Visitar ALMAHÍ ↗" data-en="Visit ALMAHÍ ↗">Visitar ALMAHÍ ↗</a>
+    <a href="/proyectos/" class="btn-cierre btn-cierre--outline" data-es="← Volver a proyectos" data-en="← Back to projects">← Volver a proyectos</a>
+    <a href="/contacto/" class="btn-cierre btn-cierre--outline" data-es="Hablemos de un proyecto digital" data-en="Let's talk about a digital project">Hablemos de un proyecto digital</a>
+  </div>
+</div>
 
 <footer>
   <div class="footer-inner">
@@ -123,30 +452,30 @@
             <a href="/privacidad/" data-es="Privacidad" data-en="Privacy">Privacidad</a>
           </nav>
         </div>
-    <div class="footer-logo-center">
-      <svg viewBox="0 0 160 160" aria-hidden="true" focusable="false">
-        <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#FFED00"/>
-        <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#FFED00"/>
-        <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#FFED00"/>
-        <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#FFED00"/>
-        <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#FFED00"/>
-      </svg>
-    </div>
-        <div class="footer-nav-group" style="align-items:flex-end;">
+        <div class="footer-logo-center">
+          <svg viewBox="0 0 160 160" aria-hidden="true">
+            <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#FFED00"/>
+            <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#FFED00"/>
+            <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#FFED00"/>
+            <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#FFED00"/>
+            <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#FFED00"/>
+          </svg>
+        </div>
+        <div class="footer-social-group">
           <p class="footer-nav-label" data-es="Sígueme" data-en="Follow me">Sígueme</p>
           <div class="footer-social">
-          <a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-            Instagram
-          </a>
-          <a href="https://linkedin.com/in/juangd12" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
-          </a>
-          <a href="mailto:juanestebangd12@gmail.com" aria-label="Correo">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            Correo
-          </a>
+            <a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+            <a href="https://linkedin.com/in/juangd12" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:juanestebangd12@gmail.com" aria-label="Correo">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Correo
+            </a>
           </div>
         </div>
       </div>
@@ -157,9 +486,7 @@
     </div>
   </div>
 </footer>
-<div class="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" aria-hidden="true"></div>
-<script src="/assets/js/main.js"></script>
 
+<script src="/assets/js/main.js" defer onerror="void 0"></script>
 </body>
 </html>

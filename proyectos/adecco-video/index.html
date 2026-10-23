@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edición de video para Adecco Colombia | Juan González</title>
+  <meta name="description" content="Selección de trabajos de edición y postproducción de video para Adecco Colombia, con un recorrido por el montaje, el ritmo, los recursos gráficos y la preparación de las piezas finales.">
+  <meta property="og:title" content="Edición de video para Adecco Colombia | Juan González">
+  <meta property="og:description" content="Selección de trabajos de edición y postproducción de video para Adecco Colombia.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://portafoliojegd.netlify.app/proyectos/adecco-video/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo-j-amarillo.svg">
+  <style>
+    :root{--y:#FFED00;--k:#000;--p:#662483;--w:#fff;--bg:#f5f5f5;--tx:#111;--muted:#555;--border:#e0e0e0}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+
+    /* NAV */
+    .nav{position:fixed;top:1rem;left:50%;transform:translateX(-50%);width:calc(100% - 3rem);max-width:1100px;height:54px;display:flex;align-items:center;padding:0 1rem 0 1.25rem;z-index:100;background:#000;border-radius:999px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.45);transition:background .3s,box-shadow .3s,border-color .3s}
+    .nav.scrolled{background:rgba(0,0,0,0.92);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-color:rgba(255,255,255,0.12);box-shadow:0 8px 32px rgba(0,0,0,0.55)}
+    .nav-logo{display:flex;align-items:center;gap:.65rem;font-family:'Poppins',sans-serif;font-weight:700;font-size:.9375rem;letter-spacing:.02em;color:#fff;flex-shrink:0}
+    .nav-logo svg{width:28px;height:28px;flex-shrink:0}
+    .nav-links{display:flex;align-items:center;gap:0;margin-left:auto}
+    .nav-link{font-family:'Source Sans 3',sans-serif;font-size:.8125rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,0.55);padding:.4rem .875rem;border-radius:999px;transition:color .2s,background .2s}
+    .nav-link:hover{color:#fff;background:rgba(255,255,255,0.06)}
+    .nav-link.active{color:#000;background:#FFED00;font-weight:700}
+    .nav-controls{display:flex;align-items:center;gap:.5rem;margin-left:1rem}
+    .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,0.18);border-radius:100px;overflow:hidden;font-size:.75rem;font-family:'Source Sans 3',sans-serif}
+    .lang-btn{padding:.3rem .65rem;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,0.45);transition:background .15s,color .15s;background:none;border:none;cursor:pointer;font-size:.75rem;font-family:'Source Sans 3',sans-serif}
+    .lang-btn.active{background:#FFED00;color:#000}
+    .hamburger{display:none;width:36px;height:36px;align-items:center;justify-content:center;flex-direction:column;gap:5px;border:1px solid rgba(255,255,255,0.2);border-radius:999px;color:#fff;background:transparent;cursor:pointer;transition:background .2s,border-color .2s}
+    .hamburger:hover{background:rgba(255,255,255,0.1)}
+    .hamburger span{display:block;width:18px;height:1.5px;background:currentColor;transition:transform .2s,opacity .2s}
+    .hamburger.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .hamburger.active span:nth-child(2){opacity:0}
+    .hamburger.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .mobile-nav{position:fixed;inset:0;background:#000;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+    .mobile-nav.open{opacity:1;visibility:visible}
+    .mobile-nav a{font-family:'Poppins',sans-serif;font-size:clamp(1.5rem,6vw,2.5rem);font-weight:700;color:#fff;padding:.5rem 1rem;transition:color .2s}
+    .mobile-nav a:hover{color:#FFED00}
+    .mobile-lang{margin-top:1.5rem;display:flex;gap:1rem}
+    .mobile-lang button{font-size:.875rem;color:rgba(255,255,255,0.6);padding:.25rem .75rem;border:1px solid rgba(255,255,255,0.25);border-radius:100px;background:none;cursor:pointer;transition:color .2s,border-color .2s}
+    .mobile-lang button.active{color:#FFED00;border-color:#FFED00}
+    @media(max-width:768px){.nav-links{display:none}.lang-toggle{display:none}.nav-controls{margin-left:auto}.hamburger{display:flex;flex-shrink:0}}
+
+    /* HERO */
+    .hero{padding-top:calc(1rem + 54px + 2rem);background:var(--k);color:var(--w);padding-bottom:80px;padding-left:24px;padding-right:24px;position:relative;overflow:hidden}
+    @media(max-width:768px){.hero{padding-top:calc(1rem + 54px + 4rem)}}
+    .hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--y)}
+    .hero-inner{max-width:1100px;margin:0 auto}
+    .hero-eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--y);margin-bottom:16px}
+    .hero-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,4rem);line-height:1.05;margin-bottom:24px;letter-spacing:-.02em}
+    .hero-desc{max-width:660px;font-size:1.125rem;color:rgba(255,255,255,0.8);line-height:1.7}
+
+    /* FICHA */
+    .ficha{background:var(--y);padding:36px 24px}
+    .ficha-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}
+    .ficha-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:4px}
+    .ficha-value{font-family:'Poppins',sans-serif;font-weight:700;font-size:.875rem;color:var(--k)}
+    @media(max-width:540px){.ficha-inner{grid-template-columns:repeat(2,1fr);gap:16px}.ficha{padding:24px 16px}}
+
+    /* SECCIONES */
+    .section{padding:80px 24px}
+    .section-inner{max-width:1100px;margin:0 auto}
+    .section--dark{background:var(--k);color:var(--w)}
+    .section--grey{background:#ececec}
+    .section-label{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--p);margin-bottom:12px}
+    .section--dark .section-label{color:var(--y)}
+    .section-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.75rem,4vw,2.75rem);line-height:1.1;margin-bottom:24px}
+    .section-body{font-size:1.05rem;line-height:1.75;color:var(--muted);max-width:720px}
+    .section--dark .section-body{color:rgba(255,255,255,0.75)}
+
+    /* PROCESO */
+    .proceso-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:40px}
+    .paso{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:28px 24px}
+    .paso-num{font-family:'Poppins',sans-serif;font-weight:900;font-size:2rem;color:var(--y);opacity:.5;line-height:1;margin-bottom:12px}
+    .paso-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:.95rem;color:var(--w);margin-bottom:8px}
+    .paso-desc{font-size:.875rem;color:rgba(255,255,255,0.6);line-height:1.6}
+
+    /* VIDEOS */
+    .videos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;margin-top:40px}
+    .video-card{background:#fff;overflow:hidden}
+    .video-card video{width:100%;display:block;background:#111;aspect-ratio:16/9}
+    .video-card-body{padding:20px}
+    .video-card-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;color:var(--k);margin-bottom:8px}
+    .video-card-desc{font-size:.875rem;color:var(--muted);line-height:1.5}
+    .videos-note{margin-top:24px;padding:16px;background:#fff3cd;border-left:3px solid #e6a900;font-size:.85rem;color:#6b4c00;line-height:1.5}
+
+    /* CIERRE */
+    .cierre{background:var(--p);color:var(--w);padding:80px 24px;text-align:center}
+    .cierre-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:20px}
+    .cierre-text{max-width:600px;margin:0 auto 40px;font-size:1.05rem;color:rgba(255,255,255,0.85);line-height:1.7}
+    .cierre-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-cierre{display:inline-flex;align-items:center;gap:8px;background:var(--y);color:var(--k);font-family:'Poppins',sans-serif;font-weight:700;font-size:.875rem;padding:14px 28px;transition:opacity .2s;letter-spacing:.05em}
+    .btn-cierre:hover{opacity:.85}
+    .btn-cierre--outline{background:transparent;color:var(--w);border:2px solid rgba(255,255,255,0.4)}
+    .btn-cierre--outline:hover{border-color:var(--w);opacity:1}
+
+    /* FOOTER */
+    footer{background:#662483;color:#fff;padding:0}
+    .footer-inner{max-width:1280px;margin:0 auto;padding:0 clamp(1.5rem,5vw,3rem)}
+    .footer-body{padding:0}
+    .footer-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:3rem;padding:3rem 0 2.5rem;border-bottom:1px solid rgba(255,255,255,0.2);margin-bottom:1.5rem}
+    .footer-nav-group{display:flex;flex-direction:column;gap:.5rem}
+    .footer-nav-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFED00;margin-bottom:.5rem}
+    .footer-links{display:flex;flex-direction:column;gap:.625rem}
+    .footer-links a{font-family:'Poppins',sans-serif;font-size:.9375rem;font-weight:700;text-transform:uppercase;color:#fff;letter-spacing:.04em;transition:color .2s}
+    .footer-links a:hover{color:#FFED00}
+    .footer-logo-center{display:flex;justify-content:center;align-items:center}
+    .footer-logo-center svg{width:clamp(150px,20vw,240px);height:auto}
+    .footer-social-group{display:flex;flex-direction:column;align-items:flex-end}
+    .footer-social{display:flex;flex-direction:column;gap:.625rem;align-items:flex-end}
+    .footer-social a{display:inline-flex;align-items:center;gap:.55rem;background:#fff;color:#000;font-family:'Poppins',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;padding:.45rem 1rem .45rem .75rem;border-radius:999px;transition:background .2s,color .2s;text-decoration:none;min-width:145px}
+    .footer-social a svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+    .footer-social a:hover{background:#FFED00;color:#000}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.25rem 0 2rem}
+    .footer-copy{font-size:.8rem;color:rgba(255,255,255,0.55)}
+    .footer-tagline{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+    @media(max-width:768px){.footer-top{grid-template-columns:1fr;gap:2rem}.footer-social{align-items:flex-start}.footer-logo-center svg{width:100px}}
+    @media(max-width:430px){.section{padding:48px 16px}.cierre{padding:56px 16px}.proceso-steps{grid-template-columns:1fr}.videos-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <a href="/" class="nav-logo" aria-label="Juan González — Inicio">
+    <svg viewBox="0 0 160 160" class="logo-mark" aria-hidden="true">
+      <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/>
+      <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/>
+      <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/>
+      <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/>
+      <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/>
+    </svg>
+    <span data-es="Juan González" data-en="Juan González">Juan González</span>
+  </a>
+  <div class="nav-links">
+    <a href="/" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="/proyectos/" class="nav-link active" data-es="Proyectos" data-en="Projects">Proyectos</a>
+    <a href="/sobre-mi/" class="nav-link" data-es="Sobre mí" data-en="About">Sobre mí</a>
+    <a href="/contacto/" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+  </div>
+  <div class="nav-controls">
+    <div class="lang-toggle" role="group" aria-label="Idioma">
+      <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
+    <button class="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <a href="/" data-es="Inicio" data-en="Home">Inicio</a>
+  <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
+  <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
+  <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
+  <div class="mobile-lang">
+    <button data-lang="es" class="active">ES</button>
+    <button data-lang="en">EN</button>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow" data-es="AUDIOVISUAL · EDICIÓN Y POSTPRODUCCIÓN" data-en="AUDIOVISUAL · EDITING AND POST-PRODUCTION">AUDIOVISUAL · EDICIÓN Y POSTPRODUCCIÓN</p>
+    <h1 class="hero-title" data-es="Edición de video para Adecco Colombia" data-en="Video editing for Adecco Colombia">Edición de video para Adecco Colombia</h1>
+    <p class="hero-desc" data-es="Este caso reúne trabajos de video editados para Adecco Colombia. Cada pieza parte de un objetivo de comunicación y de un material audiovisual que debe organizarse en una secuencia clara, con ritmo, continuidad y un acabado coherente con su uso." data-en="This case brings together video works edited for Adecco Colombia. Each piece starts from a communication objective and audiovisual material that must be organized into a clear sequence, with rhythm, continuity, and a finish consistent with its use.">Este caso reúne trabajos de video editados para Adecco Colombia. Cada pieza parte de un objetivo de comunicación y de un material audiovisual que debe organizarse en una secuencia clara, con ritmo, continuidad y un acabado coherente con su uso.</p>
+  </div>
+</section>
+
+<div class="ficha">
+  <div class="ficha-inner">
+    <div>
+      <p class="ficha-label" data-es="Organización" data-en="Organization">Organización</p>
+      <p class="ficha-value" data-es="Adecco Colombia" data-en="Adecco Colombia">Adecco Colombia</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Área" data-en="Area">Área</p>
+      <p class="ficha-value" data-es="Edición y postproducción de video" data-en="Video editing and post-production">Edición y postproducción de video</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Mi aporte" data-en="My contribution">Mi aporte</p>
+      <p class="ficha-value" data-es="Edición de piezas audiovisuales" data-en="Editing of audiovisual pieces">Edición de piezas audiovisuales</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Entregables" data-en="Deliverables">Entregables</p>
+      <p class="ficha-value" data-es="Videos finales seleccionados" data-en="Selected final videos">Videos finales seleccionados</p>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label" data-es="Contexto" data-en="Context">Contexto</p>
+    <h2 class="section-title" data-es="De material audiovisual a mensaje" data-en="From audiovisual material to message">De material audiovisual a mensaje</h2>
+    <p class="section-body" data-es="Editar un video implica decidir qué debe ver el espectador, en qué orden y durante cuánto tiempo. El montaje organiza la información, establece el ritmo y ayuda a que el mensaje llegue con claridad dentro del tiempo disponible." data-en="Editing a video involves deciding what the viewer should see, in what order, and for how long. The editing organizes information, establishes rhythm, and helps the message come through clearly within the available time.">Editar un video implica decidir qué debe ver el espectador, en qué orden y durante cuánto tiempo. El montaje organiza la información, establece el ritmo y ayuda a que el mensaje llegue con claridad dentro del tiempo disponible.</p>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="section-inner">
+    <p class="section-label" data-es="Proceso" data-en="Process">Proceso</p>
+    <h2 class="section-title" data-es="El proceso de edición" data-en="The editing process">El proceso de edición</h2>
+    <div class="proceso-steps">
+      <div class="paso">
+        <p class="paso-num">01</p>
+        <p class="paso-title" data-es="Entender el objetivo y el formato" data-en="Understand the objective and format">Entender el objetivo y el formato</p>
+        <p class="paso-desc" data-es="Cada pieza parte de una necesidad de comunicación. Antes de editar, identifico el mensaje principal, el público al que se dirige y el formato en el que se utilizará el video. Estas condiciones orientan el ritmo y la estructura del montaje." data-en="Each piece starts from a communication need. Before editing, I identify the main message, the audience it's directed at, and the format in which the video will be used. These conditions guide the rhythm and structure of the edit.">Cada pieza parte de una necesidad de comunicación. Antes de editar, identifico el mensaje principal, el público al que se dirige y el formato en el que se utilizará el video. Estas condiciones orientan el ritmo y la estructura del montaje.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">02</p>
+        <p class="paso-title" data-es="Revisar y organizar el material" data-en="Review and organize material">Revisar y organizar el material</p>
+        <p class="paso-desc" data-es="Reviso los clips disponibles y organizo el material que aporta al mensaje. La selección busca conservar los momentos relevantes y eliminar aquello que no ayuda a construir la secuencia." data-en="I review the available clips and organize the material that contributes to the message. The selection aims to preserve relevant moments and eliminate what doesn't help build the sequence.">Reviso los clips disponibles y organizo el material que aporta al mensaje. La selección busca conservar los momentos relevantes y eliminar aquello que no ayuda a construir la secuencia.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">03</p>
+        <p class="paso-title" data-es="Construir el montaje" data-en="Build the edit">Construir el montaje</p>
+        <p class="paso-desc" data-es="Ordeno los planos y ajusto su duración para establecer continuidad y ritmo. El montaje debe conducir la atención del espectador y mantener una lectura clara desde el inicio hasta el cierre." data-en="I order the shots and adjust their duration to establish continuity and rhythm. The edit must guide the viewer's attention and maintain clear reading from beginning to end.">Ordeno los planos y ajusto su duración para establecer continuidad y ritmo. El montaje debe conducir la atención del espectador y mantener una lectura clara desde el inicio hasta el cierre.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">04</p>
+        <p class="paso-title" data-es="Integrar los recursos visuales" data-en="Integrate visual resources">Integrar los recursos visuales</p>
+        <p class="paso-desc" data-es="Cuando la pieza lo requiere, se integran textos, rótulos o recursos gráficos para destacar información y reforzar el mensaje. Estos elementos deben ser legibles y mantener coherencia con la identidad de la comunicación." data-en="When the piece requires it, text, captions, or graphic resources are integrated to highlight information and reinforce the message. These elements must be legible and maintain consistency with the communication identity.">Cuando la pieza lo requiere, se integran textos, rótulos o recursos gráficos para destacar información y reforzar el mensaje. Estos elementos deben ser legibles y mantener coherencia con la identidad de la comunicación.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">05</p>
+        <p class="paso-title" data-es="Revisar sonido y continuidad" data-en="Review sound and continuity">Revisar sonido y continuidad</p>
+        <p class="paso-desc" data-es="Reviso la continuidad audiovisual y el balance sonoro para que el audio acompañe la secuencia sin distraer del contenido. Los ajustes dependen del material y de las necesidades concretas de cada video." data-en="I review audiovisual continuity and sound balance so the audio accompanies the sequence without distracting from the content. Adjustments depend on the material and specific needs of each video.">Reviso la continuidad audiovisual y el balance sonoro para que el audio acompañe la secuencia sin distraer del contenido. Los ajustes dependen del material y de las necesidades concretas de cada video.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">06</p>
+        <p class="paso-title" data-es="Preparar la versión final" data-en="Prepare the final version">Preparar la versión final</p>
+        <p class="paso-desc" data-es="Antes de exportar, compruebo el orden de los planos, la legibilidad de los elementos gráficos y la reproducción general. La versión final responde al formato y a las condiciones de entrega que correspondan al encargo." data-en="Before exporting, I check the order of shots, the legibility of graphic elements, and overall playback. The final version responds to the format and delivery conditions appropriate to the assignment.">Antes de exportar, compruebo el orden de los planos, la legibilidad de los elementos gráficos y la reproducción general. La versión final responde al formato y a las condiciones de entrega que correspondan al encargo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--grey">
+  <div class="section-inner">
+    <p class="section-label" data-es="Videos" data-en="Videos">Videos</p>
+    <h2 class="section-title" data-es="Videos seleccionados" data-en="Selected videos">Videos seleccionados</h2>
+    <p class="section-body" data-es="Esta selección muestra distintos trabajos de edición realizados para Adecco Colombia. Reproduce cada pieza para apreciar su montaje, ritmo y tratamiento audiovisual." data-en="This selection shows different editing works done for Adecco Colombia. Play each piece to appreciate its editing, rhythm, and audiovisual treatment.">Esta selección muestra distintos trabajos de edición realizados para Adecco Colombia. Reproduce cada pieza para apreciar su montaje, ritmo y tratamiento audiovisual.</p>
+
+    <div class="videos-grid">
+      <div class="video-card">
+        <video controls preload="metadata" aria-label="Video de Adecco Colombia">
+          <source src="/assets/video/adecco-video-1.mp4" type="video/mp4">
+          <p data-es="Tu navegador no soporta reproducción de video." data-en="Your browser does not support video.">Tu navegador no soporta reproducción de video.</p>
+        </video>
+        <div class="video-card-body">
+          <p class="video-card-title" data-es="Pieza 1" data-en="Piece 1">Pieza 1</p>
+          <p class="video-card-desc" data-es="Edición de video para campaña de Adecco Colombia." data-en="Video editing for Adecco Colombia campaign.">Edición de video para campaña de Adecco Colombia.</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <video controls preload="metadata" aria-label="Video de Adecco Colombia">
+          <source src="/assets/video/adecco-video-2.mp4" type="video/mp4">
+          <p data-es="Tu navegador no soporta reproducción de video." data-en="Your browser does not support video.">Tu navegador no soporta reproducción de video.</p>
+        </video>
+        <div class="video-card-body">
+          <p class="video-card-title" data-es="Pieza 2" data-en="Piece 2">Pieza 2</p>
+          <p class="video-card-desc" data-es="Edición de video para campaña de Adecco Colombia." data-en="Video editing for Adecco Colombia campaign.">Edición de video para campaña de Adecco Colombia.</p>
+        </div>
+      </div>
+    </div>
+    <p class="videos-note" data-es="Los títulos, descripciones y nombres de campaña de cada video se actualizarán con los archivos finales autorizados. Los videos se presentan con controles de reproducción, sin reproducción automática." data-en="The titles, descriptions, and campaign names for each video will be updated with the authorized final files. Videos are presented with playback controls, without autoplay.">Los títulos, descripciones y nombres de campaña de cada video se actualizarán con los archivos finales autorizados. Los videos se presentan con controles de reproducción, sin reproducción automática.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label" data-es="Reflexión" data-en="Reflection">Reflexión</p>
+    <h2 class="section-title" data-es="El montaje como herramienta de comunicación" data-en="Editing as a communication tool">El montaje como herramienta de comunicación</h2>
+    <p class="section-body" data-es="Cada video requiere tomar decisiones sobre selección, orden, duración y continuidad. La edición permite convertir material disperso en una secuencia que mantiene el mensaje y acompaña la identidad de la comunicación." data-en="Each video requires making decisions about selection, order, duration, and continuity. Editing allows converting scattered material into a sequence that maintains the message and accompanies the communication identity.">Cada video requiere tomar decisiones sobre selección, orden, duración y continuidad. La edición permite convertir material disperso en una secuencia que mantiene el mensaje y acompaña la identidad de la comunicación.</p>
+  </div>
+</section>
+
+<div class="cierre">
+  <h2 class="cierre-title" data-es="Un mensaje también se construye en movimiento" data-en="A message is also built in motion">Un mensaje también se construye en movimiento</h2>
+  <p class="cierre-text" data-es="Estos trabajos muestran distintas formas de organizar material audiovisual para comunicar de manera clara y coherente con el propósito de cada pieza." data-en="These works show different ways of organizing audiovisual material to communicate clearly and consistently with the purpose of each piece.">Estos trabajos muestran distintas formas de organizar material audiovisual para comunicar de manera clara y coherente con el propósito de cada pieza.</p>
+  <div class="cierre-btns">
+    <a href="/proyectos/" class="btn-cierre" data-es="← Volver a proyectos" data-en="← Back to projects">← Volver a proyectos</a>
+    <a href="/contacto/" class="btn-cierre btn-cierre--outline" data-es="Hablemos de un proyecto audiovisual" data-en="Let's talk about an audiovisual project">Hablemos de un proyecto audiovisual</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-body">
+      <div class="footer-top">
+        <div class="footer-nav-group">
+          <p class="footer-nav-label" data-es="Páginas" data-en="Pages">Páginas</p>
+          <nav class="footer-links" aria-label="Links del footer">
+            <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
+            <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
+            <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
+            <a href="/privacidad/" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+          </nav>
+        </div>
+        <div class="footer-logo-center">
+          <svg viewBox="0 0 160 160" aria-hidden="true">
+            <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#FFED00"/>
+            <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#FFED00"/>
+            <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#FFED00"/>
+            <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#FFED00"/>
+            <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#FFED00"/>
+          </svg>
+        </div>
+        <div class="footer-social-group">
+          <p class="footer-nav-label" data-es="Sígueme" data-en="Follow me">Sígueme</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+            <a href="https://linkedin.com/in/juangd12" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:juanestebangd12@gmail.com" aria-label="Correo">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Correo
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Juan González. Diseñador Hipermedia</p>
+        <p class="footer-tagline">DISEÑO | IDENTIDAD | EXPERIENCIAS DIGITALES</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer onerror="void 0"></script>
+</body>
+</html>

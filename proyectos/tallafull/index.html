@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talla Full: diseño visual y comunicación | Juan González</title>
+  <meta name="description" content="Caso de estudio de Talla Full, un proyecto de diseño de comunicación visual enfocado en la coherencia gráfica y la construcción de identidad a través de piezas diseñadas en Adobe Illustrator.">
+  <meta property="og:title" content="Talla Full: diseño visual y comunicación | Juan González">
+  <meta property="og:description" content="Caso de estudio de Talla Full, diseño visual y comunicación: coherencia gráfica, construcción de identidad, piezas diseñadas en Adobe Illustrator.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://portafoliojegd.netlify.app/proyectos/tallafull/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo-j-amarillo.svg">
+  <style>
+    :root{--y:#FFED00;--k:#000;--p:#662483;--w:#fff;--bg:#f5f5f5;--tx:#111;--muted:#555}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+
+    /* NAV */
+    .nav{position:fixed;top:1rem;left:50%;transform:translateX(-50%);width:calc(100% - 3rem);max-width:1100px;height:54px;display:flex;align-items:center;padding:0 1rem 0 1.25rem;z-index:100;background:#000;border-radius:999px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.45);transition:background .3s,box-shadow .3s,border-color .3s}
+    .nav.scrolled{background:rgba(0,0,0,0.92);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-color:rgba(255,255,255,0.12);box-shadow:0 8px 32px rgba(0,0,0,0.55)}
+    .nav-logo{display:flex;align-items:center;gap:.65rem;font-family:'Poppins',sans-serif;font-weight:700;font-size:.9375rem;letter-spacing:.02em;color:#fff;flex-shrink:0}
+    .nav-logo svg{width:28px;height:28px;flex-shrink:0}
+    .nav-links{display:flex;align-items:center;gap:0;margin-left:auto}
+    .nav-link{font-family:'Source Sans 3',sans-serif;font-size:.8125rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,0.55);padding:.4rem .875rem;border-radius:999px;transition:color .2s,background .2s}
+    .nav-link:hover{color:#fff;background:rgba(255,255,255,0.06)}
+    .nav-link.active{color:#000;background:#FFED00;font-weight:700}
+    .nav-controls{display:flex;align-items:center;gap:.5rem;margin-left:1rem}
+    .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,0.18);border-radius:100px;overflow:hidden;font-family:'Source Sans 3',sans-serif}
+    .lang-btn{padding:.3rem .65rem;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,0.45);transition:background .15s,color .15s;background:none;border:none;cursor:pointer;font-size:.75rem;font-family:'Source Sans 3',sans-serif}
+    .lang-btn.active{background:#FFED00;color:#000}
+    .hamburger{display:none;width:36px;height:36px;align-items:center;justify-content:center;flex-direction:column;gap:5px;border:1px solid rgba(255,255,255,0.2);border-radius:999px;color:#fff;background:transparent;cursor:pointer;transition:background .2s,border-color .2s}
+    .hamburger:hover{background:rgba(255,255,255,0.1)}
+    .hamburger span{display:block;width:18px;height:1.5px;background:currentColor;transition:transform .2s,opacity .2s}
+    .hamburger.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .hamburger.active span:nth-child(2){opacity:0}
+    .hamburger.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .mobile-nav{position:fixed;inset:0;background:#000;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+    .mobile-nav.open{opacity:1;visibility:visible}
+    .mobile-nav a{font-family:'Poppins',sans-serif;font-size:clamp(1.5rem,6vw,2.5rem);font-weight:700;color:#fff;padding:.5rem 1rem;transition:color .2s}
+    .mobile-nav a:hover{color:#FFED00}
+    .mobile-lang{margin-top:1.5rem;display:flex;gap:1rem}
+    .mobile-lang button{font-size:.875rem;color:rgba(255,255,255,0.6);padding:.25rem .75rem;border:1px solid rgba(255,255,255,0.25);border-radius:100px;background:none;cursor:pointer;transition:color .2s,border-color .2s}
+    .mobile-lang button.active{color:#FFED00;border-color:#FFED00}
+    @media(max-width:768px){.nav-links{display:none}.lang-toggle{display:none}.nav-controls{margin-left:auto}.hamburger{display:flex;flex-shrink:0}}
+
+    /* HERO */
+    .hero{padding-top:calc(1rem + 54px + 2rem);background:var(--k);color:var(--w);padding-bottom:80px;padding-left:24px;padding-right:24px;position:relative}
+    @media(max-width:768px){.hero{padding-top:calc(1rem + 54px + 4rem)}}
+    .hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--y)}
+    .hero-inner{max-width:1100px;margin:0 auto}
+    .hero-eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--y);margin-bottom:16px}
+    .hero-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(3rem,8vw,6rem);line-height:1.0;margin-bottom:16px;letter-spacing:-.02em}
+    .hero-subtitle{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(1rem,2.5vw,1.35rem);color:rgba(255,255,255,0.6);margin-bottom:24px}
+    .hero-desc{max-width:640px;font-size:1.125rem;color:rgba(255,255,255,0.8);line-height:1.7}
+
+    /* FICHA */
+    .ficha{background:var(--y);padding:36px 24px}
+    .ficha-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px}
+    .ficha-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:4px}
+    .ficha-value{font-family:'Poppins',sans-serif;font-weight:700;font-size:.875rem;color:var(--k)}
+    @media(max-width:540px){.ficha-inner{grid-template-columns:repeat(2,1fr)}.ficha{padding:24px 16px}}
+
+    /* SECCIONES */
+    .section{padding:80px 24px}
+    .section-inner{max-width:1100px;margin:0 auto}
+    .section--dark{background:var(--k);color:var(--w)}
+    .section--grey{background:#ececec}
+    .section-label{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--p);margin-bottom:12px}
+    .section--dark .section-label{color:var(--y)}
+    .section-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.75rem,4vw,2.75rem);line-height:1.1;margin-bottom:24px}
+    .section-body{font-size:1.05rem;line-height:1.75;color:var(--muted);max-width:720px}
+    .section--dark .section-body{color:rgba(255,255,255,0.75)}
+
+    /* PROCESO */
+    .proceso-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:40px}
+    .paso{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:28px 24px}
+    .paso-num{font-family:'Poppins',sans-serif;font-weight:900;font-size:2rem;color:var(--y);opacity:.5;line-height:1;margin-bottom:12px}
+    .paso-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:.95rem;color:var(--w);margin-bottom:8px}
+    .paso-desc{font-size:.875rem;color:rgba(255,255,255,0.6);line-height:1.6}
+
+    /* ENTREGAS */
+    .entregas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:32px}
+    .entrega{background:var(--k);border:1px solid rgba(255,255,255,0.1);padding:20px 24px}
+    .entrega-icon{font-size:1.5rem;margin-bottom:8px}
+    .entrega-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:.9rem;color:var(--w);margin-bottom:4px}
+    .entrega-desc{font-size:.8rem;color:rgba(255,255,255,0.5);line-height:1.5}
+
+    /* PALETA */
+    .paleta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+    .color-chip{display:flex;flex-direction:column;align-items:center;gap:8px}
+    .color-swatch{width:64px;height:64px;border-radius:4px;border:1px solid rgba(0,0,0,0.1)}
+    .color-name{font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+    /* CIERRE */
+    .cierre{background:var(--p);color:var(--w);padding:80px 24px;text-align:center}
+    .cierre-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:20px}
+    .cierre-text{max-width:600px;margin:0 auto 40px;font-size:1.05rem;color:rgba(255,255,255,0.85);line-height:1.7}
+    .cierre-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-cierre{display:inline-flex;align-items:center;gap:8px;background:var(--y);color:var(--k);font-family:'Poppins',sans-serif;font-weight:700;font-size:.875rem;padding:14px 28px;transition:opacity .2s;letter-spacing:.05em}
+    .btn-cierre:hover{opacity:.85}
+    .btn-cierre--outline{background:transparent;color:var(--w);border:2px solid rgba(255,255,255,0.4)}
+    .btn-cierre--outline:hover{border-color:var(--w);opacity:1}
+
+    /* FOOTER */
+    footer{background:#662483;color:#fff;padding:0}
+    .footer-inner{max-width:1280px;margin:0 auto;padding:0 clamp(1.5rem,5vw,3rem)}
+    .footer-body{padding:0}
+    .footer-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:3rem;padding:3rem 0 2.5rem;border-bottom:1px solid rgba(255,255,255,0.2);margin-bottom:1.5rem}
+    .footer-nav-group{display:flex;flex-direction:column;gap:.5rem}
+    .footer-nav-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFED00;margin-bottom:.5rem}
+    .footer-links{display:flex;flex-direction:column;gap:.625rem}
+    .footer-links a{font-family:'Poppins',sans-serif;font-size:.9375rem;font-weight:700;text-transform:uppercase;color:#fff;letter-spacing:.04em;transition:color .2s}
+    .footer-links a:hover{color:#FFED00}
+    .footer-logo-center{display:flex;justify-content:center;align-items:center}
+    .footer-logo-center svg{width:clamp(150px,20vw,240px);height:auto}
+    .footer-social-group{display:flex;flex-direction:column;align-items:flex-end}
+    .footer-social{display:flex;flex-direction:column;gap:.625rem;align-items:flex-end}
+    .footer-social a{display:inline-flex;align-items:center;gap:.55rem;background:#fff;color:#000;font-family:'Poppins',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;padding:.45rem 1rem .45rem .75rem;border-radius:999px;transition:background .2s,color .2s;text-decoration:none;min-width:145px}
+    .footer-social a svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+    .footer-social a:hover{background:#FFED00;color:#000}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.25rem 0 2rem}
+    .footer-copy{font-size:.8rem;color:rgba(255,255,255,0.55)}
+    .footer-tagline{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+    @media(max-width:768px){.footer-top{grid-template-columns:1fr;gap:2rem}.footer-social{align-items:flex-start}.footer-logo-center svg{width:100px}}
+    @media(max-width:430px){.section{padding:48px 16px}.cierre{padding:56px 16px}.proceso-steps{grid-template-columns:1fr}.entregas{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <a href="/" class="nav-logo" aria-label="Juan González — Inicio">
+    <svg viewBox="0 0 160 160" class="logo-mark" aria-hidden="true">
+      <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/>
+      <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/>
+      <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/>
+      <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/>
+      <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/>
+    </svg>
+    <span data-es="Juan González" data-en="Juan González">Juan González</span>
+  </a>
+  <div class="nav-links">
+    <a href="/" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="/proyectos/" class="nav-link active" data-es="Proyectos" data-en="Projects">Proyectos</a>
+    <a href="/sobre-mi/" class="nav-link" data-es="Sobre mí" data-en="About">Sobre mí</a>
+    <a href="/contacto/" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+  </div>
+  <div class="nav-controls">
+    <div class="lang-toggle" role="group" aria-label="Idioma">
+      <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
+    <button class="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <a href="/" data-es="Inicio" data-en="Home">Inicio</a>
+  <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
+  <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
+  <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
+  <div class="mobile-lang">
+    <button data-lang="es" class="active">ES</button>
+    <button data-lang="en">EN</button>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow" data-es="DISEÑO VISUAL · COMUNICACIÓN GRÁFICA" data-en="VISUAL DESIGN · GRAPHIC COMMUNICATION">DISEÑO VISUAL · COMUNICACIÓN GRÁFICA</p>
+    <h1 class="hero-title">TALLA FULL</h1>
+    <p class="hero-subtitle" data-es="Un lenguaje visual que habla antes de que leas." data-en="A visual language that speaks before you read.">Un lenguaje visual que habla antes de que leas.</p>
+    <p class="hero-desc" data-es="Talla Full es un proyecto de diseño de comunicación visual que explora cómo construir un sistema gráfico coherente a partir de decisiones tipográficas, cromáticas y compositivas. El trabajo se realizó en Adobe Illustrator y se centra en la coherencia de las piezas como conjunto." data-en="Talla Full is a visual communication design project that explores how to build a coherent graphic system from typographic, chromatic and compositional decisions. The work was done in Adobe Illustrator and focuses on the coherence of the pieces as a set.">Talla Full es un proyecto de diseño de comunicación visual que explora cómo construir un sistema gráfico coherente a partir de decisiones tipográficas, cromáticas y compositivas. El trabajo se realizó en Adobe Illustrator y se centra en la coherencia de las piezas como conjunto.</p>
+  </div>
+</section>
+
+<div class="ficha">
+  <div class="ficha-inner">
+    <div>
+      <p class="ficha-label" data-es="Tipo de proyecto" data-en="Project type">Tipo de proyecto</p>
+      <p class="ficha-value" data-es="Diseño visual y comunicación" data-en="Visual design and communication">Diseño visual y comunicación</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Formato" data-en="Format">Formato</p>
+      <p class="ficha-value" data-es="Sistema de piezas gráficas" data-en="Graphic pieces system">Sistema de piezas gráficas</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Contexto" data-en="Context">Contexto</p>
+      <p class="ficha-value" data-es="Proyecto de diseño gráfico" data-en="Graphic design project">Proyecto de diseño gráfico</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Mi aporte" data-en="My contribution">Mi aporte</p>
+      <p class="ficha-value" data-es="Diseño y dirección visual" data-en="Design and visual direction">Diseño y dirección visual</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Herramienta" data-en="Tool">Herramienta</p>
+      <p class="ficha-value">Adobe Illustrator</p>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label" data-es="Punto de partida" data-en="Starting point">Punto de partida</p>
+    <h2 class="section-title" data-es="Un sistema gráfico que funciona como conjunto" data-en="A graphic system that works as a set">Un sistema gráfico que funciona como conjunto</h2>
+    <p class="section-body" data-es="Talla Full parte de una premisa sencilla: que las piezas gráficas tienen más fuerza cuando forman un sistema. El reto fue diseñar cada elemento individual teniendo en cuenta cómo se relaciona con los demás y cómo juntos construyen una identidad visual coherente." data-en="Talla Full starts from a simple premise: that graphic pieces have more strength when they form a system. The challenge was to design each individual element considering how it relates to others and how together they build a coherent visual identity.">Talla Full parte de una premisa sencilla: que las piezas gráficas tienen más fuerza cuando forman un sistema. El reto fue diseñar cada elemento individual teniendo en cuenta cómo se relaciona con los demás y cómo juntos construyen una identidad visual coherente.</p>
+  </div>
+</section>
+
+<section class="section section--grey">
+  <div class="section-inner">
+    <p class="section-label" data-es="Decisiones de diseño" data-en="Design decisions">Decisiones de diseño</p>
+    <h2 class="section-title" data-es="Tipografía, color y composición" data-en="Typography, color and composition">Tipografía, color y composición</h2>
+    <p class="section-body" data-es="Las decisiones tipográficas y cromáticas fueron el punto de partida del proyecto. Cada elección responde a la necesidad de construir un sistema que fuera reconocible, flexible y capaz de funcionar en distintos formatos y contextos de aplicación." data-en="Typographic and chromatic decisions were the starting point of the project. Each choice responds to the need to build a system that is recognizable, flexible, and capable of working in different formats and application contexts.">Las decisiones tipográficas y cromáticas fueron el punto de partida del proyecto. Cada elección responde a la necesidad de construir un sistema que fuera reconocible, flexible y capaz de funcionar en distintos formatos y contextos de aplicación.</p>
+    <p class="section-body" style="margin-top:16px" data-es="La composición de cada pieza respeta una lógica de distribución del espacio que mantiene la coherencia visual entre los distintos elementos del conjunto." data-en="The composition of each piece follows a space distribution logic that maintains visual coherence between the different elements of the set.">La composición de cada pieza respeta una lógica de distribución del espacio que mantiene la coherencia visual entre los distintos elementos del conjunto.</p>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="section-inner">
+    <p class="section-label" data-es="Proceso creativo" data-en="Creative process">Proceso creativo</p>
+    <h2 class="section-title" data-es="Cómo se construyó el sistema" data-en="How the system was built">Cómo se construyó el sistema</h2>
+    <div class="proceso-steps">
+      <div class="paso">
+        <p class="paso-num">01</p>
+        <p class="paso-title" data-es="Definir la dirección visual" data-en="Define visual direction">Definir la dirección visual</p>
+        <p class="paso-desc" data-es="El primer paso fue establecer los referentes y la dirección estética del proyecto. Definir qué sensación debía transmitir el sistema gráfico orientó todas las decisiones posteriores." data-en="The first step was to establish the references and aesthetic direction of the project. Defining what feeling the graphic system should convey guided all subsequent decisions.">El primer paso fue establecer los referentes y la dirección estética del proyecto. Definir qué sensación debía transmitir el sistema gráfico orientó todas las decisiones posteriores.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">02</p>
+        <p class="paso-title" data-es="Explorar tipografía y color" data-en="Explore typography and color">Explorar tipografía y color</p>
+        <p class="paso-desc" data-es="Probé distintas combinaciones tipográficas y paletas cromáticas hasta encontrar las que mejor respondían a la personalidad del proyecto. La tipografía y el color son los pilares del sistema." data-en="I tested different typographic combinations and color palettes until finding those that best responded to the project's personality. Typography and color are the pillars of the system.">Probé distintas combinaciones tipográficas y paletas cromáticas hasta encontrar las que mejor respondían a la personalidad del proyecto. La tipografía y el color son los pilares del sistema.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">03</p>
+        <p class="paso-title" data-es="Diseñar las piezas en Illustrator" data-en="Design pieces in Illustrator">Diseñar las piezas en Illustrator</p>
+        <p class="paso-desc" data-es="Con la dirección definida, desarrollé cada pieza gráfica en Adobe Illustrator. Trabajé la composición, el uso del espacio y la relación entre los elementos para que cada pieza funcionara de forma individual y como parte del sistema." data-en="With the direction defined, I developed each graphic piece in Adobe Illustrator. I worked on composition, use of space, and the relationship between elements so each piece worked individually and as part of the system.">Con la dirección definida, desarrollé cada pieza gráfica en Adobe Illustrator. Trabajé la composición, el uso del espacio y la relación entre los elementos para que cada pieza funcionara de forma individual y como parte del sistema.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">04</p>
+        <p class="paso-title" data-es="Verificar la coherencia del conjunto" data-en="Verify coherence of the set">Verificar la coherencia del conjunto</p>
+        <p class="paso-desc" data-es="El paso final fue revisar cómo conviven todas las piezas como sistema. La coherencia gráfica es el resultado de que cada decisión individual respeta la lógica del conjunto." data-en="The final step was to review how all pieces coexist as a system. Graphic coherence is the result of each individual decision respecting the logic of the set.">El paso final fue revisar cómo conviven todas las piezas como sistema. La coherencia gráfica es el resultado de que cada decisión individual respeta la lógica del conjunto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark" style="padding-top:0">
+  <div class="section-inner">
+    <p class="section-label" data-es="Entregables" data-en="Deliverables">Entregables</p>
+    <h2 class="section-title" data-es="Piezas del proyecto" data-en="Project pieces">Piezas del proyecto</h2>
+    <div class="entregas">
+      <div class="entrega">
+        <p class="entrega-title" data-es="Identidad tipográfica" data-en="Typographic identity">Identidad tipográfica</p>
+        <p class="entrega-desc" data-es="Selección y aplicación de familias tipográficas que dan personalidad al sistema." data-en="Selection and application of typographic families that give personality to the system.">Selección y aplicación de familias tipográficas que dan personalidad al sistema.</p>
+      </div>
+      <div class="entrega">
+        <p class="entrega-title" data-es="Paleta cromática" data-en="Color palette">Paleta cromática</p>
+        <p class="entrega-desc" data-es="Definición de colores principales y secundarios con criterio de aplicación." data-en="Definition of primary and secondary colors with application criteria.">Definición de colores principales y secundarios con criterio de aplicación.</p>
+      </div>
+      <div class="entrega">
+        <p class="entrega-title" data-es="Piezas gráficas" data-en="Graphic pieces">Piezas gráficas</p>
+        <p class="entrega-desc" data-es="Conjunto de piezas diseñadas en Adobe Illustrator que conforman el sistema visual." data-en="Set of pieces designed in Adobe Illustrator that make up the visual system.">Conjunto de piezas diseñadas en Adobe Illustrator que conforman el sistema visual.</p>
+      </div>
+      <div class="entrega">
+        <p class="entrega-title" data-es="Sistema coherente" data-en="Coherent system">Sistema coherente</p>
+        <p class="entrega-desc" data-es="Verificación de que las piezas funcionan de manera conjunta como identidad visual." data-en="Verification that the pieces work together as a visual identity.">Verificación de que las piezas funcionan de manera conjunta como identidad visual.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label" data-es="Reflexión" data-en="Reflection">Reflexión</p>
+    <h2 class="section-title" data-es="Diseñar es tomar decisiones" data-en="Designing is making decisions">Diseñar es tomar decisiones</h2>
+    <p class="section-body" data-es="Talla Full me permitió profundizar en la construcción de sistemas gráficos y en la relación entre las decisiones individuales de diseño y la coherencia del conjunto. Cada elección tipográfica, cromática o compositiva tiene consecuencias en la percepción del sistema completo." data-en="Talla Full allowed me to deepen my understanding of graphic system construction and the relationship between individual design decisions and the coherence of the set. Each typographic, chromatic, or compositional choice has consequences for the perception of the complete system.">Talla Full me permitió profundizar en la construcción de sistemas gráficos y en la relación entre las decisiones individuales de diseño y la coherencia del conjunto. Cada elección tipográfica, cromática o compositiva tiene consecuencias en la percepción del sistema completo.</p>
+  </div>
+</section>
+
+<div class="cierre">
+  <h2 class="cierre-title" data-es="La coherencia gráfica como resultado del proceso" data-en="Graphic coherence as a result of process">La coherencia gráfica como resultado del proceso</h2>
+  <p class="cierre-text" data-es="Talla Full demuestra que un sistema visual coherente no es el resultado de una sola decisión correcta, sino de muchas decisiones individuales que se respetan mutuamente y construyen algo mayor." data-en="Talla Full demonstrates that a coherent visual system is not the result of a single correct decision, but of many individual decisions that respect each other and build something larger.">Talla Full demuestra que un sistema visual coherente no es el resultado de una sola decisión correcta, sino de muchas decisiones individuales que se respetan mutuamente y construyen algo mayor.</p>
+  <div class="cierre-btns">
+    <a href="/proyectos/" class="btn-cierre" data-es="← Volver a proyectos" data-en="← Back to projects">← Volver a proyectos</a>
+    <a href="/contacto/" class="btn-cierre btn-cierre--outline" data-es="Hablemos de diseño" data-en="Let's talk design">Hablemos de diseño</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-body">
+      <div class="footer-top">
+        <div class="footer-nav-group">
+          <p class="footer-nav-label" data-es="Páginas" data-en="Pages">Páginas</p>
+          <nav class="footer-links" aria-label="Links del footer">
+            <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
+            <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
+            <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
+            <a href="/privacidad/" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+          </nav>
+        </div>
+        <div class="footer-logo-center">
+          <svg viewBox="0 0 160 160" aria-hidden="true">
+            <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#FFED00"/>
+            <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#FFED00"/>
+            <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#FFED00"/>
+            <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#FFED00"/>
+            <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#FFED00"/>
+          </svg>
+        </div>
+        <div class="footer-social-group">
+          <p class="footer-nav-label" data-es="Sígueme" data-en="Follow me">Sígueme</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+            <a href="https://linkedin.com/in/juangd12" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:juanestebangd12@gmail.com" aria-label="Correo">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Correo
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Juan González. Diseñador Hipermedia</p>
+        <p class="footer-tagline">DISEÑO | IDENTIDAD | EXPERIENCIAS DIGITALES</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer onerror="void 0"></script>
+</body>
+</html>

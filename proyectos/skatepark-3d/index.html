@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escenario 3D: skatepark y personaje | Juan González</title>
+  <meta name="description" content="Modelado 3D de un escenario de skatepark y construcción de un personaje desde cero en Autodesk Maya: objetos, preparación de UVs y entrega final.">
+  <meta property="og:title" content="Escenario 3D: skatepark y personaje | Juan González">
+  <meta property="og:description" content="Modelado 3D de un escenario de skatepark y construcción de un personaje desde cero en Autodesk Maya.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://portafoliojegd.netlify.app/proyectos/skatepark-3d/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/logo-j-amarillo.svg">
+  <style>
+    :root{--y:#FFED00;--k:#000;--p:#662483;--w:#fff;--bg:#f5f5f5;--tx:#111;--muted:#555;--border:#e0e0e0}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .nav{position:fixed;top:1rem;left:50%;transform:translateX(-50%);width:calc(100% - 3rem);max-width:1100px;height:54px;display:flex;align-items:center;padding:0 1rem 0 1.25rem;z-index:100;background:#000;border-radius:999px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.45);transition:background .3s,box-shadow .3s,border-color .3s}
+    .nav.scrolled{background:rgba(0,0,0,0.92);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-color:rgba(255,255,255,0.12);box-shadow:0 8px 32px rgba(0,0,0,0.55)}
+    .nav-logo{display:flex;align-items:center;gap:.65rem;font-family:'Poppins',sans-serif;font-weight:700;font-size:.9375rem;letter-spacing:.02em;color:#fff;flex-shrink:0}
+    .nav-logo svg{width:28px;height:28px;flex-shrink:0}
+    .nav-links{display:flex;align-items:center;gap:0;margin-left:auto}
+    .nav-link{font-family:'Source Sans 3',sans-serif;font-size:.8125rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,0.55);padding:.4rem .875rem;border-radius:999px;transition:color .2s,background .2s}
+    .nav-link:hover{color:#fff;background:rgba(255,255,255,0.06)}
+    .nav-link.active{color:#000;background:#FFED00;font-weight:700}
+    .nav-controls{display:flex;align-items:center;gap:.5rem;margin-left:1rem}
+    .lang-toggle{display:flex;align-items:center;gap:0;border:1px solid rgba(255,255,255,0.18);border-radius:100px;overflow:hidden;font-size:.75rem;font-family:'Source Sans 3',sans-serif}
+    .lang-btn{padding:.3rem .65rem;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,0.45);transition:background .15s,color .15s;background:none;border:none;cursor:pointer;font-size:.75rem;font-family:'Source Sans 3',sans-serif}
+    .lang-btn.active{background:#FFED00;color:#000}
+    .hamburger{display:none;width:36px;height:36px;align-items:center;justify-content:center;flex-direction:column;gap:5px;border:1px solid rgba(255,255,255,0.2);border-radius:999px;color:#fff;background:transparent;cursor:pointer;transition:background .2s,border-color .2s}
+    .hamburger:hover{background:rgba(255,255,255,0.1)}
+    .hamburger span{display:block;width:18px;height:1.5px;background:currentColor;transition:transform .2s,opacity .2s}
+    .hamburger.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .hamburger.active span:nth-child(2){opacity:0}
+    .hamburger.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .mobile-nav{position:fixed;inset:0;background:#000;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+    .mobile-nav.open{opacity:1;visibility:visible}
+    .mobile-nav a{font-family:'Poppins',sans-serif;font-size:clamp(1.5rem,6vw,2.5rem);font-weight:700;color:#fff;padding:.5rem 1rem;transition:color .2s}
+    .mobile-nav a:hover{color:#FFED00}
+    .mobile-lang{margin-top:1.5rem;display:flex;gap:1rem}
+    .mobile-lang button{font-size:.875rem;color:rgba(255,255,255,0.6);padding:.25rem .75rem;border:1px solid rgba(255,255,255,0.25);border-radius:100px;background:none;cursor:pointer;transition:color .2s,border-color .2s}
+    .mobile-lang button.active{color:#FFED00;border-color:#FFED00}
+    @media(max-width:768px){.nav-links{display:none}.lang-toggle{display:none}.nav-controls{margin-left:auto}.hamburger{display:flex;flex-shrink:0}}
+    .hero{padding-top:calc(1rem + 54px + 2rem);background:var(--k);color:var(--w);padding-bottom:80px;padding-left:24px;padding-right:24px;position:relative;overflow:hidden}
+    @media(max-width:768px){.hero{padding-top:calc(1rem + 54px + 4rem)}}
+    .hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--y)}
+    .hero-inner{max-width:1100px;margin:0 auto}
+    .hero-eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--y);margin-bottom:16px}
+    .hero-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(2rem,5vw,4rem);line-height:1.05;margin-bottom:24px;letter-spacing:-.02em}
+    .hero-desc{max-width:660px;font-size:1.125rem;color:rgba(255,255,255,0.8);line-height:1.7}
+    .ficha{background:var(--y);padding:36px 24px}
+    .ficha-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}
+    .ficha-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,0.5);margin-bottom:4px}
+    .ficha-value{font-family:'Poppins',sans-serif;font-weight:700;font-size:.875rem;color:var(--k)}
+    @media(max-width:540px){.ficha-inner{grid-template-columns:repeat(2,1fr);gap:16px}.ficha{padding:24px 16px}}
+    .section{padding:80px 24px}
+    .section-inner{max-width:1100px;margin:0 auto}
+    .section--dark{background:var(--k);color:var(--w)}
+    .section--grey{background:#ececec}
+    .section-label{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--p);margin-bottom:12px}
+    .section--dark .section-label{color:var(--y)}
+    .section-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.75rem,4vw,2.75rem);line-height:1.1;margin-bottom:24px}
+    .section-body{font-size:1.05rem;line-height:1.75;color:var(--muted);max-width:720px}
+    .section--dark .section-body{color:rgba(255,255,255,0.75)}
+    .proceso-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:40px}
+    .paso{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:28px 24px}
+    .paso-num{font-family:'Poppins',sans-serif;font-weight:900;font-size:2rem;color:var(--y);opacity:.5;line-height:1;margin-bottom:12px}
+    .paso-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:.95rem;color:var(--w);margin-bottom:8px}
+    .paso-desc{font-size:.875rem;color:rgba(255,255,255,0.6);line-height:1.6}
+    .gallery-section{padding:80px 24px}
+    .gallery-inner{max-width:1100px;margin:0 auto}
+    .gallery-group{margin-bottom:60px}
+    .gallery-group:last-child{margin-bottom:0}
+    .gallery-group-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.25rem;margin-bottom:8px;color:var(--k)}
+    .gallery-group-desc{font-size:.95rem;color:var(--muted);margin-bottom:24px;max-width:640px}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+    .gallery-item{background:#e0e0e0;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .gallery-item img{width:100%;height:100%;object-fit:cover}
+    .gallery-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#d0d0d0;font-size:.8rem;color:#888;text-align:center;padding:1rem}
+    .gallery-note{margin-top:20px;font-size:.85rem;color:var(--muted);font-style:italic}
+    .cierre{background:var(--p);color:var(--w);padding:80px 24px;text-align:center}
+    .cierre-title{font-family:'Poppins',sans-serif;font-weight:900;font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:20px}
+    .cierre-text{max-width:600px;margin:0 auto 40px;font-size:1.05rem;color:rgba(255,255,255,0.85);line-height:1.7}
+    .cierre-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-cierre{display:inline-flex;align-items:center;gap:8px;background:var(--y);color:var(--k);font-family:'Poppins',sans-serif;font-weight:700;font-size:.875rem;padding:14px 28px;transition:opacity .2s;letter-spacing:.05em}
+    .btn-cierre:hover{opacity:.85}
+    .btn-cierre--outline{background:transparent;color:var(--w);border:2px solid rgba(255,255,255,0.4)}
+    .btn-cierre--outline:hover{border-color:var(--w);opacity:1}
+    footer{background:#662483;color:#fff;padding:0}
+    .footer-inner{max-width:1280px;margin:0 auto;padding:0 clamp(1.5rem,5vw,3rem)}
+    .footer-body{padding:0}
+    .footer-top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:3rem;padding:3rem 0 2.5rem;border-bottom:1px solid rgba(255,255,255,0.2);margin-bottom:1.5rem}
+    .footer-nav-group{display:flex;flex-direction:column;gap:.5rem}
+    .footer-nav-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FFED00;margin-bottom:.5rem}
+    .footer-links{display:flex;flex-direction:column;gap:.625rem}
+    .footer-links a{font-family:'Poppins',sans-serif;font-size:.9375rem;font-weight:700;text-transform:uppercase;color:#fff;letter-spacing:.04em;transition:color .2s}
+    .footer-links a:hover{color:#FFED00}
+    .footer-logo-center{display:flex;justify-content:center;align-items:center}
+    .footer-logo-center svg{width:clamp(150px,20vw,240px);height:auto}
+    .footer-social-group{display:flex;flex-direction:column;align-items:flex-end}
+    .footer-social{display:flex;flex-direction:column;gap:.625rem;align-items:flex-end}
+    .footer-social a{display:inline-flex;align-items:center;gap:.55rem;background:#fff;color:#000;font-family:'Poppins',sans-serif;font-weight:700;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;padding:.45rem 1rem .45rem .75rem;border-radius:999px;transition:background .2s,color .2s;text-decoration:none;min-width:145px}
+    .footer-social a svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+    .footer-social a:hover{background:#FFED00;color:#000}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.25rem 0 2rem}
+    .footer-copy{font-size:.8rem;color:rgba(255,255,255,0.55)}
+    .footer-tagline{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+    @media(max-width:768px){.footer-top{grid-template-columns:1fr;gap:2rem}.footer-social{align-items:flex-start}.footer-logo-center svg{width:100px}}
+    @media(max-width:430px){.section{padding:48px 16px}.gallery-section{padding:48px 16px}.cierre{padding:56px 16px}.proceso-steps{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <a href="/" class="nav-logo" aria-label="Juan González — Inicio">
+    <svg viewBox="0 0 160 160" class="logo-mark" aria-hidden="true">
+      <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#ffec00"/>
+      <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#ffec00"/>
+      <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#ffec00"/>
+      <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#ffec00"/>
+      <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#ffec00"/>
+    </svg>
+    <span data-es="Juan González" data-en="Juan González">Juan González</span>
+  </a>
+  <div class="nav-links">
+    <a href="/" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a>
+    <a href="/proyectos/" class="nav-link active" data-es="Proyectos" data-en="Projects">Proyectos</a>
+    <a href="/sobre-mi/" class="nav-link" data-es="Sobre mí" data-en="About">Sobre mí</a>
+    <a href="/contacto/" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+  </div>
+  <div class="nav-controls">
+    <div class="lang-toggle" role="group" aria-label="Idioma">
+      <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
+    <button class="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+  <a href="/" data-es="Inicio" data-en="Home">Inicio</a>
+  <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
+  <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
+  <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
+  <div class="mobile-lang">
+    <button data-lang="es" class="active">ES</button>
+    <button data-lang="en">EN</button>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow" data-es="MODELADO 3D · CONSTRUCCIÓN DE OBJETOS" data-en="3D MODELING · OBJECT CONSTRUCTION">MODELADO 3D · CONSTRUCCIÓN DE OBJETOS</p>
+    <h1 class="hero-title" data-es="Escenario 3D: skatepark y personaje" data-en="3D scene: skatepark and character">Escenario 3D: skatepark y personaje</h1>
+    <p class="hero-desc" data-es="Este proyecto reúne el modelado de un escenario de skatepark y la construcción de un personaje 3D desde cero. El trabajo abarca desde los objetos del escenario hasta la preparación de UVs para texturizado y la estructura final del personaje." data-en="This project brings together the modeling of a skatepark scene and the construction of a 3D character from scratch. The work covers everything from scene objects to UV preparation for texturing and the character's final structure.">Este proyecto reúne el modelado de un escenario de skatepark y la construcción de un personaje 3D desde cero. El trabajo abarca desde los objetos del escenario hasta la preparación de UVs para texturizado y la estructura final del personaje.</p>
+  </div>
+</section>
+
+<div class="ficha">
+  <div class="ficha-inner">
+    <div>
+      <p class="ficha-label" data-es="Área" data-en="Area">Área</p>
+      <p class="ficha-value" data-es="Modelado 3D" data-en="3D Modeling">Modelado 3D</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Herramienta" data-en="Tool">Herramienta</p>
+      <p class="ficha-value">Autodesk Maya</p>
+    </div>
+    <div>
+      <p class="ficha-label" data-es="Entregables" data-en="Deliverables">Entregables</p>
+      <p class="ficha-value" data-es="Objetos del skatepark + personaje modelado" data-en="Skatepark objects + modeled character">Objetos del skatepark + personaje modelado</p>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label" data-es="Contexto" data-en="Context">Contexto</p>
+    <h2 class="section-title" data-es="Construir un escenario desde la geometría" data-en="Building a scene from geometry">Construir un escenario desde la geometría</h2>
+    <p class="section-body" data-es="El modelado 3D parte de la geometría básica y se desarrolla a través de decisiones sobre forma, proporción y detalle. En este proyecto, el trabajo se organizó en dos líneas: los objetos del escenario de skatepark y la construcción de un personaje, cada uno con sus propias exigencias técnicas." data-en="3D modeling starts from basic geometry and develops through decisions about shape, proportion, and detail. In this project, the work was organized into two lines: the skatepark scene objects and the construction of a character, each with its own technical requirements.">El modelado 3D parte de la geometría básica y se desarrolla a través de decisiones sobre forma, proporción y detalle. En este proyecto, el trabajo se organizó en dos líneas: los objetos del escenario de skatepark y la construcción de un personaje, cada uno con sus propias exigencias técnicas.</p>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="section-inner">
+    <p class="section-label" data-es="Proceso" data-en="Process">Proceso</p>
+    <h2 class="section-title" data-es="El proceso de modelado" data-en="The modeling process">El proceso de modelado</h2>
+    <div class="proceso-steps">
+      <div class="paso">
+        <p class="paso-num">01</p>
+        <p class="paso-title" data-es="Modelar los objetos del escenario" data-en="Model the scene objects">Modelar los objetos del escenario</p>
+        <p class="paso-desc" data-es="Se construyeron los elementos del skatepark a partir de formas geométricas básicas. Cada objeto requirió definir su forma general, ajustar proporciones y establecer el nivel de detalle necesario para el uso previsto." data-en="The skatepark elements were built from basic geometric shapes. Each object required defining its general form, adjusting proportions, and establishing the level of detail needed for the intended use.">Se construyeron los elementos del skatepark a partir de formas geométricas básicas. Cada objeto requirió definir su forma general, ajustar proporciones y establecer el nivel de detalle necesario para el uso previsto.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">02</p>
+        <p class="paso-title" data-es="Preparar las superficies (UVs)" data-en="Prepare surfaces (UVs)">Preparar las superficies (UVs)</p>
+        <p class="paso-desc" data-es="Una vez modelados los objetos, se desplegaron las UVs para preparar las superficies de cara al texturizado. El objetivo fue distribuir la malla de forma ordenada y minimizar las distorsiones en los puntos más visibles." data-en="Once the objects were modeled, UVs were unfolded to prepare the surfaces for texturing. The goal was to distribute the mesh in an orderly way and minimize distortions at the most visible points.">Una vez modelados los objetos, se desplegaron las UVs para preparar las superficies de cara al texturizado. El objetivo fue distribuir la malla de forma ordenada y minimizar las distorsiones en los puntos más visibles.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">03</p>
+        <p class="paso-title" data-es="Construir el personaje" data-en="Build the character">Construir el personaje</p>
+        <p class="paso-desc" data-es="El personaje se modeló desde cero, prestando atención a la anatomía básica, las proporciones y la distribución de la malla. Se buscó una topología limpia que permitiera trabajar con la geometría de manera controlada." data-en="The character was modeled from scratch, paying attention to basic anatomy, proportions, and mesh distribution. The goal was a clean topology that allowed working with the geometry in a controlled way.">El personaje se modeló desde cero, prestando atención a la anatomía básica, las proporciones y la distribución de la malla. Se buscó una topología limpia que permitiera trabajar con la geometría de manera controlada.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">04</p>
+        <p class="paso-title" data-es="Presentar el resultado" data-en="Present the result">Presentar el resultado</p>
+        <p class="paso-desc" data-es="El trabajo entregado comprende los objetos del skatepark con UVs preparadas y el personaje modelado. Estos son los elementos que se produjeron y forman parte del entregable final de este proyecto." data-en="The delivered work includes the skatepark objects with prepared UVs and the modeled character. These are the elements that were produced and form part of the final deliverable of this project.">El trabajo entregado comprende los objetos del skatepark con UVs preparadas y el personaje modelado. Estos son los elementos que se produjeron y forman parte del entregable final de este proyecto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="gallery-inner">
+    <p class="section-label" data-es="Galería" data-en="Gallery">Galería</p>
+    <h2 class="section-title" data-es="Resultado del modelado" data-en="Modeling result">Resultado del modelado</h2>
+
+    <div class="gallery-group">
+      <h3 class="gallery-group-title" data-es="Objetos del skatepark" data-en="Skatepark objects">Objetos del skatepark</h3>
+      <p class="gallery-group-desc" data-es="Los objetos del escenario modelados en Autodesk Maya, con su geometría y preparación para el proceso de texturizado." data-en="Scene objects modeled in Autodesk Maya, with their geometry and preparation for the texturing process.">Los objetos del escenario modelados en Autodesk Maya, con su geometría y preparación para el proceso de texturizado.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-placeholder" data-es="Objetos del escenario" data-en="Scene objects">Objetos del escenario</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder" data-es="Vista del skatepark" data-en="Skatepark view">Vista del skatepark</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-group">
+      <h3 class="gallery-group-title" data-es="Preparación UV" data-en="UV Preparation">Preparación UV</h3>
+      <p class="gallery-group-desc" data-es="El despliegue de UVs de los objetos del escenario, listo para recibir texturas en la siguiente fase del proyecto." data-en="The UV unfolding of the scene objects, ready to receive textures in the next phase of the project.">El despliegue de UVs de los objetos del escenario, listo para recibir texturas en la siguiente fase del proyecto.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-placeholder" data-es="Mapa UV" data-en="UV map">Mapa UV</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder" data-es="Detalle de UVs" data-en="UVs detail">Detalle de UVs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-group">
+      <h3 class="gallery-group-title" data-es="Personaje" data-en="Character">Personaje</h3>
+      <p class="gallery-group-desc" data-es="El personaje modelado desde cero en Autodesk Maya, con topología limpia y proporciones definidas." data-en="The character modeled from scratch in Autodesk Maya, with clean topology and defined proportions.">El personaje modelado desde cero en Autodesk Maya, con topología limpia y proporciones definidas.</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="gallery-placeholder" data-es="Vista frontal del personaje" data-en="Character front view">Vista frontal del personaje</div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder" data-es="Vista lateral del personaje" data-en="Character side view">Vista lateral del personaje</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="gallery-note" data-es="Las imágenes se actualizarán con las capturas de pantalla y renders del archivo de Maya una vez disponibles." data-en="Images will be updated with Maya file screenshots and renders once available.">Las imágenes se actualizarán con las capturas de pantalla y renders del archivo de Maya una vez disponibles.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <p class="section-label" data-es="Reflexión" data-en="Reflection">Reflexión</p>
+    <h2 class="section-title" data-es="Modelar es tomar decisiones formales" data-en="Modeling is making formal decisions">Modelar es tomar decisiones formales</h2>
+    <p class="section-body" data-es="Cada objeto y cada parte del personaje implicó decisiones sobre forma, proporción y distribución de la malla. El modelado define la base sobre la que se construyen las siguientes etapas del proceso 3D, por lo que la precisión y la limpieza de la geometría son determinantes para el resultado final." data-en="Each object and each part of the character involved decisions about shape, proportion, and mesh distribution. Modeling defines the base on which the following stages of the 3D process are built, so the precision and cleanliness of the geometry are decisive for the final result.">Cada objeto y cada parte del personaje implicó decisiones sobre forma, proporción y distribución de la malla. El modelado define la base sobre la que se construyen las siguientes etapas del proceso 3D, por lo que la precisión y la limpieza de la geometría son determinantes para el resultado final.</p>
+  </div>
+</section>
+
+<div class="cierre">
+  <h2 class="cierre-title" data-es="La forma es el punto de partida" data-en="Shape is the starting point">La forma es el punto de partida</h2>
+  <p class="cierre-text" data-es="Este trabajo muestra el proceso de construcción 3D desde la geometría hasta la entrega de objetos y personaje listos para las siguientes etapas de producción." data-en="This work shows the 3D construction process from geometry to the delivery of objects and character ready for the next stages of production.">Este trabajo muestra el proceso de construcción 3D desde la geometría hasta la entrega de objetos y personaje listos para las siguientes etapas de producción.</p>
+  <div class="cierre-btns">
+    <a href="/proyectos/" class="btn-cierre" data-es="← Volver a proyectos" data-en="← Back to projects">← Volver a proyectos</a>
+    <a href="/proyectos/adecco/" class="btn-cierre btn-cierre--outline" data-es="Explorar otros trabajos 3D" data-en="Explore other 3D work">Explorar otros trabajos 3D</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-body">
+      <div class="footer-top">
+        <div class="footer-nav-group">
+          <p class="footer-nav-label" data-es="Páginas" data-en="Pages">Páginas</p>
+          <nav class="footer-links" aria-label="Links del footer">
+            <a href="/proyectos/" data-es="Proyectos" data-en="Projects">Proyectos</a>
+            <a href="/sobre-mi/" data-es="Sobre mí" data-en="About">Sobre mí</a>
+            <a href="/contacto/" data-es="Contacto" data-en="Contact">Contacto</a>
+            <a href="/privacidad/" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+          </nav>
+        </div>
+        <div class="footer-logo-center">
+          <svg viewBox="0 0 160 160" aria-hidden="true">
+            <polygon points="54.24 82.27 54.24 117.22 22.33 155.15 22.33 82.27 54.24 82.27" fill="#FFED00"/>
+            <polygon points="105.76 77.73 105.76 42.78 137.67 4.85 137.67 77.73 105.76 77.73" fill="#FFED00"/>
+            <polygon points="105.76 82.27 105.76 117.22 137.67 155.15 137.67 82.27 105.76 82.27" fill="#FFED00"/>
+            <polygon points="105.51 124.05 79.92 124.05 54.33 124.05 28.24 155.15 79.92 155.15 131.6 155.15 105.51 124.05" fill="#FFED00"/>
+            <polygon points="54.33 35.95 79.92 35.95 105.51 35.95 131.6 4.85 79.92 4.85 28.24 4.85 54.33 35.95" fill="#FFED00"/>
+          </svg>
+        </div>
+        <div class="footer-social-group">
+          <p class="footer-nav-label" data-es="Sígueme" data-en="Follow me">Sígueme</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/juan_gd7" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+            <a href="https://linkedin.com/in/juangd12" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+            <a href="mailto:juanestebangd12@gmail.com" aria-label="Correo">
+              <svg viewBox="0 0 24 24" width="16" height="16"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Correo
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Juan González. Diseñador Hipermedia</p>
+        <p class="footer-tagline">DISEÑO | IDENTIDAD | EXPERIENCIAS DIGITALES</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer onerror="void 0"></script>
+</body>
+</html>
