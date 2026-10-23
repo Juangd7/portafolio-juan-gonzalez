@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="/assets/img/logo-j-amarillo.svg">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
 
     :root {
@@ -379,49 +379,6 @@
 </footer>
 
 <script>
-// ===== NAV (ejecuta siempre, sin depender de Three.js) =====
-document.addEventListener('DOMContentLoaded', function() {
-  var nav = document.querySelector('.nav');
-  if(nav) window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 10); }, {passive:true});
-
-  var ham = document.querySelector('.hamburger');
-  var mob = document.getElementById('mobile-nav');
-
-  if(ham && mob){
-    ham.addEventListener('click', function() {
-      var open = mob.classList.toggle('open');
-      ham.classList.toggle('active', open);
-      ham.setAttribute('aria-expanded', String(open));
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    mob.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        mob.classList.remove('open');
-        ham.classList.remove('active');
-        ham.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    });
-  }
-
-  // ===== LANG TOGGLE =====
-  document.querySelectorAll('.lang-btn, .mobile-lang button').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var lang = btn.dataset.lang;
-      document.querySelectorAll('.lang-btn, .mobile-lang button').forEach(function(b){ b.classList.toggle('active', b.dataset.lang === lang); });
-      document.querySelectorAll('[data-es],[data-en]').forEach(function(el) {
-        var txt = el.dataset[lang];
-        if(txt !== undefined) el.textContent = txt;
-      });
-      document.querySelectorAll('[data-es-html],[data-en-html]').forEach(function(el) {
-        var htmlKey = lang + 'Html';
-        var html = el.dataset[htmlKey];
-        if(html !== undefined) el.innerHTML = html;
-      });
-    });
-  });
-});
-
 // ===== MAGAZINE FLIP =====
 (function(){
   if(typeof THREE === 'undefined') return;
