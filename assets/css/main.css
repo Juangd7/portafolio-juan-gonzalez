@@ -585,6 +585,9 @@ body.cursor-hover .cursor-ring {
   transition: transform 0.3s var(--easing), box-shadow 0.3s var(--easing), border-color 0.3s;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 .work-card:hover {
   transform: translateY(-4px);
