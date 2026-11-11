@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Servicios · Juan González</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800;900&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* ── RESET + TOKENS ──────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --y:#FFED00; --k:#000; --p:#662483; --w:#fff;
+  --bg:#000; --surface:#0d0d0d; --surface2:#141414;
+  --muted:#a0a0a0; --border:rgba(255,255,255,0.09);
+  --radius:12px;
+  --font-head:'Poppins',sans-serif;
+  --font-body:'Source Sans 3',sans-serif;
+}
+
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:#fff;font-family:var(--font-body);font-size:17px;line-height:1.65;overflow-x:hidden}
+a{color:var(--y);text-decoration:none}
+a:hover{color:#fff}
+img{max-width:100%;display:block}
+
+/* ── LAYOUT ──────────────────────────────────────────────────────────────── */
+.wrap{max-width:1200px;margin:0 auto;padding-inline:40px}
+@media(max-width:900px){.wrap{padding-inline:20px}}
+
+/* ── NAV ─────────────────────────────────────────────────────────────────── */
+.nav-pill{
+  position:sticky;top:16px;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  background:rgba(10,10,10,0.85);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--border);border-radius:999px;
+  padding:10px 12px 10px 20px;
+  transition:border-color .3s;
+}
+.nav-pill:hover{border-color:rgba(255,255,255,0.2)}
+.nav-logo{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--font-head);font-weight:700;font-size:15px}
+.nav-logo-mark{
+  width:28px;height:28px;background:var(--y);color:#000;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:15px;border-radius:4px;
+  transition:transform .25s;flex-shrink:0
+}
+.nav-logo:hover .nav-logo-mark{transform:rotate(-8deg) scale(1.1)}
+.nav-links{display:flex;gap:28px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.nav-links a{color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{
+  background:var(--y);color:#000;font-weight:700;font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:12px 20px;border-radius:999px;min-height:44px;
+  display:inline-flex;align-items:center;
+  transition:background .2s,transform .15s,box-shadow .2s;
+}
+.nav-cta:hover{background:#ffe000;color:#000;transform:translateY(-1px);box-shadow:0 6px 24px rgba(255,237,0,.35)}
+@media(max-width:900px){.nav-links{display:none}.nav-pill{top:12px}}
+
+/* ── HERO ────────────────────────────────────────────────────────────────── */
+.hero{padding-top:clamp(80px,12vw,140px);padding-bottom:clamp(64px,10vw,110px)}
+.hero-eyebrow{
+  color:var(--y);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:28px;display:block;
+}
+.hero-title{
+  font-family:var(--font-head);font-weight:900;
+  font-size:clamp(52px,8.5vw,96px);line-height:.96;letter-spacing:-.025em;
+  margin-bottom:36px;
+}
+.hero-title .accent{color:var(--y)}
+.hero-sub{max-width:620px;color:var(--muted);font-size:clamp(16px,2vw,19px);margin-bottom:40px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.btn-primary{
+  background:var(--y);color:#000;font-weight:700;font-size:13px;
+  letter-spacing:.08em;text-transform:uppercase;padding:16px 28px;min-height:44px;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:background .2s,transform .15s,box-shadow .2s;
+}
+.btn-primary:hover{background:#ffe000;color:#000;transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,237,0,.3)}
+.btn-ghost{
+  border:1px solid rgba(255,255,255,.3);color:#fff;font-weight:700;font-size:13px;
+  letter-spacing:.08em;text-transform:uppercase;padding:16px 28px;min-height:44px;
+  display:inline-flex;align-items:center;
+  transition:border-color .2s,background .2s,transform .15s;
+}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06);color:#fff;transform:translateY(-2px)}
+.hero-note{color:var(--muted);font-size:14px;line-height:1.5}
+
+/* ── STRIP DE NAVEGACIÓN ─────────────────────────────────────────────────── */
+.strip{background:var(--y);overflow:hidden}
+.strip-inner{
+  display:flex;flex-wrap:wrap;gap:8px 40px;padding-block:16px;
+  font-family:var(--font-head);font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.02em;
+}
+.strip-inner a{color:#000;transition:opacity .2s}
+.strip-inner a:hover{color:#000;opacity:.6}
+
+/* ── SECCIONES ───────────────────────────────────────────────────────────── */
+.cat{
+  display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:64px;
+  padding-top:clamp(72px,10vw,100px);
+}
+@media(max-width:900px){.cat{grid-template-columns:1fr;gap:24px;padding-top:72px}}
+
+.cat-num{
+  font-family:var(--font-head);font-weight:900;
+  font-size:clamp(56px,8vw,80px);line-height:1;color:var(--y);
+  display:block;margin-bottom:16px;
+}
+.cat-title{
+  font-family:var(--font-head);font-weight:800;
+  font-size:clamp(32px,4vw,46px);line-height:1.03;letter-spacing:-.02em;
+  margin-bottom:14px;
+}
+.cat-desc{color:var(--muted)}
+
+/* ── FILAS DE SERVICIOS ──────────────────────────────────────────────────── */
+.row{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:start;
+  padding:28px 0;border-top:1px solid var(--border);
+  transition:background .2s;
+}
+.row:last-child{border-bottom:1px solid var(--border)}
+.row:hover{background:rgba(255,255,255,.025);margin-inline:-16px;padding-inline:16px;border-radius:8px;border-color:transparent}
+.row-title{font-family:var(--font-head);font-weight:700;font-size:20px;margin-bottom:6px}
+.row-desc{color:var(--muted);font-size:15px;line-height:1.55}
+.row-price{
+  font-family:var(--font-head);font-weight:800;font-size:21px;
+  color:var(--y);white-space:nowrap;text-align:right;
+}
+.row-price-note{
+  font-family:var(--font-body);font-weight:600;font-size:12px;
+  color:var(--muted);display:block;margin-top:2px;
+}
+@media(max-width:900px){
+  .row{grid-template-columns:1fr;gap:12px}
+  .row-price{text-align:left}
+}
+
+/* ── PAQUETES ────────────────────────────────────────────────────────────── */
+.section-eyebrow{color:var(--y);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px;display:block}
+.section-title{
+  font-family:var(--font-head);font-weight:900;
+  font-size:clamp(44px,7vw,68px);line-height:1;letter-spacing:-.02em;
+  margin-bottom:14px;
+}
+.packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:48px}
+@media(max-width:900px){.packs{grid-template-columns:1fr}}
+
+.pack{
+  border-radius:var(--radius);padding:36px;
+  display:flex;flex-direction:column;gap:20px;
+  transition:transform .25s,box-shadow .25s;
+}
+.pack:hover{transform:translateY(-4px)}
+.pack--dark{background:var(--surface);border:1px solid var(--border)}
+.pack--dark:hover{box-shadow:0 20px 48px rgba(0,0,0,.5);border-color:rgba(255,255,255,.18)}
+.pack--featured{background:var(--y);color:#000}
+.pack--featured:hover{box-shadow:0 20px 48px rgba(255,237,0,.25)}
+.pack-label{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.pack--dark .pack-label{color:var(--muted)}
+.pack-name{font-family:var(--font-head);font-weight:800;font-size:28px;line-height:1.1}
+.pack ul{padding-left:20px;display:flex;flex-direction:column;gap:7px;font-size:15px}
+.pack--dark ul{color:#d6d6d6}
+.pack-pricing{margin-top:auto}
+.pack-was{font-size:14px;text-decoration:line-through}
+.pack--dark .pack-was{color:var(--muted)}
+.pack-price{font-family:var(--font-head);font-weight:900;font-size:38px;margin-top:4px;color:var(--y)}
+.pack--featured .pack-price{color:#000}
+
+/* ── EMPRENDEDORES ────────────────────────────────────────────────────────── */
+.empr{
+  margin-top:clamp(80px,12vw,130px);
+  background:var(--p);border-radius:var(--radius);
+  padding:clamp(40px,6vw,72px) clamp(28px,5vw,60px);
+}
+.empr-title{font-family:var(--font-head);font-weight:900;font-size:clamp(40px,6vw,58px);line-height:1.02;letter-spacing:-.02em;margin-bottom:14px}
+.empr-sub{max-width:640px;color:#ead5f2;margin-bottom:40px;font-size:17px}
+.help{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media(max-width:700px){.help{grid-template-columns:1fr}}
+.help-card{background:rgba(0,0,0,.22);border-radius:10px;padding:28px}
+.help-card h3{font-family:var(--font-head);font-weight:700;font-size:19px;margin-bottom:8px}
+.help-card p{color:#ead5f2;font-size:15px;line-height:1.55}
+
+/* ── PROCESO ─────────────────────────────────────────────────────────────── */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:48px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.steps{grid-template-columns:1fr}}
+.step{border-top:2px solid var(--y);padding-top:24px}
+.step-num{font-family:var(--font-head);font-weight:900;font-size:32px;color:var(--y);margin-bottom:8px}
+.step-title{font-family:var(--font-head);font-weight:700;font-size:19px;margin-bottom:8px}
+.step-desc{color:var(--muted);font-size:15px}
+
+/* ── CONDICIONES ─────────────────────────────────────────────────────────── */
+.terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px}
+@media(max-width:700px){.terms{grid-template-columns:1fr}}
+.term-row{padding:22px 0;border-top:1px solid var(--border)}
+.term-row:last-child{border-bottom:1px solid var(--border)}
+.term-row strong{color:#fff}
+.term-row span{color:var(--muted)}
+
+/* ── CTA FINAL ───────────────────────────────────────────────────────────── */
+.cta-section{padding:clamp(100px,14vw,170px) 0 clamp(80px,10vw,130px);text-align:center}
+.cta-title{
+  font-family:var(--font-head);font-weight:900;
+  font-size:clamp(52px,10vw,92px);line-height:.97;letter-spacing:-.025em;
+  max-width:900px;margin:0 auto 28px;
+}
+.cta-sub{max-width:520px;margin:0 auto 40px;color:var(--muted)}
+.cta-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+
+/* ── FOOTER ──────────────────────────────────────────────────────────────── */
+footer{border-top:1px solid var(--border)}
+.footer-inner{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+  padding-block:28px;color:var(--muted);font-size:14px;
+}
+.footer-inner a{color:var(--muted);transition:color .2s}
+.footer-inner a:hover{color:#fff}
+
+/* ── ANIMACIONES DE ENTRADA ──────────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .65s cubic-bezier(.22,.61,.36,1),transform .65s cubic-bezier(.22,.61,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-28px);transition:opacity .6s .1s cubic-bezier(.22,.61,.36,1),transform .6s .1s cubic-bezier(.22,.61,.36,1)}
+.reveal-left.visible{opacity:1;transform:none}
+
+/* ── CURSOR PERSONALIZADO (desktop) ─────────────────────────────────────── */
+@media(hover:hover){
+  .cursor{
+    position:fixed;top:0;left:0;width:10px;height:10px;
+    background:var(--y);border-radius:50%;pointer-events:none;
+    z-index:9999;transform:translate(-50%,-50%);
+    transition:transform .1s,width .25s,height .25s,opacity .25s;
+    mix-blend-mode:exclusion;
+  }
+  .cursor.big{width:40px;height:40px}
+  body{cursor:none}
+  a,button{cursor:none}
+}
+
+/* ── BARRA DE PROGRESO ───────────────────────────────────────────────────── */
+#progress{
+  position:fixed;top:0;left:0;height:2px;width:0%;
+  background:var(--y);z-index:200;transition:width .1s;
+}
+
+/* ── TOOLTIP DE PRECIO AL HOVER ─────────────────────────────────────────── */
+.row[data-tooltip]:hover::after{
+  content:attr(data-tooltip);
+  position:absolute;right:0;bottom:calc(100% + 6px);
+  background:var(--y);color:#000;font-size:11px;font-weight:700;
+  padding:4px 10px;border-radius:4px;white-space:nowrap;pointer-events:none;
+  opacity:0;animation:fadeTooltip .2s .05s forwards;
+}
+.row{position:relative}
+@keyframes fadeTooltip{to{opacity:1}}
+
+/* ── NÚMERO ANIMADO ──────────────────────────────────────────────────────── */
+.num-anim{display:inline-block;transition:color .3s}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<!-- Barra de progreso -->
+<div id="progress"></div>
+
+<!-- NAV -->
+<div class="wrap" style="padding-top:16px;position:sticky;top:0;z-index:100;padding-bottom:4px;background:linear-gradient(var(--bg) 70%,transparent)">
+<nav class="nav-pill">
+  <a href="https://portafoliojegd.netlify.app/" class="nav-logo">
+    <span class="nav-logo-mark">J</span>Juan González
+  </a>
+  <div class="nav-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#paquetes">Paquetes</a>
+    <a href="#condiciones">Condiciones</a>
+  </div>
+  <a href="#contacto" class="nav-cta">Cotizar ahora</a>
+</nav>
+</div>
+
+<!-- HERO -->
+<header class="wrap hero">
+  <span class="hero-eyebrow reveal">Menú de servicios · Precios 2026</span>
+  <h1 class="hero-title reveal">LO QUE PUEDO<br>CREAR PARA TI.<br><span class="accent">Precios claros.</span></h1>
+  <p class="hero-sub reveal">Diseño gráfico, marcas, páginas web, video, sonido y 3D. Todo lo que hago, qué incluye cada servicio y cuánto cuesta — para que sepas qué esperar desde el principio.</p>
+  <div class="hero-actions reveal">
+    <a href="#servicios" class="btn-primary">Ver servicios →</a>
+    <a href="#emprendedores" class="btn-ghost">¿Presupuesto corto? Hablemos</a>
+  </div>
+  <p class="hero-note reveal">Valores en pesos colombianos (COP). Son precios base: si tu proyecto necesita más o menos, lo ajustamos juntos.</p>
+</header>
+
+<!-- STRIP -->
+<div id="servicios" class="strip">
+  <div class="wrap strip-inner">
+    <a href="#branding">01 Branding</a>
+    <a href="#grafico">02 Diseño gráfico y redes</a>
+    <a href="#web">03 Diseño web</a>
+    <a href="#audiovisual">04 Audiovisual y sonido</a>
+    <a href="#tresd">05 3D y experiencias</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- 01 BRANDING -->
+<section id="branding" class="cat">
+  <div class="reveal-left">
+    <span class="cat-num">01</span>
+    <h2 class="cat-title">BRANDING E IDENTIDAD</h2>
+    <p class="cat-desc">Le doy cara a tu marca: desde limpiar un logo que ya tienes hasta crear toda su identidad visual.</p>
+  </div>
+  <div class="reveal">
+    <div class="row"><div><p class="row-title">Vectorización de logo</p><p class="row-desc">Redibujo tu logo en vector limpio, listo para imprimir a cualquier tamaño. Entrego AI, PDF, SVG y PNG en RGB y CMYK.</p></div><p class="row-price">$150.000 – $280.000<span class="row-price-note">según complejidad</span></p></div>
+    <div class="row"><div><p class="row-title">Logo esencial</p><p class="row-desc">Logo desde cero: 2 propuestas, 2 rondas de ajustes, versiones y archivos editables.</p></div><p class="row-price">$500.000</p></div>
+    <div class="row"><div><p class="row-title">Identidad visual completa</p><p class="row-desc">Logo con todas sus versiones, paleta, tipografías, recursos gráficos y guía de marca en PDF, más aplicaciones básicas.</p></div><p class="row-price">$950.000</p></div>
+    <div class="row"><div><p class="row-title">Guía de marca para un logo existente</p><p class="row-desc">Ordeno colores, tipografías, usos correctos e incorrectos en un manual en PDF.</p></div><p class="row-price">$400.000</p></div>
+    <div class="row"><div><p class="row-title">Rediseño o cambio de marca</p><p class="row-desc">Para marcas que cambian de nombre o necesitan renovarse: revisión, nueva identidad y guía de marca.</p></div><p class="row-price">Desde $1.100.000</p></div>
+  </div>
+</section>
+
+<!-- 02 GRÁFICO -->
+<section id="grafico" class="cat">
+  <div class="reveal-left">
+    <span class="cat-num">02</span>
+    <h2 class="cat-title">DISEÑO GRÁFICO Y REDES</h2>
+    <p class="cat-desc">Piezas para redes, impresos y presentaciones con una línea gráfica que se ve igual de bien en todos lados.</p>
+  </div>
+  <div class="reveal">
+    <div class="row"><div><p class="row-title">Pieza para redes</p><p class="row-desc">Un post o una historia con el texto ajustado al diseño. Adaptarla a otro formato cuesta $15.000 más.</p></div><p class="row-price">$60.000</p></div>
+    <div class="row"><div><p class="row-title">Carrusel</p><p class="row-desc">Hasta 8 láminas con una historia de principio a fin: ideal para lanzamientos, tips o presentar productos.</p></div><p class="row-price">$180.000</p></div>
+    <div class="row"><div><p class="row-title">Plan mensual de contenido</p><p class="row-desc">12 piezas al mes con línea gráfica fija y calendario de publicación.</p></div><p class="row-price">$650.000<span class="row-price-note">al mes</span></p></div>
+    <div class="row"><div><p class="row-title">Flyer o afiche</p><p class="row-desc">Para eventos, promociones o anuncios, en versión digital y lista para imprenta.</p></div><p class="row-price">$100.000</p></div>
+    <div class="row"><div><p class="row-title">Tarjetas de presentación</p><p class="row-desc">Diseño por ambas caras, archivo en CMYK con sangrado, listo para llevar a imprimir.</p></div><p class="row-price">$100.000</p></div>
+    <div class="row"><div><p class="row-title">Menú para restaurante</p><p class="row-desc">Hasta 2 caras, para imprimir o compartir por QR. Cada página adicional cuesta $60.000.</p></div><p class="row-price">$250.000</p></div>
+    <div class="row"><div><p class="row-title">Presentaciones e informes</p><p class="row-desc">Hasta 15 diapositivas en PowerPoint, Canva o Google Slides. Diapositiva adicional: $15.000.</p></div><p class="row-price">$280.000</p></div>
+  </div>
+</section>
+
+<!-- 03 WEB -->
+<section id="web" class="cat">
+  <div class="reveal-left">
+    <span class="cat-num">03</span>
+    <h2 class="cat-title">DISEÑO WEB</h2>
+    <p class="cat-desc">Páginas que se ven bien en celular y computador, publicadas y listas para compartir.</p>
+  </div>
+  <div class="reveal">
+    <div class="row"><div><p class="row-title">Landing page</p><p class="row-desc">Una página de hasta 6 secciones, adaptada a celular, con botón a WhatsApp o formulario de contacto. Te la entrego publicada.</p></div><p class="row-price">$1.400.000</p></div>
+    <div class="row"><div><p class="row-title">Sitio web</p><p class="row-desc">Hasta 5 páginas (inicio, nosotros, servicios, contacto…), con diseño propio y adaptado a todos los dispositivos.</p></div><p class="row-price">$2.800.000</p></div>
+    <div class="row"><div><p class="row-title">Diseño de pantallas en Figma</p><p class="row-desc">Diseño visual de tu app o web, listo para que un programador lo construya. No incluye programación.</p></div><p class="row-price">Desde $600.000</p></div>
+    <div class="row"><div><p class="row-title">Cambios y actualizaciones</p><p class="row-desc">Textos, fotos, secciones nuevas o arreglos en una página que ya existe.</p></div><p class="row-price">$60.000<span class="row-price-note">por hora</span></p></div>
+    <p style="margin-top:20px;color:var(--muted);font-size:14px">El dominio (.com, .co) y el hosting los paga el cliente aparte; te asesoro para escoger la opción más económica.</p>
+  </div>
+</section>
+
+<!-- 04 AUDIOVISUAL -->
+<section id="audiovisual" class="cat">
+  <div class="reveal-left">
+    <span class="cat-num">04</span>
+    <h2 class="cat-title">AUDIOVISUAL Y SONIDO</h2>
+    <p class="cat-desc">Video y audio para contar historias: reels, videos de marca, animación y diseño sonoro.</p>
+  </div>
+  <div class="reveal">
+    <div class="row"><div><p class="row-title">Edición de reel o video corto</p><p class="row-desc">Hasta 60 segundos con cortes, ritmo, subtítulos, música libre de derechos y corrección de color básica.</p></div><p class="row-price">$150.000</p></div>
+    <div class="row"><div><p class="row-title">Video institucional</p><p class="row-desc">Hasta 3 minutos, editado con tu material: textos en pantalla, música y versión para redes.</p></div><p class="row-price">$550.000</p></div>
+    <div class="row"><div><p class="row-title">Animación de logo</p><p class="row-desc">Entre 5 y 8 segundos para intros de video, historias y presentaciones.</p></div><p class="row-price">$280.000</p></div>
+    <div class="row"><div><p class="row-title">Locución o voz en off</p><p class="row-desc">Hasta 1 minuto de voz grabada y editada, lista para tu video o anuncio.</p></div><p class="row-price">$100.000</p></div>
+    <div class="row"><div><p class="row-title">Edición de audio y diseño sonoro</p><p class="row-desc">Podcasts, piezas narrativas o experiencias sonoras editadas con limpieza, efectos y mezcla.</p></div><p class="row-price">Desde $220.000</p></div>
+  </div>
+</section>
+
+<!-- 05 3D -->
+<section id="tresd" class="cat">
+  <div class="reveal-left">
+    <span class="cat-num">05</span>
+    <h2 class="cat-title">3D Y EXPERIENCIAS</h2>
+    <p class="cat-desc">Escenarios, objetos y experiencias interactivas para presentar ideas de otra forma.</p>
+  </div>
+  <div class="reveal">
+    <div class="row"><div><p class="row-title">Modelado y escena 3D</p><p class="row-desc">Objetos, espacios o escenarios en 3D con renders para mostrar un producto, un local o una idea.</p></div><p class="row-price">Desde $450.000</p></div>
+    <div class="row"><div><p class="row-title">Experiencias interactivas y videojuegos</p><p class="row-desc">Prototipos jugables y experiencias digitales con narrativa. Cada proyecto es distinto, así que lo cotizo según lo que necesites.</p></div><p class="row-price">A cotizar</p></div>
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<!-- PAQUETES -->
+<section id="paquetes" style="padding-top:clamp(100px,14vw,150px)">
+  <div class="wrap">
+    <span class="section-eyebrow reveal">Paquetes</span>
+    <h2 class="section-title reveal">TODO JUNTO SALE MEJOR.</h2>
+    <p style="max-width:620px;color:var(--muted);font-size:17px" class="reveal">Combinaciones pensadas para cada etapa de un negocio, con un precio menor que pedir cada cosa por separado.</p>
+    <div class="packs">
+      <div class="pack pack--dark reveal">
+        <p class="pack-label">Para empezar</p>
+        <h3 class="pack-name">ARRANQUE</h3>
+        <ul><li>Logo esencial</li><li>6 piezas para redes</li><li>Tarjetas de presentación</li></ul>
+        <div class="pack-pricing"><p class="pack-was">$960.000 por separado</p><p class="pack-price">$790.000</p></div>
+      </div>
+      <div class="pack pack--featured reveal">
+        <p class="pack-label">El más pedido</p>
+        <h3 class="pack-name">MARCA COMPLETA</h3>
+        <ul><li>Identidad visual completa</li><li>Primer mes de contenido (12 piezas)</li><li>Tarjetas de presentación</li></ul>
+        <div class="pack-pricing"><p class="pack-was">$1.700.000 por separado</p><p class="pack-price">$1.450.000</p></div>
+      </div>
+      <div class="pack pack--dark reveal">
+        <p class="pack-label">Para vender en línea</p>
+        <h3 class="pack-name">PRESENCIA DIGITAL</h3>
+        <ul><li>Identidad visual completa</li><li>Landing page publicada</li></ul>
+        <div class="pack-pricing"><p class="pack-was">$2.350.000 por separado</p><p class="pack-price">$1.950.000</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMPRENDEDORES -->
+<section id="emprendedores" class="wrap">
+  <div class="empr reveal">
+    <span class="section-eyebrow" style="color:var(--y)">Para emprendedores</span>
+    <h2 class="empr-title">¿PRESUPUESTO CORTO?<br>HAY FORMA.</h2>
+    <p class="empr-sub">Un buen diseño no debería ser solo para empresas grandes. Si estás empezando o el dinero está justo, buscamos juntos la manera.</p>
+    <div class="help">
+      <div class="help-card"><h3>Pago en cuotas</h3><p>Los proyectos desde $600.000 se pueden pagar en 2 cuotas, con un mes entre una y otra.</p></div>
+      <div class="help-card"><h3>Versión a tu medida</h3><p>Ajustamos el alcance para que el precio baje sin bajar la calidad.</p></div>
+      <div class="help-card"><h3>10% para negocios nuevos</h3><p>Si tu negocio tiene menos de un año, tienes 10% de descuento en tu primer proyecto.</p></div>
+      <div class="help-card"><h3>Cliente que vuelve</h3><p>Desde tu tercer proyecto, 10% de descuento y tus archivos de marca ya quedan guardados.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="wrap" style="padding-top:clamp(100px,14vw,150px)">
+  <span class="section-eyebrow reveal">Cómo trabajo</span>
+  <h2 class="section-title reveal">DE LA IDEA AL ARCHIVO FINAL.</h2>
+  <div class="steps">
+    <div class="step reveal"><p class="step-num">01</p><h3 class="step-title">Entender</h3><p class="step-desc">Hablamos de tu negocio, qué necesitas y a quién le hablas.</p></div>
+    <div class="step reveal"><p class="step-num">02</p><h3 class="step-title">Explorar</h3><p class="step-desc">Busco referencias y te muestro las primeras propuestas.</p></div>
+    <div class="step reveal"><p class="step-num">03</p><h3 class="step-title">Construir</h3><p class="step-desc">Desarrollo la propuesta escogida y hacemos los ajustes.</p></div>
+    <div class="step reveal"><p class="step-num">04</p><h3 class="step-title">Dar forma</h3><p class="step-desc">Te entrego los archivos finales, organizados y listos para usar.</p></div>
+  </div>
+</section>
+
+<!-- CONDICIONES -->
+<section id="condiciones" class="wrap" style="padding-top:clamp(100px,14vw,150px)">
+  <span class="section-eyebrow reveal">Condiciones</span>
+  <h2 class="section-title reveal">CLARO DESDE EL INICIO.</h2>
+  <div class="terms reveal">
+    <div><div class="term-row"><p><strong>50% para empezar, 50% al entregar.</strong> <span>Los archivos finales se envían cuando se completa el pago.</span></p></div>
+    <div class="term-row"><p><strong>2 rondas de ajustes incluidas.</strong> <span>Cada ronda adicional cuesta $40.000.</span></p></div>
+    <div class="term-row"><p><strong>Urgencias: +30%.</strong> <span>Para entregas en menos de 48 horas.</span></p></div></div>
+    <div><div class="term-row"><p><strong>Trabajos fuera del menú: $60.000 la hora.</strong> <span>Siempre te digo el estimado antes de empezar.</span></p></div>
+    <div class="term-row"><p><strong>No incluye:</strong> <span>impresión, pauta publicitaria, dominio, hosting, ni fotos o tipografías de licencia paga.</span></p></div>
+    <div class="term-row"><p><strong>Cotización válida por 30 días.</strong> <span>Precios vigentes para 2026.</span></p></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contacto" class="wrap cta-section">
+  <span class="section-eyebrow reveal">Hablemos de una idea</span>
+  <h2 class="cta-title reveal">¿QUÉ PODEMOS <span class="accent">CREAR?</span></h2>
+  <p class="cta-sub reveal">Cuéntame qué necesitas y te envío una cotización sin compromiso.</p>
+  <div class="cta-actions reveal">
+    <a href="mailto:juanestebangd12@gmail.com" class="btn-primary">Escríbeme →</a>
+    <a href="https://instagram.com/juan_gd7" class="btn-ghost">Instagram</a>
+    <a href="https://linkedin.com/in/juangd12" class="btn-ghost">LinkedIn</a>
+  </div>
+  <p style="margin-top:28px;color:var(--muted);font-size:14px" class="reveal">
+    O visita el portafolio completo: <a href="https://portafoliojegd.netlify.app" style="color:var(--y)">portafoliojegd.netlify.app</a>
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer-inner">
+    <span>Juan González · Diseñador hipermedia</span>
+    <a href="https://portafoliojegd.netlify.app/">Ver portafolio completo</a>
+  </div>
+</footer>
+
+<script>
+// ── CURSOR PERSONALIZADO ──────────────────────────────────────────────────
+const cursor = document.getElementById('cursor');
+if (cursor && window.matchMedia('(hover:hover)').matches) {
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
+  });
+  document.querySelectorAll('a,button,.pack,.row').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('big'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
+  });
+}
+
+// ── BARRA DE PROGRESO ─────────────────────────────────────────────────────
+const bar = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  bar.style.width = Math.min(pct, 100) + '%';
+});
+
+// ── REVEAL EN SCROLL (IntersectionObserver) ───────────────────────────────
+const revealEls = document.querySelectorAll('.reveal,.reveal-left');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      // stagger por orden dentro del mismo padre
+      const siblings = [...entry.target.parentElement.querySelectorAll('.reveal,.reveal-left')];
+      const idx = siblings.indexOf(entry.target);
+      entry.target.style.transitionDelay = (idx * 0.08) + 's';
+      entry.target.classList.add('visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+revealEls.forEach(el => io.observe(el));
+
+// ── NAV: highlight sección activa ─────────────────────────────────────────
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const ioNav = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + e.target.id ? '#fff' : '';
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+sections.forEach(s => ioNav.observe(s));
+
+// ── CONTADOR ANIMADO en paquetes al entrar en viewport ───────────────────
+document.querySelectorAll('.pack-price').forEach(el => {
+  const text = el.textContent.trim();
+  const match = text.match(/[\d.]+/);
+  if (!match) return;
+  const raw = parseInt(match[0].replace(/\./g,''));
+  el.dataset.target = raw;
+  el.dataset.prefix = text.includes('Desde') ? 'Desde ' : '';
+  el.dataset.suffix = '';
+  el.textContent = text; // keep original until animated
+
+  const obs = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    obs.disconnect();
+    const prefix = el.dataset.prefix || '';
+    const dur = 900, start = performance.now();
+    const from = Math.round(raw * 0.4);
+    function fmt(n){ return '$' + n.toLocaleString('es-CO'); }
+    function step(now){
+      const p = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + fmt(Math.round(from + (raw - from) * ease));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }, { threshold: 0.5 });
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
